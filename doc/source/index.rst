@@ -1,6 +1,12 @@
-..
-   Just reuse the root readme to avoid duplicating the documentation.
-   Provide any documentation specific to your online documentation
-   here.
+PyMechanical Remoting Examples
+===============================
 
-.. include:: ../../README.rst
+These examples demonstrate the basic simulation capabilities of Ansys Mechanical using remote sessions.
+
+Summary of examples
+--------------------------------------
+
+.. toctree::
+
+   examples/index
+

@@ -4,10 +4,6 @@ pymechanical-examples
 Repository holding pymechanical remote examples
 
 
-How to install
---------------
-
-
 Code Style
 ----------
 Code style can be checked by running:
