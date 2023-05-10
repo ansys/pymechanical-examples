@@ -19,13 +19,20 @@ help:
 	@$(SPHINXBUILD) -M $@ "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
 
 
-# Customized clean due to examples gallery
+# customized clean due to examples gallery
 clean:
 	rm -rf $(BUILDDIR)/*
-	rm -rf $(SOURCEDIR)/examples
+	rm -rf source/examples/gallery_examples
 	find . -type d -name "_autosummary" -exec rm -rf {} +
 
-# Customized pdf for svg format images
+# customized clean due to examples gallery
+clean-except-examples:
+	rm -rf $(BUILDDIR)/*
+	rm -rf images/auto-generated
+	find . -type d -name "_autosummary" -exec rm -rf {} +
+
+# customized to build the pdf rather than using latexpdf due to various issues
+# with our docs like GIFs being written as PNG.
 pdf:
 	@$(SPHINXBUILD) -M latex "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
 	cd $(BUILDDIR)/latex && latexmk -r latexmkrc -pdf *.tex -interaction=nonstopmode || true
