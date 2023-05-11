@@ -55,7 +55,7 @@ jobs:
 
   docs:
     name: Documentation
-    needs: [style, docs-style]
+    needs: [style, doc-style]
     runs-on: ubuntu-latest-8-cores
     steps:
       - uses: actions/checkout@v3
