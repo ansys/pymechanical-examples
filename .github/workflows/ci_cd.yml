@@ -15,7 +15,7 @@ env:
   MAIN_PYTHON_VERSION: '3.10'
   PYMECHANICAL_PORT: 10000  # default won't work on GitHub runners
   PYMECHANICAL_START_INSTANCE: FALSE
-  DOCKER_PACKAGE: ghcr.io/pyansys/pymechanical/mechanical
+  DOCKER_PACKAGE: ghcr.io/ansys/pymechanical/mechanical
   DOCKER_IMAGE_VERSION: v23.2.0
   DOCKER_MECH_CONTAINER_NAME: mechanical
   PACKAGE_NAME: ansys-mechanical-core
@@ -39,7 +39,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: PyAnsys code style checks
-        uses: pyansys/actions/code-style@v4
+        uses: ansys/actions/code-style@v4
         with:
           python-version: ${{ env.MAIN_PYTHON_VERSION }}
           use-python-cache: false
@@ -49,7 +49,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: PyAnsys documentation style checks
-        uses: pyansys/actions/doc-style@v4
+        uses: ansys/actions/doc-style@v4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
 
