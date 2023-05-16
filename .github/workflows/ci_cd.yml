@@ -1,6 +1,9 @@
 name: CI
 
 on:
+  workflow_dispatch:
+#  schedule: # UTC at 0300
+#    - cron: "0 3 * * *"
   pull_request:
   push:
     tags:
@@ -10,10 +13,24 @@ on:
 
 env:
   MAIN_PYTHON_VERSION: '3.10'
+  PYMECHANICAL_PORT: 10000  # default won't work on GitHub runners
+  PYMECHANICAL_START_INSTANCE: FALSE
+  DOCKER_PACKAGE: ghcr.io/ansys/pymechanical/mechanical
+  DOCKER_IMAGE_VERSION: v23.2.0
+  DOCKER_MECH_CONTAINER_NAME: mechanical
+  PACKAGE_NAME: ansys-mechanical-core
+  PACKAGE_NAMESPACE: ansys.mechanical.core
+  RESET_EXAMPLES_CACHE: 0
+  RESET_DOC_BUILD_CACHE: 0
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
+
+permissions:
+  contents: write
+  pull-requests: write
+  packages: read
 
 jobs:
 
@@ -21,39 +38,25 @@ jobs:
     name: Code style
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - name: Set up Python
-        uses: actions/setup-python@v4
+      - name: PyAnsys code style checks
+        uses: ansys/actions/code-style@v4
         with:
           python-version: ${{ env.MAIN_PYTHON_VERSION }}
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip tox
-      - name: Test with tox
-        run: tox -e style
+          use-python-cache: false
 
-  docs-style:
+  doc-style:
     name: Documentation Style Check
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-
-      - name: Running Vale
-        uses: errata-ai/vale-action@reviewdog
-        env:
-          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+      - name: PyAnsys documentation style checks
+        uses: ansys/actions/doc-style@v4
         with:
-          files: doc
-          reporter: github-pr-check
-          level: error
-          filter_mode: nofilter
-          fail_on_error: true
-          vale_flags: "--config=doc/.vale.ini"
+          token: ${{ secrets.GITHUB_TOKEN }}
 
   docs:
     name: Documentation
-    needs: [style, docs-style]
-    runs-on: ubuntu-latest
+    needs: [style, doc-style]
+    runs-on: ubuntu-latest-8-cores
     steps:
       - uses: actions/checkout@v3
 
@@ -71,6 +74,24 @@ jobs:
       - name: Install Python dependencies
         run: |
           python -m pip install --upgrade pip tox
+
+      - name: Login in Github Container registry
+        uses: docker/login-action@v2
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Pull, launch, and validate Mechanical service
+        env:
+          LICENSE_SERVER: ${{ secrets.LICENSE_SERVER }}
+          MECHANICAL_IMAGE: ${{ env.DOCKER_PACKAGE }}:${{ env.DOCKER_IMAGE_VERSION }}
+        run: |
+          echo CPU info
+          lscpu
+          docker pull ${{ env.MECHANICAL_IMAGE }}
+          docker run --restart always --name ${{ env.DOCKER_MECH_CONTAINER_NAME }} -e ANSYSLMD_LICENSE_FILE=1055@${{ env.LICENSE_SERVER }} -p ${{ env.PYMECHANICAL_PORT }}:10000 ${{ env.MECHANICAL_IMAGE }} > log.txt &
+          grep -q 'WB Initialize Done' <(timeout 60 tail -f log.txt)
 
       - name: Build HTML documentation
         run: tox -e doc
@@ -96,31 +117,23 @@ jobs:
           path: doc/build/latex/*.pdf
           retention-days: 7
 
-      - name: Deploy to gh-pages
-        if: github.event_name == 'push'
-        uses: JamesIves/github-pages-deploy-action@4.3.4
+      - name: Get Mechanical container logs
+        if: always()
+        run: docker logs ${{ env.DOCKER_MECH_CONTAINER_NAME }} > mechanical_documentation_log.txt 2>&1
+
+      - name: Upload container logs
+        uses: actions/upload-artifact@v3
         with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          BRANCH: gh-pages
-          FOLDER: .tox/doc_out_html/
-          CLEAN: true
-          SINGLE_COMMIT: true
+          name: mechanical_documentation_log
+          path: mechanical_documentation_log.txt
+          retention-days: 7
 
-  release:
-    if: github.event_name == 'push' && contains(github.ref, 'refs/tags')
-    needs: [style, docs-style, docs]
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-
-      - uses: actions/download-artifact@v3
-
-      - name: Display structure of downloaded files
-        run: ls -R
-
-      - name: Release
-        uses: softprops/action-gh-release@v1
-        with:
-          generate_release_notes: true
-          files: |
-            ./*PDF*/*.pdf
+#      - name: Deploy to gh-pages
+#        if: github.event_name == 'push'
+#        uses: JamesIves/github-pages-deploy-action@4.3.4
+#        with:
+#          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#          BRANCH: gh-pages
+#          FOLDER: .tox/doc_out_html/
+#          CLEAN: true
+#          SINGLE_COMMIT: true

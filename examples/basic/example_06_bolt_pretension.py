@@ -25,7 +25,7 @@ from ansys.mechanical.core.examples import download_file
 # ``False``. To close this Mechanical session when finished, this example
 # must call  the ``mechanical.exit()`` method.
 
-mechanical = launch_mechanical(batch=False, cleanup_on_exit=False)
+mechanical = launch_mechanical(batch=True, cleanup_on_exit=False)
 print(mechanical)
 
 ###############################################################################
@@ -295,7 +295,7 @@ BODY_SIZING2.ElementSize = Quantity(7, "mm")
 
 Face_Meshing = MSH.AddFaceMeshing()
 Face_Meshing.Location = shank_face
-Face_Meshing.MappedMesh = True
+Face_Meshing.MappedMesh = False
 
 Sweep_Method = MSH.AddAutomaticMethod()
 Sweep_Method.Location = shank
