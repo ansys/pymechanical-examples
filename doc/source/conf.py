@@ -174,7 +174,7 @@ html_short_title = html_title = "pymechanical-examples"
 html_theme = "ansys_sphinx_theme"
 html_logo = pyansys_logo_black
 html_context = {
-    "github_user": "pyansys",
+    "github_user": "ansys",
     "github_repo": "pymechanical",
     "github_version": "main",
     "doc_path": "doc/source",
@@ -186,7 +186,7 @@ html_theme_options = {
     },
     "check_switcher": False,
     "navbar_end": ["version-switcher", "theme-switcher", "navbar-icon-links"],
-    "github_url": "https://github.com/pyansys/pymechanical-examples",
+    "github_url": "https://github.com/ansys/pymechanical-examples",
     "show_prev_next": False,
     "show_breadcrumbs": True,
     "collapse_navigation": True,
@@ -197,7 +197,7 @@ html_theme_options = {
     "icon_links": [
         {
             "name": "Support",
-            "url": "https://github.com/pyansys/pymechanical/discussions",
+            "url": "https://github.com/ansys/pymechanical/discussions",
             "icon": "fa fa-comment fa-fw",
         },
     ],
