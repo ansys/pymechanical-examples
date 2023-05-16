@@ -295,7 +295,7 @@ BODY_SIZING2.ElementSize = Quantity(7, "mm")
 
 Face_Meshing = MSH.AddFaceMeshing()
 Face_Meshing.Location = shank_face
-Face_Meshing.MappedMesh = True
+Face_Meshing.MappedMesh = False
 
 Sweep_Method = MSH.AddAutomaticMethod()
 Sweep_Method.Location = shank
