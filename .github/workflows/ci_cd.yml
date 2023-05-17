@@ -96,25 +96,11 @@ jobs:
       - name: Build HTML documentation
         run: tox -e doc
 
-      - name: Build PDF Documentation
-        run: |
-          sudo apt update
-          sudo apt-get install -y texlive-latex-extra latexmk
-          python -m pip install -r requirements/requirements_doc.txt
-          make -C doc pdf
-
       - name: Upload HTML documentation
         uses: actions/upload-artifact@v3.1.0
         with:
           name: HTML-Documentation
           path: .tox/doc_out_html/
-          retention-days: 7
-
-      - name: Upload PDF Documentation
-        uses: actions/upload-artifact@v3.1.0
-        with:
-          name: PDF-Documentation
-          path: doc/build/latex/*.pdf
           retention-days: 7
 
       - name: Get Mechanical container logs
@@ -128,12 +114,12 @@ jobs:
           path: mechanical_documentation_log.txt
           retention-days: 7
 
-#      - name: Deploy to gh-pages
-#        if: github.event_name == 'push'
-#        uses: JamesIves/github-pages-deploy-action@4.3.4
-#        with:
-#          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-#          BRANCH: gh-pages
-#          FOLDER: .tox/doc_out_html/
-#          CLEAN: true
-#          SINGLE_COMMIT: true
+      - name: Deploy to gh-pages
+        if: contains(github.ref, 'refs/heads/main')
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BRANCH: gh-pages
+          FOLDER: .tox/doc_out_html/
+          CLEAN: true
+          SINGLE_COMMIT: true
