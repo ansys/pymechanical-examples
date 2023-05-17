@@ -193,6 +193,7 @@ html_theme_options = {
     "use_edit_page_button": True,
     "additional_breadcrumbs": [
         ("PyAnsys", "https://docs.pyansys.com/"),
+        ("PyMechanical", "https://mechanical.docs.pyansys.com/"),
     ],
     "icon_links": [
         {
