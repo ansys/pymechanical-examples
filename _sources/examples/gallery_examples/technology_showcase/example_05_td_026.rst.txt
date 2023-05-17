@@ -114,7 +114,7 @@ Make this variable compatible for Windows, Linux, and Docker containers.
 
  .. code-block:: none
 
-    project directory = /tmp/ANSYS.root.1/AnsysMech32C2/Project_Mech_Files/
+    project directory = /tmp/ANSYS.root.1/AnsysMech1F04/Project_Mech_Files/
 
 
 
@@ -153,7 +153,7 @@ Download the required file. Print the file path for the geometry file.
  .. code-block:: none
 
     Downloaded the geometry file to: /home/runner/.local/share/ansys_mechanical_core/examples/example_05_td26_Rubber_Boot_Seal.agdb
-    Uploading example_05_td26_Rubber_Boot_Seal.agdb to 127.0.0.1:10000:/tmp/ANSYS.root.1/AnsysMech32C2/Project_Mech_Files/.:   0%|          | 0.00/3.02M [00:00<?, ?B/s]    Uploading example_05_td26_Rubber_Boot_Seal.agdb to 127.0.0.1:10000:/tmp/ANSYS.root.1/AnsysMech32C2/Project_Mech_Files/.: 100%|##########| 3.02M/3.02M [00:00<00:00, 541MB/s]
+    Uploading example_05_td26_Rubber_Boot_Seal.agdb to 127.0.0.1:10000:/tmp/ANSYS.root.1/AnsysMech1F04/Project_Mech_Files/.:   0%|          | 0.00/3.02M [00:00<?, ?B/s]    Uploading example_05_td26_Rubber_Boot_Seal.agdb to 127.0.0.1:10000:/tmp/ANSYS.root.1/AnsysMech1F04/Project_Mech_Files/.: 100%|##########| 3.02M/3.02M [00:00<00:00, 519MB/s]
 
     ''
 
@@ -195,8 +195,8 @@ Download the required files. Print the file path for the material file.
  .. code-block:: none
 
     Downloaded the material file to: /home/runner/.local/share/ansys_mechanical_core/examples/example_05_Boot_Mat.xml
-    Uploading example_05_Boot_Mat.xml to 127.0.0.1:10000:/tmp/ANSYS.root.1/AnsysMech32C2/Project_Mech_Files/.:   0%|          | 0.00/3.20k [00:00<?, ?B/s]    Uploading example_05_Boot_Mat.xml to 127.0.0.1:10000:/tmp/ANSYS.root.1/AnsysMech32C2/Project_Mech_Files/.: 100%|##########| 3.20k/3.20k [00:00<00:00, 10.3MB/s]
-    part_file_path on server: /tmp/ANSYS.root.1/AnsysMech32C2/Project_Mech_Files/example_05_td26_Rubber_Boot_Seal.agdb
+    Uploading example_05_Boot_Mat.xml to 127.0.0.1:10000:/tmp/ANSYS.root.1/AnsysMech1F04/Project_Mech_Files/.:   0%|          | 0.00/3.20k [00:00<?, ?B/s]    Uploading example_05_Boot_Mat.xml to 127.0.0.1:10000:/tmp/ANSYS.root.1/AnsysMech1F04/Project_Mech_Files/.: 100%|##########| 3.20k/3.20k [00:00<00:00, 10.2MB/s]
+    part_file_path on server: /tmp/ANSYS.root.1/AnsysMech1F04/Project_Mech_Files/example_05_td26_Rubber_Boot_Seal.agdb
 
 
 
@@ -547,7 +547,7 @@ Close the Mechanical instance.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  3.594 seconds)
+   **Total running time of the script:** ( 0 minutes  3.468 seconds)
 
 
 .. _sphx_glr_download_examples_gallery_examples_technology_showcase_example_05_td_026.py:

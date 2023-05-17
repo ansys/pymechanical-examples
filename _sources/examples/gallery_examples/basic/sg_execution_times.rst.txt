@@ -6,8 +6,8 @@
 
 Computation times
 =================
-**00:57.641** total execution time for **examples_gallery_examples_basic** files:
+**00:57.113** total execution time for **examples_gallery_examples_basic** files:
 
 +-------------------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_examples_gallery_examples_basic_example_06_bolt_pretension.py` (``example_06_bolt_pretension.py``) | 00:57.641 | 0.0 MB |
+| :ref:`sphx_glr_examples_gallery_examples_basic_example_06_bolt_pretension.py` (``example_06_bolt_pretension.py``) | 00:57.113 | 0.0 MB |
 +-------------------------------------------------------------------------------------------------------------------+-----------+--------+
