@@ -1,0 +1,13 @@
+
+:orphan:
+
+.. _sphx_glr_examples_gallery_examples_technology_showcase_sg_execution_times:
+
+
+Computation times
+=================
+**00:03.594** total execution time for **examples_gallery_examples_technology_showcase** files:
+
++---------------------------------------------------------------------------------------------------------------+-----------+--------+
+| :ref:`sphx_glr_examples_gallery_examples_technology_showcase_example_05_td_026.py` (``example_05_td_026.py``) | 00:03.594 | 0.0 MB |
++---------------------------------------------------------------------------------------------------------------+-----------+--------+
