@@ -115,7 +115,7 @@ jobs:
           retention-days: 7
 
       - name: Deploy to gh-pages
-        if: github.event_name == 'push'
+        if: contains(github.ref, 'refs/heads/main')
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
