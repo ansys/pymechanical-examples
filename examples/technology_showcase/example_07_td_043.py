@@ -300,8 +300,8 @@ CONT_PRES2=CONT_TOOL.AddPressure()
 CONT_PRES2.DisplayTime=Quantity('4 [s]')
 
 # Section 12 Set Number of Processors to 6 using DANSYS
-testval2 = STAT_STRUC.SolveConfiguration.SolveProcessSettings.MaxNumberOfCores
-STAT_STRUC.SolveConfiguration.SolveProcessSettings.MaxNumberOfCores = 6
+#testval2 = STAT_STRUC.SolveConfiguration.SolveProcessSettings.MaxNumberOfCores
+#STAT_STRUC.SolveConfiguration.SolveProcessSettings.MaxNumberOfCores = 6
 
 # Section 13 Solve and Validate the Results.
 STAT_STRUC_SOLN.Solve(True)
