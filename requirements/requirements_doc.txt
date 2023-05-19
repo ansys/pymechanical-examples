@@ -19,7 +19,7 @@ pytest-sphinx==0.5.0
 pythreejs==2.4.2
 pyvista==0.39.1
 sphinx_design==0.4.1
-Sphinx==6.2.0
+Sphinx==6.2.0 # BLOCKED BY sphinx_design - Cannot upgrade to Sphinx 7
 sphinx-autobuild==2021.3.14
 sphinx-autodoc-typehints==1.23.0
 sphinxcontrib-websupport==1.2.4
