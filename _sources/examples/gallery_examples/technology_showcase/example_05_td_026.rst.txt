@@ -85,7 +85,7 @@ must call  the ``mechanical.exit()`` method.
 
     Ansys Mechanical [Ansys Mechanical Enterprise]
     Product Version:232
-    Software build date: 05/14/2023 14:17:57
+    Software build date: 05/15/2023 14:18:23
 
 
 
@@ -114,7 +114,7 @@ Make this variable compatible for Windows, Linux, and Docker containers.
 
  .. code-block:: none
 
-    project directory = /tmp/ANSYS.root.1/AnsysMech96F5/Project_Mech_Files/
+    project directory = /tmp/ANSYS.root.1/AnsysMech0FB9/Project_Mech_Files/
 
 
 
@@ -153,7 +153,7 @@ Download the required file. Print the file path for the geometry file.
  .. code-block:: none
 
     Downloaded the geometry file to: /home/runner/.local/share/ansys_mechanical_core/examples/example_05_td26_Rubber_Boot_Seal.agdb
-    Uploading example_05_td26_Rubber_Boot_Seal.agdb to 127.0.0.1:10000:/tmp/ANSYS.root.1/AnsysMech96F5/Project_Mech_Files/.:   0%|          | 0.00/3.02M [00:00<?, ?B/s]    Uploading example_05_td26_Rubber_Boot_Seal.agdb to 127.0.0.1:10000:/tmp/ANSYS.root.1/AnsysMech96F5/Project_Mech_Files/.: 100%|##########| 3.02M/3.02M [00:00<00:00, 542MB/s]
+    Uploading example_05_td26_Rubber_Boot_Seal.agdb to 127.0.0.1:10000:/tmp/ANSYS.root.1/AnsysMech0FB9/Project_Mech_Files/.:   0%|          | 0.00/3.02M [00:00<?, ?B/s]    Uploading example_05_td26_Rubber_Boot_Seal.agdb to 127.0.0.1:10000:/tmp/ANSYS.root.1/AnsysMech0FB9/Project_Mech_Files/.: 100%|##########| 3.02M/3.02M [00:00<00:00, 382MB/s]
 
     ''
 
@@ -195,8 +195,8 @@ Download the required files. Print the file path for the material file.
  .. code-block:: none
 
     Downloaded the material file to: /home/runner/.local/share/ansys_mechanical_core/examples/example_05_Boot_Mat.xml
-    Uploading example_05_Boot_Mat.xml to 127.0.0.1:10000:/tmp/ANSYS.root.1/AnsysMech96F5/Project_Mech_Files/.:   0%|          | 0.00/3.20k [00:00<?, ?B/s]    Uploading example_05_Boot_Mat.xml to 127.0.0.1:10000:/tmp/ANSYS.root.1/AnsysMech96F5/Project_Mech_Files/.: 100%|##########| 3.20k/3.20k [00:00<00:00, 6.28MB/s]
-    part_file_path on server: /tmp/ANSYS.root.1/AnsysMech96F5/Project_Mech_Files/example_05_td26_Rubber_Boot_Seal.agdb
+    Uploading example_05_Boot_Mat.xml to 127.0.0.1:10000:/tmp/ANSYS.root.1/AnsysMech0FB9/Project_Mech_Files/.:   0%|          | 0.00/3.20k [00:00<?, ?B/s]    Uploading example_05_Boot_Mat.xml to 127.0.0.1:10000:/tmp/ANSYS.root.1/AnsysMech0FB9/Project_Mech_Files/.: 100%|##########| 3.20k/3.20k [00:00<00:00, 8.08MB/s]
+    part_file_path on server: /tmp/ANSYS.root.1/AnsysMech0FB9/Project_Mech_Files/example_05_td26_Rubber_Boot_Seal.agdb
 
 
 
@@ -517,7 +517,7 @@ directory and print the contents. Remove the ``solve.out`` file.
 
  .. code-block:: none
 
-    Downloading 127.0.0.1:10000:/tmp/ANSYS.root.1/AnsysMech96F5/Project_Mech_Files/StaticStructural/solve.out to /home/runner/work/pymechanical-examples/pymechanical-examples/examples/technology_showcase/solve.out:   0%|          | 0.00/146k [00:00<?, ?B/s]    Downloading 127.0.0.1:10000:/tmp/ANSYS.root.1/AnsysMech96F5/Project_Mech_Files/StaticStructural/solve.out to /home/runner/work/pymechanical-examples/pymechanical-examples/examples/technology_showcase/solve.out: 100%|##########| 146k/146k [00:00<00:00, 2.65GB/s]
+    Downloading 127.0.0.1:10000:/tmp/ANSYS.root.1/AnsysMech0FB9/Project_Mech_Files/StaticStructural/solve.out to /home/runner/work/pymechanical-examples/pymechanical-examples/examples/technology_showcase/solve.out:   0%|          | 0.00/133k [00:00<?, ?B/s]    Downloading 127.0.0.1:10000:/tmp/ANSYS.root.1/AnsysMech0FB9/Project_Mech_Files/StaticStructural/solve.out to /home/runner/work/pymechanical-examples/pymechanical-examples/examples/technology_showcase/solve.out: 100%|##########| 133k/133k [00:00<00:00, 1.98GB/s]
 
      Ansys Mechanical Enterprise                       
 
@@ -593,13 +593,13 @@ directory and print the contents. Remove the ``solve.out`` file.
       DISTRIBUTED MEMORY PARALLEL REQUESTED
            4 PARALLEL PROCESSES REQUESTED WITH SINGLE THREAD PER PROCESS
         TOTAL OF     4 CORES REQUESTED
-      INPUT FILE NAME              = /tmp/ANSYS.root.1/AnsysMech96F5/Project_Mech_Files/StaticStructural/dummy.dat
-      OUTPUT FILE NAME             = /tmp/ANSYS.root.1/AnsysMech96F5/Project_Mech_Files/StaticStructural/solve.out
+      INPUT FILE NAME              = /tmp/ANSYS.root.1/AnsysMech0FB9/Project_Mech_Files/StaticStructural/dummy.dat
+      OUTPUT FILE NAME             = /tmp/ANSYS.root.1/AnsysMech0FB9/Project_Mech_Files/StaticStructural/solve.out
       START-UP FILE MODE           = NOREAD
       STOP FILE MODE               = NOREAD
 
-     RELEASE= 2023 R2              BUILD= 23.2BETA  UP20230514   VERSION=LINUX x64   
-     CURRENT JOBNAME=file0  12:53:54  MAY 19, 2023 CP=      0.240
+     RELEASE= 2023 R2              BUILD= 23.2      UP20230515   VERSION=LINUX x64   
+     CURRENT JOBNAME=file0  17:04:45  MAY 22, 2023 CP=      0.239
 
 
      PARAMETER _DS_PROGRESS =     999.0000000    
@@ -608,11 +608,11 @@ directory and print the contents. Remove the ``solve.out`` file.
 
 
 
-     *** NOTE ***                            CP =       0.374   TIME= 12:53:54
+     *** NOTE ***                            CP =       0.384   TIME= 17:04:45
      The /CONFIG,NOELDB command is not valid in a distributed memory         
      parallel solution.  Command is ignored.                                 
 
-     *GET  _WALLSTRT  FROM  ACTI  ITEM=TIME WALL  VALUE=  12.8983333    
+     *GET  _WALLSTRT  FROM  ACTI  ITEM=TIME WALL  VALUE=  17.0791667    
 
      TITLE= 
      --Static Structural                                                           
@@ -625,12 +625,12 @@ directory and print the contents. Remove the ``solve.out`` file.
      SET PARAMETER DIMENSIONS ON  _WB_PROJECTSCRATCH_DIR
       TYPE=STRI  DIMENSIONS=      248        1        1
 
-     PARAMETER _WB_PROJECTSCRATCH_DIR(1) = /tmp/ANSYS.root.1/AnsysMech96F5/Project_Mech_Files/StaticStructural/
+     PARAMETER _WB_PROJECTSCRATCH_DIR(1) = /tmp/ANSYS.root.1/AnsysMech0FB9/Project_Mech_Files/StaticStructural/
 
      SET PARAMETER DIMENSIONS ON  _WB_SOLVERFILES_DIR
       TYPE=STRI  DIMENSIONS=      248        1        1
 
-     PARAMETER _WB_SOLVERFILES_DIR(1) = /tmp/ANSYS.root.1/AnsysMech96F5/Project_Mech_Files/StaticStructural/
+     PARAMETER _WB_SOLVERFILES_DIR(1) = /tmp/ANSYS.root.1/AnsysMech0FB9/Project_Mech_Files/StaticStructural/
 
      SET PARAMETER DIMENSIONS ON  _WB_USERFILES_DIR
       TYPE=STRI  DIMENSIONS=      248        1        1
@@ -649,16 +649,13 @@ directory and print the contents. Remove the ``solve.out`` file.
 
      INPUT  UNITS ARE ALSO SET TO MPA 
 
-     *** MAPDL - ENGINEERING ANALYSIS SYSTEM  RELEASE 2023 R2          23.2BETA ***
+     *** MAPDL - ENGINEERING ANALYSIS SYSTEM  RELEASE 2023 R2          23.2     ***
      Ansys Mechanical Enterprise                       
-     00000000  VERSION=LINUX x64     12:53:54  MAY 19, 2023 CP=      0.381
+     00000000  VERSION=LINUX x64     17:04:45  MAY 22, 2023 CP=      0.391
 
      --Static Structural                                                           
 
 
-
-     ** WARNING: PRE-RELEASE VERSION OF MAPDL 23.2BETA
-      ANSYS,INC TESTING IS NOT COMPLETE - CHECK RESULTS CAREFULLY **
 
               ***** MAPDL ANALYSIS DEFINITION (PREP7) *****
      *********** Nodes for the whole assembly ***********
@@ -722,7 +719,7 @@ directory and print the contents. Remove the ``solve.out`` file.
      *** Create a component for all remote displacements ***
 
 
-     ***** ROUTINE COMPLETED *****  CP =         0.574
+     ***** ROUTINE COMPLETED *****  CP =         0.591
 
 
      --- Number of total nodes = 4254
@@ -733,7 +730,7 @@ directory and print the contents. Remove the ``solve.out`` file.
      --- Number of condensed parts = 0
      --- Number of total elements = 9275
 
-     *GET  _WALLBSOL  FROM  ACTI  ITEM=TIME WALL  VALUE=  12.8983333    
+     *GET  _WALLBSOL  FROM  ACTI  ITEM=TIME WALL  VALUE=  17.0791667    
      ****************************************************************************
      *************************    SOLUTION       ********************************
      ****************************************************************************
@@ -854,20 +851,20 @@ directory and print the contents. Remove the ``solve.out`` file.
 
      *ENDIF
 
-     *** NOTE ***                            CP =       0.935   TIME= 12:53:54
+     *** NOTE ***                            CP =       0.966   TIME= 17:04:46
      The automatic domain decomposition logic has selected the MESH domain   
      decomposition method with 4 processes per solution.                     
 
      *****  MAPDL SOLVE    COMMAND  *****
 
-     *** WARNING ***                         CP =       0.941   TIME= 12:53:54
+     *** WARNING ***                         CP =       0.975   TIME= 17:04:46
      Element shape checking is currently inactive.  Issue SHPP,ON or         
      SHPP,WARN to reactivate, if desired.                                    
 
-     *** NOTE ***                            CP =       1.017   TIME= 12:53:54
+     *** NOTE ***                            CP =       1.031   TIME= 17:04:46
      The model data was checked and warning messages were found.             
       Please review output or errors file (                                  
-     /tmp/ANSYS.root.1/AnsysMech96F5/Project_Mech_Files/StaticStructural/fil 
+     /tmp/ANSYS.root.1/AnsysMech0FB9/Project_Mech_Files/StaticStructural/fil 
      le0.err ) for these warning messages.                                   
 
      *** SELECTION OF ELEMENT TECHNOLOGIES FOR APPLICABLE ELEMENTS ***
@@ -1025,16 +1022,13 @@ directory and print the contents. Remove the ``solve.out`` file.
 
 
 
-     *** MAPDL - ENGINEERING ANALYSIS SYSTEM  RELEASE 2023 R2          23.2BETA ***
+     *** MAPDL - ENGINEERING ANALYSIS SYSTEM  RELEASE 2023 R2          23.2     ***
      Ansys Mechanical Enterprise                       
-     00000000  VERSION=LINUX x64     12:53:54  MAY 19, 2023 CP=      1.059
+     00000000  VERSION=LINUX x64     17:04:46  MAY 22, 2023 CP=      1.060
 
      --Static Structural                                                           
 
 
-
-     ** WARNING: PRE-RELEASE VERSION OF MAPDL 23.2BETA
-      ANSYS,INC TESTING IS NOT COMPLETE - CHECK RESULTS CAREFULLY **
 
                            S O L U T I O N   O P T I O N S
 
@@ -1047,19 +1041,19 @@ directory and print the contents. Remove the ``solve.out`` file.
        NEWTON-RAPHSON OPTION . . . . . . . . . . . . .PROGRAM CHOSEN   
        GLOBALLY ASSEMBLED MATRIX . . . . . . . . . . .SYMMETRIC  
 
-     *** NOTE ***                            CP =       1.224   TIME= 12:53:54
+     *** NOTE ***                            CP =       1.181   TIME= 17:04:46
      This nonlinear analysis defaults to using the full Newton-Raphson       
      solution procedure.  This can be modified using the NROPT command.      
 
      CHECK INITIAL OPEN/CLOSED STATUS OF SELECTED CONTACT ELEMENTS
           AND LIST DETAILED CONTACT PAIR INFORMATION
 
-     *** NOTE ***                            CP =       1.342   TIME= 12:53:54
+     *** NOTE ***                            CP =       1.277   TIME= 17:04:46
      Internal nodes from 4255 to 4256 are created.                           
      2 internal nodes are used for handling degrees of freedom on pilot      
      nodes of rigid target surfaces.                                         
 
-     *** NOTE ***                            CP =       1.430   TIME= 12:53:54
+     *** NOTE ***                            CP =       1.396   TIME= 17:04:46
      Internal nodes from 4255 to 4256 are created.                           
      2 internal nodes are used for handling degrees of freedom on pilot      
      nodes of rigid target surfaces.                                         
@@ -1069,11 +1063,11 @@ directory and print the contents. Remove the ``solve.out`` file.
      32 & 33).  These two pairs will be merged.  Please check the model      
      carefully.                                                              
 
-     *** WARNING ***                         CP =       1.878   TIME= 12:53:54
+     *** WARNING ***                         CP =       1.857   TIME= 17:04:46
      Overconstraint may occur for Lagrange multiplier or MPC based contact   
      algorithm.                                                              
 
-     *** WARNING ***                         CP =       1.879   TIME= 12:53:54
+     *** WARNING ***                         CP =       1.857   TIME= 17:04:46
      Boundary conditions, coupling, and/or constraint equations have been    
      applied on certain contact nodes (for example 0).                       
  
@@ -1089,7 +1083,7 @@ directory and print the contents. Remove the ``solve.out`` file.
      CONTACT PAIR ASSOCIATED WITH REAL CONSTANT 37 SPLIT INTO 2 NEW PAIRS 
      ASSOCIATED WITH REAL CONSTANTS 41 - 41
 
-     *** NOTE ***                            CP =       2.005   TIME= 12:53:54
+     *** NOTE ***                            CP =       1.983   TIME= 17:04:46
      Rotational degrees of freedom ROTX+ROTY+ROTZ have been activated for    
      pilot node 4252.                                                        
 
@@ -1098,12 +1092,12 @@ directory and print the contents. Remove the ``solve.out`` file.
      NEW TARGET ELEMENTS FROM 13821 TO 16476 WERE CREATED TO HANDLE
      THE SPLIT CONTACT PAIRS
 
-     *** NOTE ***                            CP =       2.110   TIME= 12:53:54
+     *** NOTE ***                            CP =       2.061   TIME= 17:04:46
      Internal nodes from 4255 to 4257 are created.                           
      3 internal nodes are used for handling degrees of freedom on pilot      
      nodes of rigid target surfaces.                                         
 
-     *** NOTE ***                            CP =       2.196   TIME= 12:53:54
+     *** NOTE ***                            CP =       2.149   TIME= 17:04:46
      Internal nodes from 4255 to 4257 are created.                           
      3 internal nodes are used for handling degrees of freedom on pilot      
      nodes of rigid target surfaces.                                         
@@ -1115,7 +1109,7 @@ directory and print the contents. Remove the ``solve.out`` file.
      *WARNING*: The self contact pair specified by real constant set 35 also 
      overlaps with another symmetric contact pair (e.g.  40).                
 
-     *** NOTE ***                            CP =       3.161   TIME= 12:53:55
+     *** NOTE ***                            CP =       3.122   TIME= 17:04:46
      Rigid target surface identified by real constant set 32.  The degrees   
      of freedom of the rigid surface are driven by the pilot node 4252.      
      Internal MPC will be built.                                             
@@ -1128,7 +1122,7 @@ directory and print the contents. Remove the ``solve.out`` file.
      ****************************************
   
 
-     *** NOTE ***                            CP =       3.161   TIME= 12:53:55
+     *** NOTE ***                            CP =       3.123   TIME= 17:04:46
      Rigid-deformable contact pair identified by real constant set 33 and    
      contact element type 33 has been set up.  The degrees of freedom of     
      the rigid surface are driven by the pilot node 4252.                    
@@ -1156,7 +1150,7 @@ directory and print the contents. Remove the ``solve.out`` file.
      All target elements use a cylindrical geometry correction
      Initial penetration will be ramped during the first load step.
 
-     *** NOTE ***                            CP =       3.161   TIME= 12:53:55
+     *** NOTE ***                            CP =       3.123   TIME= 17:04:46
      Max.  Initial penetration 2.04152853 was detected between contact       
      element 7070 and target element 8371.                                   
      You may move entire target surface by : x= 0, y= 0, z= 0,to reduce      
@@ -1164,7 +1158,7 @@ directory and print the contents. Remove the ``solve.out`` file.
      ****************************************
   
 
-     *** NOTE ***                            CP =       3.161   TIME= 12:53:55
+     *** NOTE ***                            CP =       3.123   TIME= 17:04:46
      Rigid-deformable contact pair identified by real constant set 39 and    
      contact element type 33 has been set up.  The degrees of freedom of     
      the rigid surface are driven by the pilot node 4252.                    
@@ -1192,7 +1186,7 @@ directory and print the contents. Remove the ``solve.out`` file.
      All target elements use a cylindrical geometry correction
      Initial penetration will be ramped during the first load step.
 
-     *** NOTE ***                            CP =       3.161   TIME= 12:53:55
+     *** NOTE ***                            CP =       3.123   TIME= 17:04:46
      Max.  Initial penetration 2.04152853 was detected between contact       
      element 7070 and target element 8371.                                   
      You may move entire target surface by : x= -1.94952245, y=              
@@ -1200,7 +1194,7 @@ directory and print the contents. Remove the ``solve.out`` file.
      ****************************************
   
 
-     *** NOTE ***                            CP =       3.161   TIME= 12:53:55
+     *** NOTE ***                            CP =       3.123   TIME= 17:04:46
      Self Deformable- deformable contact pair identified by real constant    
      set 35 and contact element type 35 has been set up.                     
      The current pair was split from a base pair (real ID 35).               
@@ -1223,12 +1217,12 @@ directory and print the contents. Remove the ``solve.out`` file.
      The resulting pinball region                 0.82650    
      *WARNING*: Initial penetration is included.
 
-     *** NOTE ***                            CP =       3.161   TIME= 12:53:55
+     *** NOTE ***                            CP =       3.123   TIME= 17:04:46
      No contact was detected for this contact pair.                          
      ****************************************
   
 
-     *** NOTE ***                            CP =       3.161   TIME= 12:53:55
+     *** NOTE ***                            CP =       3.123   TIME= 17:04:46
      Self Deformable- deformable contact pair identified by real constant    
      set 40 and contact element type 35 has been set up.                     
      The current pair was split from a base pair (real ID 35).               
@@ -1251,12 +1245,12 @@ directory and print the contents. Remove the ``solve.out`` file.
      The resulting pinball region                 0.82650    
      *WARNING*: Initial penetration is included.
 
-     *** NOTE ***                            CP =       3.162   TIME= 12:53:55
+     *** NOTE ***                            CP =       3.123   TIME= 17:04:46
      No contact was detected for this contact pair.                          
      ****************************************
   
 
-     *** NOTE ***                            CP =       3.162   TIME= 12:53:55
+     *** NOTE ***                            CP =       3.123   TIME= 17:04:46
      Self Deformable- deformable contact pair identified by real constant    
      set 37 and contact element type 37 has been set up.                     
      The current pair was split from a base pair (real ID 37).               
@@ -1279,12 +1273,12 @@ directory and print the contents. Remove the ``solve.out`` file.
      The resulting pinball region                 0.78054    
      *WARNING*: Initial penetration is included.
 
-     *** NOTE ***                            CP =       3.162   TIME= 12:53:55
+     *** NOTE ***                            CP =       3.123   TIME= 17:04:46
      No contact was detected for this contact pair.                          
      ****************************************
   
 
-     *** NOTE ***                            CP =       3.162   TIME= 12:53:55
+     *** NOTE ***                            CP =       3.123   TIME= 17:04:46
      Self Deformable- deformable contact pair identified by real constant    
      set 41 and contact element type 37 has been set up.                     
      The current pair was split from a base pair (real ID 37).               
@@ -1307,24 +1301,24 @@ directory and print the contents. Remove the ``solve.out`` file.
      The resulting pinball region                 0.78054    
      *WARNING*: Initial penetration is included.
 
-     *** NOTE ***                            CP =       3.162   TIME= 12:53:55
+     *** NOTE ***                            CP =       3.123   TIME= 17:04:46
      No contact was detected for this contact pair.                          
      ****************************************
   
 
-     *** WARNING ***                         CP =       3.162   TIME= 12:53:55
+     *** WARNING ***                         CP =       3.124   TIME= 17:04:46
      Overconstraint may occur for Lagrange multiplier or MPC based contact   
      algorithm.                                                              
      The reasons for possible overconstraint are:                            
 
-     *** WARNING ***                         CP =       3.162   TIME= 12:53:55
+     *** WARNING ***                         CP =       3.124   TIME= 17:04:46
      Boundary conditions, coupling, and/or constraint equations have been    
      applied on certain contact nodes (for example 4253).                    
      ****************************************
   
   
 
-     *** NOTE ***                            CP =       3.233   TIME= 12:53:55
+     *** NOTE ***                            CP =       3.201   TIME= 17:04:46
      Internal nodes from 4255 to 4257 are created.                           
      3 internal nodes are used for handling degrees of freedom on pilot      
      nodes of rigid target surfaces.                                         
@@ -1375,7 +1369,7 @@ directory and print the contents. Remove the ``solve.out`` file.
      32 & 33).  These two pairs will be merged.  Please check the model      
      carefully.                                                              
 
-     *** NOTE ***                            CP =       4.132   TIME= 12:53:55
+     *** NOTE ***                            CP =       4.071   TIME= 17:04:46
      Rigid target surface identified by real constant set 32.  The degrees   
      of freedom of the rigid surface are driven by the pilot node 4252.      
      Internal MPC will be built.                                             
@@ -1388,7 +1382,7 @@ directory and print the contents. Remove the ``solve.out`` file.
      ****************************************
   
 
-     *** NOTE ***                            CP =       4.133   TIME= 12:53:55
+     *** NOTE ***                            CP =       4.072   TIME= 17:04:46
      Rigid-deformable contact pair identified by real constant set 39 and    
      contact element type 33 has been set up.  The degrees of freedom of     
      the rigid surface are driven by the pilot node 4252.                    
@@ -1416,7 +1410,7 @@ directory and print the contents. Remove the ``solve.out`` file.
      All target elements use a cylindrical geometry correction
      Initial penetration will be ramped during the first load step.
 
-     *** NOTE ***                            CP =       4.133   TIME= 12:53:55
+     *** NOTE ***                            CP =       4.072   TIME= 17:04:46
      Max.  Initial penetration 2.04152853 was detected between contact       
      element 7070 and target element 8371.                                   
      You may move entire target surface by : x= -1.94952245, y=              
@@ -1424,7 +1418,7 @@ directory and print the contents. Remove the ``solve.out`` file.
      ****************************************
   
 
-     *** NOTE ***                            CP =       4.133   TIME= 12:53:55
+     *** NOTE ***                            CP =       4.072   TIME= 17:04:46
      Rigid-deformable contact pair identified by real constant set 33 and    
      contact element type 33 has been set up.  The degrees of freedom of     
      the rigid surface are driven by the pilot node 4252.                    
@@ -1452,7 +1446,7 @@ directory and print the contents. Remove the ``solve.out`` file.
      All target elements use a cylindrical geometry correction
      Initial penetration will be ramped during the first load step.
 
-     *** NOTE ***                            CP =       4.133   TIME= 12:53:55
+     *** NOTE ***                            CP =       4.072   TIME= 17:04:46
      No contact was detected for this contact pair.                          
      ****************************************
   
@@ -1563,45 +1557,45 @@ directory and print the contents. Remove the ``solve.out`` file.
        *** ELEMENT MATRIX FORMULATION TIMES
          TYPE    NUMBER   ENAME      TOTAL CP  AVE CP
 
-            1        60  SOLID185      0.007   0.000123
-            2        60  SOLID185      0.008   0.000132
-            3       100  SOLID185      0.013   0.000125
-            4        80  SOLID185      0.010   0.000124
-            5       100  SOLID185      0.012   0.000124
-            6        60  SOLID185      0.008   0.000129
-            7        80  SOLID185      0.011   0.000135
-            8        60  SOLID185      0.008   0.000132
-            9        80  SOLID185      0.010   0.000127
-           10        60  SOLID185      0.008   0.000128
-           11       100  SOLID185      0.012   0.000124
-           12        60  SOLID185      0.007   0.000123
+            1        60  SOLID185      0.008   0.000128
+            2        60  SOLID185      0.008   0.000136
+            3       100  SOLID185      0.013   0.000129
+            4        80  SOLID185      0.010   0.000129
+            5       100  SOLID185      0.013   0.000129
+            6        60  SOLID185      0.008   0.000133
+            7        80  SOLID185      0.011   0.000139
+            8        60  SOLID185      0.008   0.000140
+            9        80  SOLID185      0.011   0.000133
+           10        60  SOLID185      0.008   0.000132
+           11       100  SOLID185      0.013   0.000126
+           12        60  SOLID185      0.007   0.000124
            13        80  SOLID185      0.010   0.000126
-           14        80  SOLID185      0.010   0.000125
-           15       260  SOLID185      0.032   0.000123
-           16        60  SOLID185      0.008   0.000127
-           17        60  SOLID185      0.008   0.000129
-           18       100  SOLID185      0.012   0.000123
-           19        80  SOLID185      0.010   0.000124
-           20       100  SOLID185      0.013   0.000132
-           21        60  SOLID185      0.008   0.000136
-           22        80  SOLID185      0.011   0.000131
-           23        60  SOLID185      0.008   0.000135
-           24        80  SOLID185      0.011   0.000133
-           25        60  SOLID185      0.008   0.000133
-           26       100  SOLID185      0.012   0.000123
-           27        60  SOLID185      0.007   0.000124
-           28        80  SOLID185      0.010   0.000129
-           29        80  SOLID185      0.010   0.000131
-           30       260  SOLID185      0.033   0.000126
-           31         1  MASS21        0.000   0.000131
+           14        80  SOLID185      0.010   0.000127
+           15       260  SOLID185      0.033   0.000127
+           16        60  SOLID185      0.008   0.000128
+           17        60  SOLID185      0.008   0.000135
+           18       100  SOLID185      0.013   0.000128
+           19        80  SOLID185      0.011   0.000132
+           20       100  SOLID185      0.014   0.000135
+           21        60  SOLID185      0.009   0.000142
+           22        80  SOLID185      0.011   0.000133
+           23        60  SOLID185      0.008   0.000138
+           24        80  SOLID185      0.011   0.000137
+           25        60  SOLID185      0.008   0.000139
+           26       100  SOLID185      0.013   0.000128
+           27        60  SOLID185      0.008   0.000127
+           28        80  SOLID185      0.011   0.000133
+           29        80  SOLID185      0.011   0.000135
+           30       260  SOLID185      0.034   0.000129
+           31         1  MASS21        0.000   0.000140
            32        18  TARGE170      0.000   0.000004
-           33      1320  CONTA174      0.063   0.000048
-           34        32  TARGE170      0.000   0.000008
-           35      1400  CONTA174      0.038   0.000027
+           33      1320  CONTA174      0.066   0.000050
+           34        32  TARGE170      0.000   0.000010
+           35      1400  CONTA174      0.040   0.000028
            36      2640  TARGE170      0.006   0.000002
-           37      1400  CONTA174      0.040   0.000028
+           37      1400  CONTA174      0.042   0.000030
            38      2640  TARGE170      0.006   0.000002
-     Time at end of element matrix formulation CP = 4.50670767.              
+     Time at end of element matrix formulation CP = 4.47031784.              
 
      ALL CURRENT MAPDL DATA WRITTEN TO FILE NAME= file.rdb
       FOR POSSIBLE RESUME FROM THIS POINT
@@ -1619,15 +1613,15 @@ directory and print the contents. Remove the ``solve.out`` file.
       Total memory required for in-core solution       =    39.008 MB
       Total memory required for out-of-core solution   =    23.173 MB
 
-     *** NOTE ***                            CP =       4.650   TIME= 12:53:56
+     *** NOTE ***                            CP =       4.624   TIME= 17:04:47
      The Distributed Sparse Matrix Solver is currently running in the        
      in-core memory mode.  This memory mode uses the most amount of memory   
      in order to avoid using the hard drive as much as possible, which most  
      often results in the fastest solution time.  This mode is recommended   
      if enough physical memory is present to accommodate all of the solver   
      data.                                                                   
-     curEqn=   2925  totEqn=   2925 Job CP sec=      4.526
-          Factor Done= 100% Factor Wall sec=      0.058 rate=       2.1 GFlops
+     curEqn=   2925  totEqn=   2925 Job CP sec=      4.511
+          Factor Done= 100% Factor Wall sec=      0.068 rate=       1.8 GFlops
      Distributed sparse solver maximum pivot= 2186229.73 at node 3527 UY.    
      Distributed sparse solver minimum pivot= 47270.6013 at node 701 UY.     
      Distributed sparse solver minimum pivot in absolute value= 47270.6013   
@@ -1657,39 +1651,39 @@ directory and print the contents. Remove the ``solve.out`` file.
          TYPE    NUMBER   ENAME      TOTAL CP  AVE CP
 
             1        60  SOLID185      0.005   0.000082
-            2        60  SOLID185      0.010   0.000160
-            3       100  SOLID185      0.008   0.000082
-            4        80  SOLID185      0.007   0.000081
+            2        60  SOLID185      0.010   0.000163
+            3       100  SOLID185      0.008   0.000083
+            4        80  SOLID185      0.007   0.000082
             5       100  SOLID185      0.010   0.000098
-            6        60  SOLID185      0.010   0.000171
-            7        80  SOLID185      0.014   0.000175
-            8        60  SOLID185      0.010   0.000168
-            9        80  SOLID185      0.014   0.000171
-           10        60  SOLID185      0.009   0.000147
-           11       100  SOLID185      0.008   0.000081
+            6        60  SOLID185      0.010   0.000173
+            7        80  SOLID185      0.014   0.000176
+            8        60  SOLID185      0.010   0.000171
+            9        80  SOLID185      0.014   0.000172
+           10        60  SOLID185      0.009   0.000146
+           11       100  SOLID185      0.008   0.000080
            12        60  SOLID185      0.005   0.000081
            13        80  SOLID185      0.007   0.000082
-           14        80  SOLID185      0.008   0.000096
-           15       260  SOLID185      0.041   0.000159
-           16        60  SOLID185      0.005   0.000082
-           17        60  SOLID185      0.010   0.000160
-           18       100  SOLID185      0.008   0.000081
+           14        80  SOLID185      0.008   0.000098
+           15       260  SOLID185      0.042   0.000162
+           16        60  SOLID185      0.005   0.000080
+           17        60  SOLID185      0.009   0.000157
+           18       100  SOLID185      0.008   0.000080
            19        80  SOLID185      0.007   0.000083
-           20       100  SOLID185      0.008   0.000084
-           21        60  SOLID185      0.010   0.000163
+           20       100  SOLID185      0.009   0.000085
+           21        60  SOLID185      0.010   0.000167
            22        80  SOLID185      0.013   0.000160
            23        60  SOLID185      0.010   0.000165
-           24        80  SOLID185      0.013   0.000162
-           25        60  SOLID185      0.009   0.000142
-           26       100  SOLID185      0.008   0.000082
-           27        60  SOLID185      0.005   0.000082
-           28        80  SOLID185      0.007   0.000086
-           29        80  SOLID185      0.007   0.000090
+           24        80  SOLID185      0.013   0.000165
+           25        60  SOLID185      0.008   0.000140
+           26       100  SOLID185      0.008   0.000081
+           27        60  SOLID185      0.005   0.000083
+           28        80  SOLID185      0.007   0.000085
+           29        80  SOLID185      0.007   0.000089
            30       260  SOLID185      0.041   0.000157
-           31         1  MASS21        0.000   0.000016
-           33       595  CONTA174      0.043   0.000073
-           35      1320  CONTA174      0.024   0.000018
-           37      1320  CONTA174      0.033   0.000025
+           31         1  MASS21        0.000   0.000019
+           33       595  CONTA174      0.044   0.000074
+           35      1320  CONTA174      0.024   0.000019
+           37      1320  CONTA174      0.035   0.000027
 
        *** NODAL LOAD CALCULATION TIMES
          TYPE    NUMBER   ENAME      TOTAL CP  AVE CP
@@ -1718,13 +1712,13 @@ directory and print the contents. Remove the ``solve.out`` file.
            22        80  SOLID185      0.000   0.000006
            23        60  SOLID185      0.000   0.000006
            24        80  SOLID185      0.000   0.000006
-           25        60  SOLID185      0.000   0.000006
+           25        60  SOLID185      0.000   0.000005
            26       100  SOLID185      0.000   0.000003
            27        60  SOLID185      0.000   0.000003
            28        80  SOLID185      0.000   0.000003
            29        80  SOLID185      0.000   0.000004
            30       260  SOLID185      0.002   0.000006
-           31         1  MASS21        0.000   0.000002
+           31         1  MASS21        0.000   0.000003
            33       595  CONTA174      0.003   0.000005
            35      1320  CONTA174      0.003   0.000002
            37      1320  CONTA174      0.004   0.000003
@@ -2536,20 +2530,17 @@ directory and print the contents. Remove the ``solve.out`` file.
 
      *****  MAPDL SOLVE    COMMAND  *****
 
-     *** NOTE ***                            CP =      81.033   TIME= 12:55:12
+     *** NOTE ***                            CP =      81.806   TIME= 17:06:04
      This nonlinear analysis defaults to using the full Newton-Raphson       
      solution procedure.  This can be modified using the NROPT command.      
 
-     *** MAPDL - ENGINEERING ANALYSIS SYSTEM  RELEASE 2023 R2          23.2BETA ***
+     *** MAPDL - ENGINEERING ANALYSIS SYSTEM  RELEASE 2023 R2          23.2     ***
      Ansys Mechanical Enterprise                       
-     00000000  VERSION=LINUX x64     12:55:12  MAY 19, 2023 CP=     81.094
+     00000000  VERSION=LINUX x64     17:06:04  MAY 22, 2023 CP=     81.871
 
      --Static Structural                                                           
 
 
-
-     ** WARNING: PRE-RELEASE VERSION OF MAPDL 23.2BETA
-      ANSYS,INC TESTING IS NOT COMPLETE - CHECK RESULTS CAREFULLY **
 
                           L O A D   S T E P   O P T I O N S
 
@@ -2779,31 +2770,28 @@ directory and print the contents. Remove the ``solve.out`` file.
      ****************************************************
      *************** FINISHED SOLVE FOR LS 2 *************
 
-     *GET  _WALLASOL  FROM  ACTI  ITEM=TIME WALL  VALUE=  12.9247222    
+     *GET  _WALLASOL  FROM  ACTI  ITEM=TIME WALL  VALUE=  17.1061111    
 
      PRINTOUT RESUMED BY /GOP
 
      FINISH SOLUTION PROCESSING
 
 
-     ***** ROUTINE COMPLETED *****  CP =        98.874
+     ***** ROUTINE COMPLETED *****  CP =       100.604
 
 
 
-     *** MAPDL - ENGINEERING ANALYSIS SYSTEM  RELEASE 2023 R2          23.2BETA ***
+     *** MAPDL - ENGINEERING ANALYSIS SYSTEM  RELEASE 2023 R2          23.2     ***
      Ansys Mechanical Enterprise                       
-     00000000  VERSION=LINUX x64     12:55:29  MAY 19, 2023 CP=     98.876
+     00000000  VERSION=LINUX x64     17:06:22  MAY 22, 2023 CP=    100.605
 
      --Static Structural                                                           
 
 
 
-     ** WARNING: PRE-RELEASE VERSION OF MAPDL 23.2BETA
-      ANSYS,INC TESTING IS NOT COMPLETE - CHECK RESULTS CAREFULLY **
-
               ***** MAPDL RESULTS INTERPRETATION (POST1) *****
 
-     *** NOTE ***                            CP =      98.876   TIME= 12:55:29
+     *** NOTE ***                            CP =     100.606   TIME= 17:06:22
      Reading results into the database (SET command) will update the current 
      displacement and force boundary conditions in the database with the     
      values from the results file for that load set.  Note that any          
@@ -2821,25 +2809,25 @@ directory and print the contents. Remove the ``solve.out`` file.
      EXIT THE MAPDL POST1 DATABASE PROCESSOR
 
 
-     ***** ROUTINE COMPLETED *****  CP =        98.879
+     ***** ROUTINE COMPLETED *****  CP =       100.609
 
 
 
      PRINTOUT RESUMED BY /GOP
 
-     *GET  _WALLDONE  FROM  ACTI  ITEM=TIME WALL  VALUE=  12.9247222    
+     *GET  _WALLDONE  FROM  ACTI  ITEM=TIME WALL  VALUE=  17.1061111    
 
      PARAMETER _PREPTIME =     0.000000000    
 
-     PARAMETER _SOLVTIME =     95.00000000    
+     PARAMETER _SOLVTIME =     97.00000000    
 
      PARAMETER _POSTTIME =     0.000000000    
 
-     PARAMETER _TOTALTIM =     95.00000000    
+     PARAMETER _TOTALTIM =     97.00000000    
 
      *GET  _DLBRATIO  FROM  ACTI  ITEM=SOLU DLBR  VALUE=  1.27537027    
 
-     *GET  _COMBTIME  FROM  ACTI  ITEM=SOLU COMB  VALUE= 0.161748713    
+     *GET  _COMBTIME  FROM  ACTI  ITEM=SOLU COMB  VALUE= 0.173310538    
 
      *GET  _SSMODE   FROM  ACTI  ITEM=SOLU SSMM  VALUE=  2.00000000    
 
@@ -2856,7 +2844,7 @@ directory and print the contents. Remove the ``solve.out`` file.
      --- Total number of nodes = 4254
      --- Total number of elements = 12091
      --- Element load balance ratio = 1.27537027
-     --- Time to combine distributed files = 0.161748713
+     --- Time to combine distributed files = 0.173310538
      --- Sparse memory mode = 2
      --- Number of DOF = 12114
 
@@ -2868,8 +2856,8 @@ directory and print the contents. Remove the ``solve.out`` file.
 
     +--------------------- M A P D L   S T A T I S T I C S ------------------------+
 
-    Release: 2023 R2            Build: 23.2BETA   Update: UP20230514   Platform: LINUX x64   
-    Date Run: 05/19/2023   Time: 12:55     Process ID: 2579
+    Release: 2023 R2            Build: 23.2       Update: UP20230515   Platform: LINUX x64   
+    Date Run: 05/22/2023   Time: 17:06     Process ID: 2585
     Operating System: Ubuntu 20.04.5 LTS
 
     Processor Model: Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60GHz
@@ -2896,35 +2884,31 @@ directory and print the contents. Remove the ``solve.out`` file.
 
       Core                Machine Name   Working Directory
      -----------------------------------------------------
-         0                4b8dc9eaf89f   /tmp/ANSYS.root.1/AnsysMech96F5/Project_Mech_Files/StaticStructural
-         1                4b8dc9eaf89f   /tmp/ANSYS.root.1/AnsysMech96F5/Project_Mech_Files/StaticStructural
-         2                4b8dc9eaf89f   /tmp/ANSYS.root.1/AnsysMech96F5/Project_Mech_Files/StaticStructural
-         3                4b8dc9eaf89f   /tmp/ANSYS.root.1/AnsysMech96F5/Project_Mech_Files/StaticStructural
+         0                ba1856919f4d   /tmp/ANSYS.root.1/AnsysMech0FB9/Project_Mech_Files/StaticStructural
+         1                ba1856919f4d   /tmp/ANSYS.root.1/AnsysMech0FB9/Project_Mech_Files/StaticStructural
+         2                ba1856919f4d   /tmp/ANSYS.root.1/AnsysMech0FB9/Project_Mech_Files/StaticStructural
+         3                ba1856919f4d   /tmp/ANSYS.root.1/AnsysMech0FB9/Project_Mech_Files/StaticStructural
  
-    Latency time from master to core     1 =    2.094 microseconds
-    Latency time from master to core     2 =    1.999 microseconds
-    Latency time from master to core     3 =    2.027 microseconds
+    Latency time from master to core     1 =    2.278 microseconds
+    Latency time from master to core     2 =    2.130 microseconds
+    Latency time from master to core     3 =    2.076 microseconds
  
-    Communication speed from master to core     1 =  4367.10 MB/sec
-    Communication speed from master to core     2 =  4567.23 MB/sec
-    Communication speed from master to core     3 =  4472.00 MB/sec
+    Communication speed from master to core     1 =  4027.24 MB/sec
+    Communication speed from master to core     2 =  4124.45 MB/sec
+    Communication speed from master to core     3 =  4234.14 MB/sec
 
-    Total CPU time for main thread                    :       85.5 seconds
-    Total CPU time summed for all threads             :       99.5 seconds
+    Total CPU time for main thread                    :       86.3 seconds
+    Total CPU time summed for all threads             :      101.2 seconds
 
-    Elapsed time spent obtaining a license            :        0.4 seconds
-    Elapsed time spent pre-processing model (/PREP7)  :        0.0 seconds
-    Elapsed time spent solution - preprocessing       :        0.9 seconds
-    Elapsed time spent computing solution             :       93.8 seconds
+    Elapsed time spent obtaining a license            :        0.3 seconds
+    Elapsed time spent pre-processing model (/PREP7)  :        0.1 seconds
+    Elapsed time spent solution - preprocessing       :        0.8 seconds
+    Elapsed time spent computing solution             :       95.5 seconds
     Elapsed time spent solution - postprocessing      :        0.2 seconds
     Elapsed time spent post-processing model (/POST1) :        0.0 seconds
  
     Equation solver used                              :            Sparse (symmetric)
-    Equation solver computational rate                :       33.2 Gflops
- 
-    Maximum disk space used on any process            :        0.0 MB
-    Maximum memory used on any process                :      143.0 MB
-    Maximum memory allocated on any process           :     2112.0 MB
+    Equation solver computational rate                :       28.5 Gflops
 
     Sum of disk space used on all processes            :      240.6 MB
 
@@ -2933,323 +2917,6 @@ directory and print the contents. Remove the ``solve.out`` file.
     Physical memory available                         :         31 GB
     Total amount of I/O written to disk               :       14.5 GB
     Total amount of I/O read from disk                :      111.5 GB
-
-    --- M O D E L   S U M M A R Y --------------------------------------------------
-
-    Title: --Static Structural
-
-                                          Core
-                      Number         Max         Min
-
-        Elements       12091        4701        2030  (all)
-        Elements        9450        4040        1370  (contact only)
-        Elements       13463        4700        2416  (boundary-layer)
-           Nodes        4257        3183        2143
-    Shared Nodes        8294        5349        3271
-            DOFs       25542       19098       12858
-
-     Element Type            21           170           174           185         Total   Local CE/CP  Across CE/CP
-    ---------------------------------------------------------------------------------------------------------------
-    Process     0             0            50          1320           660          2030             0             0
-    Process     1             1          2640          1400           660          4701             0             0
-    Process     2             0          1320           700           660          2680             0             0
-    Process     3             0          1320           700           660          2680             0             0
-    ---------------------------------------------------------------------------------------------------------------
-            Total             1          5330          4120          2640         12091             0             0
-    Total CE          12
-
-                      NumThreads   MemUsed(GB)  MemAlloc(GB)    MemRss(GB)
-    ----------------------------------------------------------------------
-     Process     0             1    0.1650         2.062         1.202    
-     Process     1             1    0.1484        0.2344        0.3887    
-     Process     2             1    0.1406        0.2344        0.4619    
-     Process     3             1    0.1396        0.2344        0.3535    
-    ----------------------------------------------------------------------
-             Total             4    0.5938         2.766         2.406    
-
-    --- F I L E   I / O   S T A T I S T I C S --------------------------------------
-
-       Bio Stats   [Note: Data in megabytes]
-
-     File Unit      Data Written         Data Read             Total      Max Length
-     -------------------------------------------------------------------------------
-             2               0.0               0.0               0.0             0.4
-             3           13998.5          113464.1          127462.6            72.1
-             4               0.0               0.0               0.0             6.6
-            12             171.1              72.4             243.6           119.5
-            16               6.2               0.1               6.3             6.4
-            17             674.1             657.9            1331.9            17.1
-            29              33.4               1.0              34.4            17.1
-            61               0.0              20.6              20.6             0.0
-
-       Sparse solver Stats   [Note: Data in megabytes]
-
-     File Unit      Data Written         Data Read             Total      Max Length
-     -------------------------------------------------------------------------------
-            70               0.0               0.0               0.0             0.4
-            95               1.0               0.0               1.0             1.0
-
-    --- S O L U T I O N   S U M M A R Y --------------------------------------------
-
-    Analysis Type: Static (Steady-State)
-    Nonlinear: Yes
-
-                    Number
-       Load Steps        2
-         SubSteps       40
-       Iterations      120
-    Line Searches      258
-       Bisections        0
-
-    --- R U N   S T A T I S T I C S ------------------------------------------------
-
-           [Note: Time in seconds,  Data in megabytes]
-
-                   Prep7  Solution     Post1    Post26     Total
-
-     No. Trips         1         1         1         0         1
-
-    T     Wall     4.846E-02  95.1     1.250E-03  0.00      98.0    
-    i C Master     0.193      98.3     4.197E-03  0.00      99.5    
-    m P WrkMin      0.00      94.6      0.00      0.00      94.8    
-    e U WrkMax      0.00      94.8      0.00      0.00      95.0    
-
-    M    Calls         6    364045         6         0    365586
-    P  MB Sent     4.578E-05 3.042E+03 4.578E-05  0.00     3.282E+03
-    I  Max Len     7.629E-06  2.78     7.629E-06  0.00      2.78    
-
-    S W  Calls         6    173513         6         0    174275
-    E A Master     9.470E-06  7.90     6.484E-06  0.00      7.93    
-    N L WrkMin      0.00      2.09      0.00      0.00      2.10    
-    D L WrkMax      0.00      7.10      0.00      0.00      7.11    
-
-    R W  Calls         0    132821         0         0    133493
-    E A Master      0.00      8.18      0.00      0.00      8.21    
-    C L WrkMin      0.00      2.16      0.00      0.00      2.22    
-    V L WrkMax      0.00      6.83      0.00      0.00      6.88    
-
-    B W  Calls         0      6272         0         0      6284
-    A A Master      0.00     1.292E-02  0.00      0.00     3.136E-02
-    R L WrkMin      0.00     0.122      0.00      0.00     0.166    
-    R L WrkMax      0.00     0.248      0.00      0.00     0.295    
-
-    A W  Calls         0     47962         0         0     47970
-    L A Master      0.00      7.27      0.00      0.00      7.28    
-    L L WrkMin      0.00      11.7      0.00      0.00      11.7    
-    R L WrkMax      0.00      29.7      0.00      0.00      29.7    
-
-    P W  Calls         0     10608         0         0     10695
-    R A Master      0.00     9.422E-02  0.00      0.00     9.450E-02
-    O L WrkMin      0.00     9.846E-02  0.00      0.00     0.100    
-    B L WrkMax      0.00     0.112      0.00      0.00     0.113    
-
-    M   Master       ---       ---       ---       ---      169.    
-    e   Sl Min       ---       ---       ---       ---      143.    
-    m   Sl Max       ---       ---       ---       ---      152.    
-         Total       ---       ---       ---       ---      608.    
-
-    --- S O L U T I O N   S T A T I S T I C S --------------------------------------
-
-                TotSolve
-
-     No. Trips         2
-
-    T     Wall      93.8    
-    i C Master      94.4    
-    m P WrkMin      94.0    
-    e U WrkMax      94.0    
-
-    M    Calls    359976
-    P  MB Sent     2.934E+03
-    I  Max Len      2.78    
-
-    S W  Calls    171521
-    E A Master      7.89    
-    N L WrkMin      2.08    
-    D L WrkMax      7.05    
-
-    R W  Calls    131111
-    E A Master      8.10    
-    C L WrkMin      2.08    
-    V L WrkMax      6.76    
-
-    B W  Calls      6272
-    A A Master     1.292E-02
-    R L WrkMin     0.122    
-    R L WrkMax     0.248    
-
-    A W  Calls     47486
-    L A Master      7.14    
-    L L WrkMin      11.6    
-    R L WrkMax      29.5    
-
-    P W  Calls     10582
-    R A Master     9.409E-02
-    O L WrkMin     9.753E-02
-    B L WrkMax     0.111    
-
-                   Check  DomOrder   Objects Form&Assm    Solver    Output
-
-     No. Trips         3         1         4       160       120        40
-
-    T     Wall     0.120     1.990E-02 0.133      42.7      7.38      5.83    
-    i C Master     0.350     7.978E-02 0.371      43.2      7.27      5.85    
-    m P WrkMin      0.00      0.00     0.138      42.8      8.00      5.84    
-    e U WrkMax      0.00      0.00     0.146      42.8      8.01      5.85    
-
-    M    Calls         0         0      1881     76799    179102      3639
-    P  MB Sent      0.00      0.00      44.6      208.     1.643E+03  38.6    
-    I  Max Len      0.00      0.00      2.78     0.155     0.375     0.342    
-
-    S W  Calls         0         0      1662     35879     99864       360
-    E A Master      0.00      0.00     1.326E-02  3.99     0.444     3.166E-03
-    N L WrkMin      0.00      0.00     3.908E-03 0.272      1.31     1.953E-02
-    D L WrkMax      0.00      0.00     1.951E-02  2.39      2.22     2.962E-02
-
-    R W  Calls         0         0       192     30829     50704      1920
-    E A Master      0.00      0.00     1.206E-02  4.05     0.491     2.107E-02
-    C L WrkMin      0.00      0.00     5.049E-02 0.326      1.46     9.599E-03
-    V L WrkMax      0.00      0.00     6.062E-02  2.42      2.33     1.089E-02
-
-    B W  Calls         0         0         0         0      2900         0
-    A A Master      0.00      0.00      0.00      0.00     9.397E-03  0.00    
-    R L WrkMin      0.00      0.00      0.00      0.00     0.107      0.00    
-    R L WrkMax      0.00      0.00      0.00      0.00     0.214      0.00    
-
-    A W  Calls         0         0        39      7405     28274       963
-    L A Master      0.00      0.00     1.268E-02  2.82     0.297     0.979    
-    L L WrkMin      0.00      0.00     1.528E-02  5.38      1.40     0.642    
-    R L WrkMax      0.00      0.00     1.664E-02  13.8      1.82      1.69    
-
-    P W  Calls         0         0         0      4642       723       636
-    R A Master      0.00      0.00      0.00     4.523E-02 4.251E-03 7.490E-03
-    O L WrkMin      0.00      0.00     4.400E-05 3.126E-02 3.040E-02 6.433E-03
-    B L WrkMax      0.00      0.00     6.041E-05 3.945E-02 3.358E-02 8.405E-03
-
-                 Combine
-
-     No. Trips         1
-
-    T     Wall     0.162    
-    i C Master     0.162    
-    m P WrkMin     0.162    
-    e U WrkMax     0.163    
-
-    M    Calls      1818
-    P  MB Sent      63.0    
-    I  Max Len     0.524    
-
-    S W  Calls         6
-    E A Master     8.140E-06
-    N L WrkMin     1.247E-02
-    D L WrkMax     1.357E-02
-
-    R W  Calls      1503
-    E A Master     2.156E-02
-    C L WrkMin     7.780E-04
-    V L WrkMax     1.546E-03
-
-    B W  Calls         0
-    A A Master      0.00    
-    R L WrkMin      0.00    
-    R L WrkMax      0.00    
-
-    A W  Calls       423
-    L A Master     3.362E-03
-    L L WrkMin     6.526E-02
-    R L WrkMax     9.013E-02
-
-    P W  Calls         0
-    R A Master      0.00    
-    O L WrkMin      0.00    
-    B L WrkMax      0.00    
-
-    --- N O N L I N E A R   S T A T I S T I C S ------------------------------------
-
-                LineSrch  GContact  LContact  CnvrgChk
-
-     No. Trips       120         1         2       423
-
-    T     Wall      34.8     0.593     2.330E-02  1.73    
-    i C Master      34.9      1.95     2.385E-02  1.73    
-    m P WrkMin      34.9      0.00     3.924E-02  1.23    
-    e U WrkMax      34.9      0.00     8.156E-02  1.23    
-
-    M    Calls     73019        22         7     22323
-    P  MB Sent      504.      0.00      0.00      493.    
-    I  Max Len     0.342      0.00      0.00     0.342    
-
-    S W  Calls     29310         0         0      5505
-    E A Master      3.40      0.00      0.00     4.195E-02
-    N L WrkMin     0.249      0.00      0.00     0.101    
-    D L WrkMax      1.94      0.00      0.00     0.111    
-
-    R W  Calls     30900         0         0     13176
-    E A Master      3.40      0.00      0.00     6.420E-02
-    C L WrkMin     0.232      0.00      0.00     4.992E-02
-    V L WrkMax      1.94      0.00      0.00     5.758E-02
-
-    B W  Calls      1656         0         0      1716
-    A A Master     2.231E-03  0.00      0.00     1.288E-03
-    R L WrkMin     1.597E-03  0.00      0.00     1.377E-02
-    R L WrkMax     1.842E-02  0.00      0.00     3.261E-02
-
-    A W  Calls      7859         0         0      1926
-    L A Master      2.93      0.00      0.00     2.831E-02
-    L L WrkMin      3.31      0.00      0.00     0.856    
-    R L WrkMax      11.2      0.00      0.00     0.903    
-
-    P W  Calls      4122        22         7         0
-    R A Master     3.510E-02 9.448E-05 4.402E-05  0.00    
-    O L WrkMin     2.484E-02  0.00     4.388E-05  0.00    
-    B L WrkMax     3.044E-02  0.00     4.836E-05  0.00    
-
-    --- S O L V E R   S T A T I S T I C S ------------------------------------------
-
-    Solver: Sparse               (Method = DSP)
-    Memory Option: In-Core            
-    Number Equations Solved:             12114
-    Solver Computation Rate:       33.2 GFLOPS
-    Solver Effective I/O Rate:        0.00 GB/sec
-    Solver Partial Pivoting Tolerance:   0.00000E+00
-
-                Assembly     Input     Order    Factor     Solve
-
-     No. Trips       120       121         1       120       120
-
-    T     Wall      2.87      1.79     2.011E-02  2.15     0.190    
-    i C Master      2.87      1.80     2.016E-02  2.04     0.191    
-    m P WrkMin      3.48      1.79     2.028E-02  2.18     0.206    
-    e U WrkMax      3.48      1.79     2.029E-02  2.18     0.209    
-
-    M    Calls     22319     16800       279    111120      7680
-    P  MB Sent      124.      842.      6.46      497.      99.7    
-    I  Max Len     4.118E-02 0.375     0.308     0.261     9.242E-02
-
-    S W  Calls      9720      6480       132     73920      4200
-    E A Master     0.190     0.118     8.352E-04 9.365E-02 8.480E-03
-    N L WrkMin      1.01     0.227     1.158E-03 3.593E-02 3.958E-03
-    D L WrkMax      1.76     0.343     1.736E-03 6.215E-02 4.908E-03
-
-    R W  Calls     10800      5640        53     23640      3720
-    E A Master     0.221     3.086E-02 6.026E-04 0.179     1.588E-02
-    C L WrkMin      1.00     0.182     2.055E-03 0.151     1.283E-02
-    V L WrkMax      1.77     0.337     3.088E-03 0.197     2.827E-02
-
-    B W  Calls       840      2040        20         0         0
-    A A Master     8.340E-04 8.518E-03 4.559E-05  0.00      0.00    
-    R L WrkMin     9.248E-04 0.105     7.474E-04  0.00      0.00    
-    R L WrkMax     4.329E-03 0.211     9.809E-04  0.00      0.00    
-
-    A W  Calls       959      2520        74     13560      1680
-    L A Master     6.125E-02 2.641E-02 1.717E-03 0.142     2.193E-02
-    L L WrkMin     0.596     0.338     3.203E-03 0.345     4.028E-02
-    R L WrkMax     0.664     0.583     3.893E-03 0.452     5.637E-02
-
-    P W  Calls         0       120         0         0         0
-    R A Master      0.00     5.502E-04  0.00      0.00      0.00    
-    O L WrkMin      0.00     4.892E-04  0.00     2.643E-02  0.00    
-    B L WrkMax      0.00     5.925E-04  0.00     2.969E-02  0.00    
 
     +------------------ E N D   M A P D L   S T A T I S T I C S -------------------+
 
@@ -3260,7 +2927,7 @@ directory and print the contents. Remove the ``solve.out`` file.
      |                                                                             |
      |-----------------------------------------------------------------------------|
      |                                                                             |
-     |  Ansys MAPDL 2023 R2         Build 23.2BETA     UP20230514    LINUX x64     |
+     |  Ansys MAPDL 2023 R2         Build 23.2         UP20230515    LINUX x64     |
      |                                                                             |
      |-----------------------------------------------------------------------------|
      |                                                                             |
@@ -3271,8 +2938,8 @@ directory and print the contents. Remove the ``solve.out`` file.
      |                                                                             |
      |-----------------------------------------------------------------------------|
      |                                                                             |
-     |        CP Time      (sec) =         99.505       Time  =  12:55:30          |
-     |        Elapsed Time (sec) =         98.000       Date  =  05/19/2023        |
+     |        CP Time      (sec) =        101.244       Time  =  17:06:23          |
+     |        Elapsed Time (sec) =         99.000       Date  =  05/22/2023        |
      |                                                                             |
      *-----------------------------------------------------------------------------*
 
@@ -3301,7 +2968,7 @@ Close the Mechanical instance.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 1 minutes  51.893 seconds)
+   **Total running time of the script:** ( 1 minutes  55.417 seconds)
 
 
 .. _sphx_glr_download_examples_gallery_examples_technology_showcase_example_05_td_026.py:
