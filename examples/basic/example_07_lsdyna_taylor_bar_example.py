@@ -150,7 +150,7 @@ Graphics.Camera.ViewVector = Vector3D(0.5358281613965048,
 Graphics.Camera.UpVector = Vector3D(-0.59927496479653264,
                                      0.39095266724498329,
                                      0.69858823962485084)
-                                     
+
 Graphics.Camera.SceneHeight = Quantity(14.66592829617538, 'mm')
 Graphics.Camera.SceneWidth = Quantity(8.4673776497126063, 'mm')
 
