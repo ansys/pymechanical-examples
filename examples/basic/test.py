@@ -1,5 +1,5 @@
-import os
 import json
+import os
 
 # Import Taylor bar geometry
 geometry_import_group = Model.GeometryImportGroup
