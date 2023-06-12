@@ -140,9 +140,17 @@ eps_max = eps.Maximum
 eps_min = eps.Minimum
 
 # Set Camera
-Graphics.Camera.FocalPoint = Point([9.0521184381880495, 2.9680547361873595, -11.52925245328758], 'mm')
-Graphics.Camera.ViewVector = Vector3D(0.5358281613965048, -0.45245539014067604, 0.71286204933850261)
-Graphics.Camera.UpVector = Vector3D(-0.59927496479653264, 0.39095266724498329, 0.69858823962485084)
+Graphics.Camera.FocalPoint = Point([9.0521184381880495,
+                                    2.9680547361873595,
+                                    -11.52925245328758], 'mm')
+
+Graphics.Camera.ViewVector = Vector3D(0.5358281613965048,
+                                      -0.45245539014067604,
+                                      0.71286204933850261)
+Graphics.Camera.UpVector = Vector3D(-0.59927496479653264,
+                                     0.39095266724498329,
+                                     0.69858823962485084)
+                                     
 Graphics.Camera.SceneHeight = Quantity(14.66592829617538, 'mm')
 Graphics.Camera.SceneWidth = Quantity(8.4673776497126063, 'mm')
 
