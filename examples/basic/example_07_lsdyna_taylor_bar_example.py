@@ -72,7 +72,7 @@ mechanical.run_python_script(f"mat_file_path='{mat_file_path}'")
 result = mechanical.run_python_script("part_file_path")
 print(f"part_file_path on server: {result}")
 
-mech_act_code = '''
+mech_act_code = """
 import os
 import json
 
@@ -162,7 +162,7 @@ dir_deformation_details = {
 }
 
 json.dumps(dir_deformation_details)
-'''
+"""
 
 output = mechanical.run_python_script(mech_act_code)
 print(output)
@@ -194,7 +194,9 @@ solve_out_path = get_solve_out_path(mechanical)
 if solve_out_path != "":
     current_working_directory = os.getcwd()
 
-    local_file_path_list = mechanical.download(solve_out_path, target_dir=current_working_directory)
+    local_file_path_list = mechanical.download(
+        solve_out_path, target_dir=current_working_directory
+    )
     solve_out_local_path = local_file_path_list[0]
     print(f"Local solve.out path : {solve_out_local_path}")
 
