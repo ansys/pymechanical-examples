@@ -155,7 +155,9 @@ Graphics.Camera.SceneHeight = Quantity(14.66592829617538, 'mm')
 Graphics.Camera.SceneWidth = Quantity(8.4673776497126063, 'mm')
 
 # Set Scale factor
-Graphics.ViewOptions.ResultPreference.DeformationScaling = MechanicalEnums.Graphics.DeformationScaling.True
+true_scale = MechanicalEnums.Graphics.DeformationScaling.True
+Graphics.ViewOptions.ResultPreference.DeformationScaling = true_scale
+
 Graphics.ViewOptions.ResultPreference.DeformationScaleMultiplier = 1
 
 # Export an animation
