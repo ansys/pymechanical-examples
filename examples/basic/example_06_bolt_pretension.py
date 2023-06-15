@@ -403,7 +403,7 @@ print(output)
 # Set the ``image_dir`` for later use.
 # Make the variable compatible for Windows, Linux, and Docker containers.
 
-#image_directory_modified = project_directory.replace("\\", "\\\\")
+# image_directory_modified = project_directory.replace("\\", "\\\\")
 mechanical.run_python_script(f"image_dir=ExtAPI.DataModel.AnalysisList[0].WorkingDir")
 
 
@@ -419,7 +419,7 @@ print(f"Images are stored on the server at: {result_image_dir_server}")
 
 
 def get_image_path(image_name):
-    return os.path.join(result_image_dir_server,image_name)
+    return os.path.join(result_image_dir_server, image_name)
 
 
 def display_image(path):
