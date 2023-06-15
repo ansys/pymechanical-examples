@@ -15,11 +15,10 @@ Deformation, equivalent sresses, contact and bolt results are then post-processe
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~
 import os
 
-from matplotlib import image as mpimg
-from matplotlib import pyplot as plt
-
 from ansys.mechanical.core import launch_mechanical
 from ansys.mechanical.core.examples import download_file
+from matplotlib import image as mpimg
+from matplotlib import pyplot as plt
 
 ###############################################################################
 # Launch Mechanical
@@ -431,6 +430,7 @@ def display_image(path):
     plt.imshow(image1)
     plt.show()
 
+
 image_name = "contact_status_3.png"
 image_path_server = get_image_path(image_name)
 
@@ -451,6 +451,7 @@ if image_path_server != "":
 # Download the ``solve.out`` file from the server to the current working
 # directory and print the contents. Remove the ``solve.out`` file.
 
+
 def get_solve_out_path(mechanical):
     """Get the solve out path and return."""
     solve_out_path = ""
@@ -461,11 +462,13 @@ def get_solve_out_path(mechanical):
 
     return solve_out_path
 
+
 def write_file_contents_to_console(path):
     """Write file contents to console."""
     with open(path, "rt") as file:
         for line in file:
             print(line, end="")
+
 
 solve_out_path = get_solve_out_path(mechanical)
 
