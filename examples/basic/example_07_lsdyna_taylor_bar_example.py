@@ -207,7 +207,7 @@ if solve_out_path != "":
     local_file_path_list = mechanical.download(
         solve_out_path, target_dir=current_working_directory
     )
-    if len(local_file_path_list)!=0:
+    if len(local_file_path_list) != 0:
         solve_out_local_path = local_file_path_list[0]
         print(f"Local solve.out path : {solve_out_local_path}")
 
