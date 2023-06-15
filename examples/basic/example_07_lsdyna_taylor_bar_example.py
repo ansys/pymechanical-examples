@@ -90,10 +90,10 @@ ExtAPI.Application.ActiveUnitSystem = MechanicalUnitSystem.StandardNMMton
 ExtAPI.Application.ActiveAngleUnit = AngleUnitType.Radian
 
 MAT = ExtAPI.DataModel.Project.Model.Materials
-MAT.Import(mat_file_path)
+#MAT.Import(mat_file_path)
 
 # Assign the material
-ExtAPI.DataModel.Project.Model.Geometry.Children[0].Children[0].Material = "Bullet"
+#ExtAPI.DataModel.Project.Model.Geometry.Children[0].Children[0].Material = "Bullet"
 
 # Add Coordinate system
 
@@ -162,9 +162,9 @@ Graphics.ViewOptions.ResultPreference.DeformationScaleMultiplier = 1
 
 # Export an animation
 anim_file_path = os.path.join(project_directory, "taylor_bar.avi")
-eps.ExportAnimation(anim_file_path,
-                    GraphicsAnimationExportFormat.AVI,
-                    Ansys.Mechanical.Graphics.AnimationExportSettings(2000.0, 1000.0))
+#eps.ExportAnimation(anim_file_path,
+#                    GraphicsAnimationExportFormat.AVI,
+#                    Ansys.Mechanical.Graphics.AnimationExportSettings(2000.0, 1000.0))
 
 dir_deformation_details = {
 "Minimum": str(eps_max),
@@ -207,12 +207,13 @@ if solve_out_path != "":
     local_file_path_list = mechanical.download(
         solve_out_path, target_dir=current_working_directory
     )
-    solve_out_local_path = local_file_path_list[0]
-    print(f"Local solve.out path : {solve_out_local_path}")
+    if len(local_file_path_list)!=0:
+        solve_out_local_path = local_file_path_list[0]
+        print(f"Local solve.out path : {solve_out_local_path}")
 
-    write_file_contents_to_console(solve_out_local_path)
+        write_file_contents_to_console(solve_out_local_path)
 
-    os.remove(solve_out_local_path)
+        os.remove(solve_out_local_path)
 
 ###########################################################
 # Close Mechanical
