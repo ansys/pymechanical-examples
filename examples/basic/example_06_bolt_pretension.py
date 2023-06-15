@@ -98,19 +98,6 @@ result = mechanical.run_python_script("part_file_path")
 print(f"part_file_path on server: {result}")
 
 ###################################################################################
-# Initialize the variable needed for the image directory
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-# Set the ``image_dir`` for later use.
-# Make the variable compatible for Windows, Linux, and Docker containers.
-
-image_directory_modified = project_directory.replace("\\", "\\\\")
-mechanical.run_python_script(f"image_dir='{image_directory_modified}'")
-
-# Verify the path for image directory.
-result_image_dir_server = mechanical.run_python_script(f"image_dir")
-print(f"Images are stored on the server at: {result_image_dir_server}")
-
-###################################################################################
 # Execute the script
 # ~~~~~~~~~~~~~~~~~~
 # Run the Mechanical script to attach the geometry and set up and solve the
@@ -411,6 +398,20 @@ json.dumps(my_results_details)
 )
 print(output)
 
+###################################################################################
+# Initialize the variable needed for the image directory
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# Set the ``image_dir`` for later use.
+# Make the variable compatible for Windows, Linux, and Docker containers.
+
+#image_directory_modified = project_directory.replace("\\", "\\\\")
+mechanical.run_python_script(f"image_dir=ExtAPI.DataModel.AnalysisList[0].WorkingDir")
+
+
+# Verify the path for image directory.
+result_image_dir_server = mechanical.run_python_script(f"image_dir")
+print(f"Images are stored on the server at: {result_image_dir_server}")
+
 ###############################################################################
 # Download the image and plot
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -419,7 +420,7 @@ print(output)
 
 
 def get_image_path(image_name):
-    return result_image_dir_server + "StaticStructural" + image_name
+    return os.path.join(result_image_dir_server,image_name)
 
 
 def display_image(path):
@@ -430,7 +431,7 @@ def display_image(path):
     plt.imshow(image1)
     plt.show()
 
-image_name = "\contact_status_3.png"
+image_name = "contact_status_3.png"
 image_path_server = get_image_path(image_name)
 
 if image_path_server != "":
