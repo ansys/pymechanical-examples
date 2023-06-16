@@ -34,6 +34,8 @@ import os
 
 from ansys.mechanical.core import launch_mechanical
 from ansys.mechanical.core.examples import download_file
+from matplotlib import image as mpimg
+from matplotlib import pyplot as plt
 
 ###############################################################################
 # Launch Mechanical
@@ -113,6 +115,8 @@ print(f"part_file_path on server: {result}")
 output = mechanical.run_python_script(
     """
 import json
+import os
+import context_menu
 
 # Section 1 Reads Geometry and Material info
 geometry_import_group_11 = Model.GeometryImportGroup
@@ -129,6 +133,7 @@ geometry_import_12.Import(part_file_path,geometry_import_12_format,geometry_impo
 #MAT.Import(mat_Steel_file_path)
 
 # Section 2 Set up the Unit System.
+ExtAPI.Application.ScriptByName("jscript").CallJScript("doGraphicsFit")
 ExtAPI.Application.ActiveUnitSystem = MechanicalUnitSystem.StandardNMM
 
 # Section 3 Store all main tree nodes as variables.
@@ -307,6 +312,28 @@ CONT_PRES2.DisplayTime=Quantity('4 [s]')
 STAT_STRUC_SOLN.Solve(True)
 STAT_STRUC_SS=STAT_STRUC_SOLN.Status
 
+# Section 14 Store post-processing images
+
+# Front View
+# context_menu.DoGraphicsFrontView(ExtAPI)
+
+mechdir = STAT_STRUC.Children[0].SolverFilesDirectory
+export_path = os.path.join(mechdir, "total_deformation.png")
+TOT_DEF.Activate()
+Graphics.ExportImage(export_path, GraphicsImageExportFormat.PNG)
+
+export_path2 = os.path.join(mechdir, "stress.png")
+NORM_STRS1.Activate()
+Graphics.ExportImage(export_path2, GraphicsImageExportFormat.PNG)
+
+export_path3 = os.path.join(mechdir, "contact_pres.png")
+CONT_PRES1.Activate()
+Graphics.ExportImage(export_path3, GraphicsImageExportFormat.PNG)
+
+export_path4 = os.path.join(mechdir, "contact_pres2.png")
+CONT_PRES2.Activate()
+Graphics.ExportImage(export_path4, GraphicsImageExportFormat.PNG)
+
 my_results_details = {
     "Total_Deformation": str(TOT_DEF.Maximum),
     "Normal_Stress1": str(NORM_STRS1.Minimum),
@@ -318,6 +345,52 @@ json.dumps(my_results_details)
 """
 )
 print(output)
+
+###################################################################################
+# Initialize the variable needed for the image directory
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# Set the ``image_dir`` for later use.
+# Make the variable compatible for Windows, Linux, and Docker containers.
+
+# image_directory_modified = project_directory.replace("\\", "\\\\")
+mechanical.run_python_script(f"image_dir=ExtAPI.DataModel.AnalysisList[0].WorkingDir")
+
+
+# Verify the path for image directory.
+result_image_dir_server = mechanical.run_python_script(f"image_dir")
+print(f"Images are stored on the server at: {result_image_dir_server}")
+
+###############################################################################
+# Download the image and plot
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# Download one image file from the server to the current working directory and plot
+# using matplotlib.
+
+
+def get_image_path(image_name):
+    return os.path.join(result_image_dir_server, image_name)
+
+def display_image(path):
+    print(f"Printing {path} using matplotlib")
+    image1 = mpimg.imread(path)
+    plt.figure(figsize=(15, 15))
+    plt.axis("off")
+    plt.imshow(image1)
+    plt.show()
+
+image_name = "stress.png"
+image_path_server = get_image_path(image_name)
+
+if image_path_server != "":
+    current_working_directory = os.getcwd()
+
+    local_file_path_list = mechanical.download(
+        image_path_server, target_dir=current_working_directory
+    )
+    image_local_path = local_file_path_list[0]
+    print(f"Local image path : {image_local_path}")
+
+    display_image(image_local_path)
 
 ###############################################################################
 # Download output file from solve and print contents
@@ -336,13 +409,11 @@ def get_solve_out_path(mechanical):
 
     return solve_out_path
 
-
 def write_file_contents_to_console(path):
     """Write file contents to console."""
     with open(path, "rt") as file:
         for line in file:
             print(line, end="")
-
 
 solve_out_path = get_solve_out_path(mechanical)
 
