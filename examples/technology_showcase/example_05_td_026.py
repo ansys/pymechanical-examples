@@ -314,7 +314,6 @@ FRIC_SUP03.Name = "Boot_Radial_BC"
 TOT_DEF = STAT_STRUC.Solution.AddTotalDeformation()
 TOT_DEF.Location = RUBBER_BODIES30
 
-# EQV_STRS = STAT_STRUC_SOLN.AddEquivalentStress()
 EQV_STRS = STAT_STRUC.Solution.AddEquivalentStress()
 EQV_STRS.Location = RUBBER_BODIES30
 
