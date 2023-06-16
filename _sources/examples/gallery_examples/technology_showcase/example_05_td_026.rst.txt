@@ -114,7 +114,7 @@ Make this variable compatible for Windows, Linux, and Docker containers.
 
  .. code-block:: none
 
-    project directory = /tmp/ANSYS.root.1/AnsysMech29A1/Project_Mech_Files/
+    project directory = /tmp/ANSYS.root.1/AnsysMech5DE4/Project_Mech_Files/
 
 
 
@@ -153,7 +153,7 @@ Download the required file. Print the file path for the geometry file.
  .. code-block:: none
 
     Downloaded the geometry file to: /home/runner/.local/share/ansys_mechanical_core/examples/example_05_td26_Rubber_Boot_Seal.agdb
-    Uploading example_05_td26_Rubber_Boot_Seal.agdb to 127.0.0.1:10000:/tmp/ANSYS.root.1/AnsysMech29A1/Project_Mech_Files/.:   0%|          | 0.00/3.02M [00:00<?, ?B/s]    Uploading example_05_td26_Rubber_Boot_Seal.agdb to 127.0.0.1:10000:/tmp/ANSYS.root.1/AnsysMech29A1/Project_Mech_Files/.: 100%|##########| 3.02M/3.02M [00:00<00:00, 526MB/s]
+    Uploading example_05_td26_Rubber_Boot_Seal.agdb to 127.0.0.1:10000:/tmp/ANSYS.root.1/AnsysMech5DE4/Project_Mech_Files/.:   0%|          | 0.00/3.02M [00:00<?, ?B/s]    Uploading example_05_td26_Rubber_Boot_Seal.agdb to 127.0.0.1:10000:/tmp/ANSYS.root.1/AnsysMech5DE4/Project_Mech_Files/.: 100%|##########| 3.02M/3.02M [00:00<00:00, 545MB/s]
 
     ''
 
@@ -195,8 +195,8 @@ Download the required files. Print the file path for the material file.
  .. code-block:: none
 
     Downloaded the material file to: /home/runner/.local/share/ansys_mechanical_core/examples/example_05_Boot_Mat.xml
-    Uploading example_05_Boot_Mat.xml to 127.0.0.1:10000:/tmp/ANSYS.root.1/AnsysMech29A1/Project_Mech_Files/.:   0%|          | 0.00/3.20k [00:00<?, ?B/s]    Uploading example_05_Boot_Mat.xml to 127.0.0.1:10000:/tmp/ANSYS.root.1/AnsysMech29A1/Project_Mech_Files/.: 100%|##########| 3.20k/3.20k [00:00<00:00, 11.3MB/s]
-    part_file_path on server: /tmp/ANSYS.root.1/AnsysMech29A1/Project_Mech_Files/example_05_td26_Rubber_Boot_Seal.agdb
+    Uploading example_05_Boot_Mat.xml to 127.0.0.1:10000:/tmp/ANSYS.root.1/AnsysMech5DE4/Project_Mech_Files/.:   0%|          | 0.00/3.20k [00:00<?, ?B/s]    Uploading example_05_Boot_Mat.xml to 127.0.0.1:10000:/tmp/ANSYS.root.1/AnsysMech5DE4/Project_Mech_Files/.: 100%|##########| 3.20k/3.20k [00:00<00:00, 8.60MB/s]
+    part_file_path on server: /tmp/ANSYS.root.1/AnsysMech5DE4/Project_Mech_Files/example_05_td26_Rubber_Boot_Seal.agdb
 
 
 
@@ -517,7 +517,7 @@ directory and print the contents. Remove the ``solve.out`` file.
 
  .. code-block:: none
 
-    Downloading 127.0.0.1:10000:/tmp/ANSYS.root.1/AnsysMech29A1/Project_Mech_Files/StaticStructural/solve.out to /home/runner/work/pymechanical-examples/pymechanical-examples/examples/technology_showcase/solve.out:   0%|          | 0.00/133k [00:00<?, ?B/s]    Downloading 127.0.0.1:10000:/tmp/ANSYS.root.1/AnsysMech29A1/Project_Mech_Files/StaticStructural/solve.out to /home/runner/work/pymechanical-examples/pymechanical-examples/examples/technology_showcase/solve.out: 100%|##########| 133k/133k [00:00<00:00, 2.70GB/s]
+    Downloading 127.0.0.1:10000:/tmp/ANSYS.root.1/AnsysMech5DE4/Project_Mech_Files/StaticStructural/solve.out to /home/runner/work/pymechanical-examples/pymechanical-examples/examples/technology_showcase/solve.out:   0%|          | 0.00/133k [00:00<?, ?B/s]    Downloading 127.0.0.1:10000:/tmp/ANSYS.root.1/AnsysMech5DE4/Project_Mech_Files/StaticStructural/solve.out to /home/runner/work/pymechanical-examples/pymechanical-examples/examples/technology_showcase/solve.out: 100%|##########| 133k/133k [00:00<00:00, 2.26GB/s]
 
      Ansys Mechanical Enterprise                       
 
@@ -592,13 +592,13 @@ directory and print the contents. Remove the ``solve.out`` file.
       DISTRIBUTED MEMORY PARALLEL REQUESTED
            4 PARALLEL PROCESSES REQUESTED WITH SINGLE THREAD PER PROCESS
         TOTAL OF     4 CORES REQUESTED
-      INPUT FILE NAME              = /tmp/ANSYS.root.1/AnsysMech29A1/Project_Mech_Files/StaticStructural/dummy.dat
-      OUTPUT FILE NAME             = /tmp/ANSYS.root.1/AnsysMech29A1/Project_Mech_Files/StaticStructural/solve.out
+      INPUT FILE NAME              = /tmp/ANSYS.root.1/AnsysMech5DE4/Project_Mech_Files/StaticStructural/dummy.dat
+      OUTPUT FILE NAME             = /tmp/ANSYS.root.1/AnsysMech5DE4/Project_Mech_Files/StaticStructural/solve.out
       START-UP FILE MODE           = NOREAD
       STOP FILE MODE               = NOREAD
 
      RELEASE= 2023 R2              BUILD= 23.2      UP20230530   VERSION=LINUX x64   
-     CURRENT JOBNAME=file0  15:03:54  JUN 16, 2023 CP=      0.223
+     CURRENT JOBNAME=file0  16:00:03  JUN 16, 2023 CP=      0.227
 
 
      PARAMETER _DS_PROGRESS =     999.0000000    
@@ -607,11 +607,11 @@ directory and print the contents. Remove the ``solve.out`` file.
 
 
 
-     *** NOTE ***                            CP =       0.275   TIME= 15:03:54
+     *** NOTE ***                            CP =       0.282   TIME= 16:00:03
      The /CONFIG,NOELDB command is not valid in a distributed memory         
      parallel solution.  Command is ignored.                                 
 
-     *GET  _WALLSTRT  FROM  ACTI  ITEM=TIME WALL  VALUE=  15.0650000    
+     *GET  _WALLSTRT  FROM  ACTI  ITEM=TIME WALL  VALUE=  16.0008333    
 
      TITLE= 
      --Static Structural                                                           
@@ -620,12 +620,12 @@ directory and print the contents. Remove the ``solve.out`` file.
      SET PARAMETER DIMENSIONS ON  _WB_PROJECTSCRATCH_DIR
       TYPE=STRI  DIMENSIONS=      248        1        1
 
-     PARAMETER _WB_PROJECTSCRATCH_DIR(1) = /tmp/ANSYS.root.1/AnsysMech29A1/Project_Mech_Files/StaticStructural/
+     PARAMETER _WB_PROJECTSCRATCH_DIR(1) = /tmp/ANSYS.root.1/AnsysMech5DE4/Project_Mech_Files/StaticStructural/
 
      SET PARAMETER DIMENSIONS ON  _WB_SOLVERFILES_DIR
       TYPE=STRI  DIMENSIONS=      248        1        1
 
-     PARAMETER _WB_SOLVERFILES_DIR(1) = /tmp/ANSYS.root.1/AnsysMech29A1/Project_Mech_Files/StaticStructural/
+     PARAMETER _WB_SOLVERFILES_DIR(1) = /tmp/ANSYS.root.1/AnsysMech5DE4/Project_Mech_Files/StaticStructural/
 
      SET PARAMETER DIMENSIONS ON  _WB_USERFILES_DIR
       TYPE=STRI  DIMENSIONS=      248        1        1
@@ -646,7 +646,7 @@ directory and print the contents. Remove the ``solve.out`` file.
 
      *** MAPDL - ENGINEERING ANALYSIS SYSTEM  RELEASE 2023 R2          23.2     ***
      Ansys Mechanical Enterprise                       
-     00000000  VERSION=LINUX x64     15:03:54  JUN 16, 2023 CP=      0.279
+     00000000  VERSION=LINUX x64     16:00:03  JUN 16, 2023 CP=      0.286
 
      --Static Structural                                                           
 
@@ -714,7 +714,7 @@ directory and print the contents. Remove the ``solve.out`` file.
      *** Create a component for all remote displacements ***
 
 
-     ***** ROUTINE COMPLETED *****  CP =         0.421
+     ***** ROUTINE COMPLETED *****  CP =         0.434
 
 
      --- Number of total nodes = 4254
@@ -725,7 +725,7 @@ directory and print the contents. Remove the ``solve.out`` file.
      --- Number of condensed parts = 0
      --- Number of total elements = 9275
 
-     *GET  _WALLBSOL  FROM  ACTI  ITEM=TIME WALL  VALUE=  15.0650000    
+     *GET  _WALLBSOL  FROM  ACTI  ITEM=TIME WALL  VALUE=  16.0008333    
      ****************************************************************************
      *************************    SOLUTION       ********************************
      ****************************************************************************
@@ -846,20 +846,20 @@ directory and print the contents. Remove the ``solve.out`` file.
 
      *ENDIF
 
-     *** NOTE ***                            CP =       0.669   TIME= 15:03:54
+     *** NOTE ***                            CP =       0.708   TIME= 16:00:03
      The automatic domain decomposition logic has selected the MESH domain   
      decomposition method with 4 processes per solution.                     
 
      *****  MAPDL SOLVE    COMMAND  *****
 
-     *** WARNING ***                         CP =       0.673   TIME= 15:03:54
+     *** WARNING ***                         CP =       0.712   TIME= 16:00:03
      Element shape checking is currently inactive.  Issue SHPP,ON or         
      SHPP,WARN to reactivate, if desired.                                    
 
-     *** NOTE ***                            CP =       0.724   TIME= 15:03:54
+     *** NOTE ***                            CP =       0.739   TIME= 16:00:03
      The model data was checked and warning messages were found.             
       Please review output or errors file (                                  
-     /tmp/ANSYS.root.1/AnsysMech29A1/Project_Mech_Files/StaticStructural/fil 
+     /tmp/ANSYS.root.1/AnsysMech5DE4/Project_Mech_Files/StaticStructural/fil 
      le0.err ) for these warning messages.                                   
 
      *** SELECTION OF ELEMENT TECHNOLOGIES FOR APPLICABLE ELEMENTS ***
@@ -1019,7 +1019,7 @@ directory and print the contents. Remove the ``solve.out`` file.
 
      *** MAPDL - ENGINEERING ANALYSIS SYSTEM  RELEASE 2023 R2          23.2     ***
      Ansys Mechanical Enterprise                       
-     00000000  VERSION=LINUX x64     15:03:54  JUN 16, 2023 CP=      0.744
+     00000000  VERSION=LINUX x64     16:00:03  JUN 16, 2023 CP=      0.770
 
      --Static Structural                                                           
 
@@ -1036,19 +1036,19 @@ directory and print the contents. Remove the ``solve.out`` file.
        NEWTON-RAPHSON OPTION . . . . . . . . . . . . .PROGRAM CHOSEN   
        GLOBALLY ASSEMBLED MATRIX . . . . . . . . . . .SYMMETRIC  
 
-     *** NOTE ***                            CP =       0.874   TIME= 15:03:54
+     *** NOTE ***                            CP =       0.852   TIME= 16:00:03
      This nonlinear analysis defaults to using the full Newton-Raphson       
      solution procedure.  This can be modified using the NROPT command.      
 
      CHECK INITIAL OPEN/CLOSED STATUS OF SELECTED CONTACT ELEMENTS
           AND LIST DETAILED CONTACT PAIR INFORMATION
 
-     *** NOTE ***                            CP =       0.956   TIME= 15:03:54
+     *** NOTE ***                            CP =       0.937   TIME= 16:00:04
      Internal nodes from 4255 to 4256 are created.                           
      2 internal nodes are used for handling degrees of freedom on pilot      
      nodes of rigid target surfaces.                                         
 
-     *** NOTE ***                            CP =       1.064   TIME= 15:03:54
+     *** NOTE ***                            CP =       1.035   TIME= 16:00:04
      Internal nodes from 4255 to 4256 are created.                           
      2 internal nodes are used for handling degrees of freedom on pilot      
      nodes of rigid target surfaces.                                         
@@ -1058,11 +1058,11 @@ directory and print the contents. Remove the ``solve.out`` file.
      32 & 33).  These two pairs will be merged.  Please check the model      
      carefully.                                                              
 
-     *** WARNING ***                         CP =       1.427   TIME= 15:03:54
+     *** WARNING ***                         CP =       1.398   TIME= 16:00:04
      Overconstraint may occur for Lagrange multiplier or MPC based contact   
      algorithm.                                                              
 
-     *** WARNING ***                         CP =       1.427   TIME= 15:03:54
+     *** WARNING ***                         CP =       1.399   TIME= 16:00:04
      Boundary conditions, coupling, and/or constraint equations have been    
      applied on certain contact nodes (for example 0).                       
  
@@ -1078,7 +1078,7 @@ directory and print the contents. Remove the ``solve.out`` file.
      CONTACT PAIR ASSOCIATED WITH REAL CONSTANT 37 SPLIT INTO 2 NEW PAIRS 
      ASSOCIATED WITH REAL CONSTANTS 41 - 41
 
-     *** NOTE ***                            CP =       1.523   TIME= 15:03:54
+     *** NOTE ***                            CP =       1.496   TIME= 16:00:04
      Rotational degrees of freedom ROTX+ROTY+ROTZ have been activated for    
      pilot node 4252.                                                        
 
@@ -1087,12 +1087,12 @@ directory and print the contents. Remove the ``solve.out`` file.
      NEW TARGET ELEMENTS FROM 13821 TO 16476 WERE CREATED TO HANDLE
      THE SPLIT CONTACT PAIRS
 
-     *** NOTE ***                            CP =       1.584   TIME= 15:03:54
+     *** NOTE ***                            CP =       1.558   TIME= 16:00:04
      Internal nodes from 4255 to 4257 are created.                           
      3 internal nodes are used for handling degrees of freedom on pilot      
      nodes of rigid target surfaces.                                         
 
-     *** NOTE ***                            CP =       1.680   TIME= 15:03:54
+     *** NOTE ***                            CP =       1.630   TIME= 16:00:04
      Internal nodes from 4255 to 4257 are created.                           
      3 internal nodes are used for handling degrees of freedom on pilot      
      nodes of rigid target surfaces.                                         
@@ -1104,7 +1104,7 @@ directory and print the contents. Remove the ``solve.out`` file.
      *WARNING*: The self contact pair specified by real constant set 35 also 
      overlaps with another symmetric contact pair (e.g.  40).                
 
-     *** NOTE ***                            CP =       2.570   TIME= 15:03:55
+     *** NOTE ***                            CP =       2.519   TIME= 16:00:04
      Rigid target surface identified by real constant set 32.  The degrees   
      of freedom of the rigid surface are driven by the pilot node 4252.      
      Internal MPC will be built.                                             
@@ -1117,7 +1117,7 @@ directory and print the contents. Remove the ``solve.out`` file.
      ****************************************
   
 
-     *** NOTE ***                            CP =       2.570   TIME= 15:03:55
+     *** NOTE ***                            CP =       2.519   TIME= 16:00:04
      Rigid-deformable contact pair identified by real constant set 33 and    
      contact element type 33 has been set up.  The degrees of freedom of     
      the rigid surface are driven by the pilot node 4252.                    
@@ -1145,7 +1145,7 @@ directory and print the contents. Remove the ``solve.out`` file.
      All target elements use a cylindrical geometry correction
      Initial penetration will be ramped during the first load step.
 
-     *** NOTE ***                            CP =       2.570   TIME= 15:03:55
+     *** NOTE ***                            CP =       2.519   TIME= 16:00:04
      Max.  Initial penetration 2.04152853 was detected between contact       
      element 7070 and target element 8371.                                   
      You may move entire target surface by : x= 0, y= 0, z= 0,to reduce      
@@ -1153,7 +1153,7 @@ directory and print the contents. Remove the ``solve.out`` file.
      ****************************************
   
 
-     *** NOTE ***                            CP =       2.570   TIME= 15:03:55
+     *** NOTE ***                            CP =       2.519   TIME= 16:00:04
      Rigid-deformable contact pair identified by real constant set 39 and    
      contact element type 33 has been set up.  The degrees of freedom of     
      the rigid surface are driven by the pilot node 4252.                    
@@ -1181,7 +1181,7 @@ directory and print the contents. Remove the ``solve.out`` file.
      All target elements use a cylindrical geometry correction
      Initial penetration will be ramped during the first load step.
 
-     *** NOTE ***                            CP =       2.570   TIME= 15:03:55
+     *** NOTE ***                            CP =       2.519   TIME= 16:00:04
      Max.  Initial penetration 2.04152853 was detected between contact       
      element 7070 and target element 8371.                                   
      You may move entire target surface by : x= -1.94952245, y=              
@@ -1189,7 +1189,7 @@ directory and print the contents. Remove the ``solve.out`` file.
      ****************************************
   
 
-     *** NOTE ***                            CP =       2.570   TIME= 15:03:55
+     *** NOTE ***                            CP =       2.519   TIME= 16:00:04
      Self Deformable- deformable contact pair identified by real constant    
      set 35 and contact element type 35 has been set up.                     
      The current pair was split from a base pair (real ID 35).               
@@ -1212,12 +1212,12 @@ directory and print the contents. Remove the ``solve.out`` file.
      The resulting pinball region                 0.82650    
      *WARNING*: Initial penetration is included.
 
-     *** NOTE ***                            CP =       2.570   TIME= 15:03:55
+     *** NOTE ***                            CP =       2.519   TIME= 16:00:04
      No contact was detected for this contact pair.                          
      ****************************************
   
 
-     *** NOTE ***                            CP =       2.570   TIME= 15:03:55
+     *** NOTE ***                            CP =       2.519   TIME= 16:00:04
      Self Deformable- deformable contact pair identified by real constant    
      set 40 and contact element type 35 has been set up.                     
      The current pair was split from a base pair (real ID 35).               
@@ -1240,12 +1240,12 @@ directory and print the contents. Remove the ``solve.out`` file.
      The resulting pinball region                 0.82650    
      *WARNING*: Initial penetration is included.
 
-     *** NOTE ***                            CP =       2.570   TIME= 15:03:55
+     *** NOTE ***                            CP =       2.519   TIME= 16:00:04
      No contact was detected for this contact pair.                          
      ****************************************
   
 
-     *** NOTE ***                            CP =       2.570   TIME= 15:03:55
+     *** NOTE ***                            CP =       2.519   TIME= 16:00:04
      Self Deformable- deformable contact pair identified by real constant    
      set 37 and contact element type 37 has been set up.                     
      The current pair was split from a base pair (real ID 37).               
@@ -1268,12 +1268,12 @@ directory and print the contents. Remove the ``solve.out`` file.
      The resulting pinball region                 0.78054    
      *WARNING*: Initial penetration is included.
 
-     *** NOTE ***                            CP =       2.570   TIME= 15:03:55
+     *** NOTE ***                            CP =       2.519   TIME= 16:00:04
      No contact was detected for this contact pair.                          
      ****************************************
   
 
-     *** NOTE ***                            CP =       2.570   TIME= 15:03:55
+     *** NOTE ***                            CP =       2.519   TIME= 16:00:04
      Self Deformable- deformable contact pair identified by real constant    
      set 41 and contact element type 37 has been set up.                     
      The current pair was split from a base pair (real ID 37).               
@@ -1296,24 +1296,24 @@ directory and print the contents. Remove the ``solve.out`` file.
      The resulting pinball region                 0.78054    
      *WARNING*: Initial penetration is included.
 
-     *** NOTE ***                            CP =       2.570   TIME= 15:03:55
+     *** NOTE ***                            CP =       2.519   TIME= 16:00:04
      No contact was detected for this contact pair.                          
      ****************************************
   
 
-     *** WARNING ***                         CP =       2.570   TIME= 15:03:55
+     *** WARNING ***                         CP =       2.519   TIME= 16:00:04
      Overconstraint may occur for Lagrange multiplier or MPC based contact   
      algorithm.                                                              
      The reasons for possible overconstraint are:                            
 
-     *** WARNING ***                         CP =       2.570   TIME= 15:03:55
+     *** WARNING ***                         CP =       2.520   TIME= 16:00:04
      Boundary conditions, coupling, and/or constraint equations have been    
      applied on certain contact nodes (for example 4253).                    
      ****************************************
   
   
 
-     *** NOTE ***                            CP =       2.626   TIME= 15:03:55
+     *** NOTE ***                            CP =       2.575   TIME= 16:00:04
      Internal nodes from 4255 to 4257 are created.                           
      3 internal nodes are used for handling degrees of freedom on pilot      
      nodes of rigid target surfaces.                                         
@@ -1364,7 +1364,7 @@ directory and print the contents. Remove the ``solve.out`` file.
      32 & 33).  These two pairs will be merged.  Please check the model      
      carefully.                                                              
 
-     *** NOTE ***                            CP =       3.373   TIME= 15:03:55
+     *** NOTE ***                            CP =       3.266   TIME= 16:00:04
      Rigid target surface identified by real constant set 32.  The degrees   
      of freedom of the rigid surface are driven by the pilot node 4252.      
      Internal MPC will be built.                                             
@@ -1377,7 +1377,7 @@ directory and print the contents. Remove the ``solve.out`` file.
      ****************************************
   
 
-     *** NOTE ***                            CP =       3.373   TIME= 15:03:55
+     *** NOTE ***                            CP =       3.266   TIME= 16:00:04
      Rigid-deformable contact pair identified by real constant set 39 and    
      contact element type 33 has been set up.  The degrees of freedom of     
      the rigid surface are driven by the pilot node 4252.                    
@@ -1405,7 +1405,7 @@ directory and print the contents. Remove the ``solve.out`` file.
      All target elements use a cylindrical geometry correction
      Initial penetration will be ramped during the first load step.
 
-     *** NOTE ***                            CP =       3.373   TIME= 15:03:55
+     *** NOTE ***                            CP =       3.267   TIME= 16:00:04
      Max.  Initial penetration 2.04152853 was detected between contact       
      element 7070 and target element 8371.                                   
      You may move entire target surface by : x= -1.94952245, y=              
@@ -1413,7 +1413,7 @@ directory and print the contents. Remove the ``solve.out`` file.
      ****************************************
   
 
-     *** NOTE ***                            CP =       3.374   TIME= 15:03:55
+     *** NOTE ***                            CP =       3.267   TIME= 16:00:04
      Rigid-deformable contact pair identified by real constant set 33 and    
      contact element type 33 has been set up.  The degrees of freedom of     
      the rigid surface are driven by the pilot node 4252.                    
@@ -1441,7 +1441,7 @@ directory and print the contents. Remove the ``solve.out`` file.
      All target elements use a cylindrical geometry correction
      Initial penetration will be ramped during the first load step.
 
-     *** NOTE ***                            CP =       3.374   TIME= 15:03:55
+     *** NOTE ***                            CP =       3.267   TIME= 16:00:04
      No contact was detected for this contact pair.                          
      ****************************************
   
@@ -1552,45 +1552,45 @@ directory and print the contents. Remove the ``solve.out`` file.
        *** ELEMENT MATRIX FORMULATION TIMES
          TYPE    NUMBER   ENAME      TOTAL CP  AVE CP
 
-            1        60  SOLID185      0.007   0.000115
-            2        60  SOLID185      0.007   0.000119
-            3       100  SOLID185      0.012   0.000117
+            1        60  SOLID185      0.007   0.000116
+            2        60  SOLID185      0.008   0.000126
+            3       100  SOLID185      0.012   0.000118
             4        80  SOLID185      0.009   0.000117
-            5       100  SOLID185      0.012   0.000116
-            6        60  SOLID185      0.007   0.000119
-            7        80  SOLID185      0.010   0.000124
-            8        60  SOLID185      0.007   0.000120
-            9        80  SOLID185      0.009   0.000117
-           10        60  SOLID185      0.007   0.000120
-           11       100  SOLID185      0.012   0.000115
-           12        60  SOLID185      0.007   0.000115
-           13        80  SOLID185      0.009   0.000116
-           14        80  SOLID185      0.009   0.000116
-           15       260  SOLID185      0.030   0.000114
-           16        60  SOLID185      0.007   0.000116
-           17        60  SOLID185      0.007   0.000121
+            5       100  SOLID185      0.012   0.000119
+            6        60  SOLID185      0.007   0.000124
+            7        80  SOLID185      0.010   0.000128
+            8        60  SOLID185      0.007   0.000124
+            9        80  SOLID185      0.010   0.000120
+           10        60  SOLID185      0.007   0.000122
+           11       100  SOLID185      0.012   0.000117
+           12        60  SOLID185      0.007   0.000118
+           13        80  SOLID185      0.009   0.000118
+           14        80  SOLID185      0.010   0.000120
+           15       260  SOLID185      0.031   0.000119
+           16        60  SOLID185      0.007   0.000117
+           17        60  SOLID185      0.008   0.000126
            18       100  SOLID185      0.012   0.000116
-           19        80  SOLID185      0.009   0.000116
-           20       100  SOLID185      0.012   0.000121
-           21        60  SOLID185      0.007   0.000125
-           22        80  SOLID185      0.010   0.000122
-           23        60  SOLID185      0.007   0.000123
-           24        80  SOLID185      0.010   0.000123
-           25        60  SOLID185      0.007   0.000121
-           26       100  SOLID185      0.012   0.000116
-           27        60  SOLID185      0.007   0.000116
-           28        80  SOLID185      0.010   0.000119
-           29        80  SOLID185      0.010   0.000121
-           30       260  SOLID185      0.030   0.000116
-           31         1  MASS21        0.000   0.000089
+           19        80  SOLID185      0.009   0.000117
+           20       100  SOLID185      0.012   0.000120
+           21        60  SOLID185      0.008   0.000131
+           22        80  SOLID185      0.010   0.000125
+           23        60  SOLID185      0.008   0.000129
+           24        80  SOLID185      0.010   0.000128
+           25        60  SOLID185      0.008   0.000125
+           26       100  SOLID185      0.012   0.000117
+           27        60  SOLID185      0.007   0.000117
+           28        80  SOLID185      0.010   0.000121
+           29        80  SOLID185      0.010   0.000122
+           30       260  SOLID185      0.031   0.000119
+           31         1  MASS21        0.000   0.000085
            32        18  TARGE170      0.000   0.000003
-           33      1320  CONTA174      0.048   0.000037
-           34        32  TARGE170      0.000   0.000006
+           33      1320  CONTA174      0.049   0.000037
+           34        32  TARGE170      0.000   0.000007
            35      1400  CONTA174      0.026   0.000019
            36      2640  TARGE170      0.004   0.000001
-           37      1400  CONTA174      0.028   0.000020
+           37      1400  CONTA174      0.027   0.000019
            38      2640  TARGE170      0.004   0.000001
-     Time at end of element matrix formulation CP = 3.77463388.              
+     Time at end of element matrix formulation CP = 3.72142196.              
 
      ALL CURRENT MAPDL DATA WRITTEN TO FILE NAME= file.rdb
       FOR POSSIBLE RESUME FROM THIS POINT
@@ -1608,15 +1608,15 @@ directory and print the contents. Remove the ``solve.out`` file.
       Total memory required for in-core solution       =    39.050 MB
       Total memory required for out-of-core solution   =    23.179 MB
 
-     *** NOTE ***                            CP =       3.866   TIME= 15:03:55
+     *** NOTE ***                            CP =       3.814   TIME= 16:00:05
      The Distributed Sparse Matrix Solver is currently running in the        
      in-core memory mode.  This memory mode uses the most amount of memory   
      in order to avoid using the hard drive as much as possible, which most  
      often results in the fastest solution time.  This mode is recommended   
      if enough physical memory is present to accommodate all of the solver   
      data.                                                                   
-     curEqn=   2923  totEqn=   2923 Job CP sec=      3.712
-          Factor Done= 100% Factor Wall sec=      0.032 rate=       3.8 GFlops
+     curEqn=   2923  totEqn=   2923 Job CP sec=      3.667
+          Factor Done= 100% Factor Wall sec=      0.040 rate=       3.0 GFlops
      Distributed sparse solver maximum pivot= 2186229.73 at node 3527 UY.    
      Distributed sparse solver minimum pivot= 47270.6013 at node 701 UY.     
      Distributed sparse solver minimum pivot in absolute value= 47270.6013   
@@ -1645,37 +1645,37 @@ directory and print the contents. Remove the ``solve.out`` file.
        *** ELEMENT RESULT CALCULATION TIMES
          TYPE    NUMBER   ENAME      TOTAL CP  AVE CP
 
-            1        60  SOLID185      0.004   0.000071
-            2        60  SOLID185      0.004   0.000071
-            3       100  SOLID185      0.007   0.000072
-            4        80  SOLID185      0.006   0.000071
-            5       100  SOLID185      0.007   0.000072
+            1        60  SOLID185      0.004   0.000073
+            2        60  SOLID185      0.004   0.000070
+            3       100  SOLID185      0.007   0.000074
+            4        80  SOLID185      0.006   0.000072
+            5       100  SOLID185      0.007   0.000071
             6        60  SOLID185      0.005   0.000077
-            7        80  SOLID185      0.006   0.000077
-            8        60  SOLID185      0.005   0.000077
-            9        80  SOLID185      0.006   0.000075
+            7        80  SOLID185      0.006   0.000078
+            8        60  SOLID185      0.005   0.000075
+            9        80  SOLID185      0.006   0.000073
            10        60  SOLID185      0.004   0.000074
-           11       100  SOLID185      0.007   0.000070
-           12        60  SOLID185      0.004   0.000070
-           13        80  SOLID185      0.006   0.000071
+           11       100  SOLID185      0.007   0.000072
+           12        60  SOLID185      0.004   0.000072
+           13        80  SOLID185      0.006   0.000072
            14        80  SOLID185      0.006   0.000071
            15       260  SOLID185      0.018   0.000070
-           16        60  SOLID185      0.004   0.000071
-           17        60  SOLID185      0.004   0.000073
-           18       100  SOLID185      0.007   0.000069
-           19        80  SOLID185      0.006   0.000071
+           16        60  SOLID185      0.004   0.000073
+           17        60  SOLID185      0.004   0.000071
+           18       100  SOLID185      0.007   0.000072
+           19        80  SOLID185      0.006   0.000072
            20       100  SOLID185      0.007   0.000073
-           21        60  SOLID185      0.005   0.000079
-           22        80  SOLID185      0.006   0.000076
-           23        60  SOLID185      0.005   0.000079
+           21        60  SOLID185      0.005   0.000076
+           22        80  SOLID185      0.006   0.000074
+           23        60  SOLID185      0.005   0.000076
            24        80  SOLID185      0.006   0.000077
-           25        60  SOLID185      0.005   0.000079
+           25        60  SOLID185      0.005   0.000078
            26       100  SOLID185      0.007   0.000071
            27        60  SOLID185      0.004   0.000071
            28        80  SOLID185      0.006   0.000073
-           29        80  SOLID185      0.006   0.000072
+           29        80  SOLID185      0.006   0.000076
            30       260  SOLID185      0.018   0.000070
-           31         1  MASS21        0.000   0.000015
+           31         1  MASS21        0.000   0.000016
            33       595  CONTA174      0.018   0.000030
            35      1320  CONTA174      0.016   0.000012
            37      1320  CONTA174      0.017   0.000013
@@ -2525,13 +2525,13 @@ directory and print the contents. Remove the ``solve.out`` file.
 
      *****  MAPDL SOLVE    COMMAND  *****
 
-     *** NOTE ***                            CP =      62.226   TIME= 15:04:54
+     *** NOTE ***                            CP =      63.398   TIME= 16:01:04
      This nonlinear analysis defaults to using the full Newton-Raphson       
      solution procedure.  This can be modified using the NROPT command.      
 
      *** MAPDL - ENGINEERING ANALYSIS SYSTEM  RELEASE 2023 R2          23.2     ***
      Ansys Mechanical Enterprise                       
-     00000000  VERSION=LINUX x64     15:04:54  JUN 16, 2023 CP=     62.275
+     00000000  VERSION=LINUX x64     16:01:04  JUN 16, 2023 CP=     63.447
 
      --Static Structural                                                           
 
@@ -2765,20 +2765,20 @@ directory and print the contents. Remove the ``solve.out`` file.
      ****************************************************
      *************** FINISHED SOLVE FOR LS 2 *************
 
-     *GET  _WALLASOL  FROM  ACTI  ITEM=TIME WALL  VALUE=  15.0855556    
+     *GET  _WALLASOL  FROM  ACTI  ITEM=TIME WALL  VALUE=  16.0219444    
 
      PRINTOUT RESUMED BY /GOP
 
      FINISH SOLUTION PROCESSING
 
 
-     ***** ROUTINE COMPLETED *****  CP =        76.994
+     ***** ROUTINE COMPLETED *****  CP =        78.534
 
 
 
      *** MAPDL - ENGINEERING ANALYSIS SYSTEM  RELEASE 2023 R2          23.2     ***
      Ansys Mechanical Enterprise                       
-     00000000  VERSION=LINUX x64     15:05:08  JUN 16, 2023 CP=     76.996
+     00000000  VERSION=LINUX x64     16:01:19  JUN 16, 2023 CP=     78.536
 
      --Static Structural                                                           
 
@@ -2786,7 +2786,7 @@ directory and print the contents. Remove the ``solve.out`` file.
 
               ***** MAPDL RESULTS INTERPRETATION (POST1) *****
 
-     *** NOTE ***                            CP =      76.996   TIME= 15:05:08
+     *** NOTE ***                            CP =      78.536   TIME= 16:01:19
      Reading results into the database (SET command) will update the current 
      displacement and force boundary conditions in the database with the     
      values from the results file for that load set.  Note that any          
@@ -2804,25 +2804,25 @@ directory and print the contents. Remove the ``solve.out`` file.
      EXIT THE MAPDL POST1 DATABASE PROCESSOR
 
 
-     ***** ROUTINE COMPLETED *****  CP =        76.999
+     ***** ROUTINE COMPLETED *****  CP =        78.539
 
 
 
      PRINTOUT RESUMED BY /GOP
 
-     *GET  _WALLDONE  FROM  ACTI  ITEM=TIME WALL  VALUE=  15.0855556    
+     *GET  _WALLDONE  FROM  ACTI  ITEM=TIME WALL  VALUE=  16.0219444    
 
      PARAMETER _PREPTIME =     0.000000000    
 
-     PARAMETER _SOLVTIME =     74.00000000    
+     PARAMETER _SOLVTIME =     76.00000000    
 
      PARAMETER _POSTTIME =     0.000000000    
 
-     PARAMETER _TOTALTIM =     74.00000000    
+     PARAMETER _TOTALTIM =     76.00000000    
 
      *GET  _DLBRATIO  FROM  ACTI  ITEM=SOLU DLBR  VALUE=  1.27537027    
 
-     *GET  _COMBTIME  FROM  ACTI  ITEM=SOLU COMB  VALUE= 0.926654502E-01
+     *GET  _COMBTIME  FROM  ACTI  ITEM=SOLU COMB  VALUE= 0.927977503E-01
 
      *GET  _SSMODE   FROM  ACTI  ITEM=SOLU SSMM  VALUE=  2.00000000    
 
@@ -2839,7 +2839,7 @@ directory and print the contents. Remove the ``solve.out`` file.
      --- Total number of nodes = 4254
      --- Total number of elements = 12091
      --- Element load balance ratio = 1.27537027
-     --- Time to combine distributed files = 9.26654502E-02
+     --- Time to combine distributed files = 9.279775031E-02
      --- Sparse memory mode = 2
      --- Number of DOF = 12114
 
@@ -2852,7 +2852,7 @@ directory and print the contents. Remove the ``solve.out`` file.
     +--------------------- M A P D L   S T A T I S T I C S ------------------------+
 
     Release: 2023 R2            Build: 23.2       Update: UP20230530   Platform: LINUX x64   
-    Date Run: 06/16/2023   Time: 15:05     Process ID: 2635
+    Date Run: 06/16/2023   Time: 16:01     Process ID: 2635
     Operating System: Ubuntu 20.04.5 LTS
 
     Processor Model: AMD EPYC 7763 64-Core Processor
@@ -2879,31 +2879,31 @@ directory and print the contents. Remove the ``solve.out`` file.
 
       Core                Machine Name   Working Directory
      -----------------------------------------------------
-         0                3830d6380fc8   /tmp/ANSYS.root.1/AnsysMech29A1/Project_Mech_Files/StaticStructural
-         1                3830d6380fc8   /tmp/ANSYS.root.1/AnsysMech29A1/Project_Mech_Files/StaticStructural
-         2                3830d6380fc8   /tmp/ANSYS.root.1/AnsysMech29A1/Project_Mech_Files/StaticStructural
-         3                3830d6380fc8   /tmp/ANSYS.root.1/AnsysMech29A1/Project_Mech_Files/StaticStructural
+         0                6d543893260d   /tmp/ANSYS.root.1/AnsysMech5DE4/Project_Mech_Files/StaticStructural
+         1                6d543893260d   /tmp/ANSYS.root.1/AnsysMech5DE4/Project_Mech_Files/StaticStructural
+         2                6d543893260d   /tmp/ANSYS.root.1/AnsysMech5DE4/Project_Mech_Files/StaticStructural
+         3                6d543893260d   /tmp/ANSYS.root.1/AnsysMech5DE4/Project_Mech_Files/StaticStructural
  
-    Latency time from master to core     1 =    1.150 microseconds
-    Latency time from master to core     2 =    1.078 microseconds
-    Latency time from master to core     3 =    0.933 microseconds
+    Latency time from master to core     1 =    1.107 microseconds
+    Latency time from master to core     2 =    1.159 microseconds
+    Latency time from master to core     3 =    0.962 microseconds
  
-    Communication speed from master to core     1 = 12196.39 MB/sec
-    Communication speed from master to core     2 = 15441.51 MB/sec
-    Communication speed from master to core     3 = 17648.16 MB/sec
+    Communication speed from master to core     1 = 12100.22 MB/sec
+    Communication speed from master to core     2 = 16614.66 MB/sec
+    Communication speed from master to core     3 = 18142.52 MB/sec
 
-    Total CPU time for main thread                    :       69.5 seconds
-    Total CPU time summed for all threads             :       77.5 seconds
+    Total CPU time for main thread                    :       70.6 seconds
+    Total CPU time summed for all threads             :       79.2 seconds
 
     Elapsed time spent obtaining a license            :        0.3 seconds
     Elapsed time spent pre-processing model (/PREP7)  :        0.0 seconds
     Elapsed time spent solution - preprocessing       :        0.7 seconds
-    Elapsed time spent computing solution             :       72.5 seconds
+    Elapsed time spent computing solution             :       74.0 seconds
     Elapsed time spent solution - postprocessing      :        0.1 seconds
     Elapsed time spent post-processing model (/POST1) :        0.0 seconds
  
     Equation solver used                              :            Sparse (symmetric)
-    Equation solver computational rate                :       42.0 Gflops
+    Equation solver computational rate                :       41.9 Gflops
 
     Sum of disk space used on all processes            :      240.7 MB
 
@@ -2933,8 +2933,8 @@ directory and print the contents. Remove the ``solve.out`` file.
      |                                                                             |
      |-----------------------------------------------------------------------------|
      |                                                                             |
-     |        CP Time      (sec) =         77.528       Time  =  15:05:08          |
-     |        Elapsed Time (sec) =         76.000       Date  =  06/16/2023        |
+     |        CP Time      (sec) =         79.162       Time  =  16:01:19          |
+     |        Elapsed Time (sec) =         77.000       Date  =  06/16/2023        |
      |                                                                             |
      *-----------------------------------------------------------------------------*
 
@@ -2963,7 +2963,7 @@ Close the Mechanical instance.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 1 minutes  28.438 seconds)
+   **Total running time of the script:** ( 1 minutes  30.415 seconds)
 
 
 .. _sphx_glr_download_examples_gallery_examples_technology_showcase_example_05_td_026.py:
