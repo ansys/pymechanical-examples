@@ -315,7 +315,7 @@ TOT_DEF.Location = RUBBER_BODIES30
 EQV_STRS = STAT_STRUC.Solution.AddEquivalentStress()
 EQV_STRS.Location = RUBBER_BODIES30
 
-# # Section 10 Set Number of Processors to 6 using DANSYS
+# Section 10 Set Number of Processors to 6 using DANSYS
 # testval2 = STAT_STRUC.SolveConfiguration.SolveProcessSettings.MaxNumberOfCores
 # STAT_STRUC.SolveConfiguration.SolveProcessSettings.MaxNumberOfCores = 6
 
