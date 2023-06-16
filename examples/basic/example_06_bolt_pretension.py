@@ -382,7 +382,7 @@ export_path2 = os.path.join(mechdir, "eqv_stress_2.png")
 Equivalent_stress_2.Activate()
 Graphics.ExportImage(export_path2, GraphicsImageExportFormat.PNG)
 
-export_path3 = os.path.join(mechdir, "contact_status_3.png")
+export_path3 = os.path.join(mechdir, "contact_status.png")
 Post_Contact_Tool.Children[0].Activate()
 Graphics.ExportImage(export_path3, GraphicsImageExportFormat.PNG)
 
@@ -431,7 +431,7 @@ def display_image(path):
     plt.show()
 
 
-image_name = "contact_status_3.png"
+image_name = "contact_status.png"
 image_path_server = get_image_path(image_name)
 
 if image_path_server != "":
