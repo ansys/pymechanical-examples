@@ -370,6 +370,7 @@ print(f"Images are stored on the server at: {result_image_dir_server}")
 def get_image_path(image_name):
     return os.path.join(result_image_dir_server, image_name)
 
+
 def display_image(path):
     print(f"Printing {path} using matplotlib")
     image1 = mpimg.imread(path)
@@ -377,6 +378,7 @@ def display_image(path):
     plt.axis("off")
     plt.imshow(image1)
     plt.show()
+
 
 image_name = "stress.png"
 image_path_server = get_image_path(image_name)
@@ -409,11 +411,13 @@ def get_solve_out_path(mechanical):
 
     return solve_out_path
 
+
 def write_file_contents_to_console(path):
     """Write file contents to console."""
     with open(path, "rt") as file:
         for line in file:
             print(line, end="")
+
 
 solve_out_path = get_solve_out_path(mechanical)
 
