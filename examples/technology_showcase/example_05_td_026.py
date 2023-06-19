@@ -354,7 +354,6 @@ print(output)
 # image_directory_modified = project_directory.replace("\\", "\\\\")
 mechanical.run_python_script(f"image_dir=ExtAPI.DataModel.AnalysisList[0].WorkingDir")
 
-
 # Verify the path for image directory.
 result_image_dir_server = mechanical.run_python_script(f"image_dir")
 print(f"Images are stored on the server at: {result_image_dir_server}")
