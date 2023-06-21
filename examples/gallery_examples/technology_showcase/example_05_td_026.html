@@ -489,6 +489,8 @@ Validated Equivalent Stress and Total Deformation results.</p>
 
 <span class="kn">from</span> <span class="nn">ansys.mechanical.core</span> <span class="kn">import</span> <span class="n">launch_mechanical</span>
 <span class="kn">from</span> <span class="nn">ansys.mechanical.core.examples</span> <span class="kn">import</span> <span class="n">download_file</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">image</span> <span class="k">as</span> <span class="n">mpimg</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
 </pre></div>
 </div>
 </section>
@@ -515,7 +517,7 @@ Make this variable compatible for Windows, Linux, and Docker containers.</p>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;project directory = </span><span class="si">{</span><a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">project_directory</span></a><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>project directory = /tmp/ANSYS.root.1/AnsysMech5DE4/Project_Mech_Files/
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>project directory = /tmp/ANSYS.root.1/AnsysMechAB8E/Project_Mech_Files/
 </pre></div>
 </div>
 </section>
@@ -539,8 +541,8 @@ Make this variable compatible for Windows, Linux, and Docker containers.</p>
 </div>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Downloaded the geometry file to: /home/runner/.local/share/ansys_mechanical_core/examples/example_05_td26_Rubber_Boot_Seal.agdb
 
-Uploading example_05_td26_Rubber_Boot_Seal.agdb to 127.0.0.1:10000:/tmp/ANSYS.root.1/AnsysMech5DE4/Project_Mech_Files/.:   0%|          | 0.00/3.02M [00:00&lt;?, ?B/s]
-Uploading example_05_td26_Rubber_Boot_Seal.agdb to 127.0.0.1:10000:/tmp/ANSYS.root.1/AnsysMech5DE4/Project_Mech_Files/.: 100%|##########| 3.02M/3.02M [00:00&lt;00:00, 545MB/s]
+Uploading example_05_td26_Rubber_Boot_Seal.agdb to 127.0.0.1:10000:/tmp/ANSYS.root.1/AnsysMechAB8E/Project_Mech_Files/.:   0%|          | 0.00/3.02M [00:00&lt;?, ?B/s]
+Uploading example_05_td26_Rubber_Boot_Seal.agdb to 127.0.0.1:10000:/tmp/ANSYS.root.1/AnsysMechAB8E/Project_Mech_Files/.: 100%|##########| 3.02M/3.02M [00:00&lt;00:00, 968MB/s]
 
 &#39;&#39;
 </pre></div>
@@ -568,9 +570,9 @@ Uploading example_05_td26_Rubber_Boot_Seal.agdb to 127.0.0.1:10000:/tmp/ANSYS.ro
 </div>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Downloaded the material file to: /home/runner/.local/share/ansys_mechanical_core/examples/example_05_Boot_Mat.xml
 
-Uploading example_05_Boot_Mat.xml to 127.0.0.1:10000:/tmp/ANSYS.root.1/AnsysMech5DE4/Project_Mech_Files/.:   0%|          | 0.00/3.20k [00:00&lt;?, ?B/s]
-Uploading example_05_Boot_Mat.xml to 127.0.0.1:10000:/tmp/ANSYS.root.1/AnsysMech5DE4/Project_Mech_Files/.: 100%|##########| 3.20k/3.20k [00:00&lt;00:00, 8.60MB/s]
-part_file_path on server: /tmp/ANSYS.root.1/AnsysMech5DE4/Project_Mech_Files/example_05_td26_Rubber_Boot_Seal.agdb
+Uploading example_05_Boot_Mat.xml to 127.0.0.1:10000:/tmp/ANSYS.root.1/AnsysMechAB8E/Project_Mech_Files/.:   0%|          | 0.00/3.20k [00:00&lt;?, ?B/s]
+Uploading example_05_Boot_Mat.xml to 127.0.0.1:10000:/tmp/ANSYS.root.1/AnsysMechAB8E/Project_Mech_Files/.: 100%|##########| 3.20k/3.20k [00:00&lt;00:00, 16.5MB/s]
+part_file_path on server: /tmp/ANSYS.root.1/AnsysMechAB8E/Project_Mech_Files/example_05_td26_Rubber_Boot_Seal.agdb
 </pre></div>
 </div>
 </section>
@@ -581,6 +583,7 @@ analysis.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">output</span></a> <span class="o">=</span> <span class="n">mechanical</span><span class="o">.</span><span class="n">run_python_script</span><span class="p">(</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">import json</span>
+<span class="sd">import os</span>
 
 <span class="sd"># Section 1 Reads Geometry and Material info from json file</span>
 <span class="sd">geometry_import_group_11 = Model.GeometryImportGroup</span>
@@ -791,21 +794,34 @@ analysis.</p>
 <span class="sd">FRIC_SUP03.Name = &quot;Boot_Radial_BC&quot;</span>
 
 <span class="sd"># Section 9 Add Total Deformation and Equivalent stress</span>
-<span class="sd"># TOT_DEF = STAT_STRUC_SOLN.AddTotalDeformation()</span>
 <span class="sd">TOT_DEF = STAT_STRUC.Solution.AddTotalDeformation()</span>
 <span class="sd">TOT_DEF.Location = RUBBER_BODIES30</span>
 
-<span class="sd"># EQV_STRS = STAT_STRUC_SOLN.AddEquivalentStress()</span>
 <span class="sd">EQV_STRS = STAT_STRUC.Solution.AddEquivalentStress()</span>
 <span class="sd">EQV_STRS.Location = RUBBER_BODIES30</span>
 
-<span class="sd"># # Section 10 Set Number of Processors to 6 using DANSYS</span>
-<span class="sd"># testval2 = STAT_STRUC.SolveConfiguration.SolveProcessSettings.MaxNumberOfCores</span>
-<span class="sd"># STAT_STRUC.SolveConfiguration.SolveProcessSettings.MaxNumberOfCores = 6</span>
+<span class="sd"># Section 10 Set Number of Processors to 6 using DANSYS</span>
+<span class="sd">#testval2 = STAT_STRUC.SolveConfiguration.SolveProcessSettings.MaxNumberOfCores</span>
+<span class="sd">#STAT_STRUC.SolveConfiguration.SolveProcessSettings.MaxNumberOfCores = 6</span>
 
 <span class="sd"># Section 11 Solve for Normal Stiffness Value set to 1 for self contacts</span>
 <span class="sd"># between flexible rubber boot</span>
 <span class="sd">STAT_STRUC.Solution.Solve(True)</span>
+
+<span class="sd"># Section 12 Set isometric view and zoom to fit</span>
+<span class="sd">cam = Graphics.Camera</span>
+<span class="sd">cam.SetSpecificViewOrientation(ViewOrientationType.Iso)</span>
+<span class="sd">cam.SetFit()</span>
+
+<span class="sd"># Section 13 Store post-processing images</span>
+<span class="sd">mechdir = STAT_STRUC.Children[0].SolverFilesDirectory</span>
+<span class="sd">export_path = os.path.join(mechdir, &quot;total_deformation.png&quot;)</span>
+<span class="sd">TOT_DEF.Activate()</span>
+<span class="sd">Graphics.ExportImage(export_path, GraphicsImageExportFormat.PNG)</span>
+
+<span class="sd">export_path2 = os.path.join(mechdir, &quot;equivalent_stress.png&quot;)</span>
+<span class="sd">EQV_STRS.Activate()</span>
+<span class="sd">Graphics.ExportImage(export_path2, GraphicsImageExportFormat.PNG)</span>
 
 <span class="sd">my_results_details = {</span>
 <span class="sd">    &quot;Equivalent_Stress&quot;: str(EQV_STRS.Maximum),</span>
@@ -819,6 +835,71 @@ analysis.</p>
 </pre></div>
 </div>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>{&quot;Equivalent_Stress&quot;: &quot;39743.8133524605 [MPa]&quot;, &quot;Total_Deformation&quot;: &quot;10.366548434766017 [mm]&quot;}
+</pre></div>
+</div>
+</section>
+<section id="initialize-the-variable-needed-for-the-image-directory">
+<h2>Initialize the variable needed for the image directory<a class="headerlink" href="#initialize-the-variable-needed-for-the-image-directory" title="Permalink to this heading">#</a></h2>
+<p>Set the <code class="docutils literal notranslate"><span class="pre">image_dir</span></code> for later use.
+Make the variable compatible for Windows, Linux, and Docker containers.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># image_directory_modified = project_directory.replace(&quot;\\&quot;, &quot;\\\\&quot;)</span>
+<span class="n">mechanical</span><span class="o">.</span><span class="n">run_python_script</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;image_dir=ExtAPI.DataModel.AnalysisList[0].WorkingDir&quot;</span><span class="p">)</span>
+
+<span class="c1"># Verify the path for image directory.</span>
+<a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">result_image_dir_server</span></a> <span class="o">=</span> <span class="n">mechanical</span><span class="o">.</span><span class="n">run_python_script</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;image_dir&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Images are stored on the server at: </span><span class="si">{</span><a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">result_image_dir_server</span></a><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Images are stored on the server at: /tmp/ANSYS.root.1/AnsysMechAB8E/Project_Mech_Files/StaticStructural/
+</pre></div>
+</div>
+</section>
+<section id="download-the-image-and-plot">
+<h2>Download the image and plot<a class="headerlink" href="#download-the-image-and-plot" title="Permalink to this heading">#</a></h2>
+<p>Download one image file from the server to the current working directory and plot
+using matplotlib.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_image_path</span><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">image_name</span></a><span class="p">):</span>
+    <span class="k">return</span> <a href="https://docs.python.org/3/library/os.path.html#os.path.join" title="os.path.join" class="sphx-glr-backref-module-os-path sphx-glr-backref-type-py-function"><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span></a><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">result_image_dir_server</span></a><span class="p">,</span> <a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">image_name</span></a><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">display_image</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Printing </span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s2"> using matplotlib&quot;</span><span class="p">)</span>
+    <span class="n">image1</span> <span class="o">=</span> <a href="https://matplotlib.org/stable/api/image_api.html#matplotlib.image.imread" title="matplotlib.image.imread" class="sphx-glr-backref-module-matplotlib-image sphx-glr-backref-type-py-function"><span class="n">mpimg</span><span class="o">.</span><span class="n">imread</span></a><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+    <a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.figure.html#matplotlib.pyplot.figure" title="matplotlib.pyplot.figure" class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function"><span class="n">plt</span><span class="o">.</span><span class="n">figure</span></a><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">15</span><span class="p">))</span>
+    <a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.axis.html#matplotlib.pyplot.axis" title="matplotlib.pyplot.axis" class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function"><span class="n">plt</span><span class="o">.</span><span class="n">axis</span></a><span class="p">(</span><span class="s2">&quot;off&quot;</span><span class="p">)</span>
+    <a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.imshow.html#matplotlib.pyplot.imshow" title="matplotlib.pyplot.imshow" class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function"><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span></a><span class="p">(</span><span class="n">image1</span><span class="p">)</span>
+    <a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.show.html#matplotlib.pyplot.show" title="matplotlib.pyplot.show" class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function"><span class="n">plt</span><span class="o">.</span><span class="n">show</span></a><span class="p">()</span>
+
+
+<a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">image_names</span></a> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;total_deformation.png&quot;</span><span class="p">,</span> <span class="s2">&quot;equivalent_stress.png&quot;</span><span class="p">]</span>
+<span class="k">for</span> <a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">image_name</span></a> <span class="ow">in</span> <a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">image_names</span></a><span class="p">:</span>
+    <a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">image_path_server</span></a> <span class="o">=</span> <span class="n">get_image_path</span><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">image_name</span></a><span class="p">)</span>
+
+    <span class="k">if</span> <a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">image_path_server</span></a> <span class="o">!=</span> <span class="s2">&quot;&quot;</span><span class="p">:</span>
+        <a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">current_working_directory</span></a> <span class="o">=</span> <a href="https://docs.python.org/3/library/os.html#os.getcwd" title="os.getcwd" class="sphx-glr-backref-module-os sphx-glr-backref-type-py-function"><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span></a><span class="p">()</span>
+
+        <a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">local_file_path_list</span></a> <span class="o">=</span> <span class="n">mechanical</span><span class="o">.</span><span class="n">download</span><span class="p">(</span>
+            <a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">image_path_server</span></a><span class="p">,</span> <span class="n">target_dir</span><span class="o">=</span><a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">current_working_directory</span></a>
+        <span class="p">)</span>
+        <a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">image_local_path</span></a> <span class="o">=</span> <a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">local_file_path_list</span></a><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Local image path : </span><span class="si">{</span><a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">image_local_path</span></a><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+        <span class="n">display_image</span><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">image_local_path</span></a><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="sphx-glr-horizontal">
+<li><img src="../../../_images/sphx_glr_example_05_td_026_001.png" srcset="../../../_images/sphx_glr_example_05_td_026_001.png" alt="example 05 td 026" class = "sphx-glr-multi-img"/></li>
+<li><img src="../../../_images/sphx_glr_example_05_td_026_002.png" srcset="../../../_images/sphx_glr_example_05_td_026_002.png" alt="example 05 td 026" class = "sphx-glr-multi-img"/></li>
+</ul>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Downloading 127.0.0.1:10000:/tmp/ANSYS.root.1/AnsysMechAB8E/Project_Mech_Files/StaticStructural/total_deformation.png to /home/runner/work/pymechanical-examples/pymechanical-examples/examples/technology_showcase/total_deformation.png:   0%|          | 0.00/82.8k [00:00&lt;?, ?B/s]
+Downloading 127.0.0.1:10000:/tmp/ANSYS.root.1/AnsysMechAB8E/Project_Mech_Files/StaticStructural/total_deformation.png to /home/runner/work/pymechanical-examples/pymechanical-examples/examples/technology_showcase/total_deformation.png: 100%|##########| 82.8k/82.8k [00:00&lt;00:00, 2.06GB/s]
+Local image path : /home/runner/work/pymechanical-examples/pymechanical-examples/examples/technology_showcase/total_deformation.png
+Printing /home/runner/work/pymechanical-examples/pymechanical-examples/examples/technology_showcase/total_deformation.png using matplotlib
+
+Downloading 127.0.0.1:10000:/tmp/ANSYS.root.1/AnsysMechAB8E/Project_Mech_Files/StaticStructural/equivalent_stress.png to /home/runner/work/pymechanical-examples/pymechanical-examples/examples/technology_showcase/equivalent_stress.png:   0%|          | 0.00/90.9k [00:00&lt;?, ?B/s]
+Downloading 127.0.0.1:10000:/tmp/ANSYS.root.1/AnsysMechAB8E/Project_Mech_Files/StaticStructural/equivalent_stress.png to /home/runner/work/pymechanical-examples/pymechanical-examples/examples/technology_showcase/equivalent_stress.png: 100%|##########| 90.9k/90.9k [00:00&lt;00:00, 1.78GB/s]
+Local image path : /home/runner/work/pymechanical-examples/pymechanical-examples/examples/technology_showcase/equivalent_stress.png
+Printing /home/runner/work/pymechanical-examples/pymechanical-examples/examples/technology_showcase/equivalent_stress.png using matplotlib
 </pre></div>
 </div>
 </section>
@@ -857,8 +938,8 @@ directory and print the contents. Remove the <code class="docutils literal notra
     <a href="https://docs.python.org/3/library/os.html#os.remove" title="os.remove" class="sphx-glr-backref-module-os sphx-glr-backref-type-py-function"><span class="n">os</span><span class="o">.</span><span class="n">remove</span></a><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">solve_out_local_path</span></a><span class="p">)</span>
 </pre></div>
 </div>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Downloading 127.0.0.1:10000:/tmp/ANSYS.root.1/AnsysMech5DE4/Project_Mech_Files/StaticStructural/solve.out to /home/runner/work/pymechanical-examples/pymechanical-examples/examples/technology_showcase/solve.out:   0%|          | 0.00/133k [00:00&lt;?, ?B/s]
-Downloading 127.0.0.1:10000:/tmp/ANSYS.root.1/AnsysMech5DE4/Project_Mech_Files/StaticStructural/solve.out to /home/runner/work/pymechanical-examples/pymechanical-examples/examples/technology_showcase/solve.out: 100%|##########| 133k/133k [00:00&lt;00:00, 2.26GB/s]
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Downloading 127.0.0.1:10000:/tmp/ANSYS.root.1/AnsysMechAB8E/Project_Mech_Files/StaticStructural/solve.out to /home/runner/work/pymechanical-examples/pymechanical-examples/examples/technology_showcase/solve.out:   0%|          | 0.00/133k [00:00&lt;?, ?B/s]
+Downloading 127.0.0.1:10000:/tmp/ANSYS.root.1/AnsysMechAB8E/Project_Mech_Files/StaticStructural/solve.out to /home/runner/work/pymechanical-examples/pymechanical-examples/examples/technology_showcase/solve.out: 100%|##########| 133k/133k [00:00&lt;00:00, 2.52GB/s]
 
  Ansys Mechanical Enterprise
 
@@ -933,13 +1014,13 @@ Downloading 127.0.0.1:10000:/tmp/ANSYS.root.1/AnsysMech5DE4/Project_Mech_Files/S
   DISTRIBUTED MEMORY PARALLEL REQUESTED
        4 PARALLEL PROCESSES REQUESTED WITH SINGLE THREAD PER PROCESS
     TOTAL OF     4 CORES REQUESTED
-  INPUT FILE NAME              = /tmp/ANSYS.root.1/AnsysMech5DE4/Project_Mech_Files/StaticStructural/dummy.dat
-  OUTPUT FILE NAME             = /tmp/ANSYS.root.1/AnsysMech5DE4/Project_Mech_Files/StaticStructural/solve.out
+  INPUT FILE NAME              = /tmp/ANSYS.root.1/AnsysMechAB8E/Project_Mech_Files/StaticStructural/dummy.dat
+  OUTPUT FILE NAME             = /tmp/ANSYS.root.1/AnsysMechAB8E/Project_Mech_Files/StaticStructural/solve.out
   START-UP FILE MODE           = NOREAD
   STOP FILE MODE               = NOREAD
 
  RELEASE= 2023 R2              BUILD= 23.2      UP20230530   VERSION=LINUX x64
- CURRENT JOBNAME=file0  16:00:03  JUN 16, 2023 CP=      0.227
+ CURRENT JOBNAME=file0  18:39:38  JUN 21, 2023 CP=      0.222
 
 
  PARAMETER _DS_PROGRESS =     999.0000000
@@ -948,11 +1029,11 @@ Downloading 127.0.0.1:10000:/tmp/ANSYS.root.1/AnsysMech5DE4/Project_Mech_Files/S
 
 
 
- *** NOTE ***                            CP =       0.282   TIME= 16:00:03
+ *** NOTE ***                            CP =       0.284   TIME= 18:39:38
  The /CONFIG,NOELDB command is not valid in a distributed memory
  parallel solution.  Command is ignored.
 
- *GET  _WALLSTRT  FROM  ACTI  ITEM=TIME WALL  VALUE=  16.0008333
+ *GET  _WALLSTRT  FROM  ACTI  ITEM=TIME WALL  VALUE=  18.6605556
 
  TITLE=
  --Static Structural
@@ -961,12 +1042,12 @@ Downloading 127.0.0.1:10000:/tmp/ANSYS.root.1/AnsysMech5DE4/Project_Mech_Files/S
  SET PARAMETER DIMENSIONS ON  _WB_PROJECTSCRATCH_DIR
   TYPE=STRI  DIMENSIONS=      248        1        1
 
- PARAMETER _WB_PROJECTSCRATCH_DIR(1) = /tmp/ANSYS.root.1/AnsysMech5DE4/Project_Mech_Files/StaticStructural/
+ PARAMETER _WB_PROJECTSCRATCH_DIR(1) = /tmp/ANSYS.root.1/AnsysMechAB8E/Project_Mech_Files/StaticStructural/
 
  SET PARAMETER DIMENSIONS ON  _WB_SOLVERFILES_DIR
   TYPE=STRI  DIMENSIONS=      248        1        1
 
- PARAMETER _WB_SOLVERFILES_DIR(1) = /tmp/ANSYS.root.1/AnsysMech5DE4/Project_Mech_Files/StaticStructural/
+ PARAMETER _WB_SOLVERFILES_DIR(1) = /tmp/ANSYS.root.1/AnsysMechAB8E/Project_Mech_Files/StaticStructural/
 
  SET PARAMETER DIMENSIONS ON  _WB_USERFILES_DIR
   TYPE=STRI  DIMENSIONS=      248        1        1
@@ -987,7 +1068,7 @@ Downloading 127.0.0.1:10000:/tmp/ANSYS.root.1/AnsysMech5DE4/Project_Mech_Files/S
 
  *** MAPDL - ENGINEERING ANALYSIS SYSTEM  RELEASE 2023 R2          23.2     ***
  Ansys Mechanical Enterprise
- 00000000  VERSION=LINUX x64     16:00:03  JUN 16, 2023 CP=      0.286
+ 00000000  VERSION=LINUX x64     18:39:38  JUN 21, 2023 CP=      0.288
 
  --Static Structural
 
@@ -1055,7 +1136,7 @@ Downloading 127.0.0.1:10000:/tmp/ANSYS.root.1/AnsysMech5DE4/Project_Mech_Files/S
  *** Create a component for all remote displacements ***
 
 
- ***** ROUTINE COMPLETED *****  CP =         0.434
+ ***** ROUTINE COMPLETED *****  CP =         0.433
 
 
  --- Number of total nodes = 4254
@@ -1066,7 +1147,7 @@ Downloading 127.0.0.1:10000:/tmp/ANSYS.root.1/AnsysMech5DE4/Project_Mech_Files/S
  --- Number of condensed parts = 0
  --- Number of total elements = 9275
 
- *GET  _WALLBSOL  FROM  ACTI  ITEM=TIME WALL  VALUE=  16.0008333
+ *GET  _WALLBSOL  FROM  ACTI  ITEM=TIME WALL  VALUE=  18.6605556
  ****************************************************************************
  *************************    SOLUTION       ********************************
  ****************************************************************************
@@ -1187,20 +1268,20 @@ Downloading 127.0.0.1:10000:/tmp/ANSYS.root.1/AnsysMech5DE4/Project_Mech_Files/S
 
  *ENDIF
 
- *** NOTE ***                            CP =       0.708   TIME= 16:00:03
+ *** NOTE ***                            CP =       0.655   TIME= 18:39:38
  The automatic domain decomposition logic has selected the MESH domain
  decomposition method with 4 processes per solution.
 
  *****  MAPDL SOLVE    COMMAND  *****
 
- *** WARNING ***                         CP =       0.712   TIME= 16:00:03
+ *** WARNING ***                         CP =       0.659   TIME= 18:39:38
  Element shape checking is currently inactive.  Issue SHPP,ON or
  SHPP,WARN to reactivate, if desired.
 
- *** NOTE ***                            CP =       0.739   TIME= 16:00:03
+ *** NOTE ***                            CP =       0.690   TIME= 18:39:38
  The model data was checked and warning messages were found.
   Please review output or errors file (
- /tmp/ANSYS.root.1/AnsysMech5DE4/Project_Mech_Files/StaticStructural/fil
+ /tmp/ANSYS.root.1/AnsysMechAB8E/Project_Mech_Files/StaticStructural/fil
  le0.err ) for these warning messages.
 
  *** SELECTION OF ELEMENT TECHNOLOGIES FOR APPLICABLE ELEMENTS ***
@@ -1360,7 +1441,7 @@ Downloading 127.0.0.1:10000:/tmp/ANSYS.root.1/AnsysMech5DE4/Project_Mech_Files/S
 
  *** MAPDL - ENGINEERING ANALYSIS SYSTEM  RELEASE 2023 R2          23.2     ***
  Ansys Mechanical Enterprise
- 00000000  VERSION=LINUX x64     16:00:03  JUN 16, 2023 CP=      0.770
+ 00000000  VERSION=LINUX x64     18:39:38  JUN 21, 2023 CP=      0.729
 
  --Static Structural
 
@@ -1377,19 +1458,19 @@ Downloading 127.0.0.1:10000:/tmp/ANSYS.root.1/AnsysMech5DE4/Project_Mech_Files/S
    NEWTON-RAPHSON OPTION . . . . . . . . . . . . .PROGRAM CHOSEN
    GLOBALLY ASSEMBLED MATRIX . . . . . . . . . . .SYMMETRIC
 
- *** NOTE ***                            CP =       0.852   TIME= 16:00:03
+ *** NOTE ***                            CP =       0.840   TIME= 18:39:38
  This nonlinear analysis defaults to using the full Newton-Raphson
  solution procedure.  This can be modified using the NROPT command.
 
  CHECK INITIAL OPEN/CLOSED STATUS OF SELECTED CONTACT ELEMENTS
       AND LIST DETAILED CONTACT PAIR INFORMATION
 
- *** NOTE ***                            CP =       0.937   TIME= 16:00:04
+ *** NOTE ***                            CP =       0.927   TIME= 18:39:39
  Internal nodes from 4255 to 4256 are created.
  2 internal nodes are used for handling degrees of freedom on pilot
  nodes of rigid target surfaces.
 
- *** NOTE ***                            CP =       1.035   TIME= 16:00:04
+ *** NOTE ***                            CP =       1.038   TIME= 18:39:39
  Internal nodes from 4255 to 4256 are created.
  2 internal nodes are used for handling degrees of freedom on pilot
  nodes of rigid target surfaces.
@@ -1399,11 +1480,11 @@ Downloading 127.0.0.1:10000:/tmp/ANSYS.root.1/AnsysMech5DE4/Project_Mech_Files/S
  32 &amp; 33).  These two pairs will be merged.  Please check the model
  carefully.
 
- *** WARNING ***                         CP =       1.398   TIME= 16:00:04
+ *** WARNING ***                         CP =       1.399   TIME= 18:39:39
  Overconstraint may occur for Lagrange multiplier or MPC based contact
  algorithm.
 
- *** WARNING ***                         CP =       1.399   TIME= 16:00:04
+ *** WARNING ***                         CP =       1.399   TIME= 18:39:39
  Boundary conditions, coupling, and/or constraint equations have been
  applied on certain contact nodes (for example 0).
 
@@ -1419,7 +1500,7 @@ Downloading 127.0.0.1:10000:/tmp/ANSYS.root.1/AnsysMech5DE4/Project_Mech_Files/S
  CONTACT PAIR ASSOCIATED WITH REAL CONSTANT 37 SPLIT INTO 2 NEW PAIRS
  ASSOCIATED WITH REAL CONSTANTS 41 - 41
 
- *** NOTE ***                            CP =       1.496   TIME= 16:00:04
+ *** NOTE ***                            CP =       1.493   TIME= 18:39:39
  Rotational degrees of freedom ROTX+ROTY+ROTZ have been activated for
  pilot node 4252.
 
@@ -1428,12 +1509,12 @@ Downloading 127.0.0.1:10000:/tmp/ANSYS.root.1/AnsysMech5DE4/Project_Mech_Files/S
  NEW TARGET ELEMENTS FROM 13821 TO 16476 WERE CREATED TO HANDLE
  THE SPLIT CONTACT PAIRS
 
- *** NOTE ***                            CP =       1.558   TIME= 16:00:04
+ *** NOTE ***                            CP =       1.553   TIME= 18:39:39
  Internal nodes from 4255 to 4257 are created.
  3 internal nodes are used for handling degrees of freedom on pilot
  nodes of rigid target surfaces.
 
- *** NOTE ***                            CP =       1.630   TIME= 16:00:04
+ *** NOTE ***                            CP =       1.625   TIME= 18:39:39
  Internal nodes from 4255 to 4257 are created.
  3 internal nodes are used for handling degrees of freedom on pilot
  nodes of rigid target surfaces.
@@ -1445,7 +1526,7 @@ Downloading 127.0.0.1:10000:/tmp/ANSYS.root.1/AnsysMech5DE4/Project_Mech_Files/S
  *WARNING*: The self contact pair specified by real constant set 35 also
  overlaps with another symmetric contact pair (e.g.  40).
 
- *** NOTE ***                            CP =       2.519   TIME= 16:00:04
+ *** NOTE ***                            CP =       2.513   TIME= 18:39:39
  Rigid target surface identified by real constant set 32.  The degrees
  of freedom of the rigid surface are driven by the pilot node 4252.
  Internal MPC will be built.
@@ -1458,7 +1539,7 @@ Downloading 127.0.0.1:10000:/tmp/ANSYS.root.1/AnsysMech5DE4/Project_Mech_Files/S
  ****************************************
 
 
- *** NOTE ***                            CP =       2.519   TIME= 16:00:04
+ *** NOTE ***                            CP =       2.513   TIME= 18:39:39
  Rigid-deformable contact pair identified by real constant set 33 and
  contact element type 33 has been set up.  The degrees of freedom of
  the rigid surface are driven by the pilot node 4252.
@@ -1486,7 +1567,7 @@ Downloading 127.0.0.1:10000:/tmp/ANSYS.root.1/AnsysMech5DE4/Project_Mech_Files/S
  All target elements use a cylindrical geometry correction
  Initial penetration will be ramped during the first load step.
 
- *** NOTE ***                            CP =       2.519   TIME= 16:00:04
+ *** NOTE ***                            CP =       2.514   TIME= 18:39:39
  Max.  Initial penetration 2.04152853 was detected between contact
  element 7070 and target element 8371.
  You may move entire target surface by : x= 0, y= 0, z= 0,to reduce
@@ -1494,7 +1575,7 @@ Downloading 127.0.0.1:10000:/tmp/ANSYS.root.1/AnsysMech5DE4/Project_Mech_Files/S
  ****************************************
 
 
- *** NOTE ***                            CP =       2.519   TIME= 16:00:04
+ *** NOTE ***                            CP =       2.514   TIME= 18:39:39
  Rigid-deformable contact pair identified by real constant set 39 and
  contact element type 33 has been set up.  The degrees of freedom of
  the rigid surface are driven by the pilot node 4252.
@@ -1522,7 +1603,7 @@ Downloading 127.0.0.1:10000:/tmp/ANSYS.root.1/AnsysMech5DE4/Project_Mech_Files/S
  All target elements use a cylindrical geometry correction
  Initial penetration will be ramped during the first load step.
 
- *** NOTE ***                            CP =       2.519   TIME= 16:00:04
+ *** NOTE ***                            CP =       2.514   TIME= 18:39:39
  Max.  Initial penetration 2.04152853 was detected between contact
  element 7070 and target element 8371.
  You may move entire target surface by : x= -1.94952245, y=
@@ -1530,7 +1611,7 @@ Downloading 127.0.0.1:10000:/tmp/ANSYS.root.1/AnsysMech5DE4/Project_Mech_Files/S
  ****************************************
 
 
- *** NOTE ***                            CP =       2.519   TIME= 16:00:04
+ *** NOTE ***                            CP =       2.514   TIME= 18:39:39
  Self Deformable- deformable contact pair identified by real constant
  set 35 and contact element type 35 has been set up.
  The current pair was split from a base pair (real ID 35).
@@ -1553,12 +1634,12 @@ Downloading 127.0.0.1:10000:/tmp/ANSYS.root.1/AnsysMech5DE4/Project_Mech_Files/S
  The resulting pinball region                 0.82650
  *WARNING*: Initial penetration is included.
 
- *** NOTE ***                            CP =       2.519   TIME= 16:00:04
+ *** NOTE ***                            CP =       2.514   TIME= 18:39:39
  No contact was detected for this contact pair.
  ****************************************
 
 
- *** NOTE ***                            CP =       2.519   TIME= 16:00:04
+ *** NOTE ***                            CP =       2.514   TIME= 18:39:39
  Self Deformable- deformable contact pair identified by real constant
  set 40 and contact element type 35 has been set up.
  The current pair was split from a base pair (real ID 35).
@@ -1581,12 +1662,12 @@ Downloading 127.0.0.1:10000:/tmp/ANSYS.root.1/AnsysMech5DE4/Project_Mech_Files/S
  The resulting pinball region                 0.82650
  *WARNING*: Initial penetration is included.
 
- *** NOTE ***                            CP =       2.519   TIME= 16:00:04
+ *** NOTE ***                            CP =       2.514   TIME= 18:39:39
  No contact was detected for this contact pair.
  ****************************************
 
 
- *** NOTE ***                            CP =       2.519   TIME= 16:00:04
+ *** NOTE ***                            CP =       2.514   TIME= 18:39:39
  Self Deformable- deformable contact pair identified by real constant
  set 37 and contact element type 37 has been set up.
  The current pair was split from a base pair (real ID 37).
@@ -1609,12 +1690,12 @@ Downloading 127.0.0.1:10000:/tmp/ANSYS.root.1/AnsysMech5DE4/Project_Mech_Files/S
  The resulting pinball region                 0.78054
  *WARNING*: Initial penetration is included.
 
- *** NOTE ***                            CP =       2.519   TIME= 16:00:04
+ *** NOTE ***                            CP =       2.514   TIME= 18:39:39
  No contact was detected for this contact pair.
  ****************************************
 
 
- *** NOTE ***                            CP =       2.519   TIME= 16:00:04
+ *** NOTE ***                            CP =       2.514   TIME= 18:39:39
  Self Deformable- deformable contact pair identified by real constant
  set 41 and contact element type 37 has been set up.
  The current pair was split from a base pair (real ID 37).
@@ -1637,24 +1718,24 @@ Downloading 127.0.0.1:10000:/tmp/ANSYS.root.1/AnsysMech5DE4/Project_Mech_Files/S
  The resulting pinball region                 0.78054
  *WARNING*: Initial penetration is included.
 
- *** NOTE ***                            CP =       2.519   TIME= 16:00:04
+ *** NOTE ***                            CP =       2.514   TIME= 18:39:39
  No contact was detected for this contact pair.
  ****************************************
 
 
- *** WARNING ***                         CP =       2.519   TIME= 16:00:04
+ *** WARNING ***                         CP =       2.514   TIME= 18:39:39
  Overconstraint may occur for Lagrange multiplier or MPC based contact
  algorithm.
  The reasons for possible overconstraint are:
 
- *** WARNING ***                         CP =       2.520   TIME= 16:00:04
+ *** WARNING ***                         CP =       2.514   TIME= 18:39:39
  Boundary conditions, coupling, and/or constraint equations have been
  applied on certain contact nodes (for example 4253).
  ****************************************
 
 
 
- *** NOTE ***                            CP =       2.575   TIME= 16:00:04
+ *** NOTE ***                            CP =       2.569   TIME= 18:39:39
  Internal nodes from 4255 to 4257 are created.
  3 internal nodes are used for handling degrees of freedom on pilot
  nodes of rigid target surfaces.
@@ -1705,7 +1786,7 @@ Downloading 127.0.0.1:10000:/tmp/ANSYS.root.1/AnsysMech5DE4/Project_Mech_Files/S
  32 &amp; 33).  These two pairs will be merged.  Please check the model
  carefully.
 
- *** NOTE ***                            CP =       3.266   TIME= 16:00:04
+ *** NOTE ***                            CP =       3.208   TIME= 18:39:39
  Rigid target surface identified by real constant set 32.  The degrees
  of freedom of the rigid surface are driven by the pilot node 4252.
  Internal MPC will be built.
@@ -1718,7 +1799,7 @@ Downloading 127.0.0.1:10000:/tmp/ANSYS.root.1/AnsysMech5DE4/Project_Mech_Files/S
  ****************************************
 
 
- *** NOTE ***                            CP =       3.266   TIME= 16:00:04
+ *** NOTE ***                            CP =       3.208   TIME= 18:39:39
  Rigid-deformable contact pair identified by real constant set 39 and
  contact element type 33 has been set up.  The degrees of freedom of
  the rigid surface are driven by the pilot node 4252.
@@ -1746,7 +1827,7 @@ Downloading 127.0.0.1:10000:/tmp/ANSYS.root.1/AnsysMech5DE4/Project_Mech_Files/S
  All target elements use a cylindrical geometry correction
  Initial penetration will be ramped during the first load step.
 
- *** NOTE ***                            CP =       3.267   TIME= 16:00:04
+ *** NOTE ***                            CP =       3.209   TIME= 18:39:39
  Max.  Initial penetration 2.04152853 was detected between contact
  element 7070 and target element 8371.
  You may move entire target surface by : x= -1.94952245, y=
@@ -1754,7 +1835,7 @@ Downloading 127.0.0.1:10000:/tmp/ANSYS.root.1/AnsysMech5DE4/Project_Mech_Files/S
  ****************************************
 
 
- *** NOTE ***                            CP =       3.267   TIME= 16:00:04
+ *** NOTE ***                            CP =       3.209   TIME= 18:39:39
  Rigid-deformable contact pair identified by real constant set 33 and
  contact element type 33 has been set up.  The degrees of freedom of
  the rigid surface are driven by the pilot node 4252.
@@ -1782,7 +1863,7 @@ Downloading 127.0.0.1:10000:/tmp/ANSYS.root.1/AnsysMech5DE4/Project_Mech_Files/S
  All target elements use a cylindrical geometry correction
  Initial penetration will be ramped during the first load step.
 
- *** NOTE ***                            CP =       3.267   TIME= 16:00:04
+ *** NOTE ***                            CP =       3.209   TIME= 18:39:39
  No contact was detected for this contact pair.
  ****************************************
 
@@ -1893,45 +1974,45 @@ Downloading 127.0.0.1:10000:/tmp/ANSYS.root.1/AnsysMech5DE4/Project_Mech_Files/S
    *** ELEMENT MATRIX FORMULATION TIMES
      TYPE    NUMBER   ENAME      TOTAL CP  AVE CP
 
-        1        60  SOLID185      0.007   0.000116
-        2        60  SOLID185      0.008   0.000126
-        3       100  SOLID185      0.012   0.000118
-        4        80  SOLID185      0.009   0.000117
-        5       100  SOLID185      0.012   0.000119
-        6        60  SOLID185      0.007   0.000124
-        7        80  SOLID185      0.010   0.000128
-        8        60  SOLID185      0.007   0.000124
-        9        80  SOLID185      0.010   0.000120
-       10        60  SOLID185      0.007   0.000122
-       11       100  SOLID185      0.012   0.000117
-       12        60  SOLID185      0.007   0.000118
-       13        80  SOLID185      0.009   0.000118
-       14        80  SOLID185      0.010   0.000120
-       15       260  SOLID185      0.031   0.000119
-       16        60  SOLID185      0.007   0.000117
-       17        60  SOLID185      0.008   0.000126
-       18       100  SOLID185      0.012   0.000116
-       19        80  SOLID185      0.009   0.000117
-       20       100  SOLID185      0.012   0.000120
-       21        60  SOLID185      0.008   0.000131
-       22        80  SOLID185      0.010   0.000125
-       23        60  SOLID185      0.008   0.000129
-       24        80  SOLID185      0.010   0.000128
-       25        60  SOLID185      0.008   0.000125
-       26       100  SOLID185      0.012   0.000117
-       27        60  SOLID185      0.007   0.000117
-       28        80  SOLID185      0.010   0.000121
-       29        80  SOLID185      0.010   0.000122
-       30       260  SOLID185      0.031   0.000119
-       31         1  MASS21        0.000   0.000085
+        1        60  SOLID185      0.007   0.000114
+        2        60  SOLID185      0.007   0.000118
+        3       100  SOLID185      0.012   0.000116
+        4        80  SOLID185      0.009   0.000116
+        5       100  SOLID185      0.011   0.000115
+        6        60  SOLID185      0.007   0.000116
+        7        80  SOLID185      0.010   0.000122
+        8        60  SOLID185      0.007   0.000119
+        9        80  SOLID185      0.009   0.000115
+       10        60  SOLID185      0.007   0.000117
+       11       100  SOLID185      0.011   0.000114
+       12        60  SOLID185      0.007   0.000115
+       13        80  SOLID185      0.009   0.000116
+       14        80  SOLID185      0.009   0.000115
+       15       260  SOLID185      0.029   0.000113
+       16        60  SOLID185      0.007   0.000115
+       17        60  SOLID185      0.007   0.000118
+       18       100  SOLID185      0.011   0.000114
+       19        80  SOLID185      0.009   0.000116
+       20       100  SOLID185      0.012   0.000118
+       21        60  SOLID185      0.007   0.000122
+       22        80  SOLID185      0.010   0.000120
+       23        60  SOLID185      0.007   0.000122
+       24        80  SOLID185      0.010   0.000120
+       25        60  SOLID185      0.007   0.000120
+       26       100  SOLID185      0.011   0.000115
+       27        60  SOLID185      0.007   0.000116
+       28        80  SOLID185      0.009   0.000119
+       29        80  SOLID185      0.009   0.000119
+       30       260  SOLID185      0.030   0.000115
+       31         1  MASS21        0.000   0.000068
        32        18  TARGE170      0.000   0.000003
-       33      1320  CONTA174      0.049   0.000037
-       34        32  TARGE170      0.000   0.000007
-       35      1400  CONTA174      0.026   0.000019
+       33      1320  CONTA174      0.048   0.000037
+       34        32  TARGE170      0.000   0.000006
+       35      1400  CONTA174      0.025   0.000018
        36      2640  TARGE170      0.004   0.000001
        37      1400  CONTA174      0.027   0.000019
        38      2640  TARGE170      0.004   0.000001
- Time at end of element matrix formulation CP = 3.72142196.
+ Time at end of element matrix formulation CP = 3.69521689.
 
  ALL CURRENT MAPDL DATA WRITTEN TO FILE NAME= file.rdb
   FOR POSSIBLE RESUME FROM THIS POINT
@@ -1949,15 +2030,15 @@ Downloading 127.0.0.1:10000:/tmp/ANSYS.root.1/AnsysMech5DE4/Project_Mech_Files/S
   Total memory required for in-core solution       =    39.050 MB
   Total memory required for out-of-core solution   =    23.179 MB
 
- *** NOTE ***                            CP =       3.814   TIME= 16:00:05
+ *** NOTE ***                            CP =       3.787   TIME= 18:39:40
  The Distributed Sparse Matrix Solver is currently running in the
  in-core memory mode.  This memory mode uses the most amount of memory
  in order to avoid using the hard drive as much as possible, which most
  often results in the fastest solution time.  This mode is recommended
  if enough physical memory is present to accommodate all of the solver
  data.
- curEqn=   2923  totEqn=   2923 Job CP sec=      3.667
-      Factor Done= 100% Factor Wall sec=      0.040 rate=       3.0 GFlops
+ curEqn=   2923  totEqn=   2923 Job CP sec=      3.631
+      Factor Done= 100% Factor Wall sec=      0.030 rate=       4.0 GFlops
  Distributed sparse solver maximum pivot= 2186229.73 at node 3527 UY.
  Distributed sparse solver minimum pivot= 47270.6013 at node 701 UY.
  Distributed sparse solver minimum pivot in absolute value= 47270.6013
@@ -1986,36 +2067,36 @@ Downloading 127.0.0.1:10000:/tmp/ANSYS.root.1/AnsysMech5DE4/Project_Mech_Files/S
    *** ELEMENT RESULT CALCULATION TIMES
      TYPE    NUMBER   ENAME      TOTAL CP  AVE CP
 
-        1        60  SOLID185      0.004   0.000073
-        2        60  SOLID185      0.004   0.000070
-        3       100  SOLID185      0.007   0.000074
+        1        60  SOLID185      0.004   0.000072
+        2        60  SOLID185      0.004   0.000071
+        3       100  SOLID185      0.007   0.000073
         4        80  SOLID185      0.006   0.000072
         5       100  SOLID185      0.007   0.000071
-        6        60  SOLID185      0.005   0.000077
-        7        80  SOLID185      0.006   0.000078
-        8        60  SOLID185      0.005   0.000075
-        9        80  SOLID185      0.006   0.000073
-       10        60  SOLID185      0.004   0.000074
-       11       100  SOLID185      0.007   0.000072
-       12        60  SOLID185      0.004   0.000072
-       13        80  SOLID185      0.006   0.000072
-       14        80  SOLID185      0.006   0.000071
-       15       260  SOLID185      0.018   0.000070
-       16        60  SOLID185      0.004   0.000073
+        6        60  SOLID185      0.004   0.000073
+        7        80  SOLID185      0.006   0.000076
+        8        60  SOLID185      0.004   0.000075
+        9        80  SOLID185      0.006   0.000072
+       10        60  SOLID185      0.004   0.000073
+       11       100  SOLID185      0.007   0.000071
+       12        60  SOLID185      0.004   0.000071
+       13        80  SOLID185      0.006   0.000071
+       14        80  SOLID185      0.006   0.000070
+       15       260  SOLID185      0.018   0.000071
+       16        60  SOLID185      0.004   0.000071
        17        60  SOLID185      0.004   0.000071
-       18       100  SOLID185      0.007   0.000072
+       18       100  SOLID185      0.007   0.000071
        19        80  SOLID185      0.006   0.000072
        20       100  SOLID185      0.007   0.000073
-       21        60  SOLID185      0.005   0.000076
-       22        80  SOLID185      0.006   0.000074
-       23        60  SOLID185      0.005   0.000076
-       24        80  SOLID185      0.006   0.000077
-       25        60  SOLID185      0.005   0.000078
-       26       100  SOLID185      0.007   0.000071
+       21        60  SOLID185      0.004   0.000075
+       22        80  SOLID185      0.006   0.000073
+       23        60  SOLID185      0.004   0.000074
+       24        80  SOLID185      0.006   0.000075
+       25        60  SOLID185      0.005   0.000076
+       26       100  SOLID185      0.007   0.000072
        27        60  SOLID185      0.004   0.000071
        28        80  SOLID185      0.006   0.000073
-       29        80  SOLID185      0.006   0.000076
-       30       260  SOLID185      0.018   0.000070
+       29        80  SOLID185      0.006   0.000072
+       30       260  SOLID185      0.018   0.000071
        31         1  MASS21        0.000   0.000016
        33       595  CONTA174      0.018   0.000030
        35      1320  CONTA174      0.016   0.000012
@@ -2866,13 +2947,13 @@ Downloading 127.0.0.1:10000:/tmp/ANSYS.root.1/AnsysMech5DE4/Project_Mech_Files/S
 
  *****  MAPDL SOLVE    COMMAND  *****
 
- *** NOTE ***                            CP =      63.398   TIME= 16:01:04
+ *** NOTE ***                            CP =      61.952   TIME= 18:40:38
  This nonlinear analysis defaults to using the full Newton-Raphson
  solution procedure.  This can be modified using the NROPT command.
 
  *** MAPDL - ENGINEERING ANALYSIS SYSTEM  RELEASE 2023 R2          23.2     ***
  Ansys Mechanical Enterprise
- 00000000  VERSION=LINUX x64     16:01:04  JUN 16, 2023 CP=     63.447
+ 00000000  VERSION=LINUX x64     18:40:38  JUN 21, 2023 CP=     62.000
 
  --Static Structural
 
@@ -3106,20 +3187,20 @@ Downloading 127.0.0.1:10000:/tmp/ANSYS.root.1/AnsysMech5DE4/Project_Mech_Files/S
  ****************************************************
  *************** FINISHED SOLVE FOR LS 2 *************
 
- *GET  _WALLASOL  FROM  ACTI  ITEM=TIME WALL  VALUE=  16.0219444
+ *GET  _WALLASOL  FROM  ACTI  ITEM=TIME WALL  VALUE=  18.6811111
 
  PRINTOUT RESUMED BY /GOP
 
  FINISH SOLUTION PROCESSING
 
 
- ***** ROUTINE COMPLETED *****  CP =        78.534
+ ***** ROUTINE COMPLETED *****  CP =        76.739
 
 
 
  *** MAPDL - ENGINEERING ANALYSIS SYSTEM  RELEASE 2023 R2          23.2     ***
  Ansys Mechanical Enterprise
- 00000000  VERSION=LINUX x64     16:01:19  JUN 16, 2023 CP=     78.536
+ 00000000  VERSION=LINUX x64     18:40:52  JUN 21, 2023 CP=     76.740
 
  --Static Structural
 
@@ -3127,7 +3208,7 @@ Downloading 127.0.0.1:10000:/tmp/ANSYS.root.1/AnsysMech5DE4/Project_Mech_Files/S
 
           ***** MAPDL RESULTS INTERPRETATION (POST1) *****
 
- *** NOTE ***                            CP =      78.536   TIME= 16:01:19
+ *** NOTE ***                            CP =      76.740   TIME= 18:40:52
  Reading results into the database (SET command) will update the current
  displacement and force boundary conditions in the database with the
  values from the results file for that load set.  Note that any
@@ -3145,25 +3226,25 @@ Downloading 127.0.0.1:10000:/tmp/ANSYS.root.1/AnsysMech5DE4/Project_Mech_Files/S
  EXIT THE MAPDL POST1 DATABASE PROCESSOR
 
 
- ***** ROUTINE COMPLETED *****  CP =        78.539
+ ***** ROUTINE COMPLETED *****  CP =        76.743
 
 
 
  PRINTOUT RESUMED BY /GOP
 
- *GET  _WALLDONE  FROM  ACTI  ITEM=TIME WALL  VALUE=  16.0219444
+ *GET  _WALLDONE  FROM  ACTI  ITEM=TIME WALL  VALUE=  18.6811111
 
  PARAMETER _PREPTIME =     0.000000000
 
- PARAMETER _SOLVTIME =     76.00000000
+ PARAMETER _SOLVTIME =     74.00000000
 
  PARAMETER _POSTTIME =     0.000000000
 
- PARAMETER _TOTALTIM =     76.00000000
+ PARAMETER _TOTALTIM =     74.00000000
 
  *GET  _DLBRATIO  FROM  ACTI  ITEM=SOLU DLBR  VALUE=  1.27537027
 
- *GET  _COMBTIME  FROM  ACTI  ITEM=SOLU COMB  VALUE= 0.927977503E-01
+ *GET  _COMBTIME  FROM  ACTI  ITEM=SOLU COMB  VALUE= 0.925825635E-01
 
  *GET  _SSMODE   FROM  ACTI  ITEM=SOLU SSMM  VALUE=  2.00000000
 
@@ -3180,7 +3261,7 @@ Downloading 127.0.0.1:10000:/tmp/ANSYS.root.1/AnsysMech5DE4/Project_Mech_Files/S
  --- Total number of nodes = 4254
  --- Total number of elements = 12091
  --- Element load balance ratio = 1.27537027
- --- Time to combine distributed files = 9.279775031E-02
+ --- Time to combine distributed files = 9.258256355E-02
  --- Sparse memory mode = 2
  --- Number of DOF = 12114
 
@@ -3193,7 +3274,7 @@ Downloading 127.0.0.1:10000:/tmp/ANSYS.root.1/AnsysMech5DE4/Project_Mech_Files/S
 +--------------------- M A P D L   S T A T I S T I C S ------------------------+
 
 Release: 2023 R2            Build: 23.2       Update: UP20230530   Platform: LINUX x64
-Date Run: 06/16/2023   Time: 16:01     Process ID: 2635
+Date Run: 06/21/2023   Time: 18:40     Process ID: 2639
 Operating System: Ubuntu 20.04.5 LTS
 
 Processor Model: AMD EPYC 7763 64-Core Processor
@@ -3220,31 +3301,31 @@ Input File: dummy.dat
 
   Core                Machine Name   Working Directory
  -----------------------------------------------------
-     0                6d543893260d   /tmp/ANSYS.root.1/AnsysMech5DE4/Project_Mech_Files/StaticStructural
-     1                6d543893260d   /tmp/ANSYS.root.1/AnsysMech5DE4/Project_Mech_Files/StaticStructural
-     2                6d543893260d   /tmp/ANSYS.root.1/AnsysMech5DE4/Project_Mech_Files/StaticStructural
-     3                6d543893260d   /tmp/ANSYS.root.1/AnsysMech5DE4/Project_Mech_Files/StaticStructural
+     0                fea2e61854e3   /tmp/ANSYS.root.1/AnsysMechAB8E/Project_Mech_Files/StaticStructural
+     1                fea2e61854e3   /tmp/ANSYS.root.1/AnsysMechAB8E/Project_Mech_Files/StaticStructural
+     2                fea2e61854e3   /tmp/ANSYS.root.1/AnsysMechAB8E/Project_Mech_Files/StaticStructural
+     3                fea2e61854e3   /tmp/ANSYS.root.1/AnsysMechAB8E/Project_Mech_Files/StaticStructural
 
-Latency time from master to core     1 =    1.107 microseconds
-Latency time from master to core     2 =    1.159 microseconds
-Latency time from master to core     3 =    0.962 microseconds
+Latency time from master to core     1 =    1.123 microseconds
+Latency time from master to core     2 =    1.082 microseconds
+Latency time from master to core     3 =    0.988 microseconds
 
-Communication speed from master to core     1 = 12100.22 MB/sec
-Communication speed from master to core     2 = 16614.66 MB/sec
-Communication speed from master to core     3 = 18142.52 MB/sec
+Communication speed from master to core     1 = 11935.71 MB/sec
+Communication speed from master to core     2 = 13479.73 MB/sec
+Communication speed from master to core     3 = 16537.08 MB/sec
 
-Total CPU time for main thread                    :       70.6 seconds
-Total CPU time summed for all threads             :       79.2 seconds
+Total CPU time for main thread                    :       69.3 seconds
+Total CPU time summed for all threads             :       77.4 seconds
 
 Elapsed time spent obtaining a license            :        0.3 seconds
 Elapsed time spent pre-processing model (/PREP7)  :        0.0 seconds
 Elapsed time spent solution - preprocessing       :        0.7 seconds
-Elapsed time spent computing solution             :       74.0 seconds
+Elapsed time spent computing solution             :       72.5 seconds
 Elapsed time spent solution - postprocessing      :        0.1 seconds
 Elapsed time spent post-processing model (/POST1) :        0.0 seconds
 
 Equation solver used                              :            Sparse (symmetric)
-Equation solver computational rate                :       41.9 Gflops
+Equation solver computational rate                :       41.1 Gflops
 
 Sum of disk space used on all processes            :      240.7 MB
 
@@ -3274,8 +3355,8 @@ Total amount of I/O read from disk                :      111.5 GB
  |                                                                             |
  |-----------------------------------------------------------------------------|
  |                                                                             |
- |        CP Time      (sec) =         79.162       Time  =  16:01:19          |
- |        Elapsed Time (sec) =         77.000       Date  =  06/16/2023        |
+ |        CP Time      (sec) =         77.366       Time  =  18:40:52          |
+ |        Elapsed Time (sec) =         75.000       Date  =  06/21/2023        |
  |                                                                             |
  *-----------------------------------------------------------------------------*
 </pre></div>
@@ -3287,7 +3368,7 @@ Total amount of I/O read from disk                :      111.5 GB
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mechanical</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span>
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 1 minutes  30.415 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 1 minutes  29.496 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-gallery-examples-technology-showcase-example-05-td-026-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../../_downloads/18e75d84f0551f2cc207d1396de1a529/example_05_td_026.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">example_05_td_026.py</span></code></a></p>
@@ -3323,6 +3404,8 @@ Total amount of I/O read from disk                :      111.5 GB
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#download-required-geometry-file">Download required Geometry file</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#download-required-material-files">Download required Material files</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#execute-the-script">Execute the script</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#initialize-the-variable-needed-for-the-image-directory">Initialize the variable needed for the image directory</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#download-the-image-and-plot">Download the image and plot</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#download-output-file-from-solve-and-print-contents">Download output file from solve and print contents</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#close-mechanical">Close Mechanical</a></li>
 </ul>
