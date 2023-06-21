@@ -381,6 +381,7 @@ def display_image(path):
     plt.imshow(image1)
     plt.show()
 
+
 image_names = ["total_deformation.png", "equivalent_stress.png"]
 for image_name in image_names:
     image_path_server = get_image_path(image_name)
