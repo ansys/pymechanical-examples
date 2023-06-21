@@ -116,7 +116,6 @@ geometry_import_12.Import(part_file_path, geometry_import_12_format,
 #materials.Import(mat_part_file_path)
 
 # Section 2 Set up the Unit System.
-ExtAPI.Application.ScriptByName("jscript").CallJScript("doGraphicsFit")
 ExtAPI.Application.ActiveUnitSystem = MechanicalUnitSystem.StandardNMM
 ExtAPI.Application.ActiveAngleUnit = AngleUnitType.Radian
 GEOM = Model.Geometry
@@ -325,7 +324,12 @@ EQV_STRS.Location = RUBBER_BODIES30
 # between flexible rubber boot
 STAT_STRUC.Solution.Solve(True)
 
-# Section 12 Store post-processing images
+# Section 12 Set isometric view and zoom to fit
+cam = Graphics.Camera
+cam.SetSpecificViewOrientation(ViewOrientationType.Iso)
+cam.SetFit()
+
+# Section 13 Store post-processing images
 mechdir = STAT_STRUC.Children[0].SolverFilesDirectory
 export_path = os.path.join(mechdir, "total_deformation.png")
 TOT_DEF.Activate()
