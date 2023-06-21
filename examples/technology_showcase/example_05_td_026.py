@@ -381,20 +381,20 @@ def display_image(path):
     plt.imshow(image1)
     plt.show()
 
+image_names = ["total_deformation.png", "equivalent_stress.png"]
+for image_name in image_names:
+    image_path_server = get_image_path(image_name)
 
-image_name = "total_deformation.png"
-image_path_server = get_image_path(image_name)
+    if image_path_server != "":
+        current_working_directory = os.getcwd()
 
-if image_path_server != "":
-    current_working_directory = os.getcwd()
+        local_file_path_list = mechanical.download(
+            image_path_server, target_dir=current_working_directory
+        )
+        image_local_path = local_file_path_list[0]
+        print(f"Local image path : {image_local_path}")
 
-    local_file_path_list = mechanical.download(
-        image_path_server, target_dir=current_working_directory
-    )
-    image_local_path = local_file_path_list[0]
-    print(f"Local image path : {image_local_path}")
-
-    display_image(image_local_path)
+        display_image(image_local_path)
 
 ###############################################################################
 # Download output file from solve and print contents
