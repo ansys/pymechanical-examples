@@ -128,7 +128,6 @@ STAT_STRUC_ANA_SETTING = STAT_STRUC.Children[0]
 
 # Section 2 Set up the Unit System.
 ExtAPI.Application.ActiveUnitSystem = MechanicalUnitSystem.StandardNMM
-ExtAPI.Application.ScriptByName("jscript").CallJScript("doGraphicsFit")
 
 # Section 3 Store all main tree nodes as variables.
 MODEL = ExtAPI.DataModel.Project.Model
@@ -373,18 +372,15 @@ Moment_Reaction_2.BoundaryConditionSelection = FIX_SUP
 STAT_STRUC_SOLN.Solve(True)
 STAT_STRUC_SS=STAT_STRUC_SOLN.Status
 
+# Set isometric view and zoom to fit
+cam = Graphics.Camera
+cam.SetSpecificViewOrientation(ViewOrientationType.Iso)
+cam.SetFit()
+
 mechdir = STAT_STRUC.Children[0].SolverFilesDirectory
-export_path = os.path.join(mechdir, "eqv_stress_1.png")
-Equivalent_stress_1.Activate()
-Graphics.ExportImage(export_path, GraphicsImageExportFormat.PNG)
-
-export_path2 = os.path.join(mechdir, "eqv_stress_2.png")
-Equivalent_stress_2.Activate()
-Graphics.ExportImage(export_path2, GraphicsImageExportFormat.PNG)
-
-export_path3 = os.path.join(mechdir, "contact_status.png")
+export_path = os.path.join(mechdir, "contact_status.png")
 Post_Contact_Tool.Children[0].Activate()
-Graphics.ExportImage(export_path3, GraphicsImageExportFormat.PNG)
+Graphics.ExportImage(export_path, GraphicsImageExportFormat.PNG)
 
 my_results_details = {
     "Total_Deformation": str(Total_Deformation.Maximum),

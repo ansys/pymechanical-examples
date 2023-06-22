@@ -133,7 +133,6 @@ geometry_import_12.Import(part_file_path,geometry_import_12_format,geometry_impo
 #MAT.Import(mat_Steel_file_path)
 
 # Section 2 Set up the Unit System.
-ExtAPI.Application.ScriptByName("jscript").CallJScript("doGraphicsFit")
 ExtAPI.Application.ActiveUnitSystem = MechanicalUnitSystem.StandardNMM
 
 # Section 3 Store all main tree nodes as variables.
@@ -314,31 +313,25 @@ STAT_STRUC_SS=STAT_STRUC_SOLN.Status
 
 # Section 14 Store post-processing images
 
-# Front View
-# context_menu.DoGraphicsFrontView(ExtAPI)
+# Set front view and zoom to fit
+cam = Graphics.Camera
+cam.SetSpecificViewOrientation(ViewOrientationType.Front)
+cam.SetFit()
 
 mechdir = STAT_STRUC.Children[0].SolverFilesDirectory
-export_path = os.path.join(mechdir, "total_deformation.png")
-TOT_DEF.Activate()
+export_path = os.path.join(mechdir, "stress.png")
+NORM_STRS2.Activate()
 Graphics.ExportImage(export_path, GraphicsImageExportFormat.PNG)
 
-export_path2 = os.path.join(mechdir, "stress.png")
-NORM_STRS1.Activate()
+export_path2 = os.path.join(mechdir, "contact_pres.png")
+CONT_PRES2.Activate()
 Graphics.ExportImage(export_path2, GraphicsImageExportFormat.PNG)
 
-export_path3 = os.path.join(mechdir, "contact_pres.png")
-CONT_PRES1.Activate()
-Graphics.ExportImage(export_path3, GraphicsImageExportFormat.PNG)
-
-export_path4 = os.path.join(mechdir, "contact_pres2.png")
-CONT_PRES2.Activate()
-Graphics.ExportImage(export_path4, GraphicsImageExportFormat.PNG)
-
 my_results_details = {
-    "Total_Deformation": str(TOT_DEF.Maximum),
     "Normal_Stress1": str(NORM_STRS1.Minimum),
     "Normal_Stress2": str(NORM_STRS2.Minimum),
-    "Contact_Pressure": str(CONT_PRES1.Maximum),
+    "Contact_Pressure1": str(CONT_PRES1.Maximum),
+    "Contact_Pressure2": str(CONT_PRES2.Maximum),
 }
 
 json.dumps(my_results_details)
@@ -380,19 +373,20 @@ def display_image(path):
     plt.show()
 
 
-image_name = "stress.png"
-image_path_server = get_image_path(image_name)
+image_names = ["stress.png", "contact_pres.png"]
+for image_name in image_names:
+    image_path_server = get_image_path(image_name)
 
-if image_path_server != "":
-    current_working_directory = os.getcwd()
+    if image_path_server != "":
+        current_working_directory = os.getcwd()
 
-    local_file_path_list = mechanical.download(
-        image_path_server, target_dir=current_working_directory
-    )
-    image_local_path = local_file_path_list[0]
-    print(f"Local image path : {image_local_path}")
+        local_file_path_list = mechanical.download(
+            image_path_server, target_dir=current_working_directory
+        )
+        image_local_path = local_file_path_list[0]
+        print(f"Local image path : {image_local_path}")
 
-    display_image(image_local_path)
+        display_image(image_local_path)
 
 ###############################################################################
 # Download output file from solve and print contents

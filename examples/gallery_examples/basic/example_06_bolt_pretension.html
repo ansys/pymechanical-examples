@@ -510,7 +510,7 @@ Make this variable compatible for Windows, Linux, and Docker containers.</p>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;project directory = </span><span class="si">{</span><a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">project_directory</span></a><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>project directory = /tmp/ANSYS.root.1/AnsysMech9943/Project_Mech_Files/
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>project directory = /tmp/ANSYS.root.1/AnsysMechF280/Project_Mech_Files/
 </pre></div>
 </div>
 </section>
@@ -534,8 +534,8 @@ Make this variable compatible for Windows, Linux, and Docker containers.</p>
 </div>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Downloaded the geometry file to: /home/runner/.local/share/ansys_mechanical_core/examples/example_06_bolt_pret_geom.agdb
 
-Uploading example_06_bolt_pret_geom.agdb to 127.0.0.1:10000:/tmp/ANSYS.root.1/AnsysMech9943/Project_Mech_Files/.:   0%|          | 0.00/2.52M [00:00&lt;?, ?B/s]
-Uploading example_06_bolt_pret_geom.agdb to 127.0.0.1:10000:/tmp/ANSYS.root.1/AnsysMech9943/Project_Mech_Files/.: 100%|##########| 2.52M/2.52M [00:00&lt;00:00, 941MB/s]
+Uploading example_06_bolt_pret_geom.agdb to 127.0.0.1:10000:/tmp/ANSYS.root.1/AnsysMechF280/Project_Mech_Files/.:   0%|          | 0.00/2.52M [00:00&lt;?, ?B/s]
+Uploading example_06_bolt_pret_geom.agdb to 127.0.0.1:10000:/tmp/ANSYS.root.1/AnsysMechF280/Project_Mech_Files/.: 100%|##########| 2.52M/2.52M [00:00&lt;00:00, 524MB/s]
 
 &#39;&#39;
 </pre></div>
@@ -559,8 +559,8 @@ Uploading example_06_bolt_pret_geom.agdb to 127.0.0.1:10000:/tmp/ANSYS.root.1/An
 </div>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Downloaded the material file to: /home/runner/.local/share/ansys_mechanical_core/examples/example_06_Mat_Copper.xml
 
-Uploading example_06_Mat_Copper.xml to 127.0.0.1:10000:/tmp/ANSYS.root.1/AnsysMech9943/Project_Mech_Files/.:   0%|          | 0.00/5.00k [00:00&lt;?, ?B/s]
-Uploading example_06_Mat_Copper.xml to 127.0.0.1:10000:/tmp/ANSYS.root.1/AnsysMech9943/Project_Mech_Files/.: 100%|##########| 5.00k/5.00k [00:00&lt;00:00, 17.3MB/s]
+Uploading example_06_Mat_Copper.xml to 127.0.0.1:10000:/tmp/ANSYS.root.1/AnsysMechF280/Project_Mech_Files/.:   0%|          | 0.00/5.00k [00:00&lt;?, ?B/s]
+Uploading example_06_Mat_Copper.xml to 127.0.0.1:10000:/tmp/ANSYS.root.1/AnsysMechF280/Project_Mech_Files/.: 100%|##########| 5.00k/5.00k [00:00&lt;00:00, 19.7MB/s]
 
 &#39;&#39;
 </pre></div>
@@ -588,9 +588,9 @@ Uploading example_06_Mat_Copper.xml to 127.0.0.1:10000:/tmp/ANSYS.root.1/AnsysMe
 </div>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Downloaded the material file to: /home/runner/.local/share/ansys_mechanical_core/examples/example_06_Mat_Steel.xml
 
-Uploading example_06_Mat_Steel.xml to 127.0.0.1:10000:/tmp/ANSYS.root.1/AnsysMech9943/Project_Mech_Files/.:   0%|          | 0.00/5.00k [00:00&lt;?, ?B/s]
-Uploading example_06_Mat_Steel.xml to 127.0.0.1:10000:/tmp/ANSYS.root.1/AnsysMech9943/Project_Mech_Files/.: 100%|##########| 5.00k/5.00k [00:00&lt;00:00, 25.2MB/s]
-part_file_path on server: /tmp/ANSYS.root.1/AnsysMech9943/Project_Mech_Files/example_06_bolt_pret_geom.agdb
+Uploading example_06_Mat_Steel.xml to 127.0.0.1:10000:/tmp/ANSYS.root.1/AnsysMechF280/Project_Mech_Files/.:   0%|          | 0.00/5.00k [00:00&lt;?, ?B/s]
+Uploading example_06_Mat_Steel.xml to 127.0.0.1:10000:/tmp/ANSYS.root.1/AnsysMechF280/Project_Mech_Files/.: 100%|##########| 5.00k/5.00k [00:00&lt;00:00, 23.6MB/s]
+part_file_path on server: /tmp/ANSYS.root.1/AnsysMechF280/Project_Mech_Files/example_06_bolt_pret_geom.agdb
 </pre></div>
 </div>
 </section>
@@ -624,7 +624,6 @@ analysis.</p>
 
 <span class="sd"># Section 2 Set up the Unit System.</span>
 <span class="sd">ExtAPI.Application.ActiveUnitSystem = MechanicalUnitSystem.StandardNMM</span>
-<span class="sd">ExtAPI.Application.ScriptByName(&quot;jscript&quot;).CallJScript(&quot;doGraphicsFit&quot;)</span>
 
 <span class="sd"># Section 3 Store all main tree nodes as variables.</span>
 <span class="sd">MODEL = ExtAPI.DataModel.Project.Model</span>
@@ -869,18 +868,15 @@ analysis.</p>
 <span class="sd">STAT_STRUC_SOLN.Solve(True)</span>
 <span class="sd">STAT_STRUC_SS=STAT_STRUC_SOLN.Status</span>
 
+<span class="sd"># Set isometric view and zoom to fit</span>
+<span class="sd">cam = Graphics.Camera</span>
+<span class="sd">cam.SetSpecificViewOrientation(ViewOrientationType.Iso)</span>
+<span class="sd">cam.SetFit()</span>
+
 <span class="sd">mechdir = STAT_STRUC.Children[0].SolverFilesDirectory</span>
-<span class="sd">export_path = os.path.join(mechdir, &quot;eqv_stress_1.png&quot;)</span>
-<span class="sd">Equivalent_stress_1.Activate()</span>
-<span class="sd">Graphics.ExportImage(export_path, GraphicsImageExportFormat.PNG)</span>
-
-<span class="sd">export_path2 = os.path.join(mechdir, &quot;eqv_stress_2.png&quot;)</span>
-<span class="sd">Equivalent_stress_2.Activate()</span>
-<span class="sd">Graphics.ExportImage(export_path2, GraphicsImageExportFormat.PNG)</span>
-
-<span class="sd">export_path3 = os.path.join(mechdir, &quot;contact_status.png&quot;)</span>
+<span class="sd">export_path = os.path.join(mechdir, &quot;contact_status.png&quot;)</span>
 <span class="sd">Post_Contact_Tool.Children[0].Activate()</span>
-<span class="sd">Graphics.ExportImage(export_path3, GraphicsImageExportFormat.PNG)</span>
+<span class="sd">Graphics.ExportImage(export_path, GraphicsImageExportFormat.PNG)</span>
 
 <span class="sd">my_results_details = {</span>
 <span class="sd">    &quot;Total_Deformation&quot;: str(Total_Deformation.Maximum),</span>
@@ -894,7 +890,7 @@ analysis.</p>
 <span class="nb">print</span><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">output</span></a><span class="p">)</span>
 </pre></div>
 </div>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>{&quot;Equivalent_Stress1&quot;: &quot;2325.9050349865679 [MPa]&quot;, &quot;Total_Deformation&quot;: &quot;0.39059984945454923 [mm]&quot;, &quot;Equivalent_Stress2&quot;: &quot;2325.9050349865679 [MPa]&quot;}
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>{&quot;Equivalent_Stress1&quot;: &quot;2322.9983727598928 [MPa]&quot;, &quot;Total_Deformation&quot;: &quot;0.39048356922848043 [mm]&quot;, &quot;Equivalent_Stress2&quot;: &quot;2322.9983727598928 [MPa]&quot;}
 </pre></div>
 </div>
 </section>
@@ -911,7 +907,7 @@ Make the variable compatible for Windows, Linux, and Docker containers.</p>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Images are stored on the server at: </span><span class="si">{</span><a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">result_image_dir_server</span></a><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Images are stored on the server at: /tmp/ANSYS.root.1/AnsysMech9943/Project_Mech_Files/StaticStructural/
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Images are stored on the server at: /tmp/ANSYS.root.1/AnsysMechF280/Project_Mech_Files/StaticStructural/
 </pre></div>
 </div>
 </section>
@@ -947,8 +943,8 @@ using matplotlib.</p>
     <span class="n">display_image</span><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">image_local_path</span></a><span class="p">)</span>
 </pre></div>
 </div>
-<img src="../../../_images/sphx_glr_example_06_bolt_pretension_001.png" srcset="../../../_images/sphx_glr_example_06_bolt_pretension_001.png" alt="example 06 bolt pretension" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Downloading 127.0.0.1:10000:/tmp/ANSYS.root.1/AnsysMech9943/Project_Mech_Files/StaticStructural/contact_status.png to /home/runner/work/pymechanical-examples/pymechanical-examples/examples/basic/contact_status.png:   0%|          | 0.00/79.3k [00:00&lt;?, ?B/s]
-Downloading 127.0.0.1:10000:/tmp/ANSYS.root.1/AnsysMech9943/Project_Mech_Files/StaticStructural/contact_status.png to /home/runner/work/pymechanical-examples/pymechanical-examples/examples/basic/contact_status.png: 100%|##########| 79.3k/79.3k [00:00&lt;00:00, 442MB/s]
+<img src="../../../_images/sphx_glr_example_06_bolt_pretension_001.png" srcset="../../../_images/sphx_glr_example_06_bolt_pretension_001.png" alt="example 06 bolt pretension" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Downloading 127.0.0.1:10000:/tmp/ANSYS.root.1/AnsysMechF280/Project_Mech_Files/StaticStructural/contact_status.png to /home/runner/work/pymechanical-examples/pymechanical-examples/examples/basic/contact_status.png:   0%|          | 0.00/79.5k [00:00&lt;?, ?B/s]
+Downloading 127.0.0.1:10000:/tmp/ANSYS.root.1/AnsysMechF280/Project_Mech_Files/StaticStructural/contact_status.png to /home/runner/work/pymechanical-examples/pymechanical-examples/examples/basic/contact_status.png: 100%|##########| 79.5k/79.5k [00:00&lt;00:00, 418MB/s]
 Local image path : /home/runner/work/pymechanical-examples/pymechanical-examples/examples/basic/contact_status.png
 Printing /home/runner/work/pymechanical-examples/pymechanical-examples/examples/basic/contact_status.png using matplotlib
 </pre></div>
@@ -989,8 +985,8 @@ directory and print the contents. Remove the <code class="docutils literal notra
     <a href="https://docs.python.org/3/library/os.html#os.remove" title="os.remove" class="sphx-glr-backref-module-os sphx-glr-backref-type-py-function"><span class="n">os</span><span class="o">.</span><span class="n">remove</span></a><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">solve_out_local_path</span></a><span class="p">)</span>
 </pre></div>
 </div>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Downloading 127.0.0.1:10000:/tmp/ANSYS.root.1/AnsysMech9943/Project_Mech_Files/StaticStructural/solve.out to /home/runner/work/pymechanical-examples/pymechanical-examples/examples/basic/solve.out:   0%|          | 0.00/81.2k [00:00&lt;?, ?B/s]
-Downloading 127.0.0.1:10000:/tmp/ANSYS.root.1/AnsysMech9943/Project_Mech_Files/StaticStructural/solve.out to /home/runner/work/pymechanical-examples/pymechanical-examples/examples/basic/solve.out: 100%|##########| 81.2k/81.2k [00:00&lt;00:00, 467MB/s]
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Downloading 127.0.0.1:10000:/tmp/ANSYS.root.1/AnsysMechF280/Project_Mech_Files/StaticStructural/solve.out to /home/runner/work/pymechanical-examples/pymechanical-examples/examples/basic/solve.out:   0%|          | 0.00/81.6k [00:00&lt;?, ?B/s]
+Downloading 127.0.0.1:10000:/tmp/ANSYS.root.1/AnsysMechF280/Project_Mech_Files/StaticStructural/solve.out to /home/runner/work/pymechanical-examples/pymechanical-examples/examples/basic/solve.out: 100%|##########| 81.6k/81.6k [00:00&lt;00:00, 1.69GB/s]
 
  Ansys Mechanical Enterprise
 
@@ -1090,13 +1086,13 @@ Downloading 127.0.0.1:10000:/tmp/ANSYS.root.1/AnsysMech9943/Project_Mech_Files/S
   DISTRIBUTED MEMORY PARALLEL REQUESTED
        4 PARALLEL PROCESSES REQUESTED WITH SINGLE THREAD PER PROCESS
     TOTAL OF     4 CORES REQUESTED
-  INPUT FILE NAME              = /tmp/ANSYS.root.1/AnsysMech9943/Project_Mech_Files/StaticStructural/dummy.dat
-  OUTPUT FILE NAME             = /tmp/ANSYS.root.1/AnsysMech9943/Project_Mech_Files/StaticStructural/solve.out
+  INPUT FILE NAME              = /tmp/ANSYS.root.1/AnsysMechF280/Project_Mech_Files/StaticStructural/dummy.dat
+  OUTPUT FILE NAME             = /tmp/ANSYS.root.1/AnsysMechF280/Project_Mech_Files/StaticStructural/solve.out
   START-UP FILE MODE           = NOREAD
   STOP FILE MODE               = NOREAD
 
  RELEASE= 2023 R2              BUILD= 23.2      UP20230530   VERSION=LINUX x64
- CURRENT JOBNAME=file0  18:38:43  JUN 21, 2023 CP=      0.223
+ CURRENT JOBNAME=file0  16:04:02  JUN 22, 2023 CP=      0.222
 
 
  PARAMETER _DS_PROGRESS =     999.0000000
@@ -1105,11 +1101,11 @@ Downloading 127.0.0.1:10000:/tmp/ANSYS.root.1/AnsysMech9943/Project_Mech_Files/S
 
 
 
- *** NOTE ***                            CP =       0.280   TIME= 18:38:43
+ *** NOTE ***                            CP =       0.276   TIME= 16:04:02
  The /CONFIG,NOELDB command is not valid in a distributed memory
  parallel solution.  Command is ignored.
 
- *GET  _WALLSTRT  FROM  ACTI  ITEM=TIME WALL  VALUE=  18.6452778
+ *GET  _WALLSTRT  FROM  ACTI  ITEM=TIME WALL  VALUE=  16.0672222
 
  TITLE=
  --Static Structural
@@ -1118,12 +1114,12 @@ Downloading 127.0.0.1:10000:/tmp/ANSYS.root.1/AnsysMech9943/Project_Mech_Files/S
  SET PARAMETER DIMENSIONS ON  _WB_PROJECTSCRATCH_DIR
   TYPE=STRI  DIMENSIONS=      248        1        1
 
- PARAMETER _WB_PROJECTSCRATCH_DIR(1) = /tmp/ANSYS.root.1/AnsysMech9943/Project_Mech_Files/StaticStructural/
+ PARAMETER _WB_PROJECTSCRATCH_DIR(1) = /tmp/ANSYS.root.1/AnsysMechF280/Project_Mech_Files/StaticStructural/
 
  SET PARAMETER DIMENSIONS ON  _WB_SOLVERFILES_DIR
   TYPE=STRI  DIMENSIONS=      248        1        1
 
- PARAMETER _WB_SOLVERFILES_DIR(1) = /tmp/ANSYS.root.1/AnsysMech9943/Project_Mech_Files/StaticStructural/
+ PARAMETER _WB_SOLVERFILES_DIR(1) = /tmp/ANSYS.root.1/AnsysMechF280/Project_Mech_Files/StaticStructural/
 
  SET PARAMETER DIMENSIONS ON  _WB_USERFILES_DIR
   TYPE=STRI  DIMENSIONS=      248        1        1
@@ -1144,7 +1140,7 @@ Downloading 127.0.0.1:10000:/tmp/ANSYS.root.1/AnsysMech9943/Project_Mech_Files/S
 
  *** MAPDL - ENGINEERING ANALYSIS SYSTEM  RELEASE 2023 R2          23.2     ***
  Ansys Mechanical Enterprise
- 00000000  VERSION=LINUX x64     18:38:43  JUN 21, 2023 CP=      0.283
+ 00000000  VERSION=LINUX x64     16:04:02  JUN 22, 2023 CP=      0.280
 
  --Static Structural
 
@@ -1201,18 +1197,18 @@ Downloading 127.0.0.1:10000:/tmp/ANSYS.root.1/AnsysMech9943/Project_Mech_Files/S
   CREATE COMPONENT CMNBOLT  FROM PRETENSION NODES
 
 
- ***** ROUTINE COMPLETED *****  CP =         0.851
+ ***** ROUTINE COMPLETED *****  CP =         0.837
 
 
- --- Number of total nodes = 20255
+ --- Number of total nodes = 20297
  --- Number of contact elements = 4624
  --- Number of spring elements = 0
  --- Number of bearing elements = 0
- --- Number of solid elements = 4382
+ --- Number of solid elements = 4419
  --- Number of condensed parts = 0
- --- Number of total elements = 9136
+ --- Number of total elements = 9173
 
- *GET  _WALLBSOL  FROM  ACTI  ITEM=TIME WALL  VALUE=  18.6452778
+ *GET  _WALLBSOL  FROM  ACTI  ITEM=TIME WALL  VALUE=  16.0675000
  ****************************************************************************
  *************************    SOLUTION       ********************************
  ****************************************************************************
@@ -1257,11 +1253,11 @@ Downloading 127.0.0.1:10000:/tmp/ANSYS.root.1/AnsysMech9943/Project_Mech_Files/S
  SELECT       FOR ITEM=TYPE COMPONENT=
   IN RANGE        24 TO         24 STEP          1
 
-         98  ELEMENTS (OF       9136  DEFINED) SELECTED BY  ESEL  COMMAND.
+         98  ELEMENTS (OF       9173  DEFINED) SELECTED BY  ESEL  COMMAND.
 
  SELECT      ALL NODES HAVING ANY ELEMENT IN ELEMENT SET.
 
-        337 NODES (OF      20255  DEFINED) SELECTED FROM
+        337 NODES (OF      20297  DEFINED) SELECTED FROM
        98 SELECTED ELEMENTS BY NSLE COMMAND.
 
  SPECIFIED SURFACE LOAD PRES FOR ALL SELECTED ELEMENTS  LKEY =  1   KVAL = 1
@@ -1274,18 +1270,18 @@ Downloading 127.0.0.1:10000:/tmp/ANSYS.root.1/AnsysMech9943/Project_Mech_Files/S
      VALUES =     0.0000         0.0000         0.0000         0.0000
 
  ALL SELECT   FOR ITEM=NODE COMPONENT=
-  IN RANGE         1 TO      20255 STEP          1
+  IN RANGE         1 TO      20297 STEP          1
 
-      20255  NODES (OF      20255  DEFINED) SELECTED BY NSEL  COMMAND.
+      20297  NODES (OF      20297  DEFINED) SELECTED BY NSEL  COMMAND.
 
  ALL SELECT   FOR ITEM=ELEM COMPONENT=
-  IN RANGE         1 TO      11780 STEP          1
+  IN RANGE         1 TO      11816 STEP          1
 
-       9136  ELEMENTS (OF       9136  DEFINED) SELECTED BY  ESEL  COMMAND.
+       9173  ELEMENTS (OF       9173  DEFINED) SELECTED BY  ESEL  COMMAND.
 
  PRINTOUT RESUMED BY /GOP
 
- SPECIFIED NODAL LOAD FX   FOR SELECTED NODES     20125 TO    20125 BY        1
+ SPECIFIED NODAL LOAD FX   FOR SELECTED NODES     20167 TO    20167 BY        1
   REAL=  613630.000       IMAG=  0.00000000
 
  DO NOT USE AUTOMATIC TIME STEPPING THIS LOAD STEP
@@ -1337,20 +1333,20 @@ Downloading 127.0.0.1:10000:/tmp/ANSYS.root.1/AnsysMech9943/Project_Mech_Files/S
 
  *ENDIF
 
- *** NOTE ***                            CP =       1.217   TIME= 18:38:43
+ *** NOTE ***                            CP =       1.110   TIME= 16:04:03
  The automatic domain decomposition logic has selected the MESH domain
  decomposition method with 4 processes per solution.
 
  *****  MAPDL SOLVE    COMMAND  *****
 
- *** WARNING ***                         CP =       1.221   TIME= 18:38:43
+ *** WARNING ***                         CP =       1.114   TIME= 16:04:03
  Element shape checking is currently inactive.  Issue SHPP,ON or
  SHPP,WARN to reactivate, if desired.
 
- *** NOTE ***                            CP =       1.282   TIME= 18:38:43
+ *** NOTE ***                            CP =       1.161   TIME= 16:04:03
  The model data was checked and warning messages were found.
   Please review output or errors file (
- /tmp/ANSYS.root.1/AnsysMech9943/Project_Mech_Files/StaticStructural/fil
+ /tmp/ANSYS.root.1/AnsysMechF280/Project_Mech_Files/StaticStructural/fil
  le0.err ) for these warning messages.
 
  *** SELECTION OF ELEMENT TECHNOLOGIES FOR APPLICABLE ELEMENTS ***
@@ -1393,7 +1389,7 @@ Downloading 127.0.0.1:10000:/tmp/ANSYS.root.1/AnsysMech9943/Project_Mech_Files/S
 
  *** MAPDL - ENGINEERING ANALYSIS SYSTEM  RELEASE 2023 R2          23.2     ***
  Ansys Mechanical Enterprise
- 00000000  VERSION=LINUX x64     18:38:43  JUN 21, 2023 CP=      1.292
+ 00000000  VERSION=LINUX x64     16:04:03  JUN 22, 2023 CP=      1.189
 
  --Static Structural
 
@@ -1409,49 +1405,49 @@ Downloading 127.0.0.1:10000:/tmp/ANSYS.root.1/AnsysMech9943/Project_Mech_Files/S
    NEWTON-RAPHSON OPTION . . . . . . . . . . . . .PROGRAM CHOSEN
    GLOBALLY ASSEMBLED MATRIX . . . . . . . . . . .SYMMETRIC
 
- *** WARNING ***                         CP =       1.342   TIME= 18:38:43
- Material number 24 (used by element 11553) should normally have at
+ *** WARNING ***                         CP =       1.232   TIME= 16:04:03
+ Material number 24 (used by element 11589) should normally have at
  least one MP or one TB type command associated with it.  Output of
  energy by material may not be available.
 
- *** NOTE ***                            CP =       1.350   TIME= 18:38:43
+ *** NOTE ***                            CP =       1.250   TIME= 16:04:03
  The step data was checked and warning messages were found.
   Please review output or errors file (
- /tmp/ANSYS.root.1/AnsysMech9943/Project_Mech_Files/StaticStructural/fil
+ /tmp/ANSYS.root.1/AnsysMechF280/Project_Mech_Files/StaticStructural/fil
  le0.err ) for these warning messages.
 
- *** NOTE ***                            CP =       1.350   TIME= 18:38:43
+ *** NOTE ***                            CP =       1.250   TIME= 16:04:03
  This nonlinear analysis defaults to using the full Newton-Raphson
  solution procedure.  This can be modified using the NROPT command.
 
  CHECK INITIAL OPEN/CLOSED STATUS OF SELECTED CONTACT ELEMENTS
       AND LIST DETAILED CONTACT PAIR INFORMATION
- *WARNING*: Some MPC/Lagrange based elements (e.g.7507) in real constant
- set 15 overlap with other MPC/Lagrange based elements (e.g.9497) in
+ *WARNING*: Some MPC/Lagrange based elements (e.g.7543) in real constant
+ set 15 overlap with other MPC/Lagrange based elements (e.g.9533) in
  real constant set 21 which can cause overconstraint.
 
- *** WARNING ***                         CP =       3.125   TIME= 18:38:44
+ *** WARNING ***                         CP =       3.028   TIME= 16:04:04
  Overconstraint may occur for Lagrange multiplier or MPC based contact
  algorithm.
 
- *** WARNING ***                         CP =       3.125   TIME= 18:38:44
- Certain contact elements (for example 9488 &amp; 9425) overlap with other.
+ *** WARNING ***                         CP =       3.028   TIME= 16:04:04
+ Certain contact elements (for example 9524 &amp; 9461) overlap with other.
 
     1970 CONTACT ELEMENTS &amp;     293 TARGET ELEMENTS ARE UNSELECTED FOR PREPARATION OF          SPLITTING.
        6 CONTACT PAIRS ARE UNSELECTED.
 
- *** NOTE ***                            CP =       3.167   TIME= 18:38:44
+ *** NOTE ***                            CP =       3.071   TIME= 16:04:04
  The maximum number of contact elements in any single contact pair is
- 100, which is smaller than the optimal domain size of 441 elements for
+ 100, which is smaller than the optimal domain size of 444 elements for
  the given number of CPU domains (4).  Therefore, no contact pairs are
  being split by the CNCH,DMP logic.
 
  BECAUSE SPLIT WAS NOT DONE FOR CONNECT REGION(S), UNSELECTED ELEMENTS ARE REVERTED (SELECTED).
- *WARNING*: Some MPC/Lagrange based elements (e.g.7507) in real constant
- set 15 overlap with other MPC/Lagrange based elements (e.g.9497) in
+ *WARNING*: Some MPC/Lagrange based elements (e.g.7543) in real constant
+ set 15 overlap with other MPC/Lagrange based elements (e.g.9533) in
  real constant set 21 which can cause overconstraint.
 
- *** NOTE ***                            CP =       4.894   TIME= 18:38:45
+ *** NOTE ***                            CP =       4.796   TIME= 16:04:05
  Symmetric Deformable- deformable contact pair identified by real
  constant set 12 and contact element type 12 has been set up.  The
  companion pair has real constant set ID 13.  Both pairs should have
@@ -1464,29 +1460,29 @@ Downloading 127.0.0.1:10000:/tmp/ANSYS.root.1/AnsysMech9943/Project_Mech_Files/S
  Contact stiffness factor FKN                  1.0000
  The resulting initial contact stiffness      0.18076E+06
  Default penetration tolerance factor FTOLN   0.10000
- The resulting penetration tolerance           1.3616
+ The resulting penetration tolerance           1.3999
  Max. initial friction coefficient MU         0.20000
  Default tangent stiffness factor FKT          1.0000
 
- *** WARNING ***                         CP =       4.894   TIME= 18:38:45
+ *** WARNING ***                         CP =       4.796   TIME= 16:04:05
  It is highly recommended to set KEYOPT(10)=0 (update contact stiffness
  at each iteration) in order to achieve better convergence.
  Use constant contact stiffness
  Default Max. friction stress TAUMAX          0.10000E+21
  Average contact surface length                14.016
- Average contact pair depth                    13.616
+ Average contact pair depth                    13.999
  Average target surface length                 13.943
  Default pinball region factor PINB            1.0000
- The resulting pinball region                  13.616
+ The resulting pinball region                  13.999
  Contact offset is included. Initial geometric penetration is excluded.
 
- *** NOTE ***                            CP =       4.894   TIME= 18:38:45
- Max.  Initial penetration 0 was detected between contact element 7127
- and target element 7327.
+ *** NOTE ***                            CP =       4.796   TIME= 16:04:05
+ Max.  Initial penetration 0 was detected between contact element 7163
+ and target element 7363.
  ****************************************
 
 
- *** NOTE ***                            CP =       4.894   TIME= 18:38:45
+ *** NOTE ***                            CP =       4.796   TIME= 16:04:05
  Symmetric Deformable- deformable contact pair identified by real
  constant set 13 and contact element type 12 has been set up.  The
  companion pair has real constant set ID 12.  Both pairs should have
@@ -1512,13 +1508,13 @@ Downloading 127.0.0.1:10000:/tmp/ANSYS.root.1/AnsysMech9943/Project_Mech_Files/S
  The resulting pinball region                  14.384
  Contact offset is included. Initial geometric penetration is excluded.
 
- *** NOTE ***                            CP =       4.894   TIME= 18:38:45
- Max.  Initial penetration 0 was detected between contact element 7227
- and target element 7027.
+ *** NOTE ***                            CP =       4.796   TIME= 16:04:05
+ Max.  Initial penetration 0 was detected between contact element 7263
+ and target element 7063.
  ****************************************
 
 
- *** NOTE ***                            CP =       4.894   TIME= 18:38:45
+ *** NOTE ***                            CP =       4.796   TIME= 16:04:05
  Symmetric Deformable- deformable contact pair identified by real
  constant set 14 and contact element type 14 has been set up.  The
  companion pair has real constant set ID 15.  Both pairs should have
@@ -1528,29 +1524,32 @@ Downloading 127.0.0.1:10000:/tmp/ANSYS.root.1/AnsysMech9943/Project_Mech_Files/S
  Auto surface constraint is built
  Contact algorithm: MPC based approach
 
- *** NOTE ***                            CP =       4.894   TIME= 18:38:45
+ *** NOTE ***                            CP =       4.796   TIME= 16:04:05
  Contact related postprocess items (ETABLE, pressure ...) are not
  available.
  Contact detection at: nodal point (normal to target surface)
  MPC will be built internally to handle bonded contact.
- Average contact surface length                13.527
- Average contact pair depth                    9.5052
+ Average contact surface length                13.532
+ Average contact pair depth                    9.7779
  Average target surface length                 6.3865
  Default pinball region factor PINB           0.25000
- The resulting pinball region                  2.3763
+ The resulting pinball region                  2.4445
  Default target edge extension factor TOLS     2.0000
  Initial penetration/gap is excluded.
  Bonded contact (always) is defined.
 
- *** NOTE ***                            CP =       4.894   TIME= 18:38:45
- Max.  Initial penetration 0.684961413 was detected between contact
- element 7496 and target element 8518.
- You may move entire target surface by : x= 3.574949984E-16, y=
- -0.262123383, z= 0.632821831,to reduce initial penetration.
+ *** NOTE ***                            CP =       4.796   TIME= 16:04:05
+ Max.  Initial penetration 1.29197356 was detected between contact
+ element 7505 and target element 8546.
+ You may move entire target surface by : x= -2.851930401E-15, y=
+ -0.465542205, z= 1.20518303,to reduce initial penetration.
+ *WARNING*: The geometric gap/penetration may be too large.  Increase
+ pinball radius if it is a true geometric gap/penetration.  Decrease
+ pinball if it is a false one.
  ****************************************
 
 
- *** NOTE ***                            CP =       4.894   TIME= 18:38:45
+ *** NOTE ***                            CP =       4.796   TIME= 16:04:05
  Symmetric Deformable- deformable contact pair identified by real
  constant set 15 and contact element type 14 has been set up.  The
  companion pair has real constant set ID 14.  Both pairs should have
@@ -1560,32 +1559,35 @@ Downloading 127.0.0.1:10000:/tmp/ANSYS.root.1/AnsysMech9943/Project_Mech_Files/S
  Auto surface constraint is built
  Contact algorithm: MPC based approach
 
- *** NOTE ***                            CP =       4.894   TIME= 18:38:45
+ *** NOTE ***                            CP =       4.796   TIME= 16:04:05
  Contact related postprocess items (ETABLE, pressure ...) are not
  available.
  Contact detection at: nodal point (normal to target surface)
  MPC will be built internally to handle bonded contact.
  Average contact surface length                6.4480
  Average contact pair depth                    5.1166
- Average target surface length                 13.389
+ Average target surface length                 13.390
  Default pinball region factor PINB           0.25000
+ *WARNING*: The default pinball radius may be too small to capture
+ contacting zone under small sliding assumption.  Redefine the pinball
+ radius if necessary.
  The resulting pinball region                  1.2792
  Default target edge extension factor TOLS     2.0000
  Initial penetration/gap is excluded.
  Bonded contact (always) is defined.
 
- *** NOTE ***                            CP =       4.894   TIME= 18:38:45
- Max.  Initial penetration 0.675828019 was detected between contact
- element 8196 and target element 7453.
- You may move entire target surface by : x= 3.537426776E-02, y=
- 0.235026907, z= 0.63265672,to reduce initial penetration.
+ *** NOTE ***                            CP =       4.796   TIME= 16:04:05
+ Max.  Initial penetration 1.08986554 was detected between contact
+ element 7672 and target element 7465.
+ You may move entire target surface by : x= 2.320973471E-02, y=
+ 0.476433913, z= -0.979938229,to reduce initial penetration.
  *WARNING*: The geometric gap/penetration may be too large.  Increase
  pinball radius if it is a true geometric gap/penetration.  Decrease
  pinball if it is a false one.
  ****************************************
 
 
- *** NOTE ***                            CP =       4.894   TIME= 18:38:45
+ *** NOTE ***                            CP =       4.796   TIME= 16:04:05
  Symmetric Deformable- deformable contact pair identified by real
  constant set 16 and contact element type 16 has been set up.  The
  companion pair has real constant set ID 17.  Both pairs should have
@@ -1595,9 +1597,9 @@ Downloading 127.0.0.1:10000:/tmp/ANSYS.root.1/AnsysMech9943/Project_Mech_Files/S
  Contact algorithm: Augmented Lagrange method
  Contact detection at: Gauss integration point
  Contact stiffness factor FKN                  1.0000
- The resulting initial contact stiffness      0.21362E+06
+ The resulting initial contact stiffness      0.21529E+06
  Default penetration tolerance factor FTOLN   0.10000
- The resulting penetration tolerance           1.2171
+ The resulting penetration tolerance           1.2077
  Max. initial friction coefficient MU         0.20000
  Default tangent stiffness factor FKT          1.0000
  *WARNING*: It is highly recommended to set KEYOPT(10)=0 (update contact
@@ -1605,19 +1607,19 @@ Downloading 127.0.0.1:10000:/tmp/ANSYS.root.1/AnsysMech9943/Project_Mech_Files/S
  Use constant contact stiffness
  Default Max. friction stress TAUMAX          0.10000E+21
  Average contact surface length                14.017
- Average contact pair depth                    12.171
+ Average contact pair depth                    12.077
  Average target surface length                 14.123
  Default pinball region factor PINB            1.0000
- The resulting pinball region                  12.171
+ The resulting pinball region                  12.077
  Contact offset is included. Initial geometric penetration is excluded.
 
- *** NOTE ***                            CP =       4.894   TIME= 18:38:45
- Max.  Initial penetration 0 was detected between contact element 9263
- and target element 9389.
+ *** NOTE ***                            CP =       4.796   TIME= 16:04:05
+ Max.  Initial penetration 0 was detected between contact element 9299
+ and target element 9420.
  ****************************************
 
 
- *** NOTE ***                            CP =       4.894   TIME= 18:38:45
+ *** NOTE ***                            CP =       4.796   TIME= 16:04:05
  Symmetric Deformable- deformable contact pair identified by real
  constant set 17 and contact element type 16 has been set up.  The
  companion pair has real constant set ID 16.  Both pairs should have
@@ -1627,7 +1629,7 @@ Downloading 127.0.0.1:10000:/tmp/ANSYS.root.1/AnsysMech9943/Project_Mech_Files/S
  Contact algorithm: Augmented Lagrange method
  Contact detection at: Gauss integration point
  Contact stiffness factor FKN                  1.0000
- The resulting initial contact stiffness      0.21362E+06
+ The resulting initial contact stiffness      0.21529E+06
  Default penetration tolerance factor FTOLN   0.10000
  The resulting penetration tolerance          0.43721
  Max. initial friction coefficient MU         0.20000
@@ -1643,13 +1645,13 @@ Downloading 127.0.0.1:10000:/tmp/ANSYS.root.1/AnsysMech9943/Project_Mech_Files/S
  The resulting pinball region                  4.3721
  Contact offset is included. Initial geometric penetration is excluded.
 
- *** NOTE ***                            CP =       4.894   TIME= 18:38:45
- Max.  Initial penetration 0 was detected between contact element 9363
- and target element 9211.
+ *** NOTE ***                            CP =       4.796   TIME= 16:04:05
+ Max.  Initial penetration 0 was detected between contact element 9399
+ and target element 9247.
  ****************************************
 
 
- *** NOTE ***                            CP =       4.894   TIME= 18:38:45
+ *** NOTE ***                            CP =       4.796   TIME= 16:04:05
  Symmetric Deformable- deformable contact pair identified by real
  constant set 18 and contact element type 18 has been set up.  The
  companion pair has real constant set ID 19.  Both pairs should have
@@ -1659,7 +1661,7 @@ Downloading 127.0.0.1:10000:/tmp/ANSYS.root.1/AnsysMech9943/Project_Mech_Files/S
  Auto surface constraint is built
  Contact algorithm: MPC based approach
 
- *** NOTE ***                            CP =       4.894   TIME= 18:38:45
+ *** NOTE ***                            CP =       4.796   TIME= 16:04:05
  Contact related postprocess items (ETABLE, pressure ...) are not
  available.
  Contact detection at: nodal point (normal to target surface)
@@ -1673,13 +1675,13 @@ Downloading 127.0.0.1:10000:/tmp/ANSYS.root.1/AnsysMech9943/Project_Mech_Files/S
  Initial penetration/gap is excluded.
  Bonded contact (always) is defined.
 
- *** NOTE ***                            CP =       4.894   TIME= 18:38:45
+ *** NOTE ***                            CP =       4.797   TIME= 16:04:05
  Max.  Initial penetration 1.136868377E-13 was detected between contact
- element 9415 and target element 9444.
+ element 9451 and target element 9480.
  ****************************************
 
 
- *** NOTE ***                            CP =       4.894   TIME= 18:38:45
+ *** NOTE ***                            CP =       4.797   TIME= 16:04:05
  Symmetric Deformable- deformable contact pair identified by real
  constant set 19 and contact element type 18 has been set up.  The
  companion pair has real constant set ID 18.  Both pairs should have
@@ -1689,12 +1691,12 @@ Downloading 127.0.0.1:10000:/tmp/ANSYS.root.1/AnsysMech9943/Project_Mech_Files/S
  Auto surface constraint is built
  Contact algorithm: MPC based approach
 
- *** NOTE ***                            CP =       4.894   TIME= 18:38:45
+ *** NOTE ***                            CP =       4.797   TIME= 16:04:05
  Contact related postprocess items (ETABLE, pressure ...) are not
  available.
  Contact detection at: nodal point (normal to target surface)
  MPC will be built internally to handle bonded contact.
- *WARNING*: Certain contact elements (for example 9433&amp;9485) overlap
+ *WARNING*: Certain contact elements (for example 9469&amp;9521) overlap
  each other.  Overconstraint may occur.
  Average contact surface length                12.576
  Average contact pair depth                    12.172
@@ -1705,13 +1707,13 @@ Downloading 127.0.0.1:10000:/tmp/ANSYS.root.1/AnsysMech9943/Project_Mech_Files/S
  Initial penetration/gap is excluded.
  Bonded contact (always) is defined.
 
- *** NOTE ***                            CP =       4.895   TIME= 18:38:45
+ *** NOTE ***                            CP =       4.797   TIME= 16:04:05
  Max.  Initial penetration 5.684341886E-14 was detected between contact
- element 9420 and target element 9404.
+ element 9456 and target element 9440.
  ****************************************
 
 
- *** NOTE ***                            CP =       4.895   TIME= 18:38:45
+ *** NOTE ***                            CP =       4.797   TIME= 16:04:05
  Symmetric Deformable- deformable contact pair identified by real
  constant set 20 and contact element type 20 has been set up.  The
  companion pair has real constant set ID 21.  Both pairs should have
@@ -1721,12 +1723,12 @@ Downloading 127.0.0.1:10000:/tmp/ANSYS.root.1/AnsysMech9943/Project_Mech_Files/S
  Auto surface constraint is built
  Contact algorithm: MPC based approach
 
- *** NOTE ***                            CP =       4.895   TIME= 18:38:45
+ *** NOTE ***                            CP =       4.797   TIME= 16:04:05
  Contact related postprocess items (ETABLE, pressure ...) are not
  available.
  Contact detection at: nodal point (normal to target surface)
  MPC will be built internally to handle bonded contact.
- *WARNING*: Certain contact elements (for example 9488&amp;9425) overlap
+ *WARNING*: Certain contact elements (for example 9524&amp;9461) overlap
  each other.  Overconstraint may occur.
  Average contact surface length                13.095
  Average contact pair depth                    6.7384
@@ -1737,9 +1739,9 @@ Downloading 127.0.0.1:10000:/tmp/ANSYS.root.1/AnsysMech9943/Project_Mech_Files/S
  Initial penetration/gap is excluded.
  Bonded contact (always) is defined.
 
- *** NOTE ***                            CP =       4.895   TIME= 18:38:45
+ *** NOTE ***                            CP =       4.797   TIME= 16:04:05
  Max.  Initial penetration 1.29362615 was detected between contact
- element 9478 and target element 10468.
+ element 9514 and target element 10504.
  You may move entire target surface by : x= -2.706933872E-15, y=
  -0.495456236, z= 1.19498608,to reduce initial penetration.
  *WARNING*: The geometric gap/penetration may be too large.  Increase
@@ -1748,7 +1750,7 @@ Downloading 127.0.0.1:10000:/tmp/ANSYS.root.1/AnsysMech9943/Project_Mech_Files/S
  ****************************************
 
 
- *** NOTE ***                            CP =       4.895   TIME= 18:38:45
+ *** NOTE ***                            CP =       4.797   TIME= 16:04:05
  Symmetric Deformable- deformable contact pair identified by real
  constant set 21 and contact element type 20 has been set up.  The
  companion pair has real constant set ID 20.  Both pairs should have
@@ -1758,7 +1760,7 @@ Downloading 127.0.0.1:10000:/tmp/ANSYS.root.1/AnsysMech9943/Project_Mech_Files/S
  Auto surface constraint is built
  Contact algorithm: MPC based approach
 
- *** NOTE ***                            CP =       4.895   TIME= 18:38:45
+ *** NOTE ***                            CP =       4.797   TIME= 16:04:05
  Contact related postprocess items (ETABLE, pressure ...) are not
  available.
  Contact detection at: nodal point (normal to target surface)
@@ -1772,9 +1774,9 @@ Downloading 127.0.0.1:10000:/tmp/ANSYS.root.1/AnsysMech9943/Project_Mech_Files/S
  Initial penetration/gap is excluded.
  Bonded contact (always) is defined.
 
- *** NOTE ***                            CP =       4.895   TIME= 18:38:45
+ *** NOTE ***                            CP =       4.797   TIME= 16:04:05
  Max.  Initial penetration 1.24946925 was detected between contact
- element 9640 and target element 9454.
+ element 9676 and target element 9490.
  You may move entire target surface by : x= 4.038012891E-02, y=
  0.432153483, z= -1.1716596,to reduce initial penetration.
  *WARNING*: The geometric gap/penetration may be too large.  Increase
@@ -1783,7 +1785,7 @@ Downloading 127.0.0.1:10000:/tmp/ANSYS.root.1/AnsysMech9943/Project_Mech_Files/S
  ****************************************
 
 
- *** NOTE ***                            CP =       4.895   TIME= 18:38:45
+ *** NOTE ***                            CP =       4.797   TIME= 16:04:05
  Symmetric Deformable- deformable contact pair identified by real
  constant set 22 and contact element type 22 has been set up.  The
  companion pair has real constant set ID 23.  Both pairs should have
@@ -1810,13 +1812,13 @@ Downloading 127.0.0.1:10000:/tmp/ANSYS.root.1/AnsysMech9943/Project_Mech_Files/S
  The resulting pinball region                  14.609
  Contact offset is included. Initial geometric penetration is excluded.
 
- *** NOTE ***                            CP =       4.895   TIME= 18:38:45
- Max.  Initial penetration 0 was detected between contact element 11253
- and target element 11459.
+ *** NOTE ***                            CP =       4.797   TIME= 16:04:05
+ Max.  Initial penetration 0 was detected between contact element 11289
+ and target element 11495.
  ****************************************
 
 
- *** NOTE ***                            CP =       4.895   TIME= 18:38:45
+ *** NOTE ***                            CP =       4.797   TIME= 16:04:05
  Symmetric Deformable- deformable contact pair identified by real
  constant set 23 and contact element type 22 has been set up.  The
  companion pair has real constant set ID 22.  Both pairs should have
@@ -1828,7 +1830,7 @@ Downloading 127.0.0.1:10000:/tmp/ANSYS.root.1/AnsysMech9943/Project_Mech_Files/S
  Contact stiffness factor FKN                  1.0000
  The resulting initial contact stiffness      0.17797E+06
  Default penetration tolerance factor FTOLN   0.10000
- The resulting penetration tolerance           1.2456
+ The resulting penetration tolerance           1.2225
  Max. initial friction coefficient MU         0.20000
  Default tangent stiffness factor FKT          1.0000
  *WARNING*: It is highly recommended to set KEYOPT(10)=0 (update contact
@@ -1836,25 +1838,25 @@ Downloading 127.0.0.1:10000:/tmp/ANSYS.root.1/AnsysMech9943/Project_Mech_Files/S
  Use constant contact stiffness
  Default Max. friction stress TAUMAX          0.10000E+21
  Average contact surface length                14.007
- Average contact pair depth                    12.456
+ Average contact pair depth                    12.225
  Average target surface length                 13.942
  Default pinball region factor PINB            1.0000
- The resulting pinball region                  12.456
+ The resulting pinball region                  12.225
  Contact offset is included. Initial geometric penetration is excluded.
 
- *** NOTE ***                            CP =       4.895   TIME= 18:38:46
- Max.  Initial penetration 0 was detected between contact element 11353
- and target element 11154.
+ *** NOTE ***                            CP =       4.797   TIME= 16:04:05
+ Max.  Initial penetration 0 was detected between contact element 11389
+ and target element 11191.
  ****************************************
 
 
- *** WARNING ***                         CP =       4.895   TIME= 18:38:46
+ *** WARNING ***                         CP =       4.797   TIME= 16:04:05
  Overconstraint may occur for Lagrange multiplier or MPC based contact
  algorithm.
  The reasons for possible overconstraint are:
 
- *** WARNING ***                         CP =       4.895   TIME= 18:38:46
- Certain contact elements (for example 9488 &amp; 9425) overlap with other.
+ *** WARNING ***                         CP =       4.797   TIME= 16:04:05
+ Certain contact elements (for example 9524 &amp; 9461) overlap with other.
  ****************************************
 
 
@@ -1863,10 +1865,10 @@ Downloading 127.0.0.1:10000:/tmp/ANSYS.root.1/AnsysMech9943/Project_Mech_Files/S
 
      D I S T R I B U T E D   D O M A I N   D E C O M P O S E R
 
-  ...Number of elements: 9136
-  ...Number of nodes:    20255
+  ...Number of elements: 9173
+  ...Number of nodes:    20297
   ...Decompose to 4 CPU domains
-  ...Element load balance ratio =     1.672
+  ...Element load balance ratio =     1.663
 
 
                       L O A D   S T E P   O P T I O N S
@@ -1897,139 +1899,139 @@ Downloading 127.0.0.1:10000:/tmp/ANSYS.root.1/AnsysMech9943/Project_Mech_Files/S
 
  &gt;&gt;&gt;&gt; PRETENSION ELEMENT STATUS &lt;&lt;&lt;&lt;
  SECTION NAME     PT.NODE  --------STATUS--------------------  ----LOAD SOURCE----
-    25              20125  APPLIED PRELOAD FORCE= 0.61363E+06  F COMMAND
+    25              20167  APPLIED PRELOAD FORCE= 0.61363E+06  F COMMAND
  MAXIMUM NUMBER OF EQUILIBRIUM ITERATIONS HAS BEEN MODIFIED
   TO BE, NEQIT = 26, BY SOLUTION CONTROL LOGIC.
 
 
  Range of element maximum matrix coefficients in global coordinates
- Maximum = 33729219.8 at element 993.
- Minimum = 811350.832 at element 1078.
+ Maximum = 82891314.2 at element 836.
+ Minimum = 723227.988 at element 2095.
 
    *** ELEMENT MATRIX FORMULATION TIMES
      TYPE    NUMBER   ENAME      TOTAL CP  AVE CP
 
-        1        80  SOLID187      0.004   0.000051
-        2       936  SOLID186      0.099   0.000105
-        3        99  SOLID187      0.005   0.000054
-        4       980  SOLID186      0.104   0.000106
-        5        14  SOLID187      0.001   0.000058
-        6       445  SOLID186      0.049   0.000110
+        1        76  SOLID187      0.004   0.000051
+        2       920  SOLID186      0.096   0.000104
+        3        99  SOLID187      0.005   0.000050
+        4       980  SOLID186      0.100   0.000102
+        5        30  SOLID187      0.002   0.000056
+        6       486  SOLID186      0.051   0.000105
         7        13  SOLID187      0.001   0.000053
-        8        51  SOLID186      0.005   0.000107
+        8        51  SOLID186      0.005   0.000101
         9         4  SOLID187      0.000   0.000054
-       10        58  SOLID186      0.007   0.000115
-       11      1702  SOLID186      0.181   0.000106
-       12       200  CONTA174      0.037   0.000187
+       10        58  SOLID186      0.007   0.000121
+       11      1702  SOLID186      0.179   0.000105
+       12       200  CONTA174      0.037   0.000186
        13       200  TARGE170      0.000   0.000001
-       14       868  CONTA174      0.034   0.000039
+       14       868  CONTA174      0.033   0.000038
        15       868  TARGE170      0.001   0.000002
-       16       114  CONTA174      0.006   0.000049
-       17       114  TARGE170      0.000   0.000002
-       18        29  CONTA174      0.005   0.000166
+       16       114  CONTA174      0.005   0.000047
+       17       114  TARGE170      0.000   0.000001
+       18        29  CONTA174      0.005   0.000165
        19        29  TARGE170      0.000   0.000001
        20       852  CONTA174      0.024   0.000028
        21       852  TARGE170      0.001   0.000002
-       22       200  CONTA174      0.036   0.000182
+       22       200  CONTA174      0.037   0.000185
        23       200  TARGE170      0.000   0.000001
        24        98  SURF154       0.003   0.000031
        25       130  PRETS179      0.001   0.000005
- Time at end of element matrix formulation CP = 7.11562204.
+ Time at end of element matrix formulation CP = 7.0197649.
 
  ALL CURRENT MAPDL DATA WRITTEN TO FILE NAME= file.rdb
   FOR POSSIBLE RESUME FROM THIS POINT
      FORCE CONVERGENCE VALUE  =  0.3068E+06  CRITERION=   1534.
 
  DISTRIBUTED SPARSE MATRIX DIRECT SOLVER.
-  Number of equations =       56272,    Maximum wavefront =    801
+  Number of equations =       56398,    Maximum wavefront =    861
 
-  Process memory allocated for solver              =   175.707 MB
-  Process memory required for in-core solution     =   168.093 MB
-  Process memory required for out-of-core solution =    73.663 MB
+  Process memory allocated for solver              =   135.698 MB
+  Process memory required for in-core solution     =   130.392 MB
+  Process memory required for out-of-core solution =    65.109 MB
 
-  Total memory allocated for solver                =   637.386 MB
-  Total memory required for in-core solution       =   611.779 MB
-  Total memory required for out-of-core solution   =   293.902 MB
+  Total memory allocated for solver                =   623.275 MB
+  Total memory required for in-core solution       =   598.334 MB
+  Total memory required for out-of-core solution   =   289.318 MB
 
- *** NOTE ***                            CP =       7.563   TIME= 18:38:47
+ *** NOTE ***                            CP =       7.485   TIME= 16:04:07
  The Distributed Sparse Matrix Solver is currently running in the
  in-core memory mode.  This memory mode uses the most amount of memory
  in order to avoid using the hard drive as much as possible, which most
  often results in the fastest solution time.  This mode is recommended
  if enough physical memory is present to accommodate all of the solver
  data.
- curEqn=  14730  totEqn=  14730 Job CP sec=      7.983
-      Factor Done= 100% Factor Wall sec=      0.486 rate=      31.1 GFlops
- Distributed sparse solver maximum pivot= 62717474.4 at node 2076 UX.
- Distributed sparse solver minimum pivot= 223970.133 at node 12610 UZ.
- Distributed sparse solver minimum pivot in absolute value= 223970.133
- at node 12610 UZ.
-     DISP CONVERGENCE VALUE   =  0.3444      CRITERION=  0.1722E-01
-    EQUIL ITER   1 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC=  0.3444
-     DISP CONVERGENCE VALUE   =  0.3444      CRITERION=  0.1722E-01
-     LINE SEARCH PARAMETER =   1.000     SCALED MAX DOF INC =  0.3444
-     FORCE CONVERGENCE VALUE  =  0.2056E+05  CRITERION=   1543.
-    EQUIL ITER   2 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC= -0.5512E-02
-     DISP CONVERGENCE VALUE   =  0.5512E-02  CRITERION=  0.1741E-01 &lt;&lt;&lt; CONVERGED
-     LINE SEARCH PARAMETER =   1.000     SCALED MAX DOF INC = -0.5512E-02
-     FORCE CONVERGENCE VALUE  =  0.1465E+05  CRITERION=   1543.
-    EQUIL ITER   3 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC=  0.3674E-02
-     DISP CONVERGENCE VALUE   =  0.3674E-02  CRITERION=  0.1755E-01 &lt;&lt;&lt; CONVERGED
-     LINE SEARCH PARAMETER =   1.000     SCALED MAX DOF INC =  0.3674E-02
-     FORCE CONVERGENCE VALUE  =   6075.      CRITERION=   1542.
-    EQUIL ITER   4 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC= -0.1604E-02
-     DISP CONVERGENCE VALUE   =  0.1604E-02  CRITERION=  0.1760E-01 &lt;&lt;&lt; CONVERGED
-     LINE SEARCH PARAMETER =   1.000     SCALED MAX DOF INC = -0.1604E-02
-     FORCE CONVERGENCE VALUE  =   3559.      CRITERION=   1542.
-    EQUIL ITER   5 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC= -0.1298E-02
-     DISP CONVERGENCE VALUE   =  0.1298E-02  CRITERION=  0.1762E-01 &lt;&lt;&lt; CONVERGED
-     LINE SEARCH PARAMETER =   1.000     SCALED MAX DOF INC = -0.1298E-02
-     FORCE CONVERGENCE VALUE  =   3140.      CRITERION=   1542.
-    EQUIL ITER   6 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC= -0.3891E-03
-     DISP CONVERGENCE VALUE   =  0.3891E-03  CRITERION=  0.1763E-01 &lt;&lt;&lt; CONVERGED
-     LINE SEARCH PARAMETER =   1.000     SCALED MAX DOF INC = -0.3891E-03
-     FORCE CONVERGENCE VALUE  =   710.1      CRITERION=   1542.     &lt;&lt;&lt; CONVERGED
+ curEqn=  10134  totEqn=  10134 Job CP sec=      7.959
+      Factor Done= 100% Factor Wall sec=      0.507 rate=      23.5 GFlops
+ Distributed sparse solver maximum pivot= 98739220.5 at node 1331 UX.
+ Distributed sparse solver minimum pivot= 215174.622 at node 12507 UZ.
+ Distributed sparse solver minimum pivot in absolute value= 215174.622
+ at node 12507 UZ.
+     DISP CONVERGENCE VALUE   =  0.3440      CRITERION=  0.1720E-01
+    EQUIL ITER   1 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC=  0.3440
+     DISP CONVERGENCE VALUE   =  0.3440      CRITERION=  0.1720E-01
+     LINE SEARCH PARAMETER =   1.000     SCALED MAX DOF INC =  0.3440
+     FORCE CONVERGENCE VALUE  =  0.2047E+05  CRITERION=   1543.
+    EQUIL ITER   2 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC=  0.6055E-02
+     DISP CONVERGENCE VALUE   =  0.6055E-02  CRITERION=  0.1740E-01 &lt;&lt;&lt; CONVERGED
+     LINE SEARCH PARAMETER =   1.000     SCALED MAX DOF INC =  0.6055E-02
+     FORCE CONVERGENCE VALUE  =  0.1448E+05  CRITERION=   1543.
+    EQUIL ITER   3 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC=  0.3181E-02
+     DISP CONVERGENCE VALUE   =  0.3181E-02  CRITERION=  0.1753E-01 &lt;&lt;&lt; CONVERGED
+     LINE SEARCH PARAMETER =   1.000     SCALED MAX DOF INC =  0.3181E-02
+     FORCE CONVERGENCE VALUE  =   6007.      CRITERION=   1542.
+    EQUIL ITER   4 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC=  0.1592E-02
+     DISP CONVERGENCE VALUE   =  0.1592E-02  CRITERION=  0.1758E-01 &lt;&lt;&lt; CONVERGED
+     LINE SEARCH PARAMETER =   1.000     SCALED MAX DOF INC =  0.1592E-02
+     FORCE CONVERGENCE VALUE  =   3536.      CRITERION=   1542.
+    EQUIL ITER   5 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC= -0.1292E-02
+     DISP CONVERGENCE VALUE   =  0.1292E-02  CRITERION=  0.1760E-01 &lt;&lt;&lt; CONVERGED
+     LINE SEARCH PARAMETER =   1.000     SCALED MAX DOF INC = -0.1292E-02
+     FORCE CONVERGENCE VALUE  =   3129.      CRITERION=   1542.
+    EQUIL ITER   6 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC= -0.3884E-03
+     DISP CONVERGENCE VALUE   =  0.3884E-03  CRITERION=  0.1761E-01 &lt;&lt;&lt; CONVERGED
+     LINE SEARCH PARAMETER =   1.000     SCALED MAX DOF INC = -0.3884E-03
+     FORCE CONVERGENCE VALUE  =   699.7      CRITERION=   1542.     &lt;&lt;&lt; CONVERGED
     &gt;&gt;&gt; SOLUTION CONVERGED AFTER EQUILIBRIUM ITERATION   6
 
    *** ELEMENT RESULT CALCULATION TIMES
      TYPE    NUMBER   ENAME      TOTAL CP  AVE CP
 
-        1        80  SOLID187      0.004   0.000044
-        2       936  SOLID186      0.065   0.000070
-        3        99  SOLID187      0.005   0.000046
-        4       980  SOLID186      0.069   0.000070
-        5        14  SOLID187      0.001   0.000049
-        6       445  SOLID186      0.031   0.000069
-        7        13  SOLID187      0.001   0.000047
-        8        51  SOLID186      0.004   0.000069
-        9         4  SOLID187      0.000   0.000048
-       10        58  SOLID186      0.005   0.000080
-       11      1702  SOLID186      0.119   0.000070
-       12       200  CONTA174      0.009   0.000045
+        1        76  SOLID187      0.003   0.000043
+        2       920  SOLID186      0.063   0.000069
+        3        99  SOLID187      0.004   0.000045
+        4       980  SOLID186      0.068   0.000069
+        5        30  SOLID187      0.001   0.000049
+        6       486  SOLID186      0.034   0.000070
+        7        13  SOLID187      0.001   0.000044
+        8        51  SOLID186      0.003   0.000067
+        9         4  SOLID187      0.000   0.000044
+       10        58  SOLID186      0.005   0.000081
+       11      1702  SOLID186      0.120   0.000071
+       12       200  CONTA174      0.009   0.000046
        14       868  CONTA174      0.011   0.000013
-       16       114  CONTA174      0.003   0.000028
-       18        29  CONTA174      0.000   0.000014
-       20       852  CONTA174      0.011   0.000012
-       22       200  CONTA174      0.009   0.000045
+       16       114  CONTA174      0.003   0.000024
+       18        29  CONTA174      0.000   0.000013
+       20       852  CONTA174      0.010   0.000012
+       22       200  CONTA174      0.009   0.000044
        24        98  SURF154       0.002   0.000019
 
    *** NODAL LOAD CALCULATION TIMES
      TYPE    NUMBER   ENAME      TOTAL CP  AVE CP
 
-        1        80  SOLID187      0.001   0.000013
-        2       936  SOLID186      0.012   0.000013
+        1        76  SOLID187      0.001   0.000013
+        2       920  SOLID186      0.012   0.000014
         3        99  SOLID187      0.001   0.000013
-        4       980  SOLID186      0.013   0.000014
-        5        14  SOLID187      0.000   0.000013
-        6       445  SOLID186      0.006   0.000013
-        7        13  SOLID187      0.000   0.000014
+        4       980  SOLID186      0.013   0.000013
+        5        30  SOLID187      0.000   0.000014
+        6       486  SOLID186      0.007   0.000013
+        7        13  SOLID187      0.000   0.000013
         8        51  SOLID186      0.001   0.000014
         9         4  SOLID187      0.000   0.000013
-       10        58  SOLID186      0.001   0.000019
-       11      1702  SOLID186      0.024   0.000014
+       10        58  SOLID186      0.001   0.000022
+       11      1702  SOLID186      0.023   0.000014
        12       200  CONTA174      0.001   0.000007
        14       868  CONTA174      0.002   0.000002
-       16       114  CONTA174      0.000   0.000004
+       16       114  CONTA174      0.000   0.000003
        18        29  CONTA174      0.000   0.000002
        20       852  CONTA174      0.002   0.000002
        22       200  CONTA174      0.001   0.000006
@@ -2037,12 +2039,12 @@ Downloading 127.0.0.1:10000:/tmp/ANSYS.root.1/AnsysMech9943/Project_Mech_Files/S
  *** LOAD STEP     1   SUBSTEP     1  COMPLETED.    CUM ITER =      6
  *** TIME =  0.500000         TIME INC =  0.500000
 
-     FORCE CONVERGENCE VALUE  =   6312.      CRITERION=   3084.
-     DISP CONVERGENCE VALUE   =  0.7360E-03  CRITERION=  0.1763E-01 &lt;&lt;&lt; CONVERGED
-    EQUIL ITER   1 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC= -0.7360E-03
-     DISP CONVERGENCE VALUE   =  0.5270E-03  CRITERION=  0.1763E-01 &lt;&lt;&lt; CONVERGED
-     LINE SEARCH PARAMETER =  0.7160     SCALED MAX DOF INC = -0.5270E-03
-     FORCE CONVERGENCE VALUE  =   1645.      CRITERION=   3084.     &lt;&lt;&lt; CONVERGED
+     FORCE CONVERGENCE VALUE  =   6372.      CRITERION=   3084.
+     DISP CONVERGENCE VALUE   =  0.7548E-03  CRITERION=  0.1761E-01 &lt;&lt;&lt; CONVERGED
+    EQUIL ITER   1 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC= -0.7548E-03
+     DISP CONVERGENCE VALUE   =  0.5361E-03  CRITERION=  0.1761E-01 &lt;&lt;&lt; CONVERGED
+     LINE SEARCH PARAMETER =  0.7102     SCALED MAX DOF INC = -0.5361E-03
+     FORCE CONVERGENCE VALUE  =   1686.      CRITERION=   3084.     &lt;&lt;&lt; CONVERGED
     &gt;&gt;&gt; SOLUTION CONVERGED AFTER EQUILIBRIUM ITERATION   1
  *** LOAD STEP     1   SUBSTEP     2  COMPLETED.    CUM ITER =      7
  *** TIME =   1.00000         TIME INC =  0.500000
@@ -2050,9 +2052,9 @@ Downloading 127.0.0.1:10000:/tmp/ANSYS.root.1/AnsysMech9943/Project_Mech_Files/S
 
  *** MAPDL BINARY FILE STATISTICS
   BUFFER SIZE USED= 16384
-        0.438 MB WRITTEN ON ELEMENT MATRIX FILE: file0.emat
-        7.062 MB WRITTEN ON ELEMENT SAVED DATA FILE: file0.esav
-       11.875 MB WRITTEN ON ASSEMBLED MATRIX FILE: file0.full
+        0.500 MB WRITTEN ON ELEMENT MATRIX FILE: file0.emat
+        7.375 MB WRITTEN ON ELEMENT SAVED DATA FILE: file0.esav
+       18.875 MB WRITTEN ON ASSEMBLED MATRIX FILE: file0.full
         2.562 MB WRITTEN ON RESULTS FILE: file0.rst
  *************** Write FE CONNECTORS *********
 
@@ -2064,16 +2066,16 @@ Downloading 127.0.0.1:10000:/tmp/ANSYS.root.1/AnsysMech9943/Project_Mech_Files/S
 
  PRINTOUT RESUMED BY /GOP
 
- DELETE ALL SPECIFIED NODAL LOADS FROM NODE     20125 TO     20125 BY       1
+ DELETE ALL SPECIFIED NODAL LOADS FROM NODE     20167 TO     20167 BY       1
 
  NUMBER OF NODAL LOADS DELETED=       1
 
- *** WARNING ***                         CP =      16.130   TIME= 18:38:56
+ *** WARNING ***                         CP =      16.479   TIME= 16:04:16
  Table _FIX is an MAPDL reserved table name.  It is used to constrain
  structural degrees of freedom to their current displaced status.  This
  table should not be used for other purposes.
 
- SPECIFIED CONSTRAINT UX   FOR SELECTED NODES        20125 TO       20125 BY           1
+ SPECIFIED CONSTRAINT UX   FOR SELECTED NODES        20167 TO       20167 BY           1
  SET ACCORDING TO TABLE PARAMETER = _FIX
 
  USE AUTOMATIC TIME STEPPING THIS LOAD STEP
@@ -2120,24 +2122,24 @@ Downloading 127.0.0.1:10000:/tmp/ANSYS.root.1/AnsysMech9943/Project_Mech_Files/S
 
  *****  MAPDL SOLVE    COMMAND  *****
 
- *** WARNING ***                         CP =      16.283   TIME= 18:38:56
- Material number 24 (used by element 11553) should normally have at
+ *** WARNING ***                         CP =      16.611   TIME= 16:04:16
+ Material number 24 (used by element 11589) should normally have at
  least one MP or one TB type command associated with it.  Output of
  energy by material may not be available.
 
- *** NOTE ***                            CP =      16.292   TIME= 18:38:56
+ *** NOTE ***                            CP =      16.616   TIME= 16:04:16
  The step data was checked and warning messages were found.
   Please review output or errors file (
- /tmp/ANSYS.root.1/AnsysMech9943/Project_Mech_Files/StaticStructural/fil
+ /tmp/ANSYS.root.1/AnsysMechF280/Project_Mech_Files/StaticStructural/fil
  le0.err ) for these warning messages.
 
- *** NOTE ***                            CP =      16.292   TIME= 18:38:56
+ *** NOTE ***                            CP =      16.616   TIME= 16:04:16
  This nonlinear analysis defaults to using the full Newton-Raphson
  solution procedure.  This can be modified using the NROPT command.
 
  *** MAPDL - ENGINEERING ANALYSIS SYSTEM  RELEASE 2023 R2          23.2     ***
  Ansys Mechanical Enterprise
- 00000000  VERSION=LINUX x64     18:38:56  JUN 21, 2023 CP=     16.467
+ 00000000  VERSION=LINUX x64     16:04:16  JUN 22, 2023 CP=     16.733
 
  --Static Structural
 
@@ -2174,44 +2176,44 @@ Downloading 127.0.0.1:10000:/tmp/ANSYS.root.1/AnsysMech9943/Project_Mech_Files/S
 
  &gt;&gt;&gt;&gt; PRETENSION ELEMENT STATUS &lt;&lt;&lt;&lt;
  SECTION NAME     PT.NODE  --------STATUS--------------------  ----LOAD SOURCE----
-    25              20125  FIXED RELATIVE MOTION= 0.70478      D COMMAND
+    25              20167  FIXED RELATIVE MOTION= 0.70415      D COMMAND
  MAXIMUM NUMBER OF EQUILIBRIUM ITERATIONS HAS BEEN MODIFIED
   TO BE, NEQIT = 26, BY SOLUTION CONTROL LOGIC.
 
      FORCE CONVERGENCE VALUE  =  0.4900E+05  CRITERION=   3094.
-     DISP CONVERGENCE VALUE   =  0.1809E-01  CRITERION=  0.1763E-01
-    EQUIL ITER   1 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC=  0.1809E-01
-     DISP CONVERGENCE VALUE   =  0.1800E-01  CRITERION=  0.1763E-01
-     LINE SEARCH PARAMETER =  0.9952     SCALED MAX DOF INC =  0.1800E-01
-     FORCE CONVERGENCE VALUE  =  0.3028E+05  CRITERION=   3119.
-    EQUIL ITER   2 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC=  0.7611E-02
-     DISP CONVERGENCE VALUE   =  0.7473E-02  CRITERION=  0.1763E-01 &lt;&lt;&lt; CONVERGED
-     LINE SEARCH PARAMETER =  0.9818     SCALED MAX DOF INC =  0.7473E-02
+     DISP CONVERGENCE VALUE   =  0.1808E-01  CRITERION=  0.1761E-01
+    EQUIL ITER   1 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC=  0.1808E-01
+     DISP CONVERGENCE VALUE   =  0.1799E-01  CRITERION=  0.1761E-01
+     LINE SEARCH PARAMETER =  0.9950     SCALED MAX DOF INC =  0.1799E-01
+     FORCE CONVERGENCE VALUE  =  0.3030E+05  CRITERION=   3119.
+    EQUIL ITER   2 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC=  0.7614E-02
+     DISP CONVERGENCE VALUE   =  0.7466E-02  CRITERION=  0.1761E-01 &lt;&lt;&lt; CONVERGED
+     LINE SEARCH PARAMETER =  0.9806     SCALED MAX DOF INC =  0.7466E-02
      FORCE CONVERGENCE VALUE  =  0.2519E+05  CRITERION=   3120.
-    EQUIL ITER   3 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC=  0.1064E-01
-     DISP CONVERGENCE VALUE   =  0.1064E-01  CRITERION=  0.1763E-01 &lt;&lt;&lt; CONVERGED
-     LINE SEARCH PARAMETER =   1.000     SCALED MAX DOF INC =  0.1064E-01
-     FORCE CONVERGENCE VALUE  =  0.2240E+05  CRITERION=   3128.
-    EQUIL ITER   4 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC=  0.5932E-02
-     DISP CONVERGENCE VALUE   =  0.5932E-02  CRITERION=  0.1763E-01 &lt;&lt;&lt; CONVERGED
-     LINE SEARCH PARAMETER =   1.000     SCALED MAX DOF INC =  0.5932E-02
-     FORCE CONVERGENCE VALUE  =  0.1565E+05  CRITERION=   3132.
-    EQUIL ITER   5 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC=  0.4748E-02
-     DISP CONVERGENCE VALUE   =  0.4748E-02  CRITERION=  0.1763E-01 &lt;&lt;&lt; CONVERGED
-     LINE SEARCH PARAMETER =   1.000     SCALED MAX DOF INC =  0.4748E-02
-     FORCE CONVERGENCE VALUE  =  0.1129E+05  CRITERION=   3137.
-    EQUIL ITER   6 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC=  0.2934E-02
-     DISP CONVERGENCE VALUE   =  0.2934E-02  CRITERION=  0.1763E-01 &lt;&lt;&lt; CONVERGED
-     LINE SEARCH PARAMETER =   1.000     SCALED MAX DOF INC =  0.2934E-02
-     FORCE CONVERGENCE VALUE  =   7010.      CRITERION=   3141.
-    EQUIL ITER   7 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC=  0.2138E-02
-     DISP CONVERGENCE VALUE   =  0.2138E-02  CRITERION=  0.1763E-01 &lt;&lt;&lt; CONVERGED
-     LINE SEARCH PARAMETER =   1.000     SCALED MAX DOF INC =  0.2138E-02
-     FORCE CONVERGENCE VALUE  =   4923.      CRITERION=   3694.
-    EQUIL ITER   8 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC=  0.2411E-02
-     DISP CONVERGENCE VALUE   =  0.2411E-02  CRITERION=  0.1763E-01 &lt;&lt;&lt; CONVERGED
-     LINE SEARCH PARAMETER =   1.000     SCALED MAX DOF INC =  0.2411E-02
-     FORCE CONVERGENCE VALUE  =   2671.      CRITERION=   3771.     &lt;&lt;&lt; CONVERGED
+    EQUIL ITER   3 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC=  0.1066E-01
+     DISP CONVERGENCE VALUE   =  0.1066E-01  CRITERION=  0.1761E-01 &lt;&lt;&lt; CONVERGED
+     LINE SEARCH PARAMETER =   1.000     SCALED MAX DOF INC =  0.1066E-01
+     FORCE CONVERGENCE VALUE  =  0.2206E+05  CRITERION=   3128.
+    EQUIL ITER   4 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC=  0.6111E-02
+     DISP CONVERGENCE VALUE   =  0.6111E-02  CRITERION=  0.1761E-01 &lt;&lt;&lt; CONVERGED
+     LINE SEARCH PARAMETER =   1.000     SCALED MAX DOF INC =  0.6111E-02
+     FORCE CONVERGENCE VALUE  =  0.1484E+05  CRITERION=   3132.
+    EQUIL ITER   5 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC=  0.4437E-02
+     DISP CONVERGENCE VALUE   =  0.4437E-02  CRITERION=  0.1761E-01 &lt;&lt;&lt; CONVERGED
+     LINE SEARCH PARAMETER =   1.000     SCALED MAX DOF INC =  0.4437E-02
+     FORCE CONVERGENCE VALUE  =   8569.      CRITERION=   3138.
+    EQUIL ITER   6 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC=  0.2540E-02
+     DISP CONVERGENCE VALUE   =  0.2540E-02  CRITERION=  0.1761E-01 &lt;&lt;&lt; CONVERGED
+     LINE SEARCH PARAMETER =   1.000     SCALED MAX DOF INC =  0.2540E-02
+     FORCE CONVERGENCE VALUE  =   6590.      CRITERION=   3141.
+    EQUIL ITER   7 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC=  0.1174E-02
+     DISP CONVERGENCE VALUE   =  0.1174E-02  CRITERION=  0.1761E-01 &lt;&lt;&lt; CONVERGED
+     LINE SEARCH PARAMETER =   1.000     SCALED MAX DOF INC =  0.1174E-02
+     FORCE CONVERGENCE VALUE  =   4606.      CRITERION=   3694.
+    EQUIL ITER   8 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC=  0.1512E-02
+     DISP CONVERGENCE VALUE   =  0.1512E-02  CRITERION=  0.1761E-01 &lt;&lt;&lt; CONVERGED
+     LINE SEARCH PARAMETER =   1.000     SCALED MAX DOF INC =  0.1512E-02
+     FORCE CONVERGENCE VALUE  =   1796.      CRITERION=   3771.     &lt;&lt;&lt; CONVERGED
     &gt;&gt;&gt; SOLUTION CONVERGED AFTER EQUILIBRIUM ITERATION   8
  *** LOAD STEP     2   SUBSTEP     1  COMPLETED.    CUM ITER =     15
  *** TIME =   2.00000         TIME INC =   1.00000
@@ -2222,11 +2224,11 @@ Downloading 127.0.0.1:10000:/tmp/ANSYS.root.1/AnsysMech9943/Project_Mech_Files/S
 
  PRINTOUT RESUMED BY /GOP
 
- DELETE ALL SPECIFIED NODAL LOADS FROM NODE     20125 TO     20125 BY       1
+ DELETE ALL SPECIFIED NODAL LOADS FROM NODE     20167 TO     20167 BY       1
 
  NUMBER OF NODAL LOADS DELETED=       0
 
- SPECIFIED CONSTRAINT UX   FOR SELECTED NODES        20125 TO       20125 BY           1
+ SPECIFIED CONSTRAINT UX   FOR SELECTED NODES        20167 TO       20167 BY           1
  SET ACCORDING TO TABLE PARAMETER = _FIX
 
  USE AUTOMATIC TIME STEPPING THIS LOAD STEP
@@ -2273,24 +2275,24 @@ Downloading 127.0.0.1:10000:/tmp/ANSYS.root.1/AnsysMech9943/Project_Mech_Files/S
 
  *****  MAPDL SOLVE    COMMAND  *****
 
- *** WARNING ***                         CP =      27.556   TIME= 18:39:07
- Material number 24 (used by element 11553) should normally have at
+ *** WARNING ***                         CP =      27.335   TIME= 16:04:26
+ Material number 24 (used by element 11589) should normally have at
  least one MP or one TB type command associated with it.  Output of
  energy by material may not be available.
 
- *** NOTE ***                            CP =      27.561   TIME= 18:39:07
+ *** NOTE ***                            CP =      27.343   TIME= 16:04:26
  The step data was checked and warning messages were found.
   Please review output or errors file (
- /tmp/ANSYS.root.1/AnsysMech9943/Project_Mech_Files/StaticStructural/fil
+ /tmp/ANSYS.root.1/AnsysMechF280/Project_Mech_Files/StaticStructural/fil
  le0.err ) for these warning messages.
 
- *** NOTE ***                            CP =      27.562   TIME= 18:39:07
+ *** NOTE ***                            CP =      27.344   TIME= 16:04:26
  This nonlinear analysis defaults to using the full Newton-Raphson
  solution procedure.  This can be modified using the NROPT command.
 
  *** MAPDL - ENGINEERING ANALYSIS SYSTEM  RELEASE 2023 R2          23.2     ***
  Ansys Mechanical Enterprise
- 00000000  VERSION=LINUX x64     18:39:07  JUN 21, 2023 CP=     27.680
+ 00000000  VERSION=LINUX x64     16:04:26  JUN 22, 2023 CP=     27.474
 
  --Static Structural
 
@@ -2327,44 +2329,44 @@ Downloading 127.0.0.1:10000:/tmp/ANSYS.root.1/AnsysMech9943/Project_Mech_Files/S
 
  &gt;&gt;&gt;&gt; PRETENSION ELEMENT STATUS &lt;&lt;&lt;&lt;
  SECTION NAME     PT.NODE  --------STATUS--------------------  ----LOAD SOURCE----
-    25              20125  FIXED RELATIVE MOTION= 0.70478      D COMMAND
+    25              20167  FIXED RELATIVE MOTION= 0.70415      D COMMAND
  MAXIMUM NUMBER OF EQUILIBRIUM ITERATIONS HAS BEEN MODIFIED
   TO BE, NEQIT = 26, BY SOLUTION CONTROL LOGIC.
 
-     FORCE CONVERGENCE VALUE  =  0.4904E+05  CRITERION=   3135.
-     DISP CONVERGENCE VALUE   =  0.1399      CRITERION=  0.1763E-01
-    EQUIL ITER   1 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC= -0.1399
-     DISP CONVERGENCE VALUE   =  0.1128E-01  CRITERION=  0.1763E-01 &lt;&lt;&lt; CONVERGED
-     LINE SEARCH PARAMETER =  0.8064E-01 SCALED MAX DOF INC = -0.1128E-01
-     FORCE CONVERGENCE VALUE  =  0.4489E+06  CRITERION=   3148.
-    EQUIL ITER   2 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC= -0.5382E-01
-     DISP CONVERGENCE VALUE   =  0.1135E-01  CRITERION=  0.1763E-01 &lt;&lt;&lt; CONVERGED
-     LINE SEARCH PARAMETER =  0.2108     SCALED MAX DOF INC = -0.1135E-01
-     FORCE CONVERGENCE VALUE  =  0.4394E+06  CRITERION=   3130.
-    EQUIL ITER   3 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC= -0.2675E-01
-     DISP CONVERGENCE VALUE   =  0.7142E-02  CRITERION=  0.1763E-01 &lt;&lt;&lt; CONVERGED
-     LINE SEARCH PARAMETER =  0.2670     SCALED MAX DOF INC = -0.7142E-02
-     FORCE CONVERGENCE VALUE  =  0.3662E+06  CRITERION=   3112.
-    EQUIL ITER   4 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC= -0.1232E-01
-     DISP CONVERGENCE VALUE   =  0.6198E-02  CRITERION=  0.1763E-01 &lt;&lt;&lt; CONVERGED
-     LINE SEARCH PARAMETER =  0.5032     SCALED MAX DOF INC = -0.6198E-02
-     FORCE CONVERGENCE VALUE  =  0.2574E+06  CRITERION=   3097.
-    EQUIL ITER   5 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC= -0.4509E-02
-     DISP CONVERGENCE VALUE   =  0.4083E-02  CRITERION=  0.1763E-01 &lt;&lt;&lt; CONVERGED
-     LINE SEARCH PARAMETER =  0.9056     SCALED MAX DOF INC = -0.4083E-02
-     FORCE CONVERGENCE VALUE  =  0.4807E+05  CRITERION=   3082.
-    EQUIL ITER   6 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC= -0.3998E-02
-     DISP CONVERGENCE VALUE   =  0.3071E-02  CRITERION=  0.1763E-01 &lt;&lt;&lt; CONVERGED
-     LINE SEARCH PARAMETER =  0.7681     SCALED MAX DOF INC = -0.3071E-02
-     FORCE CONVERGENCE VALUE  =  0.1469E+05  CRITERION=   3079.
-    EQUIL ITER   7 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC=  0.3443E-02
-     DISP CONVERGENCE VALUE   =  0.2522E-02  CRITERION=  0.1763E-01 &lt;&lt;&lt; CONVERGED
-     LINE SEARCH PARAMETER =  0.7325     SCALED MAX DOF INC =  0.2522E-02
-     FORCE CONVERGENCE VALUE  =   5928.      CRITERION=   3618.
-    EQUIL ITER   8 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC= -0.2672E-02
-     DISP CONVERGENCE VALUE   =  0.1781E-02  CRITERION=  0.1763E-01 &lt;&lt;&lt; CONVERGED
-     LINE SEARCH PARAMETER =  0.6668     SCALED MAX DOF INC = -0.1781E-02
-     FORCE CONVERGENCE VALUE  =   3143.      CRITERION=   3692.     &lt;&lt;&lt; CONVERGED
+     FORCE CONVERGENCE VALUE  =  0.4900E+05  CRITERION=   3135.
+     DISP CONVERGENCE VALUE   =  0.1396      CRITERION=  0.1761E-01
+    EQUIL ITER   1 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC= -0.1396
+     DISP CONVERGENCE VALUE   =  0.1197E-01  CRITERION=  0.1761E-01 &lt;&lt;&lt; CONVERGED
+     LINE SEARCH PARAMETER =  0.8577E-01 SCALED MAX DOF INC = -0.1197E-01
+     FORCE CONVERGENCE VALUE  =  0.4939E+06  CRITERION=   3151.
+    EQUIL ITER   2 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC= -0.5008E-01
+     DISP CONVERGENCE VALUE   =  0.1092E-01  CRITERION=  0.1761E-01 &lt;&lt;&lt; CONVERGED
+     LINE SEARCH PARAMETER =  0.2181     SCALED MAX DOF INC = -0.1092E-01
+     FORCE CONVERGENCE VALUE  =  0.4422E+06  CRITERION=   3131.
+    EQUIL ITER   3 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC= -0.2372E-01
+     DISP CONVERGENCE VALUE   =  0.6546E-02  CRITERION=  0.1761E-01 &lt;&lt;&lt; CONVERGED
+     LINE SEARCH PARAMETER =  0.2760     SCALED MAX DOF INC = -0.6546E-02
+     FORCE CONVERGENCE VALUE  =  0.3720E+06  CRITERION=   3113.
+    EQUIL ITER   4 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC= -0.1084E-01
+     DISP CONVERGENCE VALUE   =  0.5489E-02  CRITERION=  0.1761E-01 &lt;&lt;&lt; CONVERGED
+     LINE SEARCH PARAMETER =  0.5065     SCALED MAX DOF INC = -0.5489E-02
+     FORCE CONVERGENCE VALUE  =  0.2180E+06  CRITERION=   3094.
+    EQUIL ITER   5 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC= -0.4149E-02
+     DISP CONVERGENCE VALUE   =  0.3793E-02  CRITERION=  0.1761E-01 &lt;&lt;&lt; CONVERGED
+     LINE SEARCH PARAMETER =  0.9142     SCALED MAX DOF INC = -0.3793E-02
+     FORCE CONVERGENCE VALUE  =  0.4687E+05  CRITERION=   3082.
+    EQUIL ITER   6 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC= -0.1696E-02
+     DISP CONVERGENCE VALUE   =  0.1540E-02  CRITERION=  0.1761E-01 &lt;&lt;&lt; CONVERGED
+     LINE SEARCH PARAMETER =  0.9083     SCALED MAX DOF INC = -0.1540E-02
+     FORCE CONVERGENCE VALUE  =   7300.      CRITERION=   3079.
+    EQUIL ITER   7 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC= -0.1038E-02
+     DISP CONVERGENCE VALUE   =  0.9327E-03  CRITERION=  0.1761E-01 &lt;&lt;&lt; CONVERGED
+     LINE SEARCH PARAMETER =  0.8984     SCALED MAX DOF INC = -0.9327E-03
+     FORCE CONVERGENCE VALUE  =   3628.      CRITERION=   3618.
+    EQUIL ITER   8 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC=  0.6074E-03
+     DISP CONVERGENCE VALUE   =  0.4664E-03  CRITERION=  0.1761E-01 &lt;&lt;&lt; CONVERGED
+     LINE SEARCH PARAMETER =  0.7679     SCALED MAX DOF INC =  0.4664E-03
+     FORCE CONVERGENCE VALUE  =   1562.      CRITERION=   3692.     &lt;&lt;&lt; CONVERGED
     &gt;&gt;&gt; SOLUTION CONVERGED AFTER EQUILIBRIUM ITERATION   8
  *** LOAD STEP     3   SUBSTEP     1  COMPLETED.    CUM ITER =     23
  *** TIME =   3.00000         TIME INC =   1.00000
@@ -2375,11 +2377,11 @@ Downloading 127.0.0.1:10000:/tmp/ANSYS.root.1/AnsysMech9943/Project_Mech_Files/S
 
  PRINTOUT RESUMED BY /GOP
 
- DELETE ALL SPECIFIED NODAL LOADS FROM NODE     20125 TO     20125 BY       1
+ DELETE ALL SPECIFIED NODAL LOADS FROM NODE     20167 TO     20167 BY       1
 
  NUMBER OF NODAL LOADS DELETED=       0
 
- SPECIFIED CONSTRAINT UX   FOR SELECTED NODES        20125 TO       20125 BY           1
+ SPECIFIED CONSTRAINT UX   FOR SELECTED NODES        20167 TO       20167 BY           1
  SET ACCORDING TO TABLE PARAMETER = _FIX
 
  USE AUTOMATIC TIME STEPPING THIS LOAD STEP
@@ -2426,24 +2428,24 @@ Downloading 127.0.0.1:10000:/tmp/ANSYS.root.1/AnsysMech9943/Project_Mech_Files/S
 
  *****  MAPDL SOLVE    COMMAND  *****
 
- *** WARNING ***                         CP =      40.117   TIME= 18:39:18
- Material number 24 (used by element 11553) should normally have at
+ *** WARNING ***                         CP =      39.298   TIME= 16:04:37
+ Material number 24 (used by element 11589) should normally have at
  least one MP or one TB type command associated with it.  Output of
  energy by material may not be available.
 
- *** NOTE ***                            CP =      40.125   TIME= 18:39:18
+ *** NOTE ***                            CP =      39.304   TIME= 16:04:37
  The step data was checked and warning messages were found.
   Please review output or errors file (
- /tmp/ANSYS.root.1/AnsysMech9943/Project_Mech_Files/StaticStructural/fil
+ /tmp/ANSYS.root.1/AnsysMechF280/Project_Mech_Files/StaticStructural/fil
  le0.err ) for these warning messages.
 
- *** NOTE ***                            CP =      40.125   TIME= 18:39:18
+ *** NOTE ***                            CP =      39.304   TIME= 16:04:37
  This nonlinear analysis defaults to using the full Newton-Raphson
  solution procedure.  This can be modified using the NROPT command.
 
  *** MAPDL - ENGINEERING ANALYSIS SYSTEM  RELEASE 2023 R2          23.2     ***
  Ansys Mechanical Enterprise
- 00000000  VERSION=LINUX x64     18:39:18  JUN 21, 2023 CP=     40.296
+ 00000000  VERSION=LINUX x64     16:04:37  JUN 22, 2023 CP=     39.422
 
  --Static Structural
 
@@ -2480,44 +2482,44 @@ Downloading 127.0.0.1:10000:/tmp/ANSYS.root.1/AnsysMech9943/Project_Mech_Files/S
 
  &gt;&gt;&gt;&gt; PRETENSION ELEMENT STATUS &lt;&lt;&lt;&lt;
  SECTION NAME     PT.NODE  --------STATUS--------------------  ----LOAD SOURCE----
-    25              20125  FIXED RELATIVE MOTION= 0.70478      D COMMAND
+    25              20167  FIXED RELATIVE MOTION= 0.70415      D COMMAND
  MAXIMUM NUMBER OF EQUILIBRIUM ITERATIONS HAS BEEN MODIFIED
   TO BE, NEQIT = 26, BY SOLUTION CONTROL LOGIC.
 
-     FORCE CONVERGENCE VALUE  =  0.4910E+05  CRITERION=   3088.
-     DISP CONVERGENCE VALUE   =  0.1809E-01  CRITERION=  0.1763E-01
-    EQUIL ITER   1 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC= -0.1809E-01
-     DISP CONVERGENCE VALUE   =  0.1781E-01  CRITERION=  0.1763E-01
-     LINE SEARCH PARAMETER =  0.9848     SCALED MAX DOF INC = -0.1781E-01
-     FORCE CONVERGENCE VALUE  =  0.1171E+05  CRITERION=   3069.
-    EQUIL ITER   2 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC=  0.2178E-02
-     DISP CONVERGENCE VALUE   =  0.1872E-02  CRITERION=  0.1763E-01 &lt;&lt;&lt; CONVERGED
-     LINE SEARCH PARAMETER =  0.8595     SCALED MAX DOF INC =  0.1872E-02
-     FORCE CONVERGENCE VALUE  =   3566.      CRITERION=   3071.
-    EQUIL ITER   3 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC=  0.5847E-03
-     DISP CONVERGENCE VALUE   =  0.5847E-03  CRITERION=  0.1763E-01 &lt;&lt;&lt; CONVERGED
-     LINE SEARCH PARAMETER =   1.000     SCALED MAX DOF INC =  0.5847E-03
-     FORCE CONVERGENCE VALUE  =   1229.      CRITERION=   3071.     &lt;&lt;&lt; CONVERGED
+     FORCE CONVERGENCE VALUE  =  0.4900E+05  CRITERION=   3088.
+     DISP CONVERGENCE VALUE   =  0.1812E-01  CRITERION=  0.1761E-01
+    EQUIL ITER   1 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC= -0.1812E-01
+     DISP CONVERGENCE VALUE   =  0.1781E-01  CRITERION=  0.1761E-01
+     LINE SEARCH PARAMETER =  0.9826     SCALED MAX DOF INC = -0.1781E-01
+     FORCE CONVERGENCE VALUE  =  0.1442E+05  CRITERION=   3069.
+    EQUIL ITER   2 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC=  0.2193E-02
+     DISP CONVERGENCE VALUE   =  0.1777E-02  CRITERION=  0.1761E-01 &lt;&lt;&lt; CONVERGED
+     LINE SEARCH PARAMETER =  0.8103     SCALED MAX DOF INC =  0.1777E-02
+     FORCE CONVERGENCE VALUE  =   4303.      CRITERION=   3071.
+    EQUIL ITER   3 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC=  0.1240E-02
+     DISP CONVERGENCE VALUE   =  0.1152E-02  CRITERION=  0.1761E-01 &lt;&lt;&lt; CONVERGED
+     LINE SEARCH PARAMETER =  0.9294     SCALED MAX DOF INC =  0.1152E-02
+     FORCE CONVERGENCE VALUE  =   1069.      CRITERION=   3071.     &lt;&lt;&lt; CONVERGED
     &gt;&gt;&gt; SOLUTION CONVERGED AFTER EQUILIBRIUM ITERATION   3
  *** LOAD STEP     4   SUBSTEP     1  COMPLETED.    CUM ITER =     26
  *** TIME =   4.00000         TIME INC =   1.00000
  ****************************************************
  *************** FINISHED SOLVE FOR LS 4 *************
 
- *GET  _WALLASOL  FROM  ACTI  ITEM=TIME WALL  VALUE=  18.6561111
+ *GET  _WALLASOL  FROM  ACTI  ITEM=TIME WALL  VALUE=  16.0780556
 
  PRINTOUT RESUMED BY /GOP
 
  FINISH SOLUTION PROCESSING
 
 
- ***** ROUTINE COMPLETED *****  CP =        45.160
+ ***** ROUTINE COMPLETED *****  CP =        44.112
 
 
 
  *** MAPDL - ENGINEERING ANALYSIS SYSTEM  RELEASE 2023 R2          23.2     ***
  Ansys Mechanical Enterprise
- 00000000  VERSION=LINUX x64     18:39:23  JUN 21, 2023 CP=     45.166
+ 00000000  VERSION=LINUX x64     16:04:41  JUN 22, 2023 CP=     44.116
 
  --Static Structural
 
@@ -2525,7 +2527,7 @@ Downloading 127.0.0.1:10000:/tmp/ANSYS.root.1/AnsysMech9943/Project_Mech_Files/S
 
           ***** MAPDL RESULTS INTERPRETATION (POST1) *****
 
- *** NOTE ***                            CP =      45.166   TIME= 18:39:23
+ *** NOTE ***                            CP =      44.116   TIME= 16:04:41
  Reading results into the database (SET command) will update the current
  displacement and force boundary conditions in the database with the
  values from the results file for that load set.  Note that any
@@ -2543,29 +2545,29 @@ Downloading 127.0.0.1:10000:/tmp/ANSYS.root.1/AnsysMech9943/Project_Mech_Files/S
  EXIT THE MAPDL POST1 DATABASE PROCESSOR
 
 
- ***** ROUTINE COMPLETED *****  CP =        45.169
+ ***** ROUTINE COMPLETED *****  CP =        44.119
 
 
 
  PRINTOUT RESUMED BY /GOP
 
- *GET  _WALLDONE  FROM  ACTI  ITEM=TIME WALL  VALUE=  18.6563889
+ *GET  _WALLDONE  FROM  ACTI  ITEM=TIME WALL  VALUE=  16.0780556
 
- PARAMETER _PREPTIME =     0.000000000
+ PARAMETER _PREPTIME =     1.000000000
 
- PARAMETER _SOLVTIME =     39.00000000
+ PARAMETER _SOLVTIME =     38.00000000
 
- PARAMETER _POSTTIME =     1.000000000
+ PARAMETER _POSTTIME =     0.000000000
 
- PARAMETER _TOTALTIM =     40.00000000
+ PARAMETER _TOTALTIM =     39.00000000
 
- *GET  _DLBRATIO  FROM  ACTI  ITEM=SOLU DLBR  VALUE=  1.67249154
+ *GET  _DLBRATIO  FROM  ACTI  ITEM=SOLU DLBR  VALUE=  1.66311659
 
- *GET  _COMBTIME  FROM  ACTI  ITEM=SOLU COMB  VALUE= 0.478872208E-01
+ *GET  _COMBTIME  FROM  ACTI  ITEM=SOLU COMB  VALUE= 0.377030458E-01
 
  *GET  _SSMODE   FROM  ACTI  ITEM=SOLU SSMM  VALUE=  2.00000000
 
- *GET  _NDOFS    FROM  ACTI  ITEM=SOLU NDOF  VALUE=  56271.0000
+ *GET  _NDOFS    FROM  ACTI  ITEM=SOLU NDOF  VALUE=  56397.0000
 
  *GET  _SOL_END_TIME  FROM  ACTI  ITEM=SET  TIME  VALUE=  4.00000000
 
@@ -2575,12 +2577,12 @@ Downloading 127.0.0.1:10000:/tmp/ANSYS.root.1/AnsysMech9943/Project_Mech_Files/S
  /FCLEAN COMMAND REMOVING ALL LOCAL FILES
 
  *ENDIF
- --- Total number of nodes = 20255
- --- Total number of elements = 9136
- --- Element load balance ratio = 1.67249154
- --- Time to combine distributed files = 4.788722077E-02
+ --- Total number of nodes = 20297
+ --- Total number of elements = 9173
+ --- Element load balance ratio = 1.66311659
+ --- Time to combine distributed files = 3.770304579E-02
  --- Sparse memory mode = 2
- --- Number of DOF = 56271
+ --- Number of DOF = 56397
 
  EXIT MAPDL WITHOUT SAVING DATABASE
 
@@ -2591,7 +2593,7 @@ Downloading 127.0.0.1:10000:/tmp/ANSYS.root.1/AnsysMech9943/Project_Mech_Files/S
 +--------------------- M A P D L   S T A T I S T I C S ------------------------+
 
 Release: 2023 R2            Build: 23.2       Update: UP20230530   Platform: LINUX x64
-Date Run: 06/21/2023   Time: 18:39     Process ID: 1497
+Date Run: 06/22/2023   Time: 16:04     Process ID: 1497
 Operating System: Ubuntu 20.04.5 LTS
 
 Processor Model: AMD EPYC 7763 64-Core Processor
@@ -2618,39 +2620,39 @@ Input File: dummy.dat
 
   Core                Machine Name   Working Directory
  -----------------------------------------------------
-     0                fea2e61854e3   /tmp/ANSYS.root.1/AnsysMech9943/Project_Mech_Files/StaticStructural
-     1                fea2e61854e3   /tmp/ANSYS.root.1/AnsysMech9943/Project_Mech_Files/StaticStructural
-     2                fea2e61854e3   /tmp/ANSYS.root.1/AnsysMech9943/Project_Mech_Files/StaticStructural
-     3                fea2e61854e3   /tmp/ANSYS.root.1/AnsysMech9943/Project_Mech_Files/StaticStructural
+     0                ce2ede02c23d   /tmp/ANSYS.root.1/AnsysMechF280/Project_Mech_Files/StaticStructural
+     1                ce2ede02c23d   /tmp/ANSYS.root.1/AnsysMechF280/Project_Mech_Files/StaticStructural
+     2                ce2ede02c23d   /tmp/ANSYS.root.1/AnsysMechF280/Project_Mech_Files/StaticStructural
+     3                ce2ede02c23d   /tmp/ANSYS.root.1/AnsysMechF280/Project_Mech_Files/StaticStructural
 
-Latency time from master to core     1 =    1.098 microseconds
-Latency time from master to core     2 =    1.131 microseconds
-Latency time from master to core     3 =    0.984 microseconds
+Latency time from master to core     1 =    1.063 microseconds
+Latency time from master to core     2 =    1.121 microseconds
+Latency time from master to core     3 =    0.995 microseconds
 
-Communication speed from master to core     1 = 13766.59 MB/sec
-Communication speed from master to core     2 = 18455.83 MB/sec
-Communication speed from master to core     3 = 17545.99 MB/sec
+Communication speed from master to core     1 = 13111.76 MB/sec
+Communication speed from master to core     2 = 18673.59 MB/sec
+Communication speed from master to core     3 = 18646.43 MB/sec
 
-Total CPU time for main thread                    :       39.7 seconds
-Total CPU time summed for all threads             :       45.8 seconds
+Total CPU time for main thread                    :       38.8 seconds
+Total CPU time summed for all threads             :       44.5 seconds
 
 Elapsed time spent obtaining a license            :        0.3 seconds
 Elapsed time spent pre-processing model (/PREP7)  :        0.1 seconds
 Elapsed time spent solution - preprocessing       :        2.5 seconds
-Elapsed time spent computing solution             :       36.2 seconds
+Elapsed time spent computing solution             :       35.5 seconds
 Elapsed time spent solution - postprocessing      :        0.0 seconds
 Elapsed time spent post-processing model (/POST1) :        0.0 seconds
 
 Equation solver used                              :            Sparse (symmetric)
-Equation solver computational rate                :      100.8 Gflops
+Equation solver computational rate                :      103.1 Gflops
 
-Sum of disk space used on all processes            :      200.5 MB
+Sum of disk space used on all processes            :      201.2 MB
 
-Sum of memory used on all processes               :      955.0 MB
-Sum of memory allocated on all processes          :     3348.0 MB
+Sum of memory used on all processes               :      830.0 MB
+Sum of memory allocated on all processes          :     3285.0 MB
 Physical memory available                         :         31 GB
 Total amount of I/O written to disk               :        2.3 GB
-Total amount of I/O read from disk                :        7.3 GB
+Total amount of I/O read from disk                :        7.2 GB
 
 +------------------ E N D   M A P D L   S T A T I S T I C S -------------------+
 
@@ -2666,14 +2668,14 @@ Total amount of I/O read from disk                :        7.3 GB
  |-----------------------------------------------------------------------------|
  |                                                                             |
  |  Database Requested(-db)     1024 MB     Scratch Memory Requested   1024 MB |
- |  Max Database Used(Master)     20 MB     Max Scratch Used(Master)    215 MB |
- |  Max Database Used(Workers)     1 MB     Max Scratch Used(Workers)   266 MB |
- |  Sum Database Used(All)        23 MB     Sum Scratch Used(All)       932 MB |
+ |  Max Database Used(Master)     20 MB     Max Scratch Used(Master)    180 MB |
+ |  Max Database Used(Workers)     1 MB     Max Scratch Used(Workers)   263 MB |
+ |  Sum Database Used(All)        23 MB     Sum Scratch Used(All)       807 MB |
  |                                                                             |
  |-----------------------------------------------------------------------------|
  |                                                                             |
- |        CP Time      (sec) =         45.791       Time  =  18:39:23          |
- |        Elapsed Time (sec) =         42.000       Date  =  06/21/2023        |
+ |        CP Time      (sec) =         44.480       Time  =  16:04:41          |
+ |        Elapsed Time (sec) =         40.000       Date  =  06/22/2023        |
  |                                                                             |
  *-----------------------------------------------------------------------------*
 </pre></div>
@@ -2685,7 +2687,7 @@ Total amount of I/O read from disk                :        7.3 GB
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mechanical</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span>
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  57.276 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  57.405 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-gallery-examples-basic-example-06-bolt-pretension-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../../_downloads/2d1df0e0fc4cfcb7052ed59ca4e834fc/example_06_bolt_pretension.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">example_06_bolt_pretension.py</span></code></a></p>

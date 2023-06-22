@@ -6,10 +6,10 @@
 
 Computation times
 =================
-**03:46.698** total execution time for **examples_gallery_examples_technology_showcase** files:
+**03:48.037** total execution time for **examples_gallery_examples_technology_showcase** files:
 
 +---------------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_examples_gallery_examples_technology_showcase_example_07_td_043.py` (``example_07_td_043.py``) | 02:17.201 | 0.0 MB |
+| :ref:`sphx_glr_examples_gallery_examples_technology_showcase_example_07_td_043.py` (``example_07_td_043.py``) | 02:18.040 | 0.0 MB |
 +---------------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_examples_gallery_examples_technology_showcase_example_05_td_026.py` (``example_05_td_026.py``) | 01:29.496 | 0.0 MB |
+| :ref:`sphx_glr_examples_gallery_examples_technology_showcase_example_05_td_026.py` (``example_05_td_026.py``) | 01:29.996 | 0.0 MB |
 +---------------------------------------------------------------------------------------------------------------+-----------+--------+
