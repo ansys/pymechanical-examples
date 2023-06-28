@@ -51,25 +51,31 @@ all_input_files = {
     "fr4 material  file": "example_09_mat_fr4.xml",
 }
 
+all_input_files = {
+    "geometry_file_name": "example_01_geometry.agdb",
+    "def_file": "example_04_bicycle_crank_231.mechpz",
+    "copper_alloy_material_file": "example_06_Mat_Copper.xml",
+    "fr4_material_file": "example_06_Mat_Steel.xml",
+}
+
+
 for file_type, file_name in all_input_files.items():
-    geometry_path = download_file(file_name, "pymechanical", "00_basic")
-    print(f"Downloaded the {file_type} to: {geometry_path}")
+    file_path = download_file(file_name, "pymechanical", "00_basic")
+    print(f"Downloaded the {file_type} to: {file_path}")
     # Upload the file to the project directory.
-    mechanical.upload(
-        file_name=geometry_path, file_location_destination=project_directory
-    )
+    mechanical.upload(file_name=file_path, file_location_destination=project_directory)
     # Build the path relative to project directory.
-    base_name = os.path.basename(geometry_path)
+    base_name = os.path.basename(file_path)
     combined_path = os.path.join(project_directory, base_name)
     part_file_path = combined_path.replace("\\", "\\\\")
-    parameter = file_type.replace(" ", "_")
-    mechanical.run_python_script(f"{parameter}='{part_file_path}'")
+    mechanical.run_python_script(f"{file_type} = '{part_file_path}'")
     # ----------------------- Verify the path-------------------
-    result = mechanical.run_python_script("part_file_path")
+    result = mechanical.run_python_script("'{file_type}'")
     print(f"path of {file_type} on server: {result}")
 
 mechdat_final = "remote.mechdat"
 mechanical.run_python_script(f"final_mechdat_filename='{mechdat_final}'")
+
 png_image_name = "myplot.png"
 mechanical.run_python_script(f"image_name='{png_image_name}'")
 
@@ -77,9 +83,8 @@ output = mechanical.run_python_script(
     """
 import os
 
-
-
-mechdat_file_path = os.path.join(os.getcwd(), final_mechdat_filename).replace("\\", "//")
+# mechdat_file_path = os.path.join(os.getcwd(), final_mechdat_filename).replace("\\", "//")
+mechdat_file_path = os.path.join(os.getcwd(), final_mechdat_filename)
 
 # Imports a geometry file into the active model.
 geometry_import = Model.GeometryImportGroup.AddGeometryImport()
@@ -90,7 +95,7 @@ geometry_import_preferences = Ansys.ACT.Mechanical.Utilities.GeometryImportPrefe
 geometry_import_preferences.ProcessNamedSelections = True
 geometry_import_preferences.NamedSelectionKey = "NS"
 geometry_import.Import(
-    geometry_file_path, geometry_import_format, geometry_import_preferences
+    geometry_file_name, geometry_import_format, geometry_import_preferences
 )
 
 
@@ -107,7 +112,7 @@ materials = ExtAPI.DataModel.Project.Model.Materials
 materials.Import(copper_alloy_material_file)
 materials.Import(fr4_material_file)
 
-ExtAPI.DataModel.Project.Save(mechdat_file_path)
+# ExtAPI.DataModel.Project.Save(mechdat_file_path)
 
 board_bodyids = []
 component_bodyids = []
@@ -219,7 +224,7 @@ set2d.CurrentGraphicsDisplay = False
 mechdir = analysis.Children[0].SolverFilesDirectory
 png_file_path = os.path.join(mechdir, image_name)
 Graphics.ExportImage(png_file_path, GraphicsImageExportFormat.PNG, set2d)
-ExtAPI.DataModel.Project.Save(mechdat_file_path)
+# ExtAPI.DataModel.Project.Save(mechdat_file_path)
 
 """
 )
