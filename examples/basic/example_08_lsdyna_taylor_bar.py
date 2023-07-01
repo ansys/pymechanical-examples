@@ -182,6 +182,7 @@ print(output)
 # Download the ``solve.out`` file from the server to the current working
 # directory and print the contents. Remove the ``solve.out`` file.
 
+
 def get_solve_out_path(mechanical):
     """Get the solve out path and return."""
     solve_out_path = ""
@@ -192,11 +193,13 @@ def get_solve_out_path(mechanical):
 
     return solve_out_path
 
+
 def write_file_contents_to_console(path):
     """Write file contents to console."""
     with open(path, "rt") as file:
         for line in file:
             print(line, end="")
+
 
 solve_out_path = get_solve_out_path(mechanical)
 
