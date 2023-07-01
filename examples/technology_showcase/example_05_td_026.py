@@ -28,6 +28,8 @@ import os
 
 from ansys.mechanical.core import launch_mechanical
 from ansys.mechanical.core.examples import download_file
+from matplotlib import image as mpimg
+from matplotlib import pyplot as plt
 
 ###############################################################################
 # Launch Mechanical
@@ -97,6 +99,7 @@ print(f"part_file_path on server: {result}")
 output = mechanical.run_python_script(
     """
 import json
+import os
 
 # Section 1 Reads Geometry and Material info from json file
 geometry_import_group_11 = Model.GeometryImportGroup
@@ -307,21 +310,34 @@ FRIC_SUP03.Location = CYL_FACES2
 FRIC_SUP03.Name = "Boot_Radial_BC"
 
 # Section 9 Add Total Deformation and Equivalent stress
-# TOT_DEF = STAT_STRUC_SOLN.AddTotalDeformation()
 TOT_DEF = STAT_STRUC.Solution.AddTotalDeformation()
 TOT_DEF.Location = RUBBER_BODIES30
 
-# EQV_STRS = STAT_STRUC_SOLN.AddEquivalentStress()
 EQV_STRS = STAT_STRUC.Solution.AddEquivalentStress()
 EQV_STRS.Location = RUBBER_BODIES30
 
-# # Section 10 Set Number of Processors to 6 using DANSYS
-# testval2 = STAT_STRUC.SolveConfiguration.SolveProcessSettings.MaxNumberOfCores
-# STAT_STRUC.SolveConfiguration.SolveProcessSettings.MaxNumberOfCores = 6
+# Section 10 Set Number of Processors to 6 using DANSYS
+#testval2 = STAT_STRUC.SolveConfiguration.SolveProcessSettings.MaxNumberOfCores
+#STAT_STRUC.SolveConfiguration.SolveProcessSettings.MaxNumberOfCores = 6
 
 # Section 11 Solve for Normal Stiffness Value set to 1 for self contacts
 # between flexible rubber boot
 STAT_STRUC.Solution.Solve(True)
+
+# Section 12 Set isometric view and zoom to fit
+cam = Graphics.Camera
+cam.SetSpecificViewOrientation(ViewOrientationType.Iso)
+cam.SetFit()
+
+# Section 13 Store post-processing images
+mechdir = STAT_STRUC.Children[0].SolverFilesDirectory
+export_path = os.path.join(mechdir, "total_deformation.png")
+TOT_DEF.Activate()
+Graphics.ExportImage(export_path, GraphicsImageExportFormat.PNG)
+
+export_path2 = os.path.join(mechdir, "equivalent_stress.png")
+EQV_STRS.Activate()
+Graphics.ExportImage(export_path2, GraphicsImageExportFormat.PNG)
 
 my_results_details = {
     "Equivalent_Stress": str(EQV_STRS.Maximum),
@@ -333,6 +349,53 @@ json.dumps(my_results_details)
 )
 print(output)
 
+###################################################################################
+# Initialize the variable needed for the image directory
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# Set the ``image_dir`` for later use.
+# Make the variable compatible for Windows, Linux, and Docker containers.
+
+# image_directory_modified = project_directory.replace("\\", "\\\\")
+mechanical.run_python_script(f"image_dir=ExtAPI.DataModel.AnalysisList[0].WorkingDir")
+
+# Verify the path for image directory.
+result_image_dir_server = mechanical.run_python_script(f"image_dir")
+print(f"Images are stored on the server at: {result_image_dir_server}")
+
+###############################################################################
+# Download the image and plot
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# Download one image file from the server to the current working directory and plot
+# using matplotlib.
+
+
+def get_image_path(image_name):
+    return os.path.join(result_image_dir_server, image_name)
+
+
+def display_image(path):
+    print(f"Printing {path} using matplotlib")
+    image1 = mpimg.imread(path)
+    plt.figure(figsize=(15, 15))
+    plt.axis("off")
+    plt.imshow(image1)
+    plt.show()
+
+
+image_names = ["total_deformation.png", "equivalent_stress.png"]
+for image_name in image_names:
+    image_path_server = get_image_path(image_name)
+
+    if image_path_server != "":
+        current_working_directory = os.getcwd()
+
+        local_file_path_list = mechanical.download(
+            image_path_server, target_dir=current_working_directory
+        )
+        image_local_path = local_file_path_list[0]
+        print(f"Local image path : {image_local_path}")
+
+        display_image(image_local_path)
 
 ###############################################################################
 # Download output file from solve and print contents
