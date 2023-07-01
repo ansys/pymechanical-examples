@@ -1,4 +1,4 @@
-""".. _ref_example_07_lsdyna_taylor_bar_example:
+""".. _ref_example_08_lsdyna_taylor_bar_example:
 
 LS-Dyna analysis
 --------------------------
@@ -173,17 +173,17 @@ dir_deformation_details = {
 
 json.dumps(dir_deformation_details)
 """
-
 output = mechanical.run_python_script(mech_act_code)
 print(output)
-
 
 ###############################################################################
 # Download output file from solve and print contents
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Download the ``solve.out`` file from the server to the current working
 # directory and print the contents. Remove the ``solve.out`` file.
+
 def get_solve_out_path(mechanical):
+    """Get the solve out path and return."""
     solve_out_path = ""
     for file_path in mechanical.list_files():
         if file_path.find("solve.out") != -1:
@@ -192,28 +192,23 @@ def get_solve_out_path(mechanical):
 
     return solve_out_path
 
-
 def write_file_contents_to_console(path):
+    """Write file contents to console."""
     with open(path, "rt") as file:
         for line in file:
             print(line, end="")
-
 
 solve_out_path = get_solve_out_path(mechanical)
 
 if solve_out_path != "":
     current_working_directory = os.getcwd()
 
-    local_file_path_list = mechanical.download(
-        solve_out_path, target_dir=current_working_directory
-    )
-    if len(local_file_path_list)!=0:
-        solve_out_local_path = local_file_path_list[0]
-        print(f"Local solve.out path : {solve_out_local_path}")
+    mechanical.download(solve_out_path, target_dir=current_working_directory)
+    solve_out_local_path = os.path.join(current_working_directory, "solve.out")
 
-        write_file_contents_to_console(solve_out_local_path)
+    write_file_contents_to_console(solve_out_local_path)
 
-        os.remove(solve_out_local_path)
+    os.remove(solve_out_local_path)
 
 ###########################################################
 # Close Mechanical
