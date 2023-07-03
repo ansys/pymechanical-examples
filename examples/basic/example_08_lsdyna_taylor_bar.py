@@ -201,16 +201,20 @@ def write_file_contents_to_console(path):
             print(line, end="")
 
 
+print("Getting solve out path")
 solve_out_path = get_solve_out_path(mechanical)
+print(f"Solve out path (on remote machine): {solve_out_path}")
 
 if solve_out_path != "":
     current_working_directory = os.getcwd()
 
+    print(f"Performing download request...")
     mechanical.download(solve_out_path, target_dir=current_working_directory)
     solve_out_local_path = os.path.join(current_working_directory, "solve.out")
+    print(f"File downloaded locally at {solve_out_local_path}")
 
     write_file_contents_to_console(solve_out_local_path)
-
+    print("Printed output to console")
     os.remove(solve_out_local_path)
 
 ###########################################################
@@ -218,4 +222,6 @@ if solve_out_path != "":
 # ~~~~~~~~~~~~~~~~
 # Close the Mechanical instance.
 
+print("Closing mechanical...")
 mechanical.exit()
+print("Mechanical closed!")
