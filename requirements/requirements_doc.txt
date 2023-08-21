@@ -2,7 +2,7 @@
 ansys-mechanical-core==0.10.1
 
 # Documentation dependencies
-ansys-sphinx-theme==0.9.9
+ansys-sphinx-theme==0.10.3
 grpcio==1.57.0
 imageio==2.31.1
 imageio-ffmpeg==0.4.8
@@ -25,5 +25,5 @@ sphinx-autodoc-typehints==1.24.0
 sphinxcontrib-websupport==1.2.4
 sphinx-copybutton==0.5.2
 sphinxemoji==0.2.0
-sphinx-gallery==0.13.0
+sphinx-gallery==0.14.0
 sphinx-notfound-page==0.8.3
