@@ -156,6 +156,7 @@ cython_debug/
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
 .idea/
 
-doc/source/examples/gallery_examples
+doc/source/examples
+**/examples/**/*.png
 
 # End of https://www.toptal.com/developers/gitignore/api/python

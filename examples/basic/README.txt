@@ -1,4 +1,4 @@
-Basic examples
-========================
+Basic
+======
 
 This section demonstrates basic examples.
