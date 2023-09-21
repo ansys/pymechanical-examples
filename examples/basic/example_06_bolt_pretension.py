@@ -1,6 +1,6 @@
 """.. _ref_example_06:
 
-Bolt Pretension Demonstration
+Bolt Pretension
 ---------------------------------------------------------------------------------
 
 Using supplied files, this example shows how to insert a static structural
