@@ -1,6 +1,7 @@
 .. _ref_tech_examples:
 
-Technology showcase
-===================
+============================
+Technology Showcase Examples
+============================
 
 This section demonstrates the technology showcase examples.
