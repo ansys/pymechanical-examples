@@ -194,7 +194,9 @@ solve_out_path = get_solve_out_path(mechanical)
 if solve_out_path != "":
     current_working_directory = os.getcwd()
 
-    local_file_path_list = mechanical.download(solve_out_path, target_dir=current_working_directory)
+    local_file_path_list = mechanical.download(
+        solve_out_path, target_dir=current_working_directory
+    )
     solve_out_local_path = local_file_path_list[0]
     print(f"Local solve.out path : {solve_out_local_path}")
 

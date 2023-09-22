@@ -18,7 +18,9 @@ import os
 from ansys.mechanical.core import launch_mechanical
 from ansys.mechanical.core.examples import download_file
 
-mechdat_path = download_file("example_03_simple_bolt_new.mechdat", "pymechanical", "00_basic")
+mechdat_path = download_file(
+    "example_03_simple_bolt_new.mechdat", "pymechanical", "00_basic"
+)
 print(f"Downloaded the MECHDAT file to: {mechdat_path}")
 
 ###############################################################################

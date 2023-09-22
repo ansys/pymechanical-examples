@@ -17,9 +17,8 @@ JSON, and CSV formats. It also handles an error scenario.
 
 import json
 
-import grpc
-
 from ansys.mechanical.core import launch_mechanical
+import grpc
 
 mechanical = launch_mechanical(batch=True, cleanup_on_exit=False)
 print(mechanical)

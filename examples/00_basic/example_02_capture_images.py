@@ -16,16 +16,19 @@ and capture the images of all results in a folder on the disk.
 
 import os
 
+from ansys.mechanical.core import launch_mechanical
+from ansys.mechanical.core.examples import download_file
 from matplotlib import image as mpimg
 from matplotlib import pyplot as plt
 
-from ansys.mechanical.core import launch_mechanical
-from ansys.mechanical.core.examples import download_file
-
-mechdat_path = download_file("example_03_simple_bolt_new.mechdat", "pymechanical", "00_basic")
+mechdat_path = download_file(
+    "example_03_simple_bolt_new.mechdat", "pymechanical", "00_basic"
+)
 print(f"Downloaded the MECHDAT file to: {mechdat_path}")
 
-script_file_path = download_file("example_02_capture_images_helper.py", "pymechanical", "00_basic")
+script_file_path = download_file(
+    "example_02_capture_images_helper.py", "pymechanical", "00_basic"
+)
 print(f"Downloaded the script files to: {script_file_path}")
 
 ###############################################################################
