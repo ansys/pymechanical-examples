@@ -11,7 +11,7 @@ jupyterlab>=3.2.8
 matplotlib==3.7.2
 numpy==1.26.0
 numpydoc==1.5.0
-pandas==2.1.0
+pandas==2.1.1
 panel==1.2.2
 plotly==5.17.0
 pypandoc==1.11
