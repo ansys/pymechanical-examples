@@ -4,15 +4,15 @@ ansys-mechanical-core==0.10.2
 # Documentation dependencies
 ansys-sphinx-theme==0.11.2
 grpcio==1.58.0
-imageio==2.31.3
+imageio==2.31.4
 imageio-ffmpeg==0.4.9
 jupyter_sphinx==0.4.0
 jupyterlab>=3.2.8
-matplotlib==3.7.2
+matplotlib==3.8.0
 numpy==1.26.0
 numpydoc==1.5.0
-pandas==2.1.0
-panel==1.2.2
+pandas==2.1.1
+panel==1.2.3
 plotly==5.17.0
 pypandoc==1.11
 pytest-sphinx==0.5.0
