@@ -76,7 +76,7 @@ mechanical.run_python_script("ExtAPI.DataModel.Project.Open(mechdat_path)")
 # Set the ``image_dir`` variable for later use.
 # Make the variable compatible for Windows, Linux, and Docker containers.
 
-# Open the MECHDAT file changes the project directory.
+# Open the MECHDAT file to change the project directory.
 project_directory = mechanical.project_directory
 print(f"project directory = {project_directory}")
 
