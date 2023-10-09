@@ -4,36 +4,38 @@ Display properties for an object
 ---------------------------------
 
 Using supplied files, this example shows how to display the properties
-that you would see in an object's details view.
+that you would see in an object's details view in the Mechanical GUI.
 
 """
 
 ###############################################################################
 # Download required files
-# ~~~~~~~~~~~~~~~~~~~~~~~~
-# Download the required files. Print the file path for the MECHDATA file.
+# ~~~~~~~~~~~~~~~~~~~~~~~
+# Download the required files. Print the file path for the MECHDAT file.
 
 import os
 
 from ansys.mechanical.core import launch_mechanical
 from ansys.mechanical.core.examples import download_file
 
-mechdat_path = download_file("example_03_simple_bolt_new.mechdat", "pymechanical", "00_basic")
+mechdat_path = download_file(
+    "example_03_simple_bolt_new.mechdat", "pymechanical", "00_basic"
+)
 print(f"Downloaded the MECHDAT file to: {mechdat_path}")
 
 ###############################################################################
 # Launch Mechanical
 # ~~~~~~~~~~~~~~~~~
-# Launch a new Mechanical session in batch, setting ``cleanup_on_exit`` to
-# ``False``. To close this Mechanical session when finished, this example
-# must call  the ``mechanical.exit()`` method.
+# Launch a new Mechanical session in batch, setting the ``cleanup_on_exit``
+# argument to ``False``. To close this Mechanical session when finished,
+# this example must call  the ``mechanical.exit()`` method.
 
 mechanical = launch_mechanical(batch=True, cleanup_on_exit=False)
 print(mechanical)
 
 ###############################################################################
 # Initialize the variable needed for this workflow
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Set the path for the ``mechdat_path`` variable for later use.
 # Make this variable compatible for Windows, Linux, and Docker containers.
 
@@ -54,8 +56,8 @@ result = mechanical.run_python_script(f"mechdat_path")
 print(f"MECHDATA file is stored on the server at: {result}")
 
 ###################################################################################
-# Execute the script
-# ~~~~~~~~~~~~~~~~~~
+# Run the script
+# ~~~~~~~~~~~~~~
 # Run the Mechanical script to display the properties and their current values
 # for the analysis object.
 

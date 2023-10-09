@@ -11,9 +11,9 @@ function scope between calls.
 ###############################################################################
 # Launch Mechanical
 # ~~~~~~~~~~~~~~~~~
-# Launch a new Mechanical session in batch, setting ``cleanup_on_exit`` to
-# ``False``. To close this Mechanical session when finished, this example
-# must call  the ``mechanical.exit()`` method.
+# Launch a new Mechanical session in batch, setting the ``cleanup_on_exit``
+# argument to ``False``. To close this Mechanical session when finished,
+# this example must call  the ``mechanical.exit()`` method.
 
 from ansys.mechanical.core import launch_mechanical
 
@@ -21,8 +21,8 @@ mechanical = launch_mechanical(batch=True, cleanup_on_exit=False)
 print(mechanical)
 
 ###################################################################################
-# Set variable
-# ~~~~~~~~~~~~
+# Run script to set variable
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Run the script to assign a value to a variable.
 
 output = mechanical.run_python_script(

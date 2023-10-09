@@ -1,5 +1,5 @@
 ===========================
-Simple Mechanical Workflows
+Simple Mechanical workflows
 ===========================
 
 This section demonstrates how you can use Mechanical capabilities from Python to perform

@@ -1,7 +1,7 @@
 .. _ref_basic_examples:
 
 ==============
-Basic Examples
+Basic examples
 ==============
 
-This section demonstrates basic examples.
+This section demonstrates basic usage.

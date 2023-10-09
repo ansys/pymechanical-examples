@@ -23,9 +23,9 @@ from matplotlib import pyplot as plt
 ###############################################################################
 # Launch Mechanical
 # ~~~~~~~~~~~~~~~~~
-# Launch a new Mechanical session in batch, setting ``cleanup_on_exit`` to
-# ``False``. To close this Mechanical session when finished, this example
-# must call  the ``mechanical.exit()`` method.
+# Launch a new Mechanical session in batch, setting the ``cleanup_on_exit``
+# argument to ``False``. To close this Mechanical session when finished,
+# this example must call  the ``mechanical.exit()`` method.
 
 mechanical = launch_mechanical(batch=True, cleanup_on_exit=False)
 print(mechanical)
@@ -41,7 +41,7 @@ print(f"project directory = {project_directory}")
 
 ###############################################################################
 # Download required geometry file
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Download the required file. Print the file path for the geometry file.
 
 geometry_path = download_file(
@@ -60,7 +60,7 @@ mechanical.run_python_script(f"part_file_path='{part_file_path}'")
 
 ###############################################################################
 # Download required material file
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Download the required file. Print the file path for the material file.
 
 mat_cop_path = download_file("example_06_Mat_Copper.xml", "pymechanical", "00_basic")
@@ -77,7 +77,7 @@ mechanical.run_python_script(f"mat_Copper_file_path='{mat_Copper_file_path}'")
 
 ###############################################################################
 # Download required material files
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Download the required file. Print the file path for the material file.
 
 mat_st_path = download_file("example_06_Mat_Steel.xml", "pymechanical", "00_basic")
@@ -92,13 +92,13 @@ combined_path = os.path.join(project_directory, base_name)
 mat_Steel_file_path = combined_path.replace("\\", "\\\\")
 mechanical.run_python_script(f"mat_Steel_file_path='{mat_Steel_file_path}'")
 
-# ----------------------- Verify the path-------------------
+# Verify the path.
 result = mechanical.run_python_script("part_file_path")
 print(f"part_file_path on server: {result}")
 
 ###################################################################################
-# Execute the script
-# ~~~~~~~~~~~~~~~~~~
+# Run the script
+# ~~~~~~~~~~~~~~
 # Run the Mechanical script to attach the geometry and set up and solve the
 # analysis.
 
@@ -107,7 +107,7 @@ output = mechanical.run_python_script(
 import json
 import os
 
-# Section 1 Reads Geometry and Material info
+# Section 1: Read geometry and material information.
 geometry_import_group_11 = Model.GeometryImportGroup
 geometry_import_12 = geometry_import_group_11.AddGeometryImport()
 geometry_import_12_format = Ansys.Mechanical.DataModel.Enums.GeometryImportPreference.\
@@ -126,10 +126,10 @@ STAT_STRUC = Model.Analyses[0]
 STAT_STRUC_SOLN = STAT_STRUC.Solution
 STAT_STRUC_ANA_SETTING = STAT_STRUC.Children[0]
 
-# Section 2 Set up the Unit System.
+# Section 2: Set up the unit system.
 ExtAPI.Application.ActiveUnitSystem = MechanicalUnitSystem.StandardNMM
 
-# Section 3 Store all main tree nodes as variables.
+# Section 3: Store all main tree nodes as variables.
 MODEL = ExtAPI.DataModel.Project.Model
 GEOM = ExtAPI.DataModel.Project.Model.Geometry
 CONN_GRP = ExtAPI.DataModel.Project.Model.Connections
@@ -137,7 +137,7 @@ CS_GRP = ExtAPI.DataModel.Project.Model.CoordinateSystems
 MSH = ExtAPI.DataModel.Project.Model.Mesh
 NS_GRP = ExtAPI.DataModel.Project.Model.NamedSelections
 
-# Section 4 Store Name Selection.
+# Section 4: Store name selection.
 block3_block2_cont_NS = [x for x in ExtAPI.DataModel.Tree.AllObjects
 if x.Name == 'block3_block2_cont'][0]
 block3_block2_targ_NS = [x for x in ExtAPI.DataModel.Tree.AllObjects
@@ -179,7 +179,7 @@ if x.Name == 'block2_surface'][0]
 shank_surface = [x for x in ExtAPI.DataModel.Tree.AllObjects
 if x.Name == 'shank_surface'][0]
 
-# Section 5 Assign material to bodies.
+# Section 5: Assign material to bodies.
 SURFACE1=GEOM.Children[0].Children[0]
 SURFACE1.Material="Steel"
 
@@ -198,7 +198,7 @@ SURFACE5.Material="Steel"
 SURFACE6=GEOM.Children[5].Children[0]
 SURFACE6.Material="Steel"
 
-#Section 6 Define Coordinate System
+#Section 6: Define coordinate system.
 coordinate_systems_17 = Model.CoordinateSystems
 coordinate_system_93 = coordinate_systems_17.AddCoordinateSystem()
 coordinate_system_93.OriginDefineBy = CoordinateSystemAlignmentType.Fixed
@@ -207,10 +207,10 @@ coordinate_system_93.OriginY = Quantity(100, "mm")
 coordinate_system_93.OriginZ = Quantity(50, "mm")
 coordinate_system_93.PrimaryAxis = CoordinateSystemAxisType.PositiveZAxis
 
-# Section 7 Change Contact settings and add command snippet to use Archard Wear Model.
+# Section 7: Change contact settings and add a command snippet to use the Archard Wear Model.
 connections =  ExtAPI.DataModel.Project.Model.Connections
 
-# Delete existing contacts
+# Delete existing contacts.
 for connection in connections.Children:
     if connection.DataModelObjectCategory==DataModelObjectCategory.ConnectionGroup:
         connection.Delete()
@@ -223,7 +223,7 @@ CONT_REG1.FrictionCoefficient = 0.2
 CONT_REG1.SmallSliding = ContactSmallSlidingType.Off
 CONT_REG1.UpdateStiffness = UpdateContactStiffness.Never
 CMD1=CONT_REG1.AddCommandSnippet()
-# Add missing contact keyopt and Archard Wear Model in workbench using command snippet.
+# Add missing contact keyopt and Archard Wear Model in workbench using a command snippet.
 AWM = '''keyopt,cid,9,5
 rmodif,cid,10,0.00
 rmodif,cid,23,0.001'''
@@ -244,7 +244,7 @@ CONT_REG3.FrictionCoefficient = 0.2
 CONT_REG3.SmallSliding = ContactSmallSlidingType.Off
 CONT_REG3.UpdateStiffness = UpdateContactStiffness.Never
 CMD3=CONT_REG3.AddCommandSnippet()
-# Add missing contact keyopt and Archard Wear Model in workbench using command snippet.
+# Add missing contact keyopt and Archard Wear Model in workbench using a command snippet.
 AWM3 = '''keyopt,cid,9,5
 rmodif,cid,10,0.00
 rmodif,cid,23,0.001'''
@@ -270,19 +270,19 @@ CONT_REG6.FrictionCoefficient = 0.2
 CONT_REG6.SmallSliding = ContactSmallSlidingType.Off
 CONT_REG6.UpdateStiffness = UpdateContactStiffness.Never
 CMD6=CONT_REG6.AddCommandSnippet()
-# Add missing contact keyopt and Archard Wear Model in workbench using command snippet.
+# Add missing contact keyopt and Archard Wear Model in workbench using a command snippet.
 AWM6 = '''keyopt,cid,9,5
 rmodif,cid,10,0.00
 rmodif,cid,23,0.001'''
 CMD6.AppendText(AWM6)
 
-# Add Contact Tool
+# Add contact tool.
 #CONT_TOOL = CONN_GRP.AddContactTool()
 #CONT_TOOL.AddPenetration()
 #CONT_TOOL.AddStatus()
 #CONT_TOOL.GenerateInitialContactResults()
 
-# Section 8 Generate Mesh.
+# Section 8: Generate mesh.
 
 Hex_Method = MSH.AddAutomaticMethod()
 Hex_Method.Location = all_bodies
@@ -309,7 +309,7 @@ Sweep_Method.TargetLocation = shank_face2
 
 MSH.GenerateMesh()
 
-# Section 9 Setup Analysis Settings.
+# Section 9: Set up analysis settings.
 STAT_STRUC_ANA_SETTING.NumberOfSteps = 4
 step_index_list = [1]
 with Transaction():
@@ -325,7 +325,7 @@ STAT_STRUC_ANA_SETTING.SolverType = SolverType.Direct
 STAT_STRUC_ANA_SETTING.SolverPivotChecking = SolverPivotChecking.Off
 
 
-# Section 10 Insert Loading and BC
+# Section 10: Insert loading and BC.
 FIX_SUP=STAT_STRUC.AddFixedSupport()
 FIX_SUP.Location=block2_surface
 
@@ -347,7 +347,7 @@ Bolt_Pretension.SetDefineBy(2,BoltLoadDefineBy.Lock)
 Bolt_Pretension.SetDefineBy(3,BoltLoadDefineBy.Lock)
 Bolt_Pretension.SetDefineBy(4,BoltLoadDefineBy.Lock)
 
-# Section 11 Insert Results.
+# Section 11: Insert results.
 
 Post_Contact_Tool = STAT_STRUC_SOLN.AddContactTool()
 Post_Contact_Tool.ScopingMethod = GeometryDefineByType.Worksheet
@@ -364,15 +364,15 @@ Force_Reaction_1.BoundaryConditionSelection = FIX_SUP
 Moment_Reaction_2 = STAT_STRUC_SOLN.AddMomentReaction()
 Moment_Reaction_2.BoundaryConditionSelection = FIX_SUP
 
-# Section 12 Set Number of Processors to 6 using DANSYS
+# Section 12: Set number of processors to 6 using DANSYS.
 # Num_Cores = STAT_STRUC.SolveConfiguration.SolveProcessSettings.MaxNumberOfCores
 # STAT_STRUC.SolveConfiguration.SolveProcessSettings.MaxNumberOfCores = 6
 
-# Section 13 Solve and Validate the Results.
+# Section 13: Solve and validate the results.
 STAT_STRUC_SOLN.Solve(True)
 STAT_STRUC_SS=STAT_STRUC_SOLN.Status
 
-# Set isometric view and zoom to fit
+# Section 14: Set the isometric view and zoom to fit.
 cam = Graphics.Camera
 cam.SetSpecificViewOrientation(ViewOrientationType.Iso)
 cam.SetFit()
@@ -395,8 +395,8 @@ print(output)
 
 ###################################################################################
 # Initialize the variable needed for the image directory
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-# Set the ``image_dir`` for later use.
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# Set the ``image_dir`` variable for later use.
 # Make the variable compatible for Windows, Linux, and Docker containers.
 
 # image_directory_modified = project_directory.replace("\\", "\\\\")
@@ -409,7 +409,7 @@ print(f"Images are stored on the server at: {result_image_dir_server}")
 
 ###############################################################################
 # Download the image and plot
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Download one image file from the server to the current working directory and plot
 # using matplotlib.
 

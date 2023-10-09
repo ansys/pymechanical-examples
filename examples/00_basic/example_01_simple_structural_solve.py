@@ -5,7 +5,8 @@ Static structural analysis
 
 Using supplied files, this example shows how to insert a static structural
 analysis into a new Mechanical session and execute a sequence of Python scripting
-commands that define and solve the analysis. Deformation results are then reported.
+commands that define and solve the analysis. The example then shows how
+to report deformation results.
 
 """
 
@@ -24,9 +25,9 @@ print(f"Downloaded the geometry file to: {geometry_path}")
 ###############################################################################
 # Launch Mechanical
 # ~~~~~~~~~~~~~~~~~
-# Launch a new Mechanical session in batch, setting ``cleanup_on_exit`` to
-# ``False``. To close this Mechanical session when finished, this example
-# must call  the ``mechanical.exit()`` method.
+# Launch a new Mechanical session in batch, setting the ``cleanup_on_exit``
+# argument to ``False``. To close this Mechanical session when finished,
+# this example must call  the ``mechanical.exit()`` method.
 
 mechanical = launch_mechanical(batch=True, cleanup_on_exit=False)
 print(mechanical)
@@ -49,13 +50,13 @@ combined_path = os.path.join(project_directory, base_name)
 part_file_path = combined_path.replace("\\", "\\\\")
 mechanical.run_python_script(f"part_file_path='{part_file_path}'")
 
-# Verify the path
+# Verify the path.
 result = mechanical.run_python_script("part_file_path")
 print(f"part_file_path on server: {result}")
 
 ###################################################################################
-# Execute the script
-# ~~~~~~~~~~~~~~~~~~
+# Run the script
+# ~~~~~~~~~~~~~~
 # Run the Mechanical script to attach the geometry and set up and solve the
 # analysis.
 
@@ -63,6 +64,7 @@ output = mechanical.run_python_script(
     """
 import json
 
+# Section 1: Read geometry information
 geometry_import_group_11 = Model.GeometryImportGroup
 geometry_import_19 = geometry_import_group_11.AddGeometryImport()
 
@@ -80,12 +82,12 @@ CS_GRP = Model.CoordinateSystems
 ANALYSIS_SETTINGS = STAT_STRUC.Children[0]
 SOLN= STAT_STRUC.Solution
 
-# Section 2 Set up the Unit System.
+# Section 2: Set up the unit system.
 
 ExtAPI.Application.ActiveUnitSystem = MechanicalUnitSystem.StandardMKS
 ExtAPI.Application.ActiveAngleUnit = AngleUnitType.Radian
 
-# Section 3 Named Selection and Coordinate System.
+# Section 3: Define named selection and coordinate system.
 
 NS1 = Model.NamedSelections.Children[0]
 NS2 = Model.NamedSelections.Children[1]
@@ -94,7 +96,7 @@ NS4 = Model.NamedSelections.Children[3]
 GCS = CS_GRP.Children[0]
 LCS1 = CS_GRP.Children[1]
 
-# Section 4 Define remote point.
+# Section 4: Define remote point.
 
 RMPT_GRP = Model.RemotePoints
 RMPT_1 = RMPT_GRP.AddRemotePoint()
@@ -103,30 +105,30 @@ RMPT_1.XCoordinate=Quantity("7 [m]")
 RMPT_1.YCoordinate=Quantity("0 [m]")
 RMPT_1.ZCoordinate=Quantity("0 [m]")
 
-#  Section 5 Define Mesh Settings.
+#  Section 5: Define mesh settings.
 
 MSH = Model.Mesh
 MSH.ElementSize =Quantity("0.5 [m]")
 MSH.GenerateMesh()
 
-#  Section 6 Define boundary conditions.
+#  Section 6: Define boundary conditions.
 
-# Insert FIXED Support
+# Insert fixed support.
 FIX_SUP = STAT_STRUC.AddFixedSupport()
 FIX_SUP.Location = NS2
 
-# Insert Frictionless Support
+# Insert frictionless support.
 FRIC_SUP = STAT_STRUC.AddFrictionlessSupport()
 FRIC_SUP.Location = NS3
 
-#  Section 7 Define remote force.
+#  Section 7: Define remote force.
 
 REM_FRC1 = STAT_STRUC.AddRemoteForce()
 REM_FRC1.Location = RMPT_1
 REM_FRC1.DefineBy =LoadDefineBy.Components
 REM_FRC1.XComponent.Output.DiscreteValues = [Quantity("1e10 [N]")]
 
-#  Section 8 Define thermal condition.
+#  Section 8: Define thermal condition.
 
 THERM_COND = STAT_STRUC.AddThermalCondition()
 THERM_COND.Location = NS4
@@ -136,24 +138,24 @@ THERM_COND.XYZFunctionCoordinateSystem=LCS1
 THERM_COND.RangeMinimum=Quantity("-20 [m]")
 THERM_COND.RangeMaximum=Quantity("1 [m]")
 
-#  Section 9 Insert directional deformation.
+#  Section 9: Insert directional deformation.
 
 DIR_DEF = STAT_STRUC.Solution.AddDirectionalDeformation()
 DIR_DEF.Location = NS1
 DIR_DEF.NormalOrientation =NormalOrientationType.XAxis
 
-# Section 10 Add Total Deformation and force reaction probe
+# Section 10: Add total deformation and force reaction probe.
 
 TOT_DEF = STAT_STRUC.Solution.AddTotalDeformation()
 
-# Add Force Reaction
+# Add force reaction.
 FRC_REAC_PROBE = STAT_STRUC.Solution.AddForceReaction()
 FRC_REAC_PROBE.BoundaryConditionSelection = FIX_SUP
 FRC_REAC_PROBE.ResultSelection =ProbeDisplayFilter.XAxis
 
-# Section 11 Solve and get the results.
+# Section 11: Solve and get the results.
 
-# Solve Static Analysis
+# Solve static analysis.
 STAT_STRUC.Solution.Solve(True)
 
 dir_deformation_details = {
@@ -173,6 +175,8 @@ print(output)
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Download the ``solve.out`` file from the server to the current working
 # directory and print the contents. Remove the ``solve.out`` file.
+
+
 def get_solve_out_path(mechanical):
     solve_out_path = ""
     for file_path in mechanical.list_files():
@@ -194,7 +198,9 @@ solve_out_path = get_solve_out_path(mechanical)
 if solve_out_path != "":
     current_working_directory = os.getcwd()
 
-    local_file_path_list = mechanical.download(solve_out_path, target_dir=current_working_directory)
+    local_file_path_list = mechanical.download(
+        solve_out_path, target_dir=current_working_directory
+    )
     solve_out_local_path = local_file_path_list[0]
     print(f"Local solve.out path : {solve_out_local_path}")
 
