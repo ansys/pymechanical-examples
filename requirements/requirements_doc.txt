@@ -1,8 +1,8 @@
 #PyMechanical
-ansys-mechanical-core==0.10.3
+ansys-mechanical-core==0.10.4
 
 # Documentation dependencies
-ansys-sphinx-theme==0.12.1
+ansys-sphinx-theme==0.12.2
 grpcio==1.59.0
 imageio==2.31.5
 imageio-ffmpeg==0.4.9
@@ -17,7 +17,7 @@ plotly==5.17.0
 pypandoc==1.11
 pytest-sphinx==0.5.0
 pythreejs==2.4.2
-pyvista==0.42.2
+pyvista==0.42.3
 sphinx_design==0.5.0
 Sphinx==7.1.2
 sphinx-autobuild==2021.3.14
