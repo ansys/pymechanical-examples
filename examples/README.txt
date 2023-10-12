@@ -1,7 +1,4 @@
-.. _ref_examples
+Remote session examples
+=======================
 
-=========
-Examples
-=========
-
-Here is a series of examples using Mechanical with the ``ansys-mechanical-core`` library.
+These examples demonstrate the basic simulation capabilities of Ansys Mechanical using remote sessions.

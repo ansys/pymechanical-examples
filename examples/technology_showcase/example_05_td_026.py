@@ -23,7 +23,7 @@ Validated Equivalent Stress and Total Deformation results.
 
 ###############################################################################
 # Import necessary libraries
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~
 import os
 
 from ansys.mechanical.core import launch_mechanical
@@ -34,16 +34,16 @@ from matplotlib import pyplot as plt
 ###############################################################################
 # Launch Mechanical
 # ~~~~~~~~~~~~~~~~~
-# Launch a new Mechanical session in batch, setting ``cleanup_on_exit`` to
-# ``False``. To close this Mechanical session when finished, this example
-# must call  the ``mechanical.exit()`` method.
+# Launch a new Mechanical session in batch, setting the ``cleanup_on_exit``
+# argument to ``False``. To close this Mechanical session when finished,
+# this example must call  the ``mechanical.exit()`` method.
 
 mechanical = launch_mechanical(batch=True, cleanup_on_exit=False)
 print(mechanical)
 
 ###############################################################################
 # Initialize variable for workflow
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Set the ``part_file_path`` variable on the server for later use.
 # Make this variable compatible for Windows, Linux, and Docker containers.
 
@@ -52,7 +52,7 @@ print(f"project directory = {project_directory}")
 
 ###############################################################################
 # Download required Geometry file
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Download the required file. Print the file path for the geometry file.
 
 geometry_path = download_file(
@@ -71,7 +71,7 @@ mechanical.run_python_script(f"part_file_path='{part_file_path}'")
 
 ###############################################################################
 # Download required Material files
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Download the required files. Print the file path for the material file.
 
 mat_path = download_file("example_05_Boot_Mat.xml", "pymechanical", "00_basic")
@@ -86,13 +86,13 @@ combined_path = os.path.join(project_directory, base_name)
 mat_part_file_path = combined_path.replace("\\", "\\\\")
 mechanical.run_python_script(f"mat_part_file_path='{mat_part_file_path}'")
 
-# ----------------------- Verify the path-------------------
+# Verify the path.
 result = mechanical.run_python_script("part_file_path")
 print(f"part_file_path on server: {result}")
 
 ###################################################################################
-# Execute the script
-# ~~~~~~~~~~~~~~~~~~
+# Run the script
+# ~~~~~~~~~~~~~~
 # Run the Mechanical script to attach the geometry and set up and solve the
 # analysis.
 
@@ -101,7 +101,7 @@ output = mechanical.run_python_script(
 import json
 import os
 
-# Section 1 Reads Geometry and Material info from json file
+# Section 1: Read geometry and material information from the JSON file.
 geometry_import_group_11 = Model.GeometryImportGroup
 geometry_import_12 = geometry_import_group_11.AddGeometryImport()
 geometry_import_12_format = Ansys.Mechanical.DataModel.Enums.GeometryImportPreference. \
@@ -115,7 +115,7 @@ geometry_import_12.Import(part_file_path, geometry_import_12_format,
 #materials = ExtAPI.DataModel.Project.Model.Materials
 #materials.Import(mat_part_file_path)
 
-# Section 2 Set up the Unit System.
+# Section 2: Set up the unit system.
 ExtAPI.Application.ActiveUnitSystem = MechanicalUnitSystem.StandardNMM
 ExtAPI.Application.ActiveAngleUnit = AngleUnitType.Radian
 GEOM = Model.Geometry
@@ -130,7 +130,7 @@ ANA_SETTING = STAT_STRUC.Children[0]
 STAT_STRUC_SOLN = STAT_STRUC.Solution
 SOLN_INFO = STAT_STRUC_SOLN.SolutionInformation
 
-# Section 3 Named Selection and Coordinate System.
+# Section 3: Define named selection and coordinate system.
 NS_GRP = ExtAPI.DataModel.Project.Model.NamedSelections
 TOP_FACE = \
     [i for i in NS_GRP.GetChildren[Ansys.ACT.Automation.Mechanical.NamedSelection](True)
@@ -165,11 +165,11 @@ SYMM_FACES15 = \
 LCS1 = CS_GRP.AddCoordinateSystem()
 LCS1.OriginY = Quantity('97[mm]')
 
-# Section 4 Define Material.
+# Section 4: Define material.
 #PRT1.Material = 'Boot'
 PRT2.StiffnessBehavior = StiffnessBehavior.Rigid
 
-# Section 5 Define Connections.
+# Section 5: Define connections.
 CONN_GRP = ExtAPI.DataModel.Project.Model.Connections
 CONT_REG1 = CONN_GRP.AddContactRegion()
 CONT_REG1.TargetLocation = SHAFT_FACE
@@ -211,7 +211,7 @@ CONT_REG3.UpdateStiffness = UpdateContactStiffness.EachIteration
 CONT_REG3.NormalStiffnessValueType = ElementControlsNormalStiffnessType.Factor
 CONT_REG3.NormalStiffnessFactor = 1
 
-# Section 6 Define Mesh controls
+# Section 6: Define mesh controls.
 MSH = Model.Mesh
 FACE_MSH = MSH.AddFaceMeshing()
 FACE_MSH.Location = SHAFT_FACE
@@ -225,8 +225,8 @@ MSH.ElementOrder = ElementOrder.Linear
 MSH.Resolution = 2
 MSH.GenerateMesh()
 
-# Section 7 Define remote points rigid behaviors and scoped to top and
-# bottom faces of rigid shaft
+# Section 7: Define remote points' rigid behaviors and scope them
+# to the top and bottom faces of rigid shaft.
 RMPT01 = Model.AddRemotePoint()
 RMPT01.Location = BOTTOM_FACE
 RMPT01.Behavior = LoadBehavior.Rigid
@@ -235,7 +235,7 @@ RMPT02 = Model.AddRemotePoint()
 RMPT02.Location = TOP_FACE
 RMPT02.Behavior = LoadBehavior.Rigid
 
-# Section 8 Define analysis settings and setup loads and supports
+# Section 8: Define analysis settings and set up loads and supports.
 ANA_SETTING.Activate()
 ANA_SETTING.LargeDeflection = True
 ANA_SETTING.Stabilization = StabilizationType.Off
@@ -309,27 +309,27 @@ FRIC_SUP03 = STAT_STRUC.AddFrictionlessSupport()
 FRIC_SUP03.Location = CYL_FACES2
 FRIC_SUP03.Name = "Boot_Radial_BC"
 
-# Section 9 Add Total Deformation and Equivalent stress
+# Section 9: Add total deformation and equivalent stress.
 TOT_DEF = STAT_STRUC.Solution.AddTotalDeformation()
 TOT_DEF.Location = RUBBER_BODIES30
 
 EQV_STRS = STAT_STRUC.Solution.AddEquivalentStress()
 EQV_STRS.Location = RUBBER_BODIES30
 
-# Section 10 Set Number of Processors to 6 using DANSYS
+# Section 10: Set the number of processors to 6 using DANSYS.
 #testval2 = STAT_STRUC.SolveConfiguration.SolveProcessSettings.MaxNumberOfCores
 #STAT_STRUC.SolveConfiguration.SolveProcessSettings.MaxNumberOfCores = 6
 
-# Section 11 Solve for Normal Stiffness Value set to 1 for self contacts
+# Section 11: Solve for the normal stiffness value set to 1 for self contacts.
 # between flexible rubber boot
 STAT_STRUC.Solution.Solve(True)
 
-# Section 12 Set isometric view and zoom to fit
+# Section 12: Set isometric view and zoom to fit.
 cam = Graphics.Camera
 cam.SetSpecificViewOrientation(ViewOrientationType.Iso)
 cam.SetFit()
 
-# Section 13 Store post-processing images
+# Section 13: Store post-processing images.
 mechdir = STAT_STRUC.Children[0].SolverFilesDirectory
 export_path = os.path.join(mechdir, "total_deformation.png")
 TOT_DEF.Activate()
@@ -351,8 +351,8 @@ print(output)
 
 ###################################################################################
 # Initialize the variable needed for the image directory
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-# Set the ``image_dir`` for later use.
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# Set the ``image_dir`` variable for later use.
 # Make the variable compatible for Windows, Linux, and Docker containers.
 
 # image_directory_modified = project_directory.replace("\\", "\\\\")
@@ -364,7 +364,7 @@ print(f"Images are stored on the server at: {result_image_dir_server}")
 
 ###############################################################################
 # Download the image and plot
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Download one image file from the server to the current working directory and plot
 # using matplotlib.
 
