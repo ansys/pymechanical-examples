@@ -1,4 +1,7 @@
-Basic examples
-========================
+.. _ref_basic_examples:
 
-This section demonstrates basic examples.
+==============
+Basic examples
+==============
+
+This section demonstrates basic usage.
