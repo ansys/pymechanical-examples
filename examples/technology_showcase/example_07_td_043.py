@@ -29,7 +29,7 @@ before wear and after wear are validated.
 
 ###############################################################################
 # Import necessary libraries
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~
 import os
 
 from ansys.mechanical.core import launch_mechanical
@@ -40,16 +40,16 @@ from matplotlib import pyplot as plt
 ###############################################################################
 # Launch Mechanical
 # ~~~~~~~~~~~~~~~~~
-# Launch a new Mechanical session in batch, setting ``cleanup_on_exit`` to
-# ``False``. To close this Mechanical session when finished, this example
-# must call  the ``mechanical.exit()`` method.
+# Launch a new Mechanical session in batch, setting the ``cleanup_on_exit``
+# argument to ``False``. To close this Mechanical session when finished,
+# this example must call  the ``mechanical.exit()`` method.
 
 mechanical = launch_mechanical(batch=True, cleanup_on_exit=False)
 print(mechanical)
 
 ###############################################################################
 # Initialize variable for workflow
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Set the ``part_file_path`` variable on the server for later use.
 # Make this variable compatible for Windows, Linux, and Docker containers.
 
@@ -58,7 +58,7 @@ print(f"project directory = {project_directory}")
 
 ###############################################################################
 # Download required Geometry file
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Download the required file. Print the file path for the geometry file.
 
 geometry_path = download_file("example_07_td43_wear.agdb", "pymechanical", "00_basic")
@@ -74,8 +74,8 @@ part_file_path = combined_path.replace("\\", "\\\\")
 mechanical.run_python_script(f"part_file_path='{part_file_path}'")
 
 ###############################################################################
-# Download required Material files
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# Download required material files
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Download the required files. Print the file path for the material file.
 
 mat_cop_path = download_file("example_07_Mat_Copper.xml", "pymechanical", "00_basic")
@@ -102,14 +102,14 @@ combined_path = os.path.join(project_directory, base_name)
 mat_Steel_file_path = combined_path.replace("\\", "\\\\")
 mechanical.run_python_script(f"mat_Steel_file_path='{mat_Steel_file_path}'")
 
-# ----------------------- Verify the path-------------------
+# Verify the path.
 result = mechanical.run_python_script("part_file_path")
 print(f"part_file_path on server: {result}")
 
 ###################################################################################
-# Execute the script
-# ~~~~~~~~~~~~~~~~~~
-# Run the Mechanical script to attach the geometry and set up and solve the
+# Run the script
+# ~~~~~~~~~~~~~~
+# Run the Mechanical script to attach the geometry, set up, and solve the
 # analysis.
 
 output = mechanical.run_python_script(
@@ -118,7 +118,7 @@ import json
 import os
 import context_menu
 
-# Section 1 Reads Geometry and Material info
+# Section 1: Read geometry and material information.
 geometry_import_group_11 = Model.GeometryImportGroup
 geometry_import_12 = geometry_import_group_11.AddGeometryImport()
 geometry_import_12_format = Ansys.Mechanical.DataModel.Enums.GeometryImportPreference.\
@@ -132,10 +132,10 @@ geometry_import_12.Import(part_file_path,geometry_import_12_format,geometry_impo
 #MAT.Import(mat_Copper_file_path)
 #MAT.Import(mat_Steel_file_path)
 
-# Section 2 Set up the Unit System.
+# Section 2: Set up the unit system.
 ExtAPI.Application.ActiveUnitSystem = MechanicalUnitSystem.StandardNMM
 
-# Section 3 Store all main tree nodes as variables.
+# Section 3: Store all main tree nodes as variables.
 MODEL = ExtAPI.DataModel.Project.Model
 GEOM = ExtAPI.DataModel.Project.Model.Geometry
 CS_GRP = ExtAPI.DataModel.Project.Model.CoordinateSystems
@@ -148,7 +148,7 @@ STAT_STRUC = Model.Analyses[0]
 STAT_STRUC_SOLN = STAT_STRUC.Solution
 STAT_STRUC_ANA_SETTING = STAT_STRUC.Children[0]
 
-# Section 4 Store Name Selection.
+# Section 4: Store name selection.
 CURVE_NS = [x for x in ExtAPI.DataModel.Tree.AllObjects if x.Name == 'curve'][0]
 DIA_NS = [x for x in ExtAPI.DataModel.Tree.AllObjects if x.Name == 'dia'][0]
 VER_EDGE1 = [x for x in ExtAPI.DataModel.Tree.AllObjects if x.Name == 'v1'][0]
@@ -157,7 +157,7 @@ HOR_EDGE1 = [x for x in ExtAPI.DataModel.Tree.AllObjects if x.Name == 'h1'][0]
 HOR_EDGE2 = [x for x in ExtAPI.DataModel.Tree.AllObjects if x.Name == 'h2'][0]
 ALL_BODIES_NS = [x for x in ExtAPI.DataModel.Tree.AllObjects if x.Name == 'all_bodies'][0]
 
-# Section 5 Assign material to bodies and change behavior to Axisymmetric.
+# Section 5: Assign material to bodies and change behavior to axisymmetric.
 GEOM.Model2DBehavior=Model2DBehavior.AxiSymmetric
 
 SURFACE1=GEOM.Children[0].Children[0]
@@ -168,7 +168,7 @@ SURFACE2=GEOM.Children[1].Children[0]
 #SURFACE2.Material="Copper"
 SURFACE2.Dimension = ShellBodyDimension.Two_D
 
-# Section 6 Change Contact settings and add command snippet to use Archard Wear Model.
+# Section 6: Change contact settings and add a command snippet to use Archard Wear Model.
 CONT_REG = CONN_GRP.AddContactRegion()
 CONT_REG.SourceLocation = NS_GRP.Children[6]
 CONT_REG.TargetLocation = NS_GRP.Children[3]
@@ -196,12 +196,12 @@ TBDATA,1,kcopper,1,1,0,0'''
 CMD1=CONT_REG.AddCommandSnippet()
 CMD1.AppendText(AWM)
 
-# Section 7 Insert Remote Point.
+# Section 7: Insert remote point.
 REM_PT=MODEL.AddRemotePoint()
 REM_PT.Location=DIA_NS
 REM_PT.Behavior=LoadBehavior.Rigid
 
-# Section 8 Generate Mesh.
+# Section 8: Generate mesh.
 MSH.ElementOrder=ElementOrder.Linear
 MSH.ElementSize=Quantity('1 [mm]')
 
@@ -237,7 +237,7 @@ EDGE_SIZING6.NumberOfDivisions=60
 
 MSH.GenerateMesh()
 
-# Section 9 Setup Analysis Settings.
+# Section 9: Set up analysis settings.
 STAT_STRUC_ANA_SETTING.NumberOfSteps=2
 STAT_STRUC_ANA_SETTING.CurrentStepNumber=1
 STAT_STRUC_ANA_SETTING.AutomaticTimeStepping=AutomaticTimeStepping.On
@@ -256,7 +256,7 @@ STAT_STRUC_ANA_SETTING.MaximumTimeStep=Quantity("0.02 [s]")
 
 STAT_STRUC_ANA_SETTING.LargeDeflection=True
 
-# Section 10 Insert Loading and BC
+# Section 10: Insert loading and BC.
 FIX_SUP=STAT_STRUC.AddFixedSupport()
 FIX_SUP.Location=HOR_EDGE1
 
@@ -278,7 +278,7 @@ CMD2=STAT_STRUC.AddCommandSnippet()
 CMD2.AppendText(NLAD)
 CMD2.StepSelectionMode=SequenceSelectionType.All
 
-# Section 11 Insert Results.
+# Section 11: Insert results.
 TOT_DEF=STAT_STRUC_SOLN.AddTotalDeformation()
 
 NORM_STRS1=STAT_STRUC_SOLN.AddNormalStress()
@@ -303,17 +303,17 @@ CONT_PRES1.DisplayTime=Quantity('1 [s]')
 CONT_PRES2=CONT_TOOL.AddPressure()
 CONT_PRES2.DisplayTime=Quantity('4 [s]')
 
-# Section 12 Set Number of Processors to 6 using DANSYS
+# Section 12: Set the number of processors to 6 using DANSYS.
 #testval2 = STAT_STRUC.SolveConfiguration.SolveProcessSettings.MaxNumberOfCores
 #STAT_STRUC.SolveConfiguration.SolveProcessSettings.MaxNumberOfCores = 6
 
-# Section 13 Solve and Validate the Results.
+# Section 13: Solve and validate the results.
 STAT_STRUC_SOLN.Solve(True)
 STAT_STRUC_SS=STAT_STRUC_SOLN.Status
 
-# Section 14 Store post-processing images
+# Section 14: Store post-processing images.
 
-# Set front view and zoom to fit
+# Set front view and zoom to fit.
 cam = Graphics.Camera
 cam.SetSpecificViewOrientation(ViewOrientationType.Front)
 cam.SetFit()
@@ -341,8 +341,8 @@ print(output)
 
 ###################################################################################
 # Initialize the variable needed for the image directory
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-# Set the ``image_dir`` for later use.
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# Set the ``image_dir`` variable for later use.
 # Make the variable compatible for Windows, Linux, and Docker containers.
 
 # image_directory_modified = project_directory.replace("\\", "\\\\")
@@ -355,7 +355,7 @@ print(f"Images are stored on the server at: {result_image_dir_server}")
 
 ###############################################################################
 # Download the image and plot
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Download one image file from the server to the current working directory and plot
 # using matplotlib.
 
