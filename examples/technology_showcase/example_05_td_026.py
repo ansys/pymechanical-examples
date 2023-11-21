@@ -4,7 +4,6 @@ Nonlinear Analysis of a Rubber Boot Seal Model
 ----------------------------------------------
 
 Nonlinear Analysis of a Rubber Boot Seal.
-Unit System: MKS.
 
 Coverage:3D analysis of Nonlinear Analysis of a Rubber Boot Seal.
 
