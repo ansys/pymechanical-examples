@@ -1,7 +1,7 @@
 repos:
 
 - repo: https://github.com/psf/black
-  rev: 23.11.0
+  rev: 23.12.0
   hooks:
   - id: black
     args: ["doc/source/conf.py"]
@@ -13,7 +13,7 @@ repos:
     additional_dependencies: [black==23.10.1]
 
 - repo: https://github.com/pycqa/isort
-  rev: 5.13.1
+  rev: 5.13.2
   hooks:
   - id: isort
     args: [
