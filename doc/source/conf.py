@@ -12,7 +12,7 @@ import os
 import warnings
 
 import ansys.mechanical.core as pymechanical
-from ansys_sphinx_theme import get_version_match, pyansys_logo_black
+from ansys_sphinx_theme import pyansys_logo_black
 from sphinx_gallery.sorting import FileNameSortKey
 
 # necessary when building the sphinx gallery
@@ -178,12 +178,6 @@ html_context = {
     "doc_path": "doc/source",
 }
 html_theme_options = {
-    "switcher": {
-        "json_url": f"https://{cname}/versions.json",
-        "version_match": get_version_match(version),
-    },
-    "check_switcher": False,
-    "navbar_end": ["version-switcher", "theme-switcher", "navbar-icon-links"],
     "github_url": "https://github.com/ansys/pymechanical-examples",
     "show_prev_next": False,
     "show_breadcrumbs": True,
