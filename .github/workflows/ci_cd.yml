@@ -16,7 +16,7 @@ env:
   PYMECHANICAL_PORT: 10000  # default won't work on GitHub runners
   PYMECHANICAL_START_INSTANCE: FALSE
   DOCKER_PACKAGE: ghcr.io/ansys/mechanical
-  DOCKER_IMAGE_VERSION: 23.2.0
+  DOCKER_IMAGE_VERSION: 24.1.0
   DOCKER_MECH_CONTAINER_NAME: mechanical
   PACKAGE_NAME: ansys-mechanical-core
   PACKAGE_NAMESPACE: ansys.mechanical.core
@@ -118,8 +118,8 @@ jobs:
         if: contains(github.ref, 'refs/heads/main')
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          BRANCH: gh-pages
-          FOLDER: .tox/doc_out_html/
-          CLEAN: true
-          SINGLE_COMMIT: true
+          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: gh-pages
+          folder: .tox/doc_out_html/
+          clean: true
+          single-commit: true
