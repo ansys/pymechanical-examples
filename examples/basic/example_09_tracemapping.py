@@ -188,7 +188,7 @@ imp_trace = [
     x for x in allImpTraces if x.Parent.ObjectId == imported_trace_group.ObjectId
 ][0]
 imp_trace.Activate()
-imp_trace.InternalObject.GeometryDefineBy = 1
+# imp_trace.InternalObject.GeometryDefineBy = 1
 
 NSall = ExtAPI.DataModel.Project.Model.NamedSelections.GetChildren[
     Ansys.ACT.Automation.Mechanical.NamedSelection
@@ -210,9 +210,10 @@ imp_trace.Import()
 
 
 # Exporting trace map snapshot to a png file
+Graphics.Camera.SetFit()
 set2d = Ansys.Mechanical.Graphics.GraphicsImageExportSettings()
 set2d.CurrentGraphicsDisplay = False
-mechdir = analysis.Children[0].SolverFilesDirectory
+mechdir = ExtAPI.DataModel.AnalysisList[0].WorkingDir
 png_file_path = os.path.join(mechdir, image_name)
 Graphics.ExportImage(png_file_path, GraphicsImageExportFormat.PNG, set2d)
 # ExtAPI.DataModel.Project.Save(mechdat_file_path)
