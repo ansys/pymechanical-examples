@@ -166,23 +166,30 @@ Graphics.ViewOptions.ResultPreference.DeformationScaling = true_scale
 Graphics.ViewOptions.ResultPreference.DeformationScaleMultiplier = 1
 
 
+
 # Export an animation
+mechdir = ExtAPI.DataModel.AnalysisList[0].WorkingDir
 eps.Activate()
 animation_export_format = GraphicsAnimationExportFormat.GIF
 settings_720p = Ansys.Mechanical.Graphics.AnimationExportSettings()
 settings_720p.Width = 1280
 settings_720p.Height = 720
-anim_file_path = os.path.join(project_directory, "taylor_bar.gif")
+anim_file_path = os.path.join(mechdir, "taylor_bar.gif")
 eps.ExportAnimation(
     anim_file_path, animation_export_format, settings_720p
 )
 
 # Set the isometric view and zoom to fit.
+settings_720p = Ansys.Mechanical.Graphics.GraphicsImageExportSettings()
+settings_720p.Resolution = (GraphicsResolutionType.EnhancedResolution)
+settings_720p.Background = GraphicsBackgroundType.White
+settings_720p.Width = 1280
+settings_720p.Height = 720
+settings_720p.CurrentGraphicsDisplay = False
 Graphics.Camera.Pan(Quantity(7, 'mm'),Quantity(4, 'mm'))
 total_deformation.Activate()
-image_path = os.path.join(project_directory, "totaldeformation.png")
-Graphics.ExportImage(image_path, GraphicsImageExportFormat.PNG)
-
+image_path = os.path.join(mechdir, "totaldeformation.png")
+Graphics.ExportImage(image_path, GraphicsImageExportFormat.PNG, settings_720p)
 
 dir_deformation_details = {
 "Minimum": str(eps_max),
@@ -280,7 +287,7 @@ if image_path_server != "":
 # Get gif and display
 # ~~~~~~~~~~~~~~~~~~~
 
-animation_name = "taylor_bar.GIF"
+animation_name = "taylor_bar.gif"
 animation_server = get_image_path(animation_name)
 
 
