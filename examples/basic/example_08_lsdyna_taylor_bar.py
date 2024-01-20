@@ -202,7 +202,7 @@ output = mechanical.run_python_script(mech_act_code)
 print(output)
 
 # image_directory_modified = project_directory.replace("\\", "\\\\")
-mechanical.run_python_script(f"image_dir=ExtAPI.DataModel.Project.ProjectDirectory")
+mechanical.run_python_script(f"image_dir=ExtAPI.DataModel.AnalysisList[0].WorkingDir")
 
 
 # Verify the path for image directory.
