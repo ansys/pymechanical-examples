@@ -159,4 +159,7 @@ cython_debug/
 doc/source/examples
 **/examples/**/*.png
 
+# VSCode
+.vscode
+
 # End of https://www.toptal.com/developers/gitignore/api/python
