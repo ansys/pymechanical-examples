@@ -74,6 +74,7 @@ import os
 
 
 # Imports a geometry file into the active model.
+
 geometry_import = Model.GeometryImportGroup.AddGeometryImport()
 geometry_import_format = (
     Ansys.Mechanical.DataModel.Enums.GeometryImportPreference.Format.Automatic
@@ -89,18 +90,21 @@ geometry_import.Import(
 print("geometry import : Done ")
 
 # Insert a Static Structural Analysis
+
 analysis = Model.AddStaticStructuralAnalysis()
 print(analysis)
 
 ExtAPI.DataModel.Project.UnitSystem = UserUnitSystemType.StandardNMM
 
 # Import Materials
+
 materials = ExtAPI.DataModel.Project.Model.Materials
 materials.Import(copper_alloy_material_file)
 materials.Import(fr4_material_file)
 
 
 # create lists of body ids to create named selections later
+
 board_bodyids = []
 component_bodyids = []
 geo = ExtAPI.DataModel.GeoData
@@ -114,6 +118,7 @@ for asm in geo.Assemblies:
                 component_bodyids.append(body.Id)
 
 # Assign  Materials based on Body Names
+
 parts = ExtAPI.DataModel.Project.Model.Geometry.Children  # list of parts
 for part in parts:
     for body in part.Children:
@@ -121,6 +126,7 @@ for part in parts:
 
 
 # Function to create named selection from list of body ids
+
 def create_named_selection_from_id_list(ns_name, list_of_body_ids):
 
     selection_manager = ExtAPI.SelectionManager
@@ -162,6 +168,7 @@ mesh.GenerateMesh()
 
 
 # Defining External Data Object  for Importing Trace
+
 external_data_files = Ansys.Mechanical.ExternalData.ExternalDataFileCollection()
 external_data_files.SaveFilesWithProject = True
 external_data_file = Ansys.Mechanical.ExternalData.ExternalDataFile()
@@ -210,13 +217,13 @@ imp_trace.Import()
 
 
 # Exporting trace map snapshot to a png file
+
 Graphics.Camera.SetFit()
 set2d = Ansys.Mechanical.Graphics.GraphicsImageExportSettings()
 set2d.CurrentGraphicsDisplay = False
 mechdir = ExtAPI.DataModel.AnalysisList[0].WorkingDir
 png_file_path = os.path.join(mechdir, image_name)
 Graphics.ExportImage(png_file_path, GraphicsImageExportFormat.PNG, set2d)
-# ExtAPI.DataModel.Project.Save(mechdat_file_path)
 
 """
 )
@@ -236,8 +243,8 @@ result_image_dir_server = mechanical.run_python_script(f"image_dir")
 print(f"Images are stored on the server at: {result_image_dir_server}")
 
 ###############################################################################
-# Download the image and plot
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# Download the image and animation and plot
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Download one image file from the server to the current working directory and plot
 # using matplotlib.
 
@@ -269,8 +276,6 @@ if image_path_server != "":
     display_image(image_local_path)
 
 ###############################################################################
-
-
 # Close Mechanical
 # ~~~~~~~~~~~~~~~~
 # Close the Mechanical instance.
