@@ -164,6 +164,7 @@ sphinx_gallery_conf = {
     "image_scrapers": ("matplotlib"),
     "ignore_pattern": "flycheck*",
     "thumbnail_size": (350, 350),
+    "matplotlib_animations": True,
 }
 
 
