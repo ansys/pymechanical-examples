@@ -9,9 +9,10 @@ Python scripting commands that mesh the model and export an image.
 
 """
 
-###############################################################################
+# %%
 # Import necessary libraries
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 import os
 
 from ansys.mechanical.core import launch_mechanical
@@ -19,9 +20,9 @@ from ansys.mechanical.core.examples import download_file
 from matplotlib import image as mpimg
 from matplotlib import pyplot as plt
 
-###############################################################################
+# %%
 # Launch Mechanical
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~
+# ~~~~~~~~~~~~~~~~~
 # Launch a new Mechanical session in batch, setting ``cleanup_on_exit`` to
 # ``False``. To close this Mechanical session when finished, this example
 # must call  the ``mechanical.exit()`` method.
@@ -30,12 +31,10 @@ mechanical = launch_mechanical(batch=True, cleanup_on_exit=False)
 print(mechanical)
 
 
-###############################################################################
-# Download the required files : # geometry file , def file , copper alloy
-# material file, fr4 material file
-# Print the file paths to verify.
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~
-
+# %%
+# Download the required files
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# Download files and print path
 
 all_input_files = {
     "geometry_file_name": "example_09_pcb.agdb",
@@ -43,7 +42,6 @@ all_input_files = {
     "copper_alloy_material_file": "example_09_mat_copper_alloy.xml",
     "fr4_material_file": "example_09_mat_fr4.xml",
 }
-
 
 project_directory = mechanical.project_directory
 print(f"project directory = {project_directory}")
@@ -61,12 +59,18 @@ for file_type, file_name in all_input_files.items():
     combined_path = os.path.join(project_directory, base_name)
     part_file_path = combined_path.replace("\\", "\\\\")
     mechanical.run_python_script(f"{file_type} = '{part_file_path}'")
-    result = mechanical.run_python_script("'{file_type}'")
+    result = mechanical.run_python_script(f"{file_type}")
     print(f"path of {file_type} on server: {result}")
 
 
 png_image_name = "myplot.png"
 mechanical.run_python_script(f"image_name='{png_image_name}'")
+
+# %%
+# Run the script
+# ~~~~~~~~~~~~~~
+# Run the Mechanical script to attach the geometry and set up and solve the
+# analysis.
 
 output = mechanical.run_python_script(
     """
@@ -229,24 +233,25 @@ Graphics.ExportImage(png_file_path, GraphicsImageExportFormat.PNG, set2d)
 )
 print(output)
 
-###################################################################################
+# %%
 # Initialize the variable needed for the image directory
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Set the ``image_dir`` for later use.
 # Make the variable compatible for Windows, Linux, and Docker containers.
 
 mechanical.run_python_script(f"image_dir=ExtAPI.DataModel.AnalysisList[0].WorkingDir")
 
+# %%
+# Verify the path for image directory
 
-# Verify the path for image directory.
 result_image_dir_server = mechanical.run_python_script(f"image_dir")
 print(f"Images are stored on the server at: {result_image_dir_server}")
 
-###############################################################################
-# Download the image and animation and plot
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# %%
+# Download the image and plot
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Download one image file from the server to the current working directory and plot
-# using matplotlib.
+# using matplotlib
 
 
 def get_image_path(image_name):
@@ -275,9 +280,12 @@ if image_path_server != "":
 
     display_image(image_local_path)
 
-###############################################################################
+
+# %%
 # Close Mechanical
 # ~~~~~~~~~~~~~~~~
 # Close the Mechanical instance.
 
+print("Closing mechanical...")
 mechanical.exit()
+print("Mechanical closed!")
