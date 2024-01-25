@@ -1,12 +1,12 @@
 """.. _ref_example_09:
 
-Trace Mapping Example Demonstration
----------------------------------------------------------------------------------
+Trace Mapping Example
+---------------------
 
-Using supplied files, this example shows how to import tracemap data  into a
-static structural analysis of  a new Mechanical session and execute a sequence of
-Python scripting commands that mesh the model and export an image.
-
+Using the provided file, this example demonstrates how to
+import trace map data into a static structural analysis of
+a new Mechanical session and execute a sequence of
+Python scripting commands to mesh the model and export an image.
 """
 
 # %%
