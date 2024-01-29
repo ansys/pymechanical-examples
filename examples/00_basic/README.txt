@@ -1,4 +1,5 @@
-=================
+.. _ref_simple_workflows:
+
 Simple workflows
 =================
 

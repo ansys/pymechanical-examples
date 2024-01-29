@@ -150,7 +150,8 @@ def create_named_selection_from_id_list(ns_name, list_of_body_ids):
 create_named_selection_from_id_list("board_layers", board_bodyids)
 create_named_selection_from_id_list("components", component_bodyids)
 
-#make a selection to be used with mesh methods
+# make a selection to be used with mesh methods
+
 selection_manager = ExtAPI.SelectionManager
 selection = ExtAPI.SelectionManager.CreateSelectionInfo(
     SelectionTypeEnum.GeometryEntities
@@ -231,7 +232,6 @@ Graphics.ExportImage(png_file_path, GraphicsImageExportFormat.PNG, set2d)
 
 """
 )
-print(output)
 
 # %%
 # Initialize the variable needed for the image directory

@@ -128,9 +128,9 @@ geometry_import_12_preferences.ProcessNamedSelections = True
 geometry_import_12_preferences.ProcessCoordinateSystems = True
 geometry_import_12.Import(part_file_path,geometry_import_12_format,geometry_import_12_preferences)
 
-#MAT = ExtAPI.DataModel.Project.Model.Materials
-#MAT.Import(mat_Copper_file_path)
-#MAT.Import(mat_Steel_file_path)
+MAT = ExtAPI.DataModel.Project.Model.Materials
+MAT.Import(mat_Copper_file_path)
+MAT.Import(mat_Steel_file_path)
 
 # Section 2: Set up the unit system.
 ExtAPI.Application.ActiveUnitSystem = MechanicalUnitSystem.StandardNMM

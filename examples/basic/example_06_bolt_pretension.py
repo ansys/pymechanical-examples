@@ -10,7 +10,7 @@ Deformation, equivalent sresses, contact and bolt results are then post-processe
 
 """
 
-###############################################################################
+# %%
 # Import necessary libraries
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~
 import os
@@ -20,7 +20,7 @@ from ansys.mechanical.core.examples import download_file
 from matplotlib import image as mpimg
 from matplotlib import pyplot as plt
 
-###############################################################################
+# %%
 # Launch Mechanical
 # ~~~~~~~~~~~~~~~~~
 # Launch a new Mechanical session in batch, setting the ``cleanup_on_exit``
@@ -30,7 +30,7 @@ from matplotlib import pyplot as plt
 mechanical = launch_mechanical(batch=True, cleanup_on_exit=False)
 print(mechanical)
 
-###############################################################################
+# %%
 # Initialize variable for workflow
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Set the ``part_file_path`` variable on the server for later use.
@@ -39,7 +39,7 @@ print(mechanical)
 project_directory = mechanical.project_directory
 print(f"project directory = {project_directory}")
 
-###############################################################################
+# %%
 # Download required geometry file
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Download the required file. Print the file path for the geometry file.
@@ -49,58 +49,63 @@ geometry_path = download_file(
 )
 print(f"Downloaded the geometry file to: {geometry_path}")
 
-# Upload the file to the project directory.
+# %%
+# Upload the file to the project directory
+
 mechanical.upload(file_name=geometry_path, file_location_destination=project_directory)
 
-# Build the path relative to project directory.
+# %%
+# Build the path relative to project directory and verify
+
 base_name = os.path.basename(geometry_path)
 combined_path = os.path.join(project_directory, base_name)
 part_file_path = combined_path.replace("\\", "\\\\")
 mechanical.run_python_script(f"part_file_path='{part_file_path}'")
+result = mechanical.run_python_script("part_file_path")
+print(f"Geometry file on server: {result}")
 
-###############################################################################
+# %%
 # Download required material file
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-# Download the required file. Print the file path for the material file.
+# Download the required file. Print the file path for the material file
 
 mat_cop_path = download_file("example_06_Mat_Copper.xml", "pymechanical", "00_basic")
 print(f"Downloaded the material file to: {mat_cop_path}")
+mat_st_path = download_file("example_06_Mat_Steel.xml", "pymechanical", "00_basic")
+print(f"Downloaded the material file to: {mat_st_path}")
 
-# Upload the file to the project directory.
+# %%
+# Upload the file to the project directory
+
 mechanical.upload(file_name=mat_cop_path, file_location_destination=project_directory)
+mechanical.upload(file_name=mat_st_path, file_location_destination=project_directory)
 
-# Build the path relative to project directory.
+# %%
+# Build the path relative to project directory
+
 base_name = os.path.basename(mat_cop_path)
 combined_path = os.path.join(project_directory, base_name)
 mat_Copper_file_path = combined_path.replace("\\", "\\\\")
 mechanical.run_python_script(f"mat_Copper_file_path='{mat_Copper_file_path}'")
 
-###############################################################################
-# Download required material files
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-# Download the required file. Print the file path for the material file.
-
-mat_st_path = download_file("example_06_Mat_Steel.xml", "pymechanical", "00_basic")
-print(f"Downloaded the material file to: {mat_st_path}")
-
-# Upload the file to the project directory.
-mechanical.upload(file_name=mat_st_path, file_location_destination=project_directory)
-
-# Build the path relative to project directory.
 base_name = os.path.basename(mat_st_path)
 combined_path = os.path.join(project_directory, base_name)
 mat_Steel_file_path = combined_path.replace("\\", "\\\\")
 mechanical.run_python_script(f"mat_Steel_file_path='{mat_Steel_file_path}'")
 
+# %%
 # Verify the path.
-result = mechanical.run_python_script("part_file_path")
-print(f"part_file_path on server: {result}")
 
-###################################################################################
+result = mechanical.run_python_script("mat_Copper_file_path")
+print(f"mat_Copper_file_path on server: {result}")
+result = mechanical.run_python_script("mat_Steel_file_path")
+print(f"mat_Steel_file_path on server: {result}")
+
+# %%
 # Run the script
 # ~~~~~~~~~~~~~~
 # Run the Mechanical script to attach the geometry and set up and solve the
-# analysis.
+# analysis
 
 output = mechanical.run_python_script(
     """
@@ -393,7 +398,7 @@ json.dumps(my_results_details)
 )
 print(output)
 
-###################################################################################
+# %%
 # Initialize the variable needed for the image directory
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Set the ``image_dir`` variable for later use.
@@ -407,7 +412,7 @@ mechanical.run_python_script(f"image_dir=ExtAPI.DataModel.AnalysisList[0].Workin
 result_image_dir_server = mechanical.run_python_script(f"image_dir")
 print(f"Images are stored on the server at: {result_image_dir_server}")
 
-###############################################################################
+# %%
 # Download the image and plot
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Download one image file from the server to the current working directory and plot
@@ -441,7 +446,7 @@ if image_path_server != "":
 
     display_image(image_local_path)
 
-###############################################################################
+# %%
 # Download output file from solve and print contents
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Download the ``solve.out`` file from the server to the current working
@@ -478,7 +483,7 @@ if solve_out_path != "":
 
     os.remove(solve_out_local_path)
 
-###########################################################
+# %%
 # Close Mechanical
 # ~~~~~~~~~~~~~~~~
 # Close the Mechanical instance.

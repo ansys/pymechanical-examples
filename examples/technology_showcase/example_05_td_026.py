@@ -111,8 +111,8 @@ geometry_import_12_preferences.ProcessCoordinateSystems = True
 geometry_import_12.Import(part_file_path, geometry_import_12_format,
                           geometry_import_12_preferences)
 
-#materials = ExtAPI.DataModel.Project.Model.Materials
-#materials.Import(mat_part_file_path)
+materials = ExtAPI.DataModel.Project.Model.Materials
+materials.Import(mat_part_file_path)
 
 # Section 2: Set up the unit system.
 ExtAPI.Application.ActiveUnitSystem = MechanicalUnitSystem.StandardNMM
@@ -165,7 +165,7 @@ LCS1 = CS_GRP.AddCoordinateSystem()
 LCS1.OriginY = Quantity('97[mm]')
 
 # Section 4: Define material.
-#PRT1.Material = 'Boot'
+PRT1.Material = 'Boot'
 PRT2.StiffnessBehavior = StiffnessBehavior.Rigid
 
 # Section 5: Define connections.
