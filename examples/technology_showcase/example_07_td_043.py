@@ -161,11 +161,11 @@ ALL_BODIES_NS = [x for x in ExtAPI.DataModel.Tree.AllObjects if x.Name == 'all_b
 GEOM.Model2DBehavior=Model2DBehavior.AxiSymmetric
 
 SURFACE1=GEOM.Children[0].Children[0]
-#SURFACE1.Material="Steel"
+SURFACE1.Material="Steel"
 SURFACE1.Dimension = ShellBodyDimension.Two_D
 
 SURFACE2=GEOM.Children[1].Children[0]
-#SURFACE2.Material="Copper"
+SURFACE2.Material="Copper"
 SURFACE2.Dimension = ShellBodyDimension.Two_D
 
 # Section 6: Change contact settings and add a command snippet to use Archard Wear Model.
