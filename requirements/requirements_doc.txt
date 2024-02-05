@@ -2,7 +2,7 @@
 ansys-mechanical-core==0.10.6
 
 # Documentation dependencies
-ansys-sphinx-theme==0.13.1
+ansys-sphinx-theme==0.13.2
 grpcio==1.60.0
 imageio==2.33.1
 imageio-ffmpeg==0.4.9
