@@ -14,7 +14,7 @@ This example demonstrates a nonlinear 3D analysis of a rubber boot seal to:
   Detection Method to update contact stiffness at each iteration.
 """
 
-###############################################################################
+# %%
 # Import necessary libraries
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~
 import os
@@ -24,7 +24,7 @@ from ansys.mechanical.core.examples import download_file
 from matplotlib import image as mpimg
 from matplotlib import pyplot as plt
 
-###############################################################################
+# %%
 # Launch mechanical
 # ~~~~~~~~~~~~~~~~~
 # Launch a new Mechanical session in batch, setting the ``cleanup_on_exit``
@@ -34,7 +34,7 @@ from matplotlib import pyplot as plt
 mechanical = launch_mechanical(batch=True, cleanup_on_exit=False)
 print(mechanical)
 
-###############################################################################
+# %%
 # Initialize variable for workflow
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Set the ``part_file_path`` variable on the server for later use.
@@ -43,7 +43,7 @@ print(mechanical)
 project_directory = mechanical.project_directory
 print(f"project directory = {project_directory}")
 
-###############################################################################
+# %%
 # Download required geometry file
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Download the required file. Print the file path for the geometry file.
@@ -62,7 +62,7 @@ combined_path = os.path.join(project_directory, base_name)
 part_file_path = combined_path.replace("\\", "\\\\")
 mechanical.run_python_script(f"part_file_path='{part_file_path}'")
 
-###############################################################################
+# %%
 # Download required material files
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Download the required files. Print the file path for the material file.
@@ -83,7 +83,7 @@ mechanical.run_python_script(f"mat_part_file_path='{mat_part_file_path}'")
 result = mechanical.run_python_script("part_file_path")
 print(f"part_file_path on server: {result}")
 
-###################################################################################
+# %%
 # Run the script
 # ~~~~~~~~~~~~~~
 # Run the Mechanical script to attach the geometry and set up and solve the
@@ -342,7 +342,7 @@ json.dumps(my_results_details)
 )
 print(output)
 
-###################################################################################
+# %%
 # Initialize the variable needed for the image directory
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Set the ``image_dir`` variable for later use.
@@ -355,7 +355,7 @@ mechanical.run_python_script(f"image_dir=ExtAPI.DataModel.AnalysisList[0].Workin
 result_image_dir_server = mechanical.run_python_script(f"image_dir")
 print(f"Images are stored on the server at: {result_image_dir_server}")
 
-###############################################################################
+# %%
 # Download the image and plot
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Download one image file from the server to the current working directory and plot
@@ -390,7 +390,7 @@ for image_name in image_names:
 
         display_image(image_local_path)
 
-###############################################################################
+# %%
 # Download output file from solve and print contents
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Download the ``solve.out`` file from the server to the current working
@@ -427,7 +427,7 @@ if solve_out_path != "":
 
     os.remove(solve_out_local_path)
 
-###########################################################
+# %%
 # Close mechanical
 # ~~~~~~~~~~~~~~~~
 # Close the mechanical instance.

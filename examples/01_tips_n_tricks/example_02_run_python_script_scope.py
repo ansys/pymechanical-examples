@@ -8,7 +8,7 @@ function scope between calls.
 
 """
 
-###############################################################################
+# %%
 # Launch mechanical
 # ~~~~~~~~~~~~~~~~~
 # Launch a new Mechanical session in batch, setting the ``cleanup_on_exit``
@@ -20,7 +20,7 @@ from ansys.mechanical.core import launch_mechanical
 mechanical = launch_mechanical(batch=True, cleanup_on_exit=False)
 print(mechanical)
 
-###################################################################################
+# %%
 # Run script to set variable
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Run the script to assign a value to a variable.
@@ -33,7 +33,7 @@ x
 )
 print(f"x = {output}")
 
-###################################################################################
+# %%
 # Access the variable in the next call
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Run the script to change the variable value.
@@ -46,7 +46,7 @@ x
 )
 print(f"x = {output}")
 
-###################################################################################
+# %%
 # Define function
 # ~~~~~~~~~~~~~~~
 # Run the script to define a function and access the variable defined in the
@@ -62,7 +62,7 @@ multiply_by_10()
 )
 print(f"output = {output}")
 
-###################################################################################
+# %%
 # Access the function
 # ~~~~~~~~~~~~~~~~~~~
 # Run the script to access the function defined in the previous call.
@@ -75,7 +75,7 @@ multiply_by_10() * 2
 print(f"output = {output}")
 
 
-###########################################################
+# %%
 # Close mechanical
 # ~~~~~~~~~~~~~~~~
 # Close the mechanical instance.

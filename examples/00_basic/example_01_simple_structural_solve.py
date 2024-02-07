@@ -10,7 +10,7 @@ to report deformation results.
 
 """
 
-###############################################################################
+# %%
 # Download required files
 # ~~~~~~~~~~~~~~~~~~~~~~~
 # Download the required files. Print the file path for the geometry file.
@@ -23,7 +23,7 @@ from ansys.mechanical.core.examples import download_file
 geometry_path = download_file("example_01_geometry.agdb", "pymechanical", "00_basic")
 print(f"Downloaded the geometry file to: {geometry_path}")
 
-###############################################################################
+# %%
 # Launch mechanical
 # ~~~~~~~~~~~~~~~~~
 # Launch a new Mechanical session in batch, setting the ``cleanup_on_exit``
@@ -33,7 +33,7 @@ print(f"Downloaded the geometry file to: {geometry_path}")
 mechanical = launch_mechanical(batch=True, cleanup_on_exit=False)
 print(mechanical)
 
-###############################################################################
+# %%
 # Initialize variable for workflow
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Set the ``part_file_path`` variable on the server for later use.
@@ -55,7 +55,7 @@ mechanical.run_python_script(f"part_file_path='{part_file_path}'")
 result = mechanical.run_python_script("part_file_path")
 print(f"part_file_path on server: {result}")
 
-###################################################################################
+# %%
 # Run the script
 # ~~~~~~~~~~~~~~
 # Run the Mechanical script to attach the geometry and set up and solve the
@@ -171,7 +171,7 @@ json.dumps(dir_deformation_details)
 print(output)
 
 
-###############################################################################
+# %%
 # Download output file from solve and print contents
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Download the ``solve.out`` file from the server to the current working
@@ -209,7 +209,7 @@ if solve_out_path != "":
 
     os.remove(solve_out_local_path)
 
-###########################################################
+# %%
 # Close mechanical
 # ~~~~~~~~~~~~~~~~
 # Close the mechanical instance.

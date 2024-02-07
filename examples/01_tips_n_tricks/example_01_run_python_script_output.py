@@ -8,7 +8,7 @@ JSON, and CSV formats. It also handles an error scenario.
 
 """
 
-###############################################################################
+# %%
 # Launch mechanical
 # ~~~~~~~~~~~~~~~~~
 # Launch a new Mechanical session in batch, setting the ``cleanup_on_exit``
@@ -23,7 +23,7 @@ import grpc
 mechanical = launch_mechanical(batch=True, cleanup_on_exit=False)
 print(mechanical)
 
-###################################################################################
+# %%
 # Get and output a simple string
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Run the script to get a simple string output.
@@ -38,7 +38,7 @@ return_string()
 )
 print(f"string output={output}")
 
-###################################################################################
+# %%
 # Output string as JSON
 # ~~~~~~~~~~~~~~~~~~~~~
 # Run the script to get the string output as JSON.
@@ -59,7 +59,7 @@ print(f"json output={output}")
 my_dict = json.loads(output)
 print(f"Parsed json: value1={my_dict['value1']}, value2={my_dict['value2']}")
 
-###################################################################################
+# %%
 # Output string as CSV
 # ~~~~~~~~~~~~~~~~~~~~
 # Run the script to get the string output as CSV.
@@ -76,7 +76,7 @@ print(f"csv output={output}")
 csv_values = output.split(sep=",")
 print(f"Parsed csv: {';'.join(csv_values)}")
 
-###################################################################################
+# %%
 # Handle an error scenario
 # ~~~~~~~~~~~~~~~~~~~~~~~~
 # Run the script and handle the error.
@@ -85,7 +85,7 @@ try:
 except grpc.RpcError as error:
     print(f"Error: {error.details()}")
 
-###########################################################
+# %%
 # Close mechanical
 # ~~~~~~~~~~~~~~~~
 # Close the mechanical instance.
