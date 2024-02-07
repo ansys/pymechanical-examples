@@ -1,7 +1,7 @@
 """.. _ref_example_08_lsdyna_taylor_bar_example:
 
 LS-Dyna analysis
---------------------------
+----------------
 
 Using supplied files, this example shows how to insert an LS-Dyna analysis
 into a new Mechanical session and execute a sequence of Python scripting
@@ -9,7 +9,7 @@ commands that define and solve the analysis. Deformation results are then report
 and plastic strain (EPS) animation is exported in the project directory.
 """
 
-###############################################################################
+# %%
 # Download required files
 # ~~~~~~~~~~~~~~~~~~~~~~~
 # Download the required files. Print the file path for the geometry file.
@@ -25,8 +25,8 @@ from matplotlib.animation import FuncAnimation
 geometry_path = download_file("example_08_Taylor_Bar.agdb", "pymechanical", "00_basic")
 print(f"Downloaded the geometry file to: {geometry_path}")
 
-###############################################################################
-# Launch Mechanical
+# %%
+# Launch mechanical
 # ~~~~~~~~~~~~~~~~~
 # Launch a new Mechanical session in batch, setting ``cleanup_on_exit`` to
 # ``False``. To close this Mechanical session when finished, this example
@@ -35,7 +35,7 @@ print(f"Downloaded the geometry file to: {geometry_path}")
 mechanical = launch_mechanical(batch=True, cleanup_on_exit=False)
 print(mechanical)
 
-###############################################################################
+# %%
 # Initialize variable for workflow
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Set the ``part_file_path`` variable on the server for later use.
@@ -55,7 +55,7 @@ combined_path = os.path.join(project_directory, base_name)
 part_file_path = combined_path.replace("\\", "\\\\")
 mechanical.run_python_script(f"part_file_path='{part_file_path}'")
 
-###############################################################################
+# %%
 # Download required material files
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Download the required file. Print the file path for the material file.
@@ -76,14 +76,20 @@ mechanical.run_python_script(f"mat_file_path='{mat_file_path}'")
 result = mechanical.run_python_script("part_file_path")
 print(f"part_file_path on server: {result}")
 
+# %%
+# Run the script
+# ~~~~~~~~~~~~~~
+# Run the Mechanical script to attach the geometry and set up and solve the
+# analysis.
+
 mech_act_code = """
 import os
 import json
 
 # Import Taylor bar geometry
+
 geometry_import_group = Model.GeometryImportGroup
 geometry_import = geometry_import_group.AddGeometryImport()
-
 geometry_import_format = Ansys.Mechanical.DataModel.Enums.GeometryImportPreference.Format.Automatic
 geometry_import.Import(part_file_path, geometry_import_format, None)
 
@@ -93,11 +99,13 @@ analysis = Model.Analyses[0]
 ExtAPI.Application.ActiveUnitSystem = MechanicalUnitSystem.StandardNMMton
 ExtAPI.Application.ActiveAngleUnit = AngleUnitType.Radian
 
-MAT = ExtAPI.DataModel.Project.Model.Materials
-#MAT.Import(mat_file_path)
+
 
 # Assign the material
-#ExtAPI.DataModel.Project.Model.Geometry.Children[0].Children[0].Material = "Bullet"
+
+MAT = ExtAPI.DataModel.Project.Model.Materials
+MAT.Import(mat_file_path)
+ExtAPI.DataModel.Project.Model.Geometry.Children[0].Children[0].Material = "Bullet"
 
 # Add Coordinate system
 
@@ -115,11 +123,13 @@ solver.Properties['Step Controls/Endtime'].Value = 3.0E-5
 analysis.Activate()
 
 # Add Rigid Wall
+
 rigid_wall = analysis.CreateLoadObject("Rigid Wall", "LSDYNA")
 rigid_wall.Properties["Coordinate System"].Value = lcs.ObjectId
 ExtAPI.DataModel.Tree.Refresh()
 
 # Adding initial velocity
+
 ic = ExtAPI.DataModel.GetObjectsByName("Initial Conditions")[0]
 vel = ic.InsertVelocity()
 selection = ExtAPI.SelectionManager.CreateSelectionInfo(SelectionTypeEnum.GeometryEntities)
@@ -129,14 +139,17 @@ vel.DefineBy = LoadDefineBy.Components
 vel.YComponent = Quantity(-280000, ExtAPI.DataModel.CurrentUnitFromQuantityName("Velocity"))
 
 # By default quadratic element order in Mechanical - LSDyna supports only Linear
+
 mesh = ExtAPI.DataModel.GetObjectsByName("Mesh")[0]
 mesh.ElementOrder = ElementOrder.Linear
 mesh.ElementSize = Quantity(0.5, "mm")
 
 # Solve
+
 analysis.Solution.Solve()
 
 # Post-processing
+
 eps = analysis.Solution.AddUserDefinedResult()
 eps.Expression = "EPS"
 eps.EvaluateAllResults()
@@ -144,7 +157,9 @@ eps_max = eps.Maximum
 eps_min = eps.Minimum
 total_deformation = analysis.Solution.AddTotalDeformation()
 total_deformation.EvaluateAllResults()
+
 # Set Camera
+
 Graphics.Camera.FocalPoint = Point([9.0521184381880495,
                                     2.9680547361873595,
                                     -11.52925245328758], 'mm')
@@ -160,14 +175,13 @@ Graphics.Camera.SceneHeight = Quantity(14.66592829617538, 'mm')
 Graphics.Camera.SceneWidth = Quantity(8.4673776497126063, 'mm')
 
 # Set Scale factor
+
 true_scale = MechanicalEnums.Graphics.DeformationScaling.True
 Graphics.ViewOptions.ResultPreference.DeformationScaling = true_scale
-
 Graphics.ViewOptions.ResultPreference.DeformationScaleMultiplier = 1
 
-
-
 # Export an animation
+
 mechdir = ExtAPI.DataModel.AnalysisList[0].WorkingDir
 eps.Activate()
 animation_export_format = GraphicsAnimationExportFormat.GIF
@@ -179,14 +193,14 @@ eps.ExportAnimation(
     anim_file_path, animation_export_format, settings_720p
 )
 
-# Set the isometric view and zoom to fit.
+# Set the isometric view and zoom to fit
+
 settings_720p = Ansys.Mechanical.Graphics.GraphicsImageExportSettings()
 settings_720p.Resolution = (GraphicsResolutionType.EnhancedResolution)
 settings_720p.Background = GraphicsBackgroundType.White
 settings_720p.Width = 1280
 settings_720p.Height = 720
 settings_720p.CurrentGraphicsDisplay = False
-Graphics.Camera.Pan(Quantity(7, 'mm'),Quantity(4, 'mm'))
 total_deformation.Activate()
 image_path = os.path.join(mechdir, "totaldeformation.png")
 Graphics.ExportImage(image_path, GraphicsImageExportFormat.PNG, settings_720p)
@@ -209,7 +223,7 @@ mechanical.run_python_script(f"image_dir=ExtAPI.DataModel.AnalysisList[0].Workin
 result_image_dir_server = mechanical.run_python_script(f"image_dir")
 print(f"Images are stored on the server at: {result_image_dir_server}")
 
-###############################################################################
+# %%
 # Download output file from solve and print contents
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Download the ``solve.out`` file from the server to the current working
@@ -251,7 +265,7 @@ if solve_out_path != "":
     print("Printed output to console")
     os.remove(solve_out_local_path)
 
-###############################################################################
+# %%
 # Get image and display
 # ~~~~~~~~~~~~~~~~~~~~~~
 
@@ -283,9 +297,9 @@ if image_path_server != "":
 
     display_image(image_local_path)
 
-###############################################################################
-# Get gif and display
-# ~~~~~~~~~~~~~~~~~~~
+# %%
+# Download gif and display
+# ~~~~~~~~~~~~~~~~~~~~~~~~
 
 animation_name = "taylor_bar.gif"
 animation_server = get_image_path(animation_name)
@@ -314,10 +328,10 @@ if image_path_server != "":
     )
     plt.show()
 
-###########################################################
-# Close Mechanical
+# %%
+# Close mechanical
 # ~~~~~~~~~~~~~~~~
-# Close the Mechanical instance.
+# Close the mechanical instance.
 
 print("Closing mechanical...")
 mechanical.exit()

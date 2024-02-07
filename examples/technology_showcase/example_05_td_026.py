@@ -3,24 +3,18 @@
 Nonlinear Analysis of a Rubber Boot Seal Model
 ----------------------------------------------
 
-Nonlinear Analysis of a Rubber Boot Seal.
+This example demonstrates a nonlinear 3D analysis of a rubber boot seal to:
 
-Coverage:3D analysis of Nonlinear Analysis of a Rubber Boot Seal.
-
-Rigid-flexible Contact Pair between Rigid Shaft and Rubber Boot.
-
-Ramped effects, Detection Method: On Gauss Point, update contact stiffness at each iteration
-Self Contact Pairs at Inner and Outer Surfaces of Rubber Boot.
-
-No Ramped effects, Detection Method: Nodal-Projected Normal From Contact,
-update contact stiffness at each iteration
-
-Validation:
-Validated Equivalent Stress and Total Deformation results.
-
+- Create a rigid-flexible contact pair between a rigid shaft and a
+  rubber boot part.
+- Specify ramped effects using the On Gauss Point Detection Method
+  to update contact stiffness at each iteration.
+- Specify contact pairs at the inner and outer surfaces of the rubber boot.
+- Specify non-ramped effects using the Nodal-Projected Normal From Contact
+  Detection Method to update contact stiffness at each iteration.
 """
 
-###############################################################################
+# %%
 # Import necessary libraries
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~
 import os
@@ -30,8 +24,8 @@ from ansys.mechanical.core.examples import download_file
 from matplotlib import image as mpimg
 from matplotlib import pyplot as plt
 
-###############################################################################
-# Launch Mechanical
+# %%
+# Launch mechanical
 # ~~~~~~~~~~~~~~~~~
 # Launch a new Mechanical session in batch, setting the ``cleanup_on_exit``
 # argument to ``False``. To close this Mechanical session when finished,
@@ -40,7 +34,7 @@ from matplotlib import pyplot as plt
 mechanical = launch_mechanical(batch=True, cleanup_on_exit=False)
 print(mechanical)
 
-###############################################################################
+# %%
 # Initialize variable for workflow
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Set the ``part_file_path`` variable on the server for later use.
@@ -49,8 +43,8 @@ print(mechanical)
 project_directory = mechanical.project_directory
 print(f"project directory = {project_directory}")
 
-###############################################################################
-# Download required Geometry file
+# %%
+# Download required geometry file
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Download the required file. Print the file path for the geometry file.
 
@@ -68,8 +62,8 @@ combined_path = os.path.join(project_directory, base_name)
 part_file_path = combined_path.replace("\\", "\\\\")
 mechanical.run_python_script(f"part_file_path='{part_file_path}'")
 
-###############################################################################
-# Download required Material files
+# %%
+# Download required material files
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Download the required files. Print the file path for the material file.
 
@@ -89,7 +83,7 @@ mechanical.run_python_script(f"mat_part_file_path='{mat_part_file_path}'")
 result = mechanical.run_python_script("part_file_path")
 print(f"part_file_path on server: {result}")
 
-###################################################################################
+# %%
 # Run the script
 # ~~~~~~~~~~~~~~
 # Run the Mechanical script to attach the geometry and set up and solve the
@@ -111,8 +105,8 @@ geometry_import_12_preferences.ProcessCoordinateSystems = True
 geometry_import_12.Import(part_file_path, geometry_import_12_format,
                           geometry_import_12_preferences)
 
-#materials = ExtAPI.DataModel.Project.Model.Materials
-#materials.Import(mat_part_file_path)
+materials = ExtAPI.DataModel.Project.Model.Materials
+materials.Import(mat_part_file_path)
 
 # Section 2: Set up the unit system.
 ExtAPI.Application.ActiveUnitSystem = MechanicalUnitSystem.StandardNMM
@@ -165,7 +159,7 @@ LCS1 = CS_GRP.AddCoordinateSystem()
 LCS1.OriginY = Quantity('97[mm]')
 
 # Section 4: Define material.
-#PRT1.Material = 'Boot'
+PRT1.Material = 'Boot'
 PRT2.StiffnessBehavior = StiffnessBehavior.Rigid
 
 # Section 5: Define connections.
@@ -348,7 +342,7 @@ json.dumps(my_results_details)
 )
 print(output)
 
-###################################################################################
+# %%
 # Initialize the variable needed for the image directory
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Set the ``image_dir`` variable for later use.
@@ -361,7 +355,7 @@ mechanical.run_python_script(f"image_dir=ExtAPI.DataModel.AnalysisList[0].Workin
 result_image_dir_server = mechanical.run_python_script(f"image_dir")
 print(f"Images are stored on the server at: {result_image_dir_server}")
 
-###############################################################################
+# %%
 # Download the image and plot
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Download one image file from the server to the current working directory and plot
@@ -396,7 +390,7 @@ for image_name in image_names:
 
         display_image(image_local_path)
 
-###############################################################################
+# %%
 # Download output file from solve and print contents
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Download the ``solve.out`` file from the server to the current working
@@ -433,9 +427,9 @@ if solve_out_path != "":
 
     os.remove(solve_out_local_path)
 
-###########################################################
-# Close Mechanical
+# %%
+# Close mechanical
 # ~~~~~~~~~~~~~~~~
-# Close the Mechanical instance.
+# Close the mechanical instance.
 
 mechanical.exit()

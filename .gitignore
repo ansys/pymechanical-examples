@@ -158,6 +158,7 @@ cython_debug/
 
 doc/source/examples
 **/examples/**/*.png
+**/examples/**/*.gif
 
 # VSCode
 .vscode
