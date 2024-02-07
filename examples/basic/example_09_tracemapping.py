@@ -21,7 +21,7 @@ from matplotlib import image as mpimg
 from matplotlib import pyplot as plt
 
 # %%
-# Launch Mechanical
+# Launch mechanical
 # ~~~~~~~~~~~~~~~~~
 # Launch a new Mechanical session in batch, setting ``cleanup_on_exit`` to
 # ``False``. To close this Mechanical session when finished, this example
@@ -240,10 +240,6 @@ Graphics.ExportImage(png_file_path, GraphicsImageExportFormat.PNG, set2d)
 # Make the variable compatible for Windows, Linux, and Docker containers.
 
 mechanical.run_python_script(f"image_dir=ExtAPI.DataModel.AnalysisList[0].WorkingDir")
-
-# %%
-# Verify the path for image directory
-
 result_image_dir_server = mechanical.run_python_script(f"image_dir")
 print(f"Images are stored on the server at: {result_image_dir_server}")
 
@@ -282,9 +278,9 @@ if image_path_server != "":
 
 
 # %%
-# Close Mechanical
+# Close mechanical
 # ~~~~~~~~~~~~~~~~
-# Close the Mechanical instance.
+# Close the mechanical instance.
 
 print("Closing mechanical...")
 mechanical.exit()

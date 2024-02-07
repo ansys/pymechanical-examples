@@ -1,18 +1,19 @@
 """.. _ref_example_06:
 
 Bolt Pretension
----------------------------------------------------------------------------------
+---------------
 
-Using supplied files, this example shows how to insert a static structural
-analysis into a new Mechanical session and execute a sequence of Python
-scripting commands that define and solve the bolt-pretension analysis.
-Deformation, equivalent sresses, contact and bolt results are then post-processed.
-
+This example demonstrates how to insert a Static Structural analysis
+into a new Mechanical session and execute a sequence of
+Python scripting commands that define and solve a bolt-pretension analysis.
+Scripts then evaluate the following results: deformation,
+equivalent stresses, contact, and bolt
 """
 
 # %%
 # Import necessary libraries
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 import os
 
 from ansys.mechanical.core import launch_mechanical
@@ -21,7 +22,7 @@ from matplotlib import image as mpimg
 from matplotlib import pyplot as plt
 
 # %%
-# Launch Mechanical
+# Launch mechanical
 # ~~~~~~~~~~~~~~~~~
 # Launch a new Mechanical session in batch, setting the ``cleanup_on_exit``
 # argument to ``False``. To close this Mechanical session when finished,
@@ -81,7 +82,7 @@ mechanical.upload(file_name=mat_cop_path, file_location_destination=project_dire
 mechanical.upload(file_name=mat_st_path, file_location_destination=project_directory)
 
 # %%
-# Build the path relative to project directory
+# Build the path relative to project directory and verify
 
 base_name = os.path.basename(mat_cop_path)
 combined_path = os.path.join(project_directory, base_name)
@@ -92,9 +93,6 @@ base_name = os.path.basename(mat_st_path)
 combined_path = os.path.join(project_directory, base_name)
 mat_Steel_file_path = combined_path.replace("\\", "\\\\")
 mechanical.run_python_script(f"mat_Steel_file_path='{mat_Steel_file_path}'")
-
-# %%
-# Verify the path.
 
 result = mechanical.run_python_script("mat_Copper_file_path")
 print(f"mat_Copper_file_path on server: {result}")
@@ -112,16 +110,17 @@ output = mechanical.run_python_script(
 import json
 import os
 
-# Section 1: Read geometry and material information.
-geometry_import_group_11 = Model.GeometryImportGroup
-geometry_import_12 = geometry_import_group_11.AddGeometryImport()
-geometry_import_12_format = Ansys.Mechanical.DataModel.Enums.GeometryImportPreference.\
+# Read geometry and material information.
+geometry_import_group = Model.GeometryImportGroup
+geometry_import = geometry_import_group.AddGeometryImport()
+geometry_import_format = Ansys.Mechanical.DataModel.Enums.GeometryImportPreference.\
     Format.Automatic
-geometry_import_12_preferences = Ansys.ACT.Mechanical.Utilities.GeometryImportPreferences()
-geometry_import_12_preferences.ProcessNamedSelections = True
-geometry_import_12_preferences.ProcessCoordinateSystems = True
-geometry_import_12.Import(part_file_path,geometry_import_12_format,geometry_import_12_preferences)
+geometry_import_preferences = Ansys.ACT.Mechanical.Utilities.GeometryImportPreferences()
+geometry_import_preferences.ProcessNamedSelections = True
+geometry_import_preferences.ProcessCoordinateSystems = True
+geometry_import.Import(part_file_path,geometry_import_format,geometry_import_preferences)
 
+# Import materials.
 MAT = ExtAPI.DataModel.Project.Model.Materials
 MAT.Import(mat_Copper_file_path)
 MAT.Import(mat_Steel_file_path)
@@ -131,10 +130,10 @@ STAT_STRUC = Model.Analyses[0]
 STAT_STRUC_SOLN = STAT_STRUC.Solution
 STAT_STRUC_ANA_SETTING = STAT_STRUC.Children[0]
 
-# Section 2: Set up the unit system.
+# Set up the unit system.
 ExtAPI.Application.ActiveUnitSystem = MechanicalUnitSystem.StandardNMM
 
-# Section 3: Store all main tree nodes as variables.
+# Store all main tree nodes as variables.
 MODEL = ExtAPI.DataModel.Project.Model
 GEOM = ExtAPI.DataModel.Project.Model.Geometry
 CONN_GRP = ExtAPI.DataModel.Project.Model.Connections
@@ -142,7 +141,7 @@ CS_GRP = ExtAPI.DataModel.Project.Model.CoordinateSystems
 MSH = ExtAPI.DataModel.Project.Model.Mesh
 NS_GRP = ExtAPI.DataModel.Project.Model.NamedSelections
 
-# Section 4: Store name selection.
+# Store name selection.
 block3_block2_cont_NS = [x for x in ExtAPI.DataModel.Tree.AllObjects
 if x.Name == 'block3_block2_cont'][0]
 block3_block2_targ_NS = [x for x in ExtAPI.DataModel.Tree.AllObjects
@@ -184,7 +183,7 @@ if x.Name == 'block2_surface'][0]
 shank_surface = [x for x in ExtAPI.DataModel.Tree.AllObjects
 if x.Name == 'shank_surface'][0]
 
-# Section 5: Assign material to bodies.
+# Assign material to bodies.
 SURFACE1=GEOM.Children[0].Children[0]
 SURFACE1.Material="Steel"
 
@@ -203,7 +202,7 @@ SURFACE5.Material="Steel"
 SURFACE6=GEOM.Children[5].Children[0]
 SURFACE6.Material="Steel"
 
-#Section 6: Define coordinate system.
+# Define coordinate system.
 coordinate_systems_17 = Model.CoordinateSystems
 coordinate_system_93 = coordinate_systems_17.AddCoordinateSystem()
 coordinate_system_93.OriginDefineBy = CoordinateSystemAlignmentType.Fixed
@@ -212,7 +211,7 @@ coordinate_system_93.OriginY = Quantity(100, "mm")
 coordinate_system_93.OriginZ = Quantity(50, "mm")
 coordinate_system_93.PrimaryAxis = CoordinateSystemAxisType.PositiveZAxis
 
-# Section 7: Change contact settings and add a command snippet to use the Archard Wear Model.
+# Change contact settings and add a command snippet to use the Archard Wear Model.
 connections =  ExtAPI.DataModel.Project.Model.Connections
 
 # Delete existing contacts.
@@ -228,6 +227,7 @@ CONT_REG1.FrictionCoefficient = 0.2
 CONT_REG1.SmallSliding = ContactSmallSlidingType.Off
 CONT_REG1.UpdateStiffness = UpdateContactStiffness.Never
 CMD1=CONT_REG1.AddCommandSnippet()
+
 # Add missing contact keyopt and Archard Wear Model in workbench using a command snippet.
 AWM = '''keyopt,cid,9,5
 rmodif,cid,10,0.00
@@ -249,6 +249,7 @@ CONT_REG3.FrictionCoefficient = 0.2
 CONT_REG3.SmallSliding = ContactSmallSlidingType.Off
 CONT_REG3.UpdateStiffness = UpdateContactStiffness.Never
 CMD3=CONT_REG3.AddCommandSnippet()
+
 # Add missing contact keyopt and Archard Wear Model in workbench using a command snippet.
 AWM3 = '''keyopt,cid,9,5
 rmodif,cid,10,0.00
@@ -287,7 +288,7 @@ CMD6.AppendText(AWM6)
 #CONT_TOOL.AddStatus()
 #CONT_TOOL.GenerateInitialContactResults()
 
-# Section 8: Generate mesh.
+# Generate mesh.
 
 Hex_Method = MSH.AddAutomaticMethod()
 Hex_Method.Location = all_bodies
@@ -314,7 +315,7 @@ Sweep_Method.TargetLocation = shank_face2
 
 MSH.GenerateMesh()
 
-# Section 9: Set up analysis settings.
+# Set up analysis settings.
 STAT_STRUC_ANA_SETTING.NumberOfSteps = 4
 step_index_list = [1]
 with Transaction():
@@ -330,7 +331,7 @@ STAT_STRUC_ANA_SETTING.SolverType = SolverType.Direct
 STAT_STRUC_ANA_SETTING.SolverPivotChecking = SolverPivotChecking.Off
 
 
-# Section 10: Insert loading and BC.
+# Insert loading and BC.
 FIX_SUP=STAT_STRUC.AddFixedSupport()
 FIX_SUP.Location=block2_surface
 
@@ -352,8 +353,7 @@ Bolt_Pretension.SetDefineBy(2,BoltLoadDefineBy.Lock)
 Bolt_Pretension.SetDefineBy(3,BoltLoadDefineBy.Lock)
 Bolt_Pretension.SetDefineBy(4,BoltLoadDefineBy.Lock)
 
-# Section 11: Insert results.
-
+# Insert results.
 Post_Contact_Tool = STAT_STRUC_SOLN.AddContactTool()
 Post_Contact_Tool.ScopingMethod = GeometryDefineByType.Worksheet
 
@@ -369,15 +369,15 @@ Force_Reaction_1.BoundaryConditionSelection = FIX_SUP
 Moment_Reaction_2 = STAT_STRUC_SOLN.AddMomentReaction()
 Moment_Reaction_2.BoundaryConditionSelection = FIX_SUP
 
-# Section 12: Set number of processors to 6 using DANSYS.
+# Set number of processors to 6 using DANSYS. (Optional)
 # Num_Cores = STAT_STRUC.SolveConfiguration.SolveProcessSettings.MaxNumberOfCores
 # STAT_STRUC.SolveConfiguration.SolveProcessSettings.MaxNumberOfCores = 6
 
-# Section 13: Solve and validate the results.
+# Solve and validate the results.
 STAT_STRUC_SOLN.Solve(True)
 STAT_STRUC_SS=STAT_STRUC_SOLN.Status
 
-# Section 14: Set the isometric view and zoom to fit.
+# Set the isometric view and zoom to fit.
 cam = Graphics.Camera
 cam.SetSpecificViewOrientation(ViewOrientationType.Iso)
 cam.SetFit()
@@ -484,8 +484,8 @@ if solve_out_path != "":
     os.remove(solve_out_local_path)
 
 # %%
-# Close Mechanical
+# Close mechanical
 # ~~~~~~~~~~~~~~~~
-# Close the Mechanical instance.
+# Close the mechanical instance.
 
 mechanical.exit()

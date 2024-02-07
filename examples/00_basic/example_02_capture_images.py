@@ -32,7 +32,7 @@ script_file_path = download_file(
 print(f"Downloaded the script files to: {script_file_path}")
 
 ###############################################################################
-# Launch Mechanical
+# Launch mechanical
 # ~~~~~~~~~~~~~~~~~
 # Launch a new Mechanical session in batch, setting the ``cleanup_on_exit``
 # argument to ``False``. To close this Mechanical session when finished,
@@ -136,8 +136,8 @@ if image_path_server != "":
 mechanical.clear()
 
 ###########################################################
-# Close Mechanical
+# Close mechanical
 # ~~~~~~~~~~~~~~~~
-# Close the Mechanical instance.
+# Close the mechanical instance.
 
 mechanical.exit()

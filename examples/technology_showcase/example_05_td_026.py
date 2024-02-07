@@ -3,21 +3,15 @@
 Nonlinear Analysis of a Rubber Boot Seal Model
 ----------------------------------------------
 
-Nonlinear Analysis of a Rubber Boot Seal.
+This example demonstrates a nonlinear 3D analysis of a rubber boot seal to:
 
-Coverage:3D analysis of Nonlinear Analysis of a Rubber Boot Seal.
-
-Rigid-flexible Contact Pair between Rigid Shaft and Rubber Boot.
-
-Ramped effects, Detection Method: On Gauss Point, update contact stiffness at each iteration
-Self Contact Pairs at Inner and Outer Surfaces of Rubber Boot.
-
-No Ramped effects, Detection Method: Nodal-Projected Normal From Contact,
-update contact stiffness at each iteration
-
-Validation:
-Validated Equivalent Stress and Total Deformation results.
-
+- Create a rigid-flexible contact pair between a rigid shaft and a
+  rubber boot part.
+- Specify ramped effects using the On Gauss Point Detection Method
+  to update contact stiffness at each iteration.
+- Specify contact pairs at the inner and outer surfaces of the rubber boot.
+- Specify non-ramped effects using the Nodal-Projected Normal From Contact
+  Detection Method to update contact stiffness at each iteration.
 """
 
 ###############################################################################
@@ -31,7 +25,7 @@ from matplotlib import image as mpimg
 from matplotlib import pyplot as plt
 
 ###############################################################################
-# Launch Mechanical
+# Launch mechanical
 # ~~~~~~~~~~~~~~~~~
 # Launch a new Mechanical session in batch, setting the ``cleanup_on_exit``
 # argument to ``False``. To close this Mechanical session when finished,
@@ -50,7 +44,7 @@ project_directory = mechanical.project_directory
 print(f"project directory = {project_directory}")
 
 ###############################################################################
-# Download required Geometry file
+# Download required geometry file
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Download the required file. Print the file path for the geometry file.
 
@@ -69,7 +63,7 @@ part_file_path = combined_path.replace("\\", "\\\\")
 mechanical.run_python_script(f"part_file_path='{part_file_path}'")
 
 ###############################################################################
-# Download required Material files
+# Download required material files
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Download the required files. Print the file path for the material file.
 
@@ -434,8 +428,8 @@ if solve_out_path != "":
     os.remove(solve_out_local_path)
 
 ###########################################################
-# Close Mechanical
+# Close mechanical
 # ~~~~~~~~~~~~~~~~
-# Close the Mechanical instance.
+# Close the mechanical instance.
 
 mechanical.exit()

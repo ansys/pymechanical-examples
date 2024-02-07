@@ -9,7 +9,7 @@ JSON, and CSV formats. It also handles an error scenario.
 """
 
 ###############################################################################
-# Launch Mechanical
+# Launch mechanical
 # ~~~~~~~~~~~~~~~~~
 # Launch a new Mechanical session in batch, setting the ``cleanup_on_exit``
 # argument to ``False``. To close this Mechanical session when finished,
@@ -86,8 +86,8 @@ except grpc.RpcError as error:
     print(f"Error: {error.details()}")
 
 ###########################################################
-# Close Mechanical
+# Close mechanical
 # ~~~~~~~~~~~~~~~~
-# Close the Mechanical instance.
+# Close the mechanical instance.
 
 mechanical.exit()

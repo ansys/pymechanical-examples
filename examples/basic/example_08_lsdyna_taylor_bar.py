@@ -1,7 +1,7 @@
 """.. _ref_example_08_lsdyna_taylor_bar_example:
 
 LS-Dyna analysis
---------------------------
+----------------
 
 Using supplied files, this example shows how to insert an LS-Dyna analysis
 into a new Mechanical session and execute a sequence of Python scripting
@@ -26,7 +26,7 @@ geometry_path = download_file("example_08_Taylor_Bar.agdb", "pymechanical", "00_
 print(f"Downloaded the geometry file to: {geometry_path}")
 
 # %%
-# Launch Mechanical
+# Launch mechanical
 # ~~~~~~~~~~~~~~~~~
 # Launch a new Mechanical session in batch, setting ``cleanup_on_exit`` to
 # ``False``. To close this Mechanical session when finished, this example
@@ -201,7 +201,6 @@ settings_720p.Background = GraphicsBackgroundType.White
 settings_720p.Width = 1280
 settings_720p.Height = 720
 settings_720p.CurrentGraphicsDisplay = False
-Graphics.Camera.Pan(Quantity(7, 'mm'),Quantity(4, 'mm'))
 total_deformation.Activate()
 image_path = os.path.join(mechdir, "totaldeformation.png")
 Graphics.ExportImage(image_path, GraphicsImageExportFormat.PNG, settings_720p)
@@ -330,9 +329,9 @@ if image_path_server != "":
     plt.show()
 
 # %%
-# Close Mechanical
+# Close mechanical
 # ~~~~~~~~~~~~~~~~
-# Close the Mechanical instance.
+# Close the mechanical instance.
 
 print("Closing mechanical...")
 mechanical.exit()
