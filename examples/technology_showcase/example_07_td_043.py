@@ -3,31 +3,25 @@
 Contact Surface Wear Simulation
 -------------------------------
 
-Contact Surface Wear Simulation.
-UNIT System: NMM.
+Using a Archard wear model, this example demonstrates contact sliding
+of a hemispherical ring on a flat ring to produce wear.
 
-Coverage:
-Archard wear model
-Wear on One Contact Surface (Asymmetric Contact)
+The model includes:
 
-Problem Description:
-A hemispherical ring of copper with radius = 30 mm
-rotates on a flat ring of steel with inner radius = 50 mm
-and outer radius = 150 mm. The hemispherical ring touches
-the flat ring at the center from the axis of rotation at
-100 mm). The hemispherical ring is subjected to a pressure
-load of 4000 N/mm2 and is rotating with a frequency of 100,000
-revolutions/sec. Sliding of the hemispherical ring on the flat
-ring causes wear in the rings.
+- Hemispherical ring with a radius of 30 mm made of copper.
+- Flat ring with an inner radius of 50 mm and an outer radius of 150 mm made of steel.
 
-Validation:
-The total deformation and Normal stress in loading direction are
-validated before wear and after wear and also Contact Pressure
-before wear and after wear are validated.
+The hemispherical ring is in contact with the flat ring at the center
+from the axis of rotation at 100 mm and is subjected to a
+1) pressure of 4000 N/mm2 and 2) a rotation with a frequency
+of 100,000 revolutions/sec.
 
+The application evaluates total deformation and normal stress results,
+in loading direction, prior to and following wear. In addition,
+contact pressure prior to wear is evaluated.
 """
 
-###############################################################################
+# %%
 # Import necessary libraries
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~
 import os
@@ -37,8 +31,8 @@ from ansys.mechanical.core.examples import download_file
 from matplotlib import image as mpimg
 from matplotlib import pyplot as plt
 
-###############################################################################
-# Launch Mechanical
+# %%
+# Launch mechanical
 # ~~~~~~~~~~~~~~~~~
 # Launch a new Mechanical session in batch, setting the ``cleanup_on_exit``
 # argument to ``False``. To close this Mechanical session when finished,
@@ -47,7 +41,7 @@ from matplotlib import pyplot as plt
 mechanical = launch_mechanical(batch=True, cleanup_on_exit=False)
 print(mechanical)
 
-###############################################################################
+# %%
 # Initialize variable for workflow
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Set the ``part_file_path`` variable on the server for later use.
@@ -56,8 +50,8 @@ print(mechanical)
 project_directory = mechanical.project_directory
 print(f"project directory = {project_directory}")
 
-###############################################################################
-# Download required Geometry file
+# %%
+# Download required geometry file
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Download the required file. Print the file path for the geometry file.
 
@@ -73,7 +67,7 @@ combined_path = os.path.join(project_directory, base_name)
 part_file_path = combined_path.replace("\\", "\\\\")
 mechanical.run_python_script(f"part_file_path='{part_file_path}'")
 
-###############################################################################
+# %%
 # Download required material files
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Download the required files. Print the file path for the material file.
@@ -106,7 +100,7 @@ mechanical.run_python_script(f"mat_Steel_file_path='{mat_Steel_file_path}'")
 result = mechanical.run_python_script("part_file_path")
 print(f"part_file_path on server: {result}")
 
-###################################################################################
+# %%
 # Run the script
 # ~~~~~~~~~~~~~~
 # Run the Mechanical script to attach the geometry, set up, and solve the
@@ -128,9 +122,9 @@ geometry_import_12_preferences.ProcessNamedSelections = True
 geometry_import_12_preferences.ProcessCoordinateSystems = True
 geometry_import_12.Import(part_file_path,geometry_import_12_format,geometry_import_12_preferences)
 
-#MAT = ExtAPI.DataModel.Project.Model.Materials
-#MAT.Import(mat_Copper_file_path)
-#MAT.Import(mat_Steel_file_path)
+MAT = ExtAPI.DataModel.Project.Model.Materials
+MAT.Import(mat_Copper_file_path)
+MAT.Import(mat_Steel_file_path)
 
 # Section 2: Set up the unit system.
 ExtAPI.Application.ActiveUnitSystem = MechanicalUnitSystem.StandardNMM
@@ -161,11 +155,11 @@ ALL_BODIES_NS = [x for x in ExtAPI.DataModel.Tree.AllObjects if x.Name == 'all_b
 GEOM.Model2DBehavior=Model2DBehavior.AxiSymmetric
 
 SURFACE1=GEOM.Children[0].Children[0]
-#SURFACE1.Material="Steel"
+SURFACE1.Material="Steel"
 SURFACE1.Dimension = ShellBodyDimension.Two_D
 
 SURFACE2=GEOM.Children[1].Children[0]
-#SURFACE2.Material="Copper"
+SURFACE2.Material="Copper"
 SURFACE2.Dimension = ShellBodyDimension.Two_D
 
 # Section 6: Change contact settings and add a command snippet to use Archard Wear Model.
@@ -339,7 +333,7 @@ json.dumps(my_results_details)
 )
 print(output)
 
-###################################################################################
+# %%
 # Initialize the variable needed for the image directory
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Set the ``image_dir`` variable for later use.
@@ -353,7 +347,7 @@ mechanical.run_python_script(f"image_dir=ExtAPI.DataModel.AnalysisList[0].Workin
 result_image_dir_server = mechanical.run_python_script(f"image_dir")
 print(f"Images are stored on the server at: {result_image_dir_server}")
 
-###############################################################################
+# %%
 # Download the image and plot
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Download one image file from the server to the current working directory and plot
@@ -388,7 +382,7 @@ for image_name in image_names:
 
         display_image(image_local_path)
 
-###############################################################################
+# %%
 # Download output file from solve and print contents
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Download the ``solve.out`` file from the server to the current working
@@ -425,9 +419,9 @@ if solve_out_path != "":
 
     os.remove(solve_out_local_path)
 
-###########################################################
-# Close Mechanical
+# %%
+# Close mechanical
 # ~~~~~~~~~~~~~~~~
-# Close the Mechanical instance.
+# Close the mechanical instance.
 
 mechanical.exit()

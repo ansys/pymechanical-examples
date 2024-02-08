@@ -1,6 +1,5 @@
 .. _ref_basic_examples:
 
-==============
 Basic examples
 ==============
 
