@@ -1,0 +1,131 @@
+name: CI
+
+on:
+  workflow_dispatch:
+  schedule: # UTC at 0300
+    - cron: "0 3 * * *"
+
+env:
+  MAIN_PYTHON_VERSION: '3.10'
+  PYMECHANICAL_PORT: 10000  # default won't work on GitHub runners
+  PYMECHANICAL_START_INSTANCE: FALSE
+  DOCKER_PACKAGE: ghcr.io/ansys/mechanical
+  DOCKER_IMAGE_VERSION: 24.2.0
+  DOCKER_MECH_CONTAINER_NAME: mechanical
+  PACKAGE_NAME: ansys-mechanical-core
+  PACKAGE_NAMESPACE: ansys.mechanical.core
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: write
+  pull-requests: write
+  packages: read
+
+jobs:
+
+  display-docker-info:
+    name: Display Mechanical Image info
+    runs-on: ubuntu-latest
+    outputs:
+      docker_info: ${{ steps.capture_info.outputs.docker_info }}
+    steps:
+      - name: Login in Github Container registry
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Pull, launch & display info
+        id: capture_info
+        run: |
+          IMAGE_NAME="${{ env.DOCKER_PACKAGE }}:${{ env.DOCKER_IMAGE_VERSION }}"
+          docker pull $IMAGE_NAME
+          PUSHED_AT=$(docker inspect --format='{{.Created}}' $IMAGE_NAME)
+          echo "docker_info=$IMAGE_NAME was pushed at: $PUSHED_AT" >> $GITHUB_OUTPUT
+          echo "::group::Docker Image Info"
+          echo "Docker $IMAGE_NAME
+
+  nightly-doc-build:
+    name: Documentation building
+    runs-on: public-ubuntu-latest-8-cores
+    outputs:
+      docker_info: ${{ steps.capture_info.outputs.docker_info }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.MAIN_PYTHON_VERSION }}
+
+      - name: Install system dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y nodejs npm graphviz
+          npm install -g @mermaid-js/mermaid-cli
+
+      - name: Install Python dependencies
+        run: |
+          python -m pip install --upgrade pip tox
+
+      - name: Login in Github Container registry
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Pull, launch, and validate Mechanical service
+        env:
+          LICENSE_SERVER: ${{ secrets.LICENSE_SERVER }}
+          MECHANICAL_IMAGE: ${{ env.DOCKER_PACKAGE }}:${{ env.DOCKER_IMAGE_VERSION }}
+        id: capture_info
+        run: |
+          echo CPU info
+          lscpu
+          docker pull ${{ env.MECHANICAL_IMAGE }}
+          PUSHED_AT=$(docker inspect --format='{{.Created}}' ${{ env.MECHANICAL_IMAGE }})
+          echo "docker_info=$IMAGE_NAME was pushed at: $PUSHED_AT" >> $GITHUB_OUTPUT
+          docker run --restart always --name ${{ env.DOCKER_MECH_CONTAINER_NAME }} -e ANSYSLMD_LICENSE_FILE=1055@${{ env.LICENSE_SERVER }} -p ${{ env.PYMECHANICAL_PORT }}:10000 ${{ env.MECHANICAL_IMAGE }} > log.txt &
+          grep -q 'WB Initialize Done' <(timeout 60 tail -f log.txt)
+
+      - name: Build HTML documentation
+        run: tox -e doc
+
+      - name: Upload HTML documentation
+        uses: actions/upload-artifact@v4
+        with:
+          name: HTML-Documentation
+          path: .tox/doc_out_html/
+          retention-days: 7
+
+      - name: Get Mechanical container logs
+        if: always()
+        run: docker logs ${{ env.DOCKER_MECH_CONTAINER_NAME }} > mechanical_documentation_log.txt 2>&1
+
+      - name: Upload container logs
+        uses: actions/upload-artifact@v4
+        with:
+          name: mechanical_documentation_log
+          path: mechanical_documentation_log.txt
+          retention-days: 7
+
+  build-failure:
+    name: Teams notify on failure
+    if: failure()
+    needs: [ 'nightly-doc-build']
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Microsoft Teams Notification
+        uses: jdcargile/ms-teams-notification@v1.4
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          ms-teams-webhook-uri: ${{ secrets.MS_TEAMS_WEBHOOK_URI }}
+          notification-summary: Nightly build failure on ${{ needs.display-docker-info.outputs.docker_info }}
+          notification-color: dc3545
+          timezone: America/Chicago
