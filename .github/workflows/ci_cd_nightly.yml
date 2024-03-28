@@ -4,6 +4,7 @@ on:
   workflow_dispatch:
   schedule: # UTC at 0300
     - cron: "0 3 * * *"
+  pull_request:
 
 env:
   MAIN_PYTHON_VERSION: '3.10'
@@ -26,32 +27,9 @@ permissions:
 
 jobs:
 
-  display-docker-info:
-    name: Display Mechanical Image info
-    runs-on: ubuntu-latest
-    outputs:
-      docker_info: ${{ steps.capture_info.outputs.docker_info }}
-    steps:
-      - name: Login in Github Container registry
-        uses: docker/login-action@v3
-        with:
-          registry: ghcr.io
-          username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Pull, launch & display info
-        id: capture_info
-        run: |
-          IMAGE_NAME="${{ env.DOCKER_PACKAGE }}:${{ env.DOCKER_IMAGE_VERSION }}"
-          docker pull $IMAGE_NAME
-          PUSHED_AT=$(docker inspect --format='{{.Created}}' $IMAGE_NAME)
-          echo "docker_info=$IMAGE_NAME was pushed at: $PUSHED_AT" >> $GITHUB_OUTPUT
-          echo "::group::Docker Image Info"
-          echo "Docker $IMAGE_NAME
-
   nightly-doc-build:
     name: Documentation building
-    runs-on: public-ubuntu-latest-8-cores
+    runs-on: ubuntu-latest
     outputs:
       docker_info: ${{ steps.capture_info.outputs.docker_info }}
     steps:
@@ -88,10 +66,13 @@ jobs:
           echo CPU info
           lscpu
           docker pull ${{ env.MECHANICAL_IMAGE }}
-          PUSHED_AT=$(docker inspect --format='{{.Created}}' ${{ env.MECHANICAL_IMAGE }})
-          echo "docker_info=$IMAGE_NAME was pushed at: $PUSHED_AT" >> $GITHUB_OUTPUT
           docker run --restart always --name ${{ env.DOCKER_MECH_CONTAINER_NAME }} -e ANSYSLMD_LICENSE_FILE=1055@${{ env.LICENSE_SERVER }} -p ${{ env.PYMECHANICAL_PORT }}:10000 ${{ env.MECHANICAL_IMAGE }} > log.txt &
           grep -q 'WB Initialize Done' <(timeout 60 tail -f log.txt)
+          PUSHED_AT=$(docker inspect --format='{{.Created}}' ${{ env.MECHANICAL_IMAGE }})
+          echo "::group::Docker Info"
+          echo "docker_info=${{ env.DOCKER_IMAGE_VERSION }} was pushed at: $PUSHED_AT" >> $GITHUB_OUTPUT
+          echo "${{ env.DOCKER_IMAGE_VERSION }} pushed at $PUSHED_AT"
+          echo "::endgroup::"
 
       - name: Build HTML documentation
         run: tox -e doc
@@ -126,6 +107,6 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           ms-teams-webhook-uri: ${{ secrets.MS_TEAMS_WEBHOOK_URI }}
-          notification-summary: Nightly build failure on ${{ needs.display-docker-info.outputs.docker_info }}
+          notification-summary: Nightly build failure on ${{ needs.nightly-doc-build.outputs.docker_info }}
           notification-color: dc3545
           timezone: America/Chicago
