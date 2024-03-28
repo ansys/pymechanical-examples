@@ -159,6 +159,7 @@ cython_debug/
 doc/source/examples
 **/examples/**/*.png
 **/examples/**/*.gif
+doc/source/sg_execution_times.rst
 
 # VSCode
 .vscode
