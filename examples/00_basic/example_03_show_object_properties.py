@@ -24,7 +24,7 @@ mechdat_path = download_file(
 print(f"Downloaded the MECHDAT file to: {mechdat_path}")
 
 # %%
-# Launch mechanical
+# Launch Mechanical
 # ~~~~~~~~~~~~~~~~~
 # Launch a new Mechanical session in batch, setting the ``cleanup_on_exit``
 # argument to ``False``. To close this Mechanical session when finished,
@@ -86,8 +86,8 @@ print(f"AnalysisSettings properties:\n{result}")
 mechanical.clear()
 
 # %%
-# Close mechanical
+# Close Mechanical
 # ~~~~~~~~~~~~~~~~
-# Close the mechanical instance.
+# Close the Mechanical instance.
 
 mechanical.exit()
