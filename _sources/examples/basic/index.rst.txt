@@ -1,0 +1,81 @@
+
+
+.. _sphx_glr_examples_basic:
+
+.. _ref_basic_examples:
+
+Basic examples
+==============
+
+This section demonstrates basic usage.
+
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="This example demonstrates how to insert a Static Structural analysis into a new Mechanical sess...">
+
+.. only:: html
+
+  .. image:: /examples/basic/images/thumb/sphx_glr_example_06_bolt_pretension_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_examples_basic_example_06_bolt_pretension.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Bolt Pretension</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Using supplied files, this example shows how to insert an LS-Dyna analysis into a new Mechanica...">
+
+.. only:: html
+
+  .. image:: /examples/basic/images/thumb/sphx_glr_example_08_lsdyna_taylor_bar_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_examples_basic_example_08_lsdyna_taylor_bar.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">LS-Dyna analysis</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Using the provided file, this example demonstrates how to import trace map data into a static s...">
+
+.. only:: html
+
+  .. image:: /examples/basic/images/thumb/sphx_glr_example_09_tracemapping_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_examples_basic_example_09_tracemapping.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Trace Mapping Example</div>
+    </div>
+
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /examples/basic/example_06_bolt_pretension
+   /examples/basic/example_08_lsdyna_taylor_bar
+   /examples/basic/example_09_tracemapping
+
