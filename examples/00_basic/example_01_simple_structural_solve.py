@@ -24,7 +24,7 @@ geometry_path = download_file("example_01_geometry.agdb", "pymechanical", "00_ba
 print(f"Downloaded the geometry file to: {geometry_path}")
 
 # %%
-# Launch mechanical
+# Launch Mechanical
 # ~~~~~~~~~~~~~~~~~
 # Launch a new Mechanical session in batch, setting the ``cleanup_on_exit``
 # argument to ``False``. To close this Mechanical session when finished,
@@ -210,8 +210,8 @@ if solve_out_path != "":
     os.remove(solve_out_local_path)
 
 # %%
-# Close mechanical
+# Close Mechanical
 # ~~~~~~~~~~~~~~~~
-# Close the mechanical instance.
+# Close the Mechanical session.
 
 mechanical.exit()
