@@ -29,9 +29,10 @@ jobs:
 
   nightly-doc-build:
     name: Documentation building
-    runs-on: ubuntu-latest
+    runs-on: public-ubuntu-latest-8-cores
     outputs:
       docker_info: ${{ steps.capture_info.outputs.docker_info }}
+      build_info: ${{ steps.capture_info.outputs.build_info }}
     steps:
       - uses: actions/checkout@v4
 
@@ -66,12 +67,15 @@ jobs:
           echo CPU info
           lscpu
           docker pull ${{ env.MECHANICAL_IMAGE }}
+          BUILD_DATE=$(docker run --rm --entrypoint head ${{ env.MECHANICAL_IMAGE }} -n 1 /install/ansys_inc/v242/aisol/CommonFiles/builddate.txt)
           docker run --restart always --name ${{ env.DOCKER_MECH_CONTAINER_NAME }} -e ANSYSLMD_LICENSE_FILE=1055@${{ env.LICENSE_SERVER }} -p ${{ env.PYMECHANICAL_PORT }}:10000 ${{ env.MECHANICAL_IMAGE }} > log.txt &
           grep -q 'WB Initialize Done' <(timeout 60 tail -f log.txt)
           PUSHED_AT=$(docker inspect --format='{{.Created}}' ${{ env.MECHANICAL_IMAGE }})
           echo "::group::Docker Info"
-          echo "docker_info=${{ env.DOCKER_IMAGE_VERSION }} was pushed at: $PUSHED_AT" >> $GITHUB_OUTPUT
+          echo "docker_info=$PUSHED_AT" >> $GITHUB_OUTPUT
+          echo "build_info=$BUILD_DATE" >> $GITHUB_OUTPUT
           echo "${{ env.DOCKER_IMAGE_VERSION }} pushed at $PUSHED_AT"
+          echo "Buil date : $BUILD_DATE"
           echo "::endgroup::"
 
       - name: Build HTML documentation
@@ -107,6 +111,6 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           ms-teams-webhook-uri: ${{ secrets.MS_TEAMS_WEBHOOK_URI }}
-          notification-summary: Nightly build failure on ${{ needs.nightly-doc-build.outputs.docker_info }}
+          notification-summary: Nightly build failure on ${{ env.MECHANICAL_IMAGE }} build at ${{ needs.nightly-doc-build.outputs.build_info }} , pushed at ${{ needs.nightly-doc-build.outputs.docker_info }} (UTC)
           notification-color: dc3545
           timezone: America/Chicago
