@@ -4,7 +4,6 @@ on:
   workflow_dispatch:
   schedule: # UTC at 0300
     - cron: "0 3 * * *"
-  pull_request:
 
 env:
   MAIN_PYTHON_VERSION: '3.10'
