@@ -75,7 +75,7 @@ jobs:
           echo "docker_info=$PUSHED_AT" >> $GITHUB_OUTPUT
           echo "build_info=$BUILD_DATE" >> $GITHUB_OUTPUT
           echo "${{ env.DOCKER_IMAGE_VERSION }} pushed at $PUSHED_AT"
-          echo "Buil date : $BUILD_DATE"
+          echo "Build date : $BUILD_DATE"
           echo "::endgroup::"
 
       - name: Build HTML documentation
