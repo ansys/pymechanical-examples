@@ -91,15 +91,8 @@ jobs:
           docker run --restart always --name ${{ env.DOCKER_MECH_CONTAINER_NAME }} -e ANSYSLMD_LICENSE_FILE=1055@${{ env.LICENSE_SERVER }} -p ${{ env.PYMECHANICAL_PORT }}:10000 ${{ env.MECHANICAL_IMAGE }} > log.txt &
           grep -q 'WB Initialize Done' <(timeout 60 tail -f log.txt)
 
-      - name: Build HTML documentation
-        run: tox -e doc
-
-      - name: Upload HTML documentation
-        uses: actions/upload-artifact@v4
-        with:
-          name: HTML-Documentation
-          path: .tox/doc_out_html/
-          retention-days: 7
+      - name: run python file
+        run: python .\examples\00_basic\example_01_simple_structural_solve.py
 
       - name: Get Mechanical container logs
         if: always()
