@@ -92,7 +92,11 @@ jobs:
           grep -q 'WB Initialize Done' <(timeout 60 tail -f log.txt)
 
       - name: run python file
-        run: python ./examples/00_basic/example_01_simple_structural_solve.py
+        run: |
+          python -m venv .venv
+          . .venv/bin/activate
+          pip install .
+          python ./examples/00_basic/example_01_simple_structural_solve.py
 
       - name: Get Mechanical container logs
         if: always()
