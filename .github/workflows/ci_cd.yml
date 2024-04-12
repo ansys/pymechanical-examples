@@ -95,7 +95,7 @@ jobs:
         run: |
           python -m venv .venv
           . .venv/bin/activate
-          pip install .
+          pip install -r requirements/requirements_doc.txt
           python ./examples/00_basic/example_01_simple_structural_solve.py
 
       - name: Get Mechanical container logs
