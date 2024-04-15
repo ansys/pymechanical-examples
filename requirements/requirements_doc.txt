@@ -15,7 +15,7 @@ pandas==2.2.1
 panel==1.4.0
 plotly==5.20.0
 pypandoc==1.13
-pytest-sphinx==0.6.2
+pytest-sphinx==0.6.3
 pythreejs==2.4.2
 pyvista==0.43.5
 sphinx_design==0.5.0
