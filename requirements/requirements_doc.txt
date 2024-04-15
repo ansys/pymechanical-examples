@@ -12,7 +12,7 @@ matplotlib==3.8.4
 numpy==1.26.4
 numpydoc==1.7.0
 pandas==2.2.1
-panel==1.4.0
+panel==1.4.1
 plotly==5.20.0
 pypandoc==1.13
 pytest-sphinx==0.6.3
