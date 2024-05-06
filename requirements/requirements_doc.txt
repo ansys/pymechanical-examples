@@ -19,7 +19,7 @@ pytest-sphinx==0.6.3
 pythreejs==2.4.2
 pyvista==0.43.7
 sphinx_design==0.5.0
-Sphinx==7.1.2
+Sphinx==7.3.7
 sphinx-autobuild==2024.4.16
 sphinx-autodoc-typehints==2.1.0
 sphinxcontrib-websupport==1.2.7
