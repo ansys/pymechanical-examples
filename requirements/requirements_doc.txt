@@ -3,7 +3,7 @@ ansys-mechanical-core==0.10.11
 
 # Documentation dependencies
 ansys-sphinx-theme==0.16.5
-grpcio==1.63.0
+grpcio==1.64.1
 imageio==2.34.1
 imageio-ffmpeg==0.4.9
 jupyter_sphinx==0.5.3
@@ -21,7 +21,7 @@ pyvista==0.43.9
 sphinx_design==0.5.0
 Sphinx==7.3.7
 sphinx-autobuild==2024.4.16
-sphinx-autodoc-typehints==2.1.0
+sphinx-autodoc-typehints==2.1.1
 sphinxcontrib-websupport==1.2.7
 sphinx-copybutton==0.5.2
 sphinxemoji==0.3.1
