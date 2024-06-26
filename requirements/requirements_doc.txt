@@ -21,7 +21,7 @@ pyvista==0.43.9
 sphinx_design==0.6.0
 Sphinx==7.3.7
 sphinx-autobuild==2024.4.16
-sphinx-autodoc-typehints==2.1.1
+sphinx-autodoc-typehints==2.2.2
 sphinxcontrib-websupport==1.2.7
 sphinx-copybutton==0.5.2
 sphinxemoji==0.3.1
