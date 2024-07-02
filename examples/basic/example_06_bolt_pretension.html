@@ -1,0 +1,2815 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Bolt Pretension &#8212; pymechanical-examples</title>
+
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/jupyter-sphinx.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/thebelab.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery.css?v=61a4c737" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-binder.css?v=f4aeca0c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/ansys_sphinx_theme.css?v=3ea42de1" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://www.nerdfonts.com/assets/css/webfont.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+ 
+<link href="../../_static/css/breadcrumbs.css" rel="stylesheet" />
+
+    <script src="../../_static/documentation_options.js?v=e7fb764e"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/thebelab-helper.js"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=49e1bf35"></script>
+    <script src="../../_static/js/table.js?v=b64f5182"></script>
+    <script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'examples/basic/example_06_bolt_pretension';</script>
+    <link rel="icon" href="../../_static/favicon.png"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="LS-Dyna analysis" href="example_08_lsdyna_taylor_bar.html" />
+    <link rel="prev" title="Basic examples" href="index.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container"><!-- Debugging: html_theme_options =  -->
+
+<!-- If there is no MiliSearch enabled, use the PyData search -->
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+   
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+<div class="bd-header__inner bd-page-width">
+  <label class="sidebar-toggle primary-toggle" for="__primary">
+    <span class="fa-solid fa-bars"></span>
+  </label>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/pyansys-logo-black-cropped.png" class="logo__image only-light" alt="pymechanical-examples - Home"/>
+    <script>document.write(`<img src="../../_static/pyansys-logo-black-cropped.png" class="logo__image only-dark" alt="pymechanical-examples - Home"/>`);</script>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav class="navbar-nav">
+  <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../00_basic/index.html">
+                        Simple workflows
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../01_tips_n_tricks/index.html">
+                        PyMechanical tips
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="index.html">
+                        Basic examples
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../technology_showcase/index.html">
+                        Technology showcase examples
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../index.html">
+                        Examples
+                      </a>
+                    </li>
+                
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/ansys/pymechanical-examples" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/ansys/pymechanical/discussions" title="Support" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa fa-comment fa-fw fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">Support</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+    </div>
+  
+
+  
+    <label class="sidebar-toggle secondary-toggle" for="__secondary" tabindex="0">
+      <span class="fa-solid fa-outdent"></span>
+    </label>
+  
+</div>
+
+    </nav>
+    
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          <div class="navbar-item">
+<nav class="navbar-nav">
+  <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../00_basic/index.html">
+                        Simple workflows
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../01_tips_n_tricks/index.html">
+                        PyMechanical tips
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="index.html">
+                        Basic examples
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../technology_showcase/index.html">
+                        Technology showcase examples
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../index.html">
+                        Examples
+                      </a>
+                    </li>
+                
+  </ul>
+</nav></div>
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/ansys/pymechanical-examples" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/ansys/pymechanical/discussions" title="Support" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa fa-comment fa-fw fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">Support</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Bolt Pretension</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example_08_lsdyna_taylor_bar.html">LS-Dyna analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example_09_tracemapping.html">Trace Mapping Example</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+<nav aria-label="Breadcrumb">
+  <ul class="bd-breadcrumbs">
+         
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="https://docs.pyansys.com/" class="nav-link">PyAnsys</a>
+    </li>
+       
+    <li class="breadcrumb-item">
+      <a href="https://mechanical.docs.pyansys.com/" class="nav-link">PyMechanical</a>
+    </li>
+     
+    <li class="breadcrumb-item">
+      <a
+        href="../../index.html"
+        class="nav-link"
+        aria-label="Home"
+      >
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+     
+    <li class="breadcrumb-item">
+      <a href="index.html" class="nav-link">Basic examples</a>
+    </li>
+      
+    <li class="breadcrumb-item active" aria-current="page">Bolt Pretension</li>
+    
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <div class="sphx-glr-download-link-note admonition note">
+<p class="admonition-title">Note</p>
+<p><a class="reference internal" href="#sphx-glr-download-examples-basic-example-06-bolt-pretension-py"><span class="std std-ref">Go to the end</span></a>
+to download the full example code.</p>
+</div>
+<section class="sphx-glr-example-title" id="bolt-pretension">
+<span id="ref-example-06"></span><span id="sphx-glr-examples-basic-example-06-bolt-pretension-py"></span><h1>Bolt Pretension<a class="headerlink" href="#bolt-pretension" title="Link to this heading">#</a></h1>
+<p>This example demonstrates how to insert a Static Structural analysis
+into a new Mechanical session and execute a sequence of
+Python scripting commands that define and solve a bolt-pretension analysis.
+Scripts then evaluate the following results: deformation,
+equivalent stresses, contact, and bolt</p>
+<section id="import-necessary-libraries">
+<h2>Import necessary libraries<a class="headerlink" href="#import-necessary-libraries" title="Link to this heading">#</a></h2>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+
+<span class="kn">from</span> <span class="nn">ansys.mechanical.core</span> <span class="kn">import</span> <span class="n">launch_mechanical</span>
+<span class="kn">from</span> <span class="nn">ansys.mechanical.core.examples</span> <span class="kn">import</span> <span class="n">download_file</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">image</span> <span class="k">as</span> <span class="n">mpimg</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+</pre></div>
+</div>
+</section>
+<section id="launch-mechanical">
+<h2>Launch mechanical<a class="headerlink" href="#launch-mechanical" title="Link to this heading">#</a></h2>
+<p>Launch a new Mechanical session in batch, setting the <code class="docutils literal notranslate"><span class="pre">cleanup_on_exit</span></code>
+argument to <code class="docutils literal notranslate"><span class="pre">False</span></code>. To close this Mechanical session when finished,
+this example must call  the <code class="docutils literal notranslate"><span class="pre">mechanical.exit()</span></code> method.</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">mechanical</span> <span class="o">=</span> <span class="n">launch_mechanical</span><span class="p">(</span><span class="n">batch</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">cleanup_on_exit</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mechanical</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Ansys Mechanical [Ansys Mechanical Enterprise]
+Product Version:241
+Software build date: 11/27/2023 10:24:20
+</pre></div>
+</div>
+</section>
+<section id="initialize-variable-for-workflow">
+<h2>Initialize variable for workflow<a class="headerlink" href="#initialize-variable-for-workflow" title="Link to this heading">#</a></h2>
+<p>Set the <code class="docutils literal notranslate"><span class="pre">part_file_path</span></code> variable on the server for later use.
+Make this variable compatible for Windows, Linux, and Docker containers.</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">project_directory</span></a> <span class="o">=</span> <span class="n">mechanical</span><span class="o">.</span><a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">project_directory</span></a>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;project directory = </span><span class="si">{</span><a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">project_directory</span></a><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>project directory = /tmp/ANSYS.root.1/AnsysMechCAEB/Project_Mech_Files/
+</pre></div>
+</div>
+</section>
+<section id="download-required-geometry-file">
+<h2>Download required geometry file<a class="headerlink" href="#download-required-geometry-file" title="Link to this heading">#</a></h2>
+<p>Download the required file. Print the file path for the geometry file.</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">geometry_path</span></a> <span class="o">=</span> <span class="n">download_file</span><span class="p">(</span>
+    <span class="s2">&quot;example_06_bolt_pret_geom.agdb&quot;</span><span class="p">,</span> <span class="s2">&quot;pymechanical&quot;</span><span class="p">,</span> <span class="s2">&quot;00_basic&quot;</span>
+<span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Downloaded the geometry file to: </span><span class="si">{</span><a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">geometry_path</span></a><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Downloaded the geometry file to: /home/runner/.local/share/ansys_mechanical_core/examples/example_06_bolt_pret_geom.agdb
+</pre></div>
+</div>
+<p>Upload the file to the project directory</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">mechanical</span><span class="o">.</span><span class="n">upload</span><span class="p">(</span><span class="n">file_name</span><span class="o">=</span><a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">geometry_path</span></a><span class="p">,</span> <span class="n">file_location_destination</span><span class="o">=</span><a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">project_directory</span></a><span class="p">)</span>
+</pre></div>
+</div>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Uploading example_06_bolt_pret_geom.agdb to dns:///127.0.0.1:10000:/tmp/ANSYS.root.1/AnsysMechCAEB/Project_Mech_Files/.:   0%|          | 0.00/2.52M [00:00&lt;?, ?B/s]
+Uploading example_06_bolt_pret_geom.agdb to dns:///127.0.0.1:10000:/tmp/ANSYS.root.1/AnsysMechCAEB/Project_Mech_Files/.: 100%|██████████| 2.52M/2.52M [00:00&lt;00:00, 269MB/s]
+
+&#39;example_06_bolt_pret_geom.agdb&#39;
+</pre></div>
+</div>
+<p>Build the path relative to project directory and verify</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">base_name</span></a> <span class="o">=</span> <a href="https://docs.python.org/3/library/os.path.html#os.path.basename" title="os.path.basename" class="sphx-glr-backref-module-os-path sphx-glr-backref-type-py-function"><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span></a><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">geometry_path</span></a><span class="p">)</span>
+<a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">combined_path</span></a> <span class="o">=</span> <a href="https://docs.python.org/3/library/os.path.html#os.path.join" title="os.path.join" class="sphx-glr-backref-module-os-path sphx-glr-backref-type-py-function"><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span></a><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">project_directory</span></a><span class="p">,</span> <a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">base_name</span></a><span class="p">)</span>
+<a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">part_file_path</span></a> <span class="o">=</span> <a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">combined_path</span></a><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\\</span><span class="s2">&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\\\\</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">mechanical</span><span class="o">.</span><span class="n">run_python_script</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;part_file_path=&#39;</span><span class="si">{</span><a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">part_file_path</span></a><span class="si">}</span><span class="s2">&#39;&quot;</span><span class="p">)</span>
+<a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">result</span></a> <span class="o">=</span> <span class="n">mechanical</span><span class="o">.</span><span class="n">run_python_script</span><span class="p">(</span><span class="s2">&quot;part_file_path&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Geometry file on server: </span><span class="si">{</span><a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">result</span></a><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Geometry file on server: /tmp/ANSYS.root.1/AnsysMechCAEB/Project_Mech_Files/example_06_bolt_pret_geom.agdb
+</pre></div>
+</div>
+</section>
+<section id="download-required-material-file">
+<h2>Download required material file<a class="headerlink" href="#download-required-material-file" title="Link to this heading">#</a></h2>
+<p>Download the required file. Print the file path for the material file</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">mat_cop_path</span></a> <span class="o">=</span> <span class="n">download_file</span><span class="p">(</span><span class="s2">&quot;example_06_Mat_Copper.xml&quot;</span><span class="p">,</span> <span class="s2">&quot;pymechanical&quot;</span><span class="p">,</span> <span class="s2">&quot;00_basic&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Downloaded the material file to: </span><span class="si">{</span><a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">mat_cop_path</span></a><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">mat_st_path</span></a> <span class="o">=</span> <span class="n">download_file</span><span class="p">(</span><span class="s2">&quot;example_06_Mat_Steel.xml&quot;</span><span class="p">,</span> <span class="s2">&quot;pymechanical&quot;</span><span class="p">,</span> <span class="s2">&quot;00_basic&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Downloaded the material file to: </span><span class="si">{</span><a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">mat_st_path</span></a><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Downloaded the material file to: /home/runner/.local/share/ansys_mechanical_core/examples/example_06_Mat_Copper.xml
+Downloaded the material file to: /home/runner/.local/share/ansys_mechanical_core/examples/example_06_Mat_Steel.xml
+</pre></div>
+</div>
+<p>Upload the file to the project directory</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">mechanical</span><span class="o">.</span><span class="n">upload</span><span class="p">(</span><span class="n">file_name</span><span class="o">=</span><a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">mat_cop_path</span></a><span class="p">,</span> <span class="n">file_location_destination</span><span class="o">=</span><a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">project_directory</span></a><span class="p">)</span>
+<span class="n">mechanical</span><span class="o">.</span><span class="n">upload</span><span class="p">(</span><span class="n">file_name</span><span class="o">=</span><a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">mat_st_path</span></a><span class="p">,</span> <span class="n">file_location_destination</span><span class="o">=</span><a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">project_directory</span></a><span class="p">)</span>
+</pre></div>
+</div>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Uploading example_06_Mat_Copper.xml to dns:///127.0.0.1:10000:/tmp/ANSYS.root.1/AnsysMechCAEB/Project_Mech_Files/.:   0%|          | 0.00/5.00k [00:00&lt;?, ?B/s]
+Uploading example_06_Mat_Copper.xml to dns:///127.0.0.1:10000:/tmp/ANSYS.root.1/AnsysMechCAEB/Project_Mech_Files/.: 100%|██████████| 5.00k/5.00k [00:00&lt;00:00, 20.0MB/s]
+
+Uploading example_06_Mat_Steel.xml to dns:///127.0.0.1:10000:/tmp/ANSYS.root.1/AnsysMechCAEB/Project_Mech_Files/.:   0%|          | 0.00/5.00k [00:00&lt;?, ?B/s]
+Uploading example_06_Mat_Steel.xml to dns:///127.0.0.1:10000:/tmp/ANSYS.root.1/AnsysMechCAEB/Project_Mech_Files/.: 100%|██████████| 5.00k/5.00k [00:00&lt;00:00, 21.7MB/s]
+
+&#39;example_06_Mat_Steel.xml&#39;
+</pre></div>
+</div>
+<p>Build the path relative to project directory and verify</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">base_name</span></a> <span class="o">=</span> <a href="https://docs.python.org/3/library/os.path.html#os.path.basename" title="os.path.basename" class="sphx-glr-backref-module-os-path sphx-glr-backref-type-py-function"><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span></a><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">mat_cop_path</span></a><span class="p">)</span>
+<a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">combined_path</span></a> <span class="o">=</span> <a href="https://docs.python.org/3/library/os.path.html#os.path.join" title="os.path.join" class="sphx-glr-backref-module-os-path sphx-glr-backref-type-py-function"><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span></a><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">project_directory</span></a><span class="p">,</span> <a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">base_name</span></a><span class="p">)</span>
+<a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">mat_Copper_file_path</span></a> <span class="o">=</span> <a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">combined_path</span></a><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\\</span><span class="s2">&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\\\\</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">mechanical</span><span class="o">.</span><span class="n">run_python_script</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;mat_Copper_file_path=&#39;</span><span class="si">{</span><a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">mat_Copper_file_path</span></a><span class="si">}</span><span class="s2">&#39;&quot;</span><span class="p">)</span>
+
+<a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">base_name</span></a> <span class="o">=</span> <a href="https://docs.python.org/3/library/os.path.html#os.path.basename" title="os.path.basename" class="sphx-glr-backref-module-os-path sphx-glr-backref-type-py-function"><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span></a><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">mat_st_path</span></a><span class="p">)</span>
+<a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">combined_path</span></a> <span class="o">=</span> <a href="https://docs.python.org/3/library/os.path.html#os.path.join" title="os.path.join" class="sphx-glr-backref-module-os-path sphx-glr-backref-type-py-function"><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span></a><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">project_directory</span></a><span class="p">,</span> <a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">base_name</span></a><span class="p">)</span>
+<a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">mat_Steel_file_path</span></a> <span class="o">=</span> <a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">combined_path</span></a><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\\</span><span class="s2">&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\\\\</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">mechanical</span><span class="o">.</span><span class="n">run_python_script</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;mat_Steel_file_path=&#39;</span><span class="si">{</span><a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">mat_Steel_file_path</span></a><span class="si">}</span><span class="s2">&#39;&quot;</span><span class="p">)</span>
+
+<a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">result</span></a> <span class="o">=</span> <span class="n">mechanical</span><span class="o">.</span><span class="n">run_python_script</span><span class="p">(</span><span class="s2">&quot;mat_Copper_file_path&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;mat_Copper_file_path on server: </span><span class="si">{</span><a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">result</span></a><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">result</span></a> <span class="o">=</span> <span class="n">mechanical</span><span class="o">.</span><span class="n">run_python_script</span><span class="p">(</span><span class="s2">&quot;mat_Steel_file_path&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;mat_Steel_file_path on server: </span><span class="si">{</span><a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">result</span></a><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>mat_Copper_file_path on server: /tmp/ANSYS.root.1/AnsysMechCAEB/Project_Mech_Files/example_06_Mat_Copper.xml
+mat_Steel_file_path on server: /tmp/ANSYS.root.1/AnsysMechCAEB/Project_Mech_Files/example_06_Mat_Steel.xml
+</pre></div>
+</div>
+</section>
+<section id="run-the-script">
+<h2>Run the script<a class="headerlink" href="#run-the-script" title="Link to this heading">#</a></h2>
+<p>Run the Mechanical script to attach the geometry and set up and solve the
+analysis</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">output</span></a> <span class="o">=</span> <span class="n">mechanical</span><span class="o">.</span><span class="n">run_python_script</span><span class="p">(</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">import json</span>
+<span class="sd">import os</span>
+
+<span class="sd"># Read geometry and material information.</span>
+<span class="sd">geometry_import_group = Model.GeometryImportGroup</span>
+<span class="sd">geometry_import = geometry_import_group.AddGeometryImport()</span>
+<span class="sd">geometry_import_format = Ansys.Mechanical.DataModel.Enums.GeometryImportPreference.\</span>
+<span class="sd">    Format.Automatic</span>
+<span class="sd">geometry_import_preferences = Ansys.ACT.Mechanical.Utilities.GeometryImportPreferences()</span>
+<span class="sd">geometry_import_preferences.ProcessNamedSelections = True</span>
+<span class="sd">geometry_import_preferences.ProcessCoordinateSystems = True</span>
+<span class="sd">geometry_import.Import(part_file_path,geometry_import_format,geometry_import_preferences)</span>
+
+<span class="sd"># Import materials.</span>
+<span class="sd">MAT = ExtAPI.DataModel.Project.Model.Materials</span>
+<span class="sd">MAT.Import(mat_Copper_file_path)</span>
+<span class="sd">MAT.Import(mat_Steel_file_path)</span>
+
+<span class="sd">Model.AddStaticStructuralAnalysis()</span>
+<span class="sd">STAT_STRUC = Model.Analyses[0]</span>
+<span class="sd">STAT_STRUC_SOLN = STAT_STRUC.Solution</span>
+<span class="sd">STAT_STRUC_ANA_SETTING = STAT_STRUC.Children[0]</span>
+
+<span class="sd"># Set up the unit system.</span>
+<span class="sd">ExtAPI.Application.ActiveUnitSystem = MechanicalUnitSystem.StandardNMM</span>
+
+<span class="sd"># Store all main tree nodes as variables.</span>
+<span class="sd">MODEL = ExtAPI.DataModel.Project.Model</span>
+<span class="sd">GEOM = ExtAPI.DataModel.Project.Model.Geometry</span>
+<span class="sd">CONN_GRP = ExtAPI.DataModel.Project.Model.Connections</span>
+<span class="sd">CS_GRP = ExtAPI.DataModel.Project.Model.CoordinateSystems</span>
+<span class="sd">MSH = ExtAPI.DataModel.Project.Model.Mesh</span>
+<span class="sd">NS_GRP = ExtAPI.DataModel.Project.Model.NamedSelections</span>
+
+<span class="sd"># Store name selection.</span>
+<span class="sd">block3_block2_cont_NS = [x for x in ExtAPI.DataModel.Tree.AllObjects</span>
+<span class="sd">if x.Name == &#39;block3_block2_cont&#39;][0]</span>
+<span class="sd">block3_block2_targ_NS = [x for x in ExtAPI.DataModel.Tree.AllObjects</span>
+<span class="sd">if x.Name == &#39;block3_block2_targ&#39;][0]</span>
+<span class="sd">shank_block3_targ_NS = [x for x in ExtAPI.DataModel.Tree.AllObjects</span>
+<span class="sd">if x.Name == &#39;shank_block3_targ&#39;][0]</span>
+<span class="sd">shank_block3_cont_NS = [x for x in ExtAPI.DataModel.Tree.AllObjects</span>
+<span class="sd">if x.Name == &#39;shank_block3_cont&#39;][0]</span>
+<span class="sd">block1_washer_cont_NS = [x for x in ExtAPI.DataModel.Tree.AllObjects</span>
+<span class="sd">if x.Name == &#39;block1_washer_cont&#39;][0]</span>
+<span class="sd">block1_washer_targ_NS = [x for x in ExtAPI.DataModel.Tree.AllObjects</span>
+<span class="sd">if x.Name == &#39;block1_washer_targ&#39;][0]</span>
+<span class="sd">washer_bolt_cont_NS = [x for x in ExtAPI.DataModel.Tree.AllObjects</span>
+<span class="sd">if x.Name == &#39;washer_bolt_cont&#39;][0]</span>
+<span class="sd">washer_bolt_targ_NS = [x for x in ExtAPI.DataModel.Tree.AllObjects</span>
+<span class="sd">if x.Name == &#39;washer_bolt_targ&#39;][0]</span>
+<span class="sd">shank_bolt_targ_NS = [x for x in ExtAPI.DataModel.Tree.AllObjects</span>
+<span class="sd">if x.Name == &#39;shank_bolt_targ&#39;][0]</span>
+<span class="sd">shank_bolt_cont_NS = [x for x in ExtAPI.DataModel.Tree.AllObjects</span>
+<span class="sd">if x.Name == &#39;shank_bolt_cont&#39;][0]</span>
+<span class="sd">block2_block1_cont_NS = [x for x in ExtAPI.DataModel.Tree.AllObjects</span>
+<span class="sd">if x.Name == &#39;block2_block1_cont&#39;][0]</span>
+<span class="sd">block2_block1_targ_NS = [x for x in ExtAPI.DataModel.Tree.AllObjects</span>
+<span class="sd">if x.Name == &#39;block2_block1_targ&#39;][0]</span>
+<span class="sd">all_bodies = [x for x in ExtAPI.DataModel.Tree.AllObjects</span>
+<span class="sd">if x.Name == &#39;all_bodies&#39;][0]</span>
+<span class="sd">bodies_5 = [x for x in ExtAPI.DataModel.Tree.AllObjects</span>
+<span class="sd">if x.Name == &#39;bodies_5&#39;][0]</span>
+<span class="sd">shank = [x for x in ExtAPI.DataModel.Tree.AllObjects</span>
+<span class="sd">if x.Name == &#39;shank&#39;][0]</span>
+<span class="sd">shank_face = [x for x in ExtAPI.DataModel.Tree.AllObjects</span>
+<span class="sd">if x.Name == &#39;shank_face&#39;][0]</span>
+<span class="sd">shank_face2 = [x for x in ExtAPI.DataModel.Tree.AllObjects</span>
+<span class="sd">if x.Name == &#39;shank_face2&#39;][0]</span>
+<span class="sd">bottom_surface = [x for x in ExtAPI.DataModel.Tree.AllObjects</span>
+<span class="sd">if x.Name == &#39;bottom_surface&#39;][0]</span>
+<span class="sd">block2_surface = [x for x in ExtAPI.DataModel.Tree.AllObjects</span>
+<span class="sd">if x.Name == &#39;block2_surface&#39;][0]</span>
+<span class="sd">shank_surface = [x for x in ExtAPI.DataModel.Tree.AllObjects</span>
+<span class="sd">if x.Name == &#39;shank_surface&#39;][0]</span>
+
+<span class="sd"># Assign material to bodies.</span>
+<span class="sd">SURFACE1=GEOM.Children[0].Children[0]</span>
+<span class="sd">SURFACE1.Material=&quot;Steel&quot;</span>
+
+<span class="sd">SURFACE2=GEOM.Children[1].Children[0]</span>
+<span class="sd">SURFACE2.Material=&quot;Copper&quot;</span>
+
+<span class="sd">SURFACE3=GEOM.Children[2].Children[0]</span>
+<span class="sd">SURFACE3.Material=&quot;Copper&quot;</span>
+
+<span class="sd">SURFACE4=GEOM.Children[3].Children[0]</span>
+<span class="sd">SURFACE4.Material=&quot;Steel&quot;</span>
+
+<span class="sd">SURFACE5=GEOM.Children[4].Children[0]</span>
+<span class="sd">SURFACE5.Material=&quot;Steel&quot;</span>
+
+<span class="sd">SURFACE6=GEOM.Children[5].Children[0]</span>
+<span class="sd">SURFACE6.Material=&quot;Steel&quot;</span>
+
+<span class="sd"># Define coordinate system.</span>
+<span class="sd">coordinate_systems_17 = Model.CoordinateSystems</span>
+<span class="sd">coordinate_system_93 = coordinate_systems_17.AddCoordinateSystem()</span>
+<span class="sd">coordinate_system_93.OriginDefineBy = CoordinateSystemAlignmentType.Fixed</span>
+<span class="sd">coordinate_system_93.OriginX = Quantity(-195, &quot;mm&quot;)</span>
+<span class="sd">coordinate_system_93.OriginY = Quantity(100, &quot;mm&quot;)</span>
+<span class="sd">coordinate_system_93.OriginZ = Quantity(50, &quot;mm&quot;)</span>
+<span class="sd">coordinate_system_93.PrimaryAxis = CoordinateSystemAxisType.PositiveZAxis</span>
+
+<span class="sd"># Change contact settings and add a command snippet to use the Archard Wear Model.</span>
+<span class="sd">connections =  ExtAPI.DataModel.Project.Model.Connections</span>
+
+<span class="sd"># Delete existing contacts.</span>
+<span class="sd">for connection in connections.Children:</span>
+<span class="sd">    if connection.DataModelObjectCategory==DataModelObjectCategory.ConnectionGroup:</span>
+<span class="sd">        connection.Delete()</span>
+
+<span class="sd">CONT_REG1 = CONN_GRP.AddContactRegion()</span>
+<span class="sd">CONT_REG1.SourceLocation = NS_GRP.Children[0]</span>
+<span class="sd">CONT_REG1.TargetLocation = NS_GRP.Children[1]</span>
+<span class="sd">CONT_REG1.ContactType=ContactType.Frictional</span>
+<span class="sd">CONT_REG1.FrictionCoefficient = 0.2</span>
+<span class="sd">CONT_REG1.SmallSliding = ContactSmallSlidingType.Off</span>
+<span class="sd">CONT_REG1.UpdateStiffness = UpdateContactStiffness.Never</span>
+<span class="sd">CMD1=CONT_REG1.AddCommandSnippet()</span>
+
+<span class="sd"># Add missing contact keyopt and Archard Wear Model in workbench using a command snippet.</span>
+<span class="sd">AWM = &#39;&#39;&#39;keyopt,cid,9,5</span>
+<span class="sd">rmodif,cid,10,0.00</span>
+<span class="sd">rmodif,cid,23,0.001&#39;&#39;&#39;</span>
+<span class="sd">CMD1.AppendText(AWM)</span>
+
+<span class="sd">CONTS = CONN_GRP.Children[0]</span>
+<span class="sd">CONT_REG2 = CONTS.AddContactRegion()</span>
+<span class="sd">CONT_REG2.SourceLocation = NS_GRP.Children[3]</span>
+<span class="sd">CONT_REG2.TargetLocation = NS_GRP.Children[2]</span>
+<span class="sd">CONT_REG2.ContactType=ContactType.Bonded</span>
+<span class="sd">CONT_REG2.ContactFormulation = ContactFormulation.MPC</span>
+
+<span class="sd">CONT_REG3 = CONTS.AddContactRegion()</span>
+<span class="sd">CONT_REG3.SourceLocation = NS_GRP.Children[4]</span>
+<span class="sd">CONT_REG3.TargetLocation = NS_GRP.Children[5]</span>
+<span class="sd">CONT_REG3.ContactType=ContactType.Frictional</span>
+<span class="sd">CONT_REG3.FrictionCoefficient = 0.2</span>
+<span class="sd">CONT_REG3.SmallSliding = ContactSmallSlidingType.Off</span>
+<span class="sd">CONT_REG3.UpdateStiffness = UpdateContactStiffness.Never</span>
+<span class="sd">CMD3=CONT_REG3.AddCommandSnippet()</span>
+
+<span class="sd"># Add missing contact keyopt and Archard Wear Model in workbench using a command snippet.</span>
+<span class="sd">AWM3 = &#39;&#39;&#39;keyopt,cid,9,5</span>
+<span class="sd">rmodif,cid,10,0.00</span>
+<span class="sd">rmodif,cid,23,0.001&#39;&#39;&#39;</span>
+<span class="sd">CMD3.AppendText(AWM3)</span>
+
+<span class="sd">CONT_REG4 = CONTS.AddContactRegion()</span>
+<span class="sd">CONT_REG4.SourceLocation = NS_GRP.Children[6]</span>
+<span class="sd">CONT_REG4.TargetLocation = NS_GRP.Children[7]</span>
+<span class="sd">CONT_REG4.ContactType=ContactType.Bonded</span>
+<span class="sd">CONT_REG4.ContactFormulation = ContactFormulation.MPC</span>
+
+<span class="sd">CONT_REG5 = CONTS.AddContactRegion()</span>
+<span class="sd">CONT_REG5.SourceLocation = NS_GRP.Children[9]</span>
+<span class="sd">CONT_REG5.TargetLocation = NS_GRP.Children[8]</span>
+<span class="sd">CONT_REG5.ContactType=ContactType.Bonded</span>
+<span class="sd">CONT_REG5.ContactFormulation = ContactFormulation.MPC</span>
+
+<span class="sd">CONT_REG6 = CONTS.AddContactRegion()</span>
+<span class="sd">CONT_REG6.SourceLocation = NS_GRP.Children[10]</span>
+<span class="sd">CONT_REG6.TargetLocation = NS_GRP.Children[11]</span>
+<span class="sd">CONT_REG6.ContactType=ContactType.Frictional</span>
+<span class="sd">CONT_REG6.FrictionCoefficient = 0.2</span>
+<span class="sd">CONT_REG6.SmallSliding = ContactSmallSlidingType.Off</span>
+<span class="sd">CONT_REG6.UpdateStiffness = UpdateContactStiffness.Never</span>
+<span class="sd">CMD6=CONT_REG6.AddCommandSnippet()</span>
+<span class="sd"># Add missing contact keyopt and Archard Wear Model in workbench using a command snippet.</span>
+<span class="sd">AWM6 = &#39;&#39;&#39;keyopt,cid,9,5</span>
+<span class="sd">rmodif,cid,10,0.00</span>
+<span class="sd">rmodif,cid,23,0.001&#39;&#39;&#39;</span>
+<span class="sd">CMD6.AppendText(AWM6)</span>
+
+<span class="sd"># Add contact tool.</span>
+<span class="sd">#CONT_TOOL = CONN_GRP.AddContactTool()</span>
+<span class="sd">#CONT_TOOL.AddPenetration()</span>
+<span class="sd">#CONT_TOOL.AddStatus()</span>
+<span class="sd">#CONT_TOOL.GenerateInitialContactResults()</span>
+
+<span class="sd"># Generate mesh.</span>
+
+<span class="sd">Hex_Method = MSH.AddAutomaticMethod()</span>
+<span class="sd">Hex_Method.Location = all_bodies</span>
+<span class="sd">Hex_Method.Method = MethodType.HexDominant</span>
+
+<span class="sd">BODY_SIZING1=MSH.AddSizing()</span>
+<span class="sd">BODY_SIZING1.Location=bodies_5</span>
+<span class="sd">BODY_SIZING1.ElementSize = Quantity(15, &quot;mm&quot;)</span>
+
+<span class="sd">BODY_SIZING2=MSH.AddSizing()</span>
+<span class="sd">BODY_SIZING2.Location=shank</span>
+<span class="sd">BODY_SIZING2.ElementSize = Quantity(7, &quot;mm&quot;)</span>
+
+<span class="sd">Face_Meshing = MSH.AddFaceMeshing()</span>
+<span class="sd">Face_Meshing.Location = shank_face</span>
+<span class="sd">Face_Meshing.MappedMesh = False</span>
+
+<span class="sd">Sweep_Method = MSH.AddAutomaticMethod()</span>
+<span class="sd">Sweep_Method.Location = shank</span>
+<span class="sd">Sweep_Method.Method = MethodType.Sweep</span>
+<span class="sd">Sweep_Method.SourceTargetSelection = 2</span>
+<span class="sd">Sweep_Method.SourceLocation = shank_face</span>
+<span class="sd">Sweep_Method.TargetLocation = shank_face2</span>
+
+<span class="sd">MSH.GenerateMesh()</span>
+
+<span class="sd"># Set up analysis settings.</span>
+<span class="sd">STAT_STRUC_ANA_SETTING.NumberOfSteps = 4</span>
+<span class="sd">step_index_list = [1]</span>
+<span class="sd">with Transaction():</span>
+<span class="sd">    for step_index in step_index_list:</span>
+<span class="sd">        STAT_STRUC_ANA_SETTING.SetAutomaticTimeStepping(step_index, AutomaticTimeStepping.Off)</span>
+<span class="sd">STAT_STRUC_ANA_SETTING.Activate()</span>
+<span class="sd">step_index_list = [1]</span>
+<span class="sd">with Transaction():</span>
+<span class="sd">    for step_index in step_index_list:</span>
+<span class="sd">        STAT_STRUC_ANA_SETTING.SetNumberOfSubSteps(step_index, 2)</span>
+<span class="sd">STAT_STRUC_ANA_SETTING.Activate()</span>
+<span class="sd">STAT_STRUC_ANA_SETTING.SolverType = SolverType.Direct</span>
+<span class="sd">STAT_STRUC_ANA_SETTING.SolverPivotChecking = SolverPivotChecking.Off</span>
+
+
+<span class="sd"># Insert loading and BC.</span>
+<span class="sd">FIX_SUP=STAT_STRUC.AddFixedSupport()</span>
+<span class="sd">FIX_SUP.Location=block2_surface</span>
+
+<span class="sd">Tabular_Force = STAT_STRUC.AddForce()</span>
+<span class="sd">Tabular_Force.Location = bottom_surface</span>
+<span class="sd">Tabular_Force.DefineBy = LoadDefineBy.Components</span>
+<span class="sd">Tabular_Force.XComponent.Inputs[0].DiscreteValues = [Quantity(&#39;0[s]&#39;),Quantity(&#39;1[s]&#39;), \</span>
+<span class="sd">    Quantity(&#39;2[s]&#39;),Quantity(&#39;3[s]&#39;),Quantity(&#39;4[s]&#39;)]</span>
+<span class="sd">Tabular_Force.XComponent.Output.DiscreteValues = [Quantity(&#39;0[N]&#39;),Quantity(&#39;0[N]&#39;), \</span>
+<span class="sd">    Quantity(&#39;5.e+005[N]&#39;),Quantity(&#39;0[N]&#39;),Quantity(&#39;-5.e+005[N]&#39;)]</span>
+
+<span class="sd">Bolt_Pretension = STAT_STRUC.AddBoltPretension()</span>
+<span class="sd">Bolt_Pretension.Location = shank_surface</span>
+<span class="sd">Bolt_Pretension.Preload.Inputs[0].DiscreteValues = [Quantity(&#39;1[s]&#39;),Quantity(&#39;2[s]&#39;), \</span>
+<span class="sd">    Quantity(&#39;3[s]&#39;),Quantity(&#39;4[s]&#39;)]</span>
+<span class="sd">Bolt_Pretension.Preload.Output.DiscreteValues = [Quantity(&#39;6.1363e+005[N]&#39;), \</span>
+<span class="sd">    Quantity(&#39;0 [N]&#39;),Quantity(&#39;0 [N]&#39;),Quantity(&#39;0[N]&#39;)]</span>
+<span class="sd">Bolt_Pretension.SetDefineBy(2,BoltLoadDefineBy.Lock)</span>
+<span class="sd">Bolt_Pretension.SetDefineBy(3,BoltLoadDefineBy.Lock)</span>
+<span class="sd">Bolt_Pretension.SetDefineBy(4,BoltLoadDefineBy.Lock)</span>
+
+<span class="sd"># Insert results.</span>
+<span class="sd">Post_Contact_Tool = STAT_STRUC_SOLN.AddContactTool()</span>
+<span class="sd">Post_Contact_Tool.ScopingMethod = GeometryDefineByType.Worksheet</span>
+
+<span class="sd">Bolt_Tool = STAT_STRUC_SOLN.AddBoltTool()</span>
+<span class="sd">Bolt_Working_Load = Bolt_Tool.AddWorkingLoad()</span>
+
+<span class="sd">Total_Deformation = STAT_STRUC_SOLN.AddTotalDeformation()</span>
+<span class="sd">Equivalent_stress_1 = STAT_STRUC_SOLN.AddEquivalentStress()</span>
+<span class="sd">Equivalent_stress_2 = STAT_STRUC_SOLN.AddEquivalentStress()</span>
+<span class="sd">Equivalent_stress_2.Location = shank</span>
+<span class="sd">Force_Reaction_1 = STAT_STRUC_SOLN.AddForceReaction()</span>
+<span class="sd">Force_Reaction_1.BoundaryConditionSelection = FIX_SUP</span>
+<span class="sd">Moment_Reaction_2 = STAT_STRUC_SOLN.AddMomentReaction()</span>
+<span class="sd">Moment_Reaction_2.BoundaryConditionSelection = FIX_SUP</span>
+
+<span class="sd"># Set number of processors to 6 using DANSYS. (Optional)</span>
+<span class="sd"># Num_Cores = STAT_STRUC.SolveConfiguration.SolveProcessSettings.MaxNumberOfCores</span>
+<span class="sd"># STAT_STRUC.SolveConfiguration.SolveProcessSettings.MaxNumberOfCores = 6</span>
+
+<span class="sd"># Solve and validate the results.</span>
+<span class="sd">STAT_STRUC_SOLN.Solve(True)</span>
+<span class="sd">STAT_STRUC_SS=STAT_STRUC_SOLN.Status</span>
+
+<span class="sd"># Set the isometric view and zoom to fit.</span>
+<span class="sd">cam = Graphics.Camera</span>
+<span class="sd">cam.SetSpecificViewOrientation(ViewOrientationType.Iso)</span>
+<span class="sd">cam.SetFit()</span>
+
+<span class="sd">mechdir = STAT_STRUC.Children[0].SolverFilesDirectory</span>
+<span class="sd">export_path = os.path.join(mechdir, &quot;contact_status.png&quot;)</span>
+<span class="sd">Post_Contact_Tool.Children[0].Activate()</span>
+<span class="sd">Graphics.ExportImage(export_path, GraphicsImageExportFormat.PNG)</span>
+
+<span class="sd">my_results_details = {</span>
+<span class="sd">    &quot;Total_Deformation&quot;: str(Total_Deformation.Maximum),</span>
+<span class="sd">    &quot;Equivalent_Stress1&quot;: str(Equivalent_stress_1.Maximum),</span>
+<span class="sd">    &quot;Equivalent_Stress2&quot;: str(Equivalent_stress_2.Maximum),</span>
+<span class="sd">}</span>
+
+<span class="sd">json.dumps(my_results_details)</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">output</span></a><span class="p">)</span>
+</pre></div>
+</div>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>{&quot;Equivalent_Stress1&quot;: &quot;2326.1378209967233 [MPa]&quot;, &quot;Total_Deformation&quot;: &quot;0.39078294290300009 [mm]&quot;, &quot;Equivalent_Stress2&quot;: &quot;2326.1378209967233 [MPa]&quot;}
+</pre></div>
+</div>
+</section>
+<section id="initialize-the-variable-needed-for-the-image-directory">
+<h2>Initialize the variable needed for the image directory<a class="headerlink" href="#initialize-the-variable-needed-for-the-image-directory" title="Link to this heading">#</a></h2>
+<p>Set the <code class="docutils literal notranslate"><span class="pre">image_dir</span></code> variable for later use.
+Make the variable compatible for Windows, Linux, and Docker containers.</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="c1"># image_directory_modified = project_directory.replace(&quot;\\&quot;, &quot;\\\\&quot;)</span>
+<span class="n">mechanical</span><span class="o">.</span><span class="n">run_python_script</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;image_dir=ExtAPI.DataModel.AnalysisList[0].WorkingDir&quot;</span><span class="p">)</span>
+
+
+<span class="c1"># Verify the path for image directory.</span>
+<a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">result_image_dir_server</span></a> <span class="o">=</span> <span class="n">mechanical</span><span class="o">.</span><span class="n">run_python_script</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;image_dir&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Images are stored on the server at: </span><span class="si">{</span><a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">result_image_dir_server</span></a><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Images are stored on the server at: /tmp/ANSYS.root.1/AnsysMechCAEB/Project_Mech_Files/StaticStructural/
+</pre></div>
+</div>
+</section>
+<section id="download-the-image-and-plot">
+<h2>Download the image and plot<a class="headerlink" href="#download-the-image-and-plot" title="Link to this heading">#</a></h2>
+<p>Download one image file from the server to the current working directory and plot
+using matplotlib.</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_image_path</span><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">image_name</span></a><span class="p">):</span>
+    <span class="k">return</span> <a href="https://docs.python.org/3/library/os.path.html#os.path.join" title="os.path.join" class="sphx-glr-backref-module-os-path sphx-glr-backref-type-py-function"><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span></a><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">result_image_dir_server</span></a><span class="p">,</span> <a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">image_name</span></a><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">display_image</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Printing </span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s2"> using matplotlib&quot;</span><span class="p">)</span>
+    <span class="n">image1</span> <span class="o">=</span> <a href="https://matplotlib.org/stable/api/image_api.html#matplotlib.image.imread" title="matplotlib.image.imread" class="sphx-glr-backref-module-matplotlib-image sphx-glr-backref-type-py-function"><span class="n">mpimg</span><span class="o">.</span><span class="n">imread</span></a><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+    <a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.figure.html#matplotlib.pyplot.figure" title="matplotlib.pyplot.figure" class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function"><span class="n">plt</span><span class="o">.</span><span class="n">figure</span></a><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">15</span><span class="p">))</span>
+    <a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.axis.html#matplotlib.pyplot.axis" title="matplotlib.pyplot.axis" class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function"><span class="n">plt</span><span class="o">.</span><span class="n">axis</span></a><span class="p">(</span><span class="s2">&quot;off&quot;</span><span class="p">)</span>
+    <a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.imshow.html#matplotlib.pyplot.imshow" title="matplotlib.pyplot.imshow" class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function"><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span></a><span class="p">(</span><span class="n">image1</span><span class="p">)</span>
+    <a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.show.html#matplotlib.pyplot.show" title="matplotlib.pyplot.show" class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function"><span class="n">plt</span><span class="o">.</span><span class="n">show</span></a><span class="p">()</span>
+
+
+<a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">image_name</span></a> <span class="o">=</span> <span class="s2">&quot;contact_status.png&quot;</span>
+<a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">image_path_server</span></a> <span class="o">=</span> <span class="n">get_image_path</span><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">image_name</span></a><span class="p">)</span>
+
+<span class="k">if</span> <a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">image_path_server</span></a> <span class="o">!=</span> <span class="s2">&quot;&quot;</span><span class="p">:</span>
+    <a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">current_working_directory</span></a> <span class="o">=</span> <a href="https://docs.python.org/3/library/os.html#os.getcwd" title="os.getcwd" class="sphx-glr-backref-module-os sphx-glr-backref-type-py-function"><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span></a><span class="p">()</span>
+
+    <a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">local_file_path_list</span></a> <span class="o">=</span> <span class="n">mechanical</span><span class="o">.</span><span class="n">download</span><span class="p">(</span>
+        <a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">image_path_server</span></a><span class="p">,</span> <span class="n">target_dir</span><span class="o">=</span><a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">current_working_directory</span></a>
+    <span class="p">)</span>
+    <a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">image_local_path</span></a> <span class="o">=</span> <a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">local_file_path_list</span></a><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Local image path : </span><span class="si">{</span><a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">image_local_path</span></a><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="n">display_image</span><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">image_local_path</span></a><span class="p">)</span>
+</pre></div>
+</div>
+<img src="../../_images/sphx_glr_example_06_bolt_pretension_001.png" srcset="../../_images/sphx_glr_example_06_bolt_pretension_001.png" alt="example 06 bolt pretension" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Downloading dns:///127.0.0.1:10000:/tmp/ANSYS.root.1/AnsysMechCAEB/Project_Mech_Files/StaticStructural/contact_status.png to /home/runner/work/pymechanical-examples/pymechanical-examples/examples/basic/contact_status.png:   0%|          | 0.00/77.8k [00:00&lt;?, ?B/s]
+Downloading dns:///127.0.0.1:10000:/tmp/ANSYS.root.1/AnsysMechCAEB/Project_Mech_Files/StaticStructural/contact_status.png to /home/runner/work/pymechanical-examples/pymechanical-examples/examples/basic/contact_status.png: 100%|██████████| 77.8k/77.8k [00:00&lt;00:00, 6.07MB/s]
+Local image path : /home/runner/work/pymechanical-examples/pymechanical-examples/examples/basic/contact_status.png
+Printing /home/runner/work/pymechanical-examples/pymechanical-examples/examples/basic/contact_status.png using matplotlib
+</pre></div>
+</div>
+</section>
+<section id="download-output-file-from-solve-and-print-contents">
+<h2>Download output file from solve and print contents<a class="headerlink" href="#download-output-file-from-solve-and-print-contents" title="Link to this heading">#</a></h2>
+<p>Download the <code class="docutils literal notranslate"><span class="pre">solve.out</span></code> file from the server to the current working
+directory and print the contents. Remove the <code class="docutils literal notranslate"><span class="pre">solve.out</span></code> file.</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_solve_out_path</span><span class="p">(</span><span class="n">mechanical</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Get the solve out path and return.&quot;&quot;&quot;</span>
+    <a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">solve_out_path</span></a> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+    <span class="k">for</span> <span class="n">file_path</span> <span class="ow">in</span> <span class="n">mechanical</span><span class="o">.</span><span class="n">list_files</span><span class="p">():</span>
+        <span class="k">if</span> <span class="n">file_path</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;solve.out&quot;</span><span class="p">)</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+            <a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">solve_out_path</span></a> <span class="o">=</span> <span class="n">file_path</span>
+            <span class="k">break</span>
+
+    <span class="k">return</span> <a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">solve_out_path</span></a>
+
+
+<span class="k">def</span> <span class="nf">write_file_contents_to_console</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Write file contents to console.&quot;&quot;&quot;</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s2">&quot;rt&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">file</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">line</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+
+
+<a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">solve_out_path</span></a> <span class="o">=</span> <span class="n">get_solve_out_path</span><span class="p">(</span><span class="n">mechanical</span><span class="p">)</span>
+
+<span class="k">if</span> <a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">solve_out_path</span></a> <span class="o">!=</span> <span class="s2">&quot;&quot;</span><span class="p">:</span>
+    <a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">current_working_directory</span></a> <span class="o">=</span> <a href="https://docs.python.org/3/library/os.html#os.getcwd" title="os.getcwd" class="sphx-glr-backref-module-os sphx-glr-backref-type-py-function"><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span></a><span class="p">()</span>
+
+    <span class="n">mechanical</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">solve_out_path</span></a><span class="p">,</span> <span class="n">target_dir</span><span class="o">=</span><a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">current_working_directory</span></a><span class="p">)</span>
+    <a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">solve_out_local_path</span></a> <span class="o">=</span> <a href="https://docs.python.org/3/library/os.path.html#os.path.join" title="os.path.join" class="sphx-glr-backref-module-os-path sphx-glr-backref-type-py-function"><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span></a><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">current_working_directory</span></a><span class="p">,</span> <span class="s2">&quot;solve.out&quot;</span><span class="p">)</span>
+
+    <span class="n">write_file_contents_to_console</span><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">solve_out_local_path</span></a><span class="p">)</span>
+
+    <a href="https://docs.python.org/3/library/os.html#os.remove" title="os.remove" class="sphx-glr-backref-module-os sphx-glr-backref-type-py-function"><span class="n">os</span><span class="o">.</span><span class="n">remove</span></a><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">solve_out_local_path</span></a><span class="p">)</span>
+</pre></div>
+</div>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Downloading dns:///127.0.0.1:10000:/tmp/ANSYS.root.1/AnsysMechCAEB/Project_Mech_Files/StaticStructural/solve.out to /home/runner/work/pymechanical-examples/pymechanical-examples/examples/basic/solve.out:   0%|          | 0.00/79.7k [00:00&lt;?, ?B/s]
+Downloading dns:///127.0.0.1:10000:/tmp/ANSYS.root.1/AnsysMechCAEB/Project_Mech_Files/StaticStructural/solve.out to /home/runner/work/pymechanical-examples/pymechanical-examples/examples/basic/solve.out: 100%|██████████| 79.7k/79.7k [00:00&lt;00:00, 319MB/s]
+
+ Ansys Mechanical Enterprise
+
+
+ *------------------------------------------------------------------*
+ |                                                                  |
+ |   W E L C O M E   T O   T H E   A N S Y S (R)  P R O G R A M     |
+ |                                                                  |
+ *------------------------------------------------------------------*
+
+
+
+
+ ***************************************************************
+ *         ANSYS MAPDL 2024 R1          LEGAL NOTICES          *
+ ***************************************************************
+ *                                                             *
+ * Copyright 1971-2024 Ansys, Inc.  All rights reserved.       *
+ * Unauthorized use, distribution or duplication is            *
+ * prohibited.                                                 *
+ *                                                             *
+ * Ansys is a registered trademark of Ansys, Inc. or its       *
+ * subsidiaries in the United States or other countries.       *
+ * See the Ansys, Inc. online documentation or the Ansys, Inc. *
+ * documentation CD or online help for the complete Legal      *
+ * Notice.                                                     *
+ *                                                             *
+ ***************************************************************
+ *                                                             *
+ * THIS ANSYS SOFTWARE PRODUCT AND PROGRAM DOCUMENTATION       *
+ * INCLUDE TRADE SECRETS AND CONFIDENTIAL AND PROPRIETARY      *
+ * PRODUCTS OF ANSYS, INC., ITS SUBSIDIARIES, OR LICENSORS.    *
+ * The software products and documentation are furnished by    *
+ * Ansys, Inc. or its subsidiaries under a software license    *
+ * agreement that contains provisions concerning               *
+ * non-disclosure, copying, length and nature of use,          *
+ * compliance with exporting laws, warranties, disclaimers,    *
+ * limitations of liability, and remedies, and other           *
+ * provisions.  The software products and documentation may be *
+ * used, disclosed, transferred, or copied only in accordance  *
+ * with the terms and conditions of that software license      *
+ * agreement.                                                  *
+ *                                                             *
+ * Ansys, Inc. is a UL registered                              *
+ * ISO 9001:2015 company.                                      *
+ *                                                             *
+ ***************************************************************
+ *                                                             *
+ * This product is subject to U.S. laws governing export and   *
+ * re-export.                                                  *
+ *                                                             *
+ * For U.S. Government users, except as specifically granted   *
+ * by the Ansys, Inc. software license agreement, the use,     *
+ * duplication, or disclosure by the United States Government  *
+ * is subject to restrictions stated in the Ansys, Inc.        *
+ * software license agreement and FAR 12.212 (for non-DOD      *
+ * licenses).                                                  *
+ *                                                             *
+ ***************************************************************
+
+ 2024 R1
+
+ Point Releases and Patches installed:
+
+ Ansys, Inc. License Manager 2024 R1
+ Structures 2024 R1
+ LS-DYNA 2024 R1
+ Mechanical Products 2024 R1
+
+
+          *****  MAPDL COMMAND LINE ARGUMENTS  *****
+  BATCH MODE REQUESTED (-b)    = NOLIST
+  INPUT FILE COPY MODE (-c)    = COPY
+  DISTRIBUTED MEMORY PARALLEL REQUESTED
+       4 PARALLEL PROCESSES REQUESTED WITH SINGLE THREAD PER PROCESS
+    TOTAL OF     4 CORES REQUESTED
+  INPUT FILE NAME              = /tmp/ANSYS.root.1/AnsysMechCAEB/Project_Mech_Files/StaticStructural/dummy.dat
+  OUTPUT FILE NAME             = /tmp/ANSYS.root.1/AnsysMechCAEB/Project_Mech_Files/StaticStructural/solve.out
+  START-UP FILE MODE           = NOREAD
+  STOP FILE MODE               = NOREAD
+
+ RELEASE= 2024 R1              BUILD= 24.1      UP20231106   VERSION=LINUX x64
+ CURRENT JOBNAME=file0  06:37:15  JUL 02, 2024 CP=      0.230
+
+
+ PARAMETER _DS_PROGRESS =     999.0000000
+
+ /INPUT FILE= ds.dat  LINE=       0
+
+
+
+ *** NOTE ***                            CP =       0.290   TIME= 06:37:15
+ The /CONFIG,NOELDB command is not valid in a distributed memory
+ parallel solution.  Command is ignored.
+
+ *GET  _WALLSTRT  FROM  ACTI  ITEM=TIME WALL  VALUE=  6.62083333
+
+ TITLE=
+ --Static Structural
+
+  ACT Extensions:
+      LSDYNA, 2024.1
+      5f463412-bd3e-484b-87e7-cbc0a665e474, wbex
+
+
+ SET PARAMETER DIMENSIONS ON  _WB_PROJECTSCRATCH_DIR
+  TYPE=STRI  DIMENSIONS=      248        1        1
+
+ PARAMETER _WB_PROJECTSCRATCH_DIR(1) = /tmp/ANSYS.root.1/AnsysMechCAEB/Project_Mech_Files/StaticStructural/
+
+ SET PARAMETER DIMENSIONS ON  _WB_SOLVERFILES_DIR
+  TYPE=STRI  DIMENSIONS=      248        1        1
+
+ PARAMETER _WB_SOLVERFILES_DIR(1) = /tmp/ANSYS.root.1/AnsysMechCAEB/Project_Mech_Files/StaticStructural/
+
+ SET PARAMETER DIMENSIONS ON  _WB_USERFILES_DIR
+  TYPE=STRI  DIMENSIONS=      248        1        1
+
+ PARAMETER _WB_USERFILES_DIR(1) = /tmp/ANSYS.root.1/AnsysMechCAEB/Project_Mech_Files/UserFiles/
+ --- Data in consistent NMM units. See Solving Units in the help system for more
+
+ MPA UNITS SPECIFIED FOR INTERNAL
+  LENGTH      = MILLIMETERS (mm)
+  MASS        = TONNE (Mg)
+  TIME        = SECONDS (sec)
+  TEMPERATURE = CELSIUS (C)
+  TOFFSET     = 273.0
+  FORCE       = NEWTON (N)
+  HEAT        = MILLIJOULES (mJ)
+
+ INPUT  UNITS ARE ALSO SET TO MPA
+
+ *** MAPDL - ENGINEERING ANALYSIS SYSTEM  RELEASE 2024 R1          24.1     ***
+ Ansys Mechanical Enterprise
+ 00000000  VERSION=LINUX x64     06:37:15  JUL 02, 2024 CP=      0.294
+
+ --Static Structural
+
+
+
+          ***** MAPDL ANALYSIS DEFINITION (PREP7) *****
+ *********** Nodes for the whole assembly ***********
+ *********** Nodes for all Remote Points ***********
+ *********** Elements for Body 1 &quot;Solid&quot; ***********
+ *********** Elements for Body 3 &quot;Solid&quot; ***********
+ *********** Elements for Body 5 &quot;Solid&quot; ***********
+ *********** Elements for Body 7 &quot;Solid&quot; ***********
+ *********** Elements for Body 9 &quot;Solid&quot; ***********
+ *********** Elements for Body 11 &quot;Solid&quot; ***********
+ *********** Send User Defined Coordinate System(s) ***********
+ *********** Set Reference Temperature ***********
+ *********** Send Materials ***********
+ *********** Create Contact &quot;Contact Region&quot; ***********
+             Real Constant Set For Above Contact Is 13 &amp; 12
+ *********** Create Contact &quot;Contact Region 2&quot; ***********
+             Real Constant Set For Above Contact Is 15 &amp; 14
+ *********** Create Contact &quot;Contact Region 3&quot; ***********
+             Real Constant Set For Above Contact Is 17 &amp; 16
+ *********** Create Contact &quot;Contact Region 4&quot; ***********
+             Real Constant Set For Above Contact Is 19 &amp; 18
+ *********** Create Contact &quot;Contact Region 5&quot; ***********
+             Real Constant Set For Above Contact Is 21 &amp; 20
+ *********** Create Contact &quot;Contact Region 6&quot; ***********
+             Real Constant Set For Above Contact Is 23 &amp; 22
+ *********** Send Named Selection as Node Component ***********
+ *********** Send Named Selection as Node Component ***********
+ *********** Send Named Selection as Node Component ***********
+ *********** Send Named Selection as Node Component ***********
+ *********** Send Named Selection as Node Component ***********
+ *********** Send Named Selection as Node Component ***********
+ *********** Send Named Selection as Node Component ***********
+ *********** Send Named Selection as Node Component ***********
+ *********** Send Named Selection as Node Component ***********
+ *********** Send Named Selection as Node Component ***********
+ *********** Send Named Selection as Node Component ***********
+ *********** Send Named Selection as Node Component ***********
+ *********** Send Named Selection as Element Component ***********
+ *********** Send Named Selection as Element Component ***********
+ *********** Send Named Selection as Element Component ***********
+ *********** Send Named Selection as Node Component ***********
+ *********** Send Named Selection as Node Component ***********
+ *********** Send Named Selection as Node Component ***********
+ *********** Send Named Selection as Node Component ***********
+ *********** Send Named Selection as Node Component ***********
+ *********** Fixed Supports ***********
+ *********** Define Force Using Surface Effect Elements ***********
+ *********** Create Bolt Pretension &quot;Bolt Pretension&quot; ***********
+  CREATE COMPONENT CMEBOLT  FROM PRETENSION ELEMENTS
+  CREATE COMPONENT CMNBOLT  FROM PRETENSION NODES
+
+
+ ***** ROUTINE COMPLETED *****  CP =         0.912
+
+
+ --- Number of total nodes = 20228
+ --- Number of contact elements = 4624
+ --- Number of spring elements = 0
+ --- Number of bearing elements = 0
+ --- Number of solid elements = 4340
+ --- Number of condensed parts = 0
+ --- Number of total elements = 9094
+
+ *GET  _WALLBSOL  FROM  ACTI  ITEM=TIME WALL  VALUE=  6.62083333
+ ****************************************************************************
+ *************************    SOLUTION       ********************************
+ ****************************************************************************
+
+ *****  MAPDL SOLUTION ROUTINE  *****
+
+
+ PERFORM A STATIC ANALYSIS
+  THIS WILL BE A NEW ANALYSIS
+
+ EQUATION PIVOT CHECKING LOGIC WILL BE DISABLED
+
+ PRINT EQUATION PIVOT INFO ONCE PER LOADSTEP
+
+ PARAMETER _THICKRATIO =    0.6670000000
+
+ USE SPARSE MATRIX DIRECT SOLVER
+
+ CONTACT INFORMATION PRINTOUT LEVEL       1
+
+ CHECK INITIAL OPEN/CLOSED STATUS OF SELECTED CONTACT ELEMENTS
+      AND LIST DETAILED CONTACT PAIR INFORMATION
+
+ SPLIT CONTACT SURFACES AT SOLVE PHASE
+
+    NUMBER OF SPLITTING TBD BY PROGRAM
+
+ DO NOT COMBINE ELEMENT MATRIX FILES (.emat) AFTER DISTRIBUTED PARALLEL SOLUTION
+
+ DO NOT COMBINE ELEMENT SAVE DATA FILES (.esav) AFTER DISTRIBUTED PARALLEL SOLUTION
+
+ NLDIAG: Nonlinear diagnostics CONT option is set to ON.
+         Writing frequency : each ITERATION.
+
+ DEFINE RESTART CONTROL FOR LOADSTEP LAST
+ AT FREQUENCY OF LAST AND NUMBER FOR OVERWRITE IS   -1
+
+ DELETE RESTART FILES OF ENDSTEP
+ ****************************************************
+ ******************* SOLVE FOR LS 1 OF 4 ****************
+
+ SELECT       FOR ITEM=TYPE COMPONENT=
+  IN RANGE        24 TO         24 STEP          1
+
+         98  ELEMENTS (OF       9094  DEFINED) SELECTED BY  ESEL  COMMAND.
+
+ SELECT      ALL NODES HAVING ANY ELEMENT IN ELEMENT SET.
+
+        337 NODES (OF      20228  DEFINED) SELECTED FROM
+       98 SELECTED ELEMENTS BY NSLE COMMAND.
+
+ SPECIFIED SURFACE LOAD PRES FOR ALL SELECTED ELEMENTS  LKEY =  1   KVAL = 1
+      SET ACCORDING TO TABLE PARAMETER = _LOADVARI153X
+
+ SPECIFIED SURFACE LOAD PRES FOR ALL SELECTED ELEMENTS  LKEY =  2   KVAL = 1
+     VALUES =     0.0000         0.0000         0.0000         0.0000
+
+ SPECIFIED SURFACE LOAD PRES FOR ALL SELECTED ELEMENTS  LKEY =  3   KVAL = 1
+     VALUES =     0.0000         0.0000         0.0000         0.0000
+
+ ALL SELECT   FOR ITEM=NODE COMPONENT=
+  IN RANGE         1 TO      20228 STEP          1
+
+      20228  NODES (OF      20228  DEFINED) SELECTED BY NSEL  COMMAND.
+
+ ALL SELECT   FOR ITEM=ELEM COMPONENT=
+  IN RANGE         1 TO      11745 STEP          1
+
+       9094  ELEMENTS (OF       9094  DEFINED) SELECTED BY  ESEL  COMMAND.
+
+ PRINTOUT RESUMED BY /GOP
+
+ SPECIFIED NODAL LOAD FX   FOR SELECTED NODES     20098 TO    20098 BY        1
+  REAL=  613630.000       IMAG=  0.00000000
+
+ DO NOT USE AUTOMATIC TIME STEPPING THIS LOAD STEP
+
+ USE       2 SUBSTEPS INITIALLY THIS LOAD STEP FOR ALL  DEGREES OF FREEDOM
+ FOR AUTOMATIC TIME STEPPING:
+   USE      2 SUBSTEPS AS A MAXIMUM
+   USE      2 SUBSTEPS AS A MINIMUM
+
+ TIME=  1.0000
+
+ ERASE THE CURRENT DATABASE OUTPUT CONTROL TABLE.
+
+
+ WRITE ALL  ITEMS TO THE DATABASE WITH A FREQUENCY OF NONE
+   FOR ALL APPLICABLE ENTITIES
+
+ WRITE NSOL ITEMS TO THE DATABASE WITH A FREQUENCY OF ALL
+   FOR ALL APPLICABLE ENTITIES
+
+ WRITE RSOL ITEMS TO THE DATABASE WITH A FREQUENCY OF ALL
+   FOR ALL APPLICABLE ENTITIES
+
+ WRITE EANG ITEMS TO THE DATABASE WITH A FREQUENCY OF ALL
+   FOR ALL APPLICABLE ENTITIES
+
+ WRITE ETMP ITEMS TO THE DATABASE WITH A FREQUENCY OF ALL
+   FOR ALL APPLICABLE ENTITIES
+
+ WRITE VENG ITEMS TO THE DATABASE WITH A FREQUENCY OF ALL
+   FOR ALL APPLICABLE ENTITIES
+
+ WRITE STRS ITEMS TO THE DATABASE WITH A FREQUENCY OF ALL
+   FOR ALL APPLICABLE ENTITIES
+
+ WRITE EPEL ITEMS TO THE DATABASE WITH A FREQUENCY OF ALL
+   FOR ALL APPLICABLE ENTITIES
+
+ WRITE EPPL ITEMS TO THE DATABASE WITH A FREQUENCY OF ALL
+   FOR ALL APPLICABLE ENTITIES
+
+ WRITE CONT ITEMS TO THE DATABASE WITH A FREQUENCY OF ALL
+   FOR ALL APPLICABLE ENTITIES
+
+ *GET  ANSINTER_  FROM  ACTI  ITEM=INT        VALUE=  0.00000000
+
+ *IF  ANSINTER_                         ( =   0.00000     )  NE
+      0                                 ( =   0.00000     )  THEN
+
+ *ENDIF
+
+ *** NOTE ***                            CP =       1.122   TIME= 06:37:15
+ The automatic domain decomposition logic has selected the MESH domain
+ decomposition method with 4 processes per solution.
+
+ *****  MAPDL SOLVE    COMMAND  *****
+
+ *** WARNING ***                         CP =       1.158   TIME= 06:37:15
+ Element shape checking is currently inactive.  Issue SHPP,ON or
+ SHPP,WARN to reactivate, if desired.
+
+ *** NOTE ***                            CP =       1.210   TIME= 06:37:15
+ The model data was checked and warning messages were found.
+  Please review output or errors file (
+ /tmp/ANSYS.root.1/AnsysMechCAEB/Project_Mech_Files/StaticStructural/fil
+ le0.err ) for these warning messages.
+
+ *** SELECTION OF ELEMENT TECHNOLOGIES FOR APPLICABLE ELEMENTS ***
+      --- GIVE SUGGESTIONS AND RESET THE KEY OPTIONS ---
+
+ ELEMENT TYPE         1 IS SOLID187. IT IS NOT ASSOCIATED WITH FULLY INCOMPRESSIBLE
+ HYPERELASTIC MATERIALS. NO SUGGESTION IS AVAILABLE AND NO RESETTING IS NEEDED.
+
+ ELEMENT TYPE         2 IS SOLID186. KEYOPT(2)=0 IS SUGGESTED AND HAS BEEN RESET.
+  KEYOPT(1-12)=    0    0    0    0    0    0    0    0    0    0    0    0
+
+ ELEMENT TYPE         3 IS SOLID187. IT IS NOT ASSOCIATED WITH FULLY INCOMPRESSIBLE
+ HYPERELASTIC MATERIALS. NO SUGGESTION IS AVAILABLE AND NO RESETTING IS NEEDED.
+
+ ELEMENT TYPE         4 IS SOLID186. KEYOPT(2)=0 IS SUGGESTED AND HAS BEEN RESET.
+  KEYOPT(1-12)=    0    0    0    0    0    0    0    0    0    0    0    0
+
+ ELEMENT TYPE         5 IS SOLID187. IT IS NOT ASSOCIATED WITH FULLY INCOMPRESSIBLE
+ HYPERELASTIC MATERIALS. NO SUGGESTION IS AVAILABLE AND NO RESETTING IS NEEDED.
+
+ ELEMENT TYPE         6 IS SOLID186. KEYOPT(2)=0 IS SUGGESTED AND HAS BEEN RESET.
+  KEYOPT(1-12)=    0    0    0    0    0    0    0    0    0    0    0    0
+
+ ELEMENT TYPE         7 IS SOLID187. IT IS NOT ASSOCIATED WITH FULLY INCOMPRESSIBLE
+ HYPERELASTIC MATERIALS. NO SUGGESTION IS AVAILABLE AND NO RESETTING IS NEEDED.
+
+ ELEMENT TYPE         8 IS SOLID186. KEYOPT(2)=0 IS SUGGESTED AND HAS BEEN RESET.
+  KEYOPT(1-12)=    0    0    0    0    0    0    0    0    0    0    0    0
+
+ ELEMENT TYPE         9 IS SOLID187. IT IS NOT ASSOCIATED WITH FULLY INCOMPRESSIBLE
+ HYPERELASTIC MATERIALS. NO SUGGESTION IS AVAILABLE AND NO RESETTING IS NEEDED.
+
+ ELEMENT TYPE        10 IS SOLID186. KEYOPT(2)=0 IS SUGGESTED AND HAS BEEN RESET.
+  KEYOPT(1-12)=    0    0    0    0    0    0    0    0    0    0    0    0
+
+ ELEMENT TYPE        11 IS SOLID186. KEYOPT(2)=0 IS SUGGESTED AND HAS BEEN RESET.
+  KEYOPT(1-12)=    0    0    0    0    0    0    0    0    0    0    0    0
+
+
+
+ *** MAPDL - ENGINEERING ANALYSIS SYSTEM  RELEASE 2024 R1          24.1     ***
+ Ansys Mechanical Enterprise
+ 00000000  VERSION=LINUX x64     06:37:15  JUL 02, 2024 CP=      1.226
+
+ --Static Structural
+
+
+
+                       S O L U T I O N   O P T I O N S
+
+   PROBLEM DIMENSIONALITY. . . . . . . . . . . . .3-D
+   DEGREES OF FREEDOM. . . . . . UX   UY   UZ
+   ANALYSIS TYPE . . . . . . . . . . . . . . . . .STATIC (STEADY-STATE)
+   OFFSET TEMPERATURE FROM ABSOLUTE ZERO . . . . .  273.15
+   EQUATION SOLVER OPTION. . . . . . . . . . . . .SPARSE
+   NEWTON-RAPHSON OPTION . . . . . . . . . . . . .PROGRAM CHOSEN
+   GLOBALLY ASSEMBLED MATRIX . . . . . . . . . . .SYMMETRIC
+
+ *** WARNING ***                         CP =       1.275   TIME= 06:37:15
+ Material number 24 (used by element 11518) should normally have at
+ least one MP or one TB type command associated with it.  Output of
+ energy by material may not be available.
+
+ *** NOTE ***                            CP =       1.315   TIME= 06:37:15
+ The step data was checked and warning messages were found.
+  Please review output or errors file (
+ /tmp/ANSYS.root.1/AnsysMechCAEB/Project_Mech_Files/StaticStructural/fil
+ le0.err ) for these warning messages.
+
+ *** NOTE ***                            CP =       1.315   TIME= 06:37:15
+ This nonlinear analysis defaults to using the full Newton-Raphson
+ solution procedure.  This can be modified using the NROPT command.
+
+ CHECK INITIAL OPEN/CLOSED STATUS OF SELECTED CONTACT ELEMENTS
+      AND LIST DETAILED CONTACT PAIR INFORMATION
+ *WARNING*: Some MPC/Lagrange based elements (e.g.7472) in real constant
+ set 15 overlap with other MPC/Lagrange based elements (e.g.9462) in
+ real constant set 21 which can cause overconstraint.
+
+ *** WARNING ***                         CP =       3.140   TIME= 06:37:16
+ Overconstraint may occur for Lagrange multiplier or MPC based contact
+ algorithm.
+
+ *** WARNING ***                         CP =       3.140   TIME= 06:37:16
+ Certain contact elements (for example 9453 &amp; 9390) overlap with other.
+
+    1970 CONTACT ELEMENTS &amp;     293 TARGET ELEMENTS ARE UNSELECTED FOR PREPARATION OF          SPLITTING.
+       6 CONTACT PAIRS ARE UNSELECTED.
+
+ *** NOTE ***                            CP =       3.205   TIME= 06:37:16
+ The maximum number of contact elements in any single contact pair is
+ 100, which is smaller than the optimal domain size of 439 elements for
+ the given number of CPU domains (4).  Therefore, no contact pairs are
+ being split by the CNCH,DMP logic.
+
+ BECAUSE SPLIT WAS NOT DONE FOR CONNECT REGION(S), UNSELECTED ELEMENTS ARE REVERTED (SELECTED).
+ *WARNING*: Some MPC/Lagrange based elements (e.g.7472) in real constant
+ set 15 overlap with other MPC/Lagrange based elements (e.g.9462) in
+ real constant set 21 which can cause overconstraint.
+
+ *** NOTE ***                            CP =       5.031   TIME= 06:37:17
+ Symmetric Deformable- deformable contact pair identified by real
+ constant set 12 and contact element type 12 has been set up.  The
+ companion pair has real constant set ID 13.  Both pairs should have
+ the same behavior.
+ *WARNING*: The contact pairs have similar mesh patterns which can cause
+ overconstraint.  MAPDL will deactivate the current pair and keep its
+ companion pair.
+ Contact algorithm: Augmented Lagrange method
+ Contact detection at: Gauss integration point
+ Contact stiffness factor FKN                  1.0000
+ The resulting initial contact stiffness      0.18596E+06
+ Default penetration tolerance factor FTOLN   0.10000
+ The resulting penetration tolerance           1.3503
+ Max. initial friction coefficient MU         0.20000
+ Default tangent stiffness factor FKT          1.0000
+
+ *** WARNING ***                         CP =       5.031   TIME= 06:37:17
+ It is highly recommended to set KEYOPT(10)=0 (update contact stiffness
+ at each iteration) in order to achieve better convergence.
+ Use constant contact stiffness
+ Default Max. friction stress TAUMAX          0.10000E+21
+ Average contact surface length                14.016
+ Average contact pair depth                    13.503
+ Average target surface length                 13.943
+ Default pinball region factor PINB            1.0000
+ The resulting pinball region                  13.503
+ Contact offset is included. Initial geometric penetration is excluded.
+
+ *** NOTE ***                            CP =       5.031   TIME= 06:37:17
+ Max.  Initial penetration 0 was detected between contact element 7092
+ and target element 7298.
+ ****************************************
+
+
+ *** NOTE ***                            CP =       5.031   TIME= 06:37:17
+ Symmetric Deformable- deformable contact pair identified by real
+ constant set 13 and contact element type 12 has been set up.  The
+ companion pair has real constant set ID 12.  Both pairs should have
+ the same behavior.
+ MAPDL will keep the current pair and deactivate its companion pair,
+ resulting in asymmetric contact.
+ Contact algorithm: Augmented Lagrange method
+ Contact detection at: Gauss integration point
+ Contact stiffness factor FKN                  1.0000
+ The resulting initial contact stiffness      0.18596E+06
+ Default penetration tolerance factor FTOLN   0.10000
+ The resulting penetration tolerance           1.3981
+ Max. initial friction coefficient MU         0.20000
+ Default tangent stiffness factor FKT          1.0000
+ *WARNING*: It is highly recommended to set KEYOPT(10)=0 (update contact
+ stiffness at each iteration) in order to achieve better convergence.
+ Use constant contact stiffness
+ Default Max. friction stress TAUMAX          0.10000E+21
+ Average contact surface length                14.007
+ Average contact pair depth                    13.981
+ Average target surface length                 13.942
+ Default pinball region factor PINB            1.0000
+ The resulting pinball region                  13.981
+ Contact offset is included. Initial geometric penetration is excluded.
+
+ *** NOTE ***                            CP =       5.031   TIME= 06:37:17
+ Max.  Initial penetration 0 was detected between contact element 7192
+ and target element 6994.
+ ****************************************
+
+
+ *** NOTE ***                            CP =       5.031   TIME= 06:37:17
+ Symmetric Deformable- deformable contact pair identified by real
+ constant set 14 and contact element type 14 has been set up.  The
+ companion pair has real constant set ID 15.  Both pairs should have
+ the same behavior.
+ MAPDL will keep the current pair and deactivate its companion pair,
+ resulting in asymmetric contact.
+ Auto surface constraint is built
+ Contact algorithm: MPC based approach
+
+ *** NOTE ***                            CP =       5.031   TIME= 06:37:17
+ Contact related postprocess items (ETABLE, pressure ...) are not
+ available.
+ Contact detection at: nodal point (normal to target surface)
+ MPC will be built internally to handle bonded contact.
+ Average contact surface length                13.549
+ Average contact pair depth                    10.157
+ Average target surface length                 6.3865
+ Default pinball region factor PINB           0.25000
+ The resulting pinball region                  2.5392
+ Default target edge extension factor TOLS     2.0000
+ Initial penetration/gap is excluded.
+ Bonded contact (always) is defined.
+
+ *** NOTE ***                            CP =       5.031   TIME= 06:37:17
+ Max.  Initial penetration 0.684961413 was detected between contact
+ element 7461 and target element 8483.
+ You may move entire target surface by : x= 3.574949984E-16, y=
+ -0.262123383, z= 0.632821831,to reduce initial penetration.
+ ****************************************
+
+
+ *** NOTE ***                            CP =       5.031   TIME= 06:37:17
+ Symmetric Deformable- deformable contact pair identified by real
+ constant set 15 and contact element type 14 has been set up.  The
+ companion pair has real constant set ID 14.  Both pairs should have
+ the same behavior.
+ MAPDL will deactivate the current pair and keep its companion pair,
+ resulting in asymmetric contact.
+ Auto surface constraint is built
+ Contact algorithm: MPC based approach
+
+ *** NOTE ***                            CP =       5.031   TIME= 06:37:17
+ Contact related postprocess items (ETABLE, pressure ...) are not
+ available.
+ Contact detection at: nodal point (normal to target surface)
+ MPC will be built internally to handle bonded contact.
+ Average contact surface length                6.4480
+ Average contact pair depth                    5.1166
+ Average target surface length                 13.389
+ Default pinball region factor PINB           0.25000
+ The resulting pinball region                  1.2792
+ Default target edge extension factor TOLS     2.0000
+ Initial penetration/gap is excluded.
+ Bonded contact (always) is defined.
+
+ *** NOTE ***                            CP =       5.032   TIME= 06:37:17
+ Max.  Initial penetration 0.675764679 was detected between contact
+ element 7655 and target element 7421.
+ You may move entire target surface by : x= 3.572417617E-02, y=
+ 0.237555949, z= -0.631623983,to reduce initial penetration.
+ *WARNING*: The geometric gap/penetration may be too large.  Increase
+ pinball radius if it is a true geometric gap/penetration.  Decrease
+ pinball if it is a false one.
+ ****************************************
+
+
+ *** NOTE ***                            CP =       5.032   TIME= 06:37:17
+ Symmetric Deformable- deformable contact pair identified by real
+ constant set 16 and contact element type 16 has been set up.  The
+ companion pair has real constant set ID 17.  Both pairs should have
+ the same behavior.
+ MAPDL will deactivate the current pair and keep its companion pair,
+ resulting in asymmetric contact.
+ Contact algorithm: Augmented Lagrange method
+ Contact detection at: Gauss integration point
+ Contact stiffness factor FKN                  1.0000
+ The resulting initial contact stiffness      0.21228E+06
+ Default penetration tolerance factor FTOLN   0.10000
+ The resulting penetration tolerance           1.2248
+ Max. initial friction coefficient MU         0.20000
+ Default tangent stiffness factor FKT          1.0000
+ *WARNING*: It is highly recommended to set KEYOPT(10)=0 (update contact
+ stiffness at each iteration) in order to achieve better convergence.
+ Use constant contact stiffness
+ Default Max. friction stress TAUMAX          0.10000E+21
+ Average contact surface length                14.017
+ Average contact pair depth                    12.248
+ Average target surface length                 14.123
+ Default pinball region factor PINB            1.0000
+ The resulting pinball region                  12.248
+ Contact offset is included. Initial geometric penetration is excluded.
+
+ *** NOTE ***                            CP =       5.032   TIME= 06:37:17
+ Max.  Initial penetration 0 was detected between contact element 9228
+ and target element 9349.
+ ****************************************
+
+
+ *** NOTE ***                            CP =       5.032   TIME= 06:37:17
+ Symmetric Deformable- deformable contact pair identified by real
+ constant set 17 and contact element type 16 has been set up.  The
+ companion pair has real constant set ID 16.  Both pairs should have
+ the same behavior.
+ MAPDL will keep the current pair and deactivate its companion pair,
+ resulting in asymmetric contact.
+ Contact algorithm: Augmented Lagrange method
+ Contact detection at: Gauss integration point
+ Contact stiffness factor FKN                  1.0000
+ The resulting initial contact stiffness      0.21228E+06
+ Default penetration tolerance factor FTOLN   0.10000
+ The resulting penetration tolerance          0.43721
+ Max. initial friction coefficient MU         0.20000
+ Default tangent stiffness factor FKT          1.0000
+ *WARNING*: It is highly recommended to set KEYOPT(10)=0 (update contact
+ stiffness at each iteration) in order to achieve better convergence.
+ Use constant contact stiffness
+ Default Max. friction stress TAUMAX          0.10000E+21
+ Average contact surface length                14.470
+ Average contact pair depth                    4.3721
+ Average target surface length                 13.943
+ Default pinball region factor PINB            1.0000
+ The resulting pinball region                  4.3721
+ Contact offset is included. Initial geometric penetration is excluded.
+
+ *** NOTE ***                            CP =       5.032   TIME= 06:37:17
+ Max.  Initial penetration 0 was detected between contact element 9328
+ and target element 9176.
+ ****************************************
+
+
+ *** NOTE ***                            CP =       5.032   TIME= 06:37:17
+ Symmetric Deformable- deformable contact pair identified by real
+ constant set 18 and contact element type 18 has been set up.  The
+ companion pair has real constant set ID 19.  Both pairs should have
+ the same behavior.
+ MAPDL will deactivate the current pair and keep its companion pair,
+ resulting in asymmetric contact.
+ Auto surface constraint is built
+ Contact algorithm: MPC based approach
+
+ *** NOTE ***                            CP =       5.032   TIME= 06:37:17
+ Contact related postprocess items (ETABLE, pressure ...) are not
+ available.
+ Contact detection at: nodal point (normal to target surface)
+ MPC will be built internally to handle bonded contact.
+ Average contact surface length                14.350
+ Average contact pair depth                    4.3860
+ Average target surface length                 12.238
+ Default pinball region factor PINB           0.25000
+ The resulting pinball region                  1.0965
+ Default target edge extension factor TOLS     2.0000
+ Initial penetration/gap is excluded.
+ Bonded contact (always) is defined.
+
+ *** NOTE ***                            CP =       5.032   TIME= 06:37:17
+ Max.  Initial penetration 5.684341886E-14 was detected between contact
+ element 9370 and target element 9408.
+ ****************************************
+
+
+ *** NOTE ***                            CP =       5.032   TIME= 06:37:17
+ Symmetric Deformable- deformable contact pair identified by real
+ constant set 19 and contact element type 18 has been set up.  The
+ companion pair has real constant set ID 18.  Both pairs should have
+ the same behavior.
+ MAPDL will keep the current pair and deactivate its companion pair,
+ resulting in asymmetric contact.
+ Auto surface constraint is built
+ Contact algorithm: MPC based approach
+
+ *** NOTE ***                            CP =       5.032   TIME= 06:37:17
+ Contact related postprocess items (ETABLE, pressure ...) are not
+ available.
+ Contact detection at: nodal point (normal to target surface)
+ MPC will be built internally to handle bonded contact.
+ *WARNING*: Certain contact elements (for example 9398&amp;9450) overlap
+ each other.  Overconstraint may occur.
+ Average contact surface length                12.576
+ Average contact pair depth                    12.199
+ Average target surface length                 14.181
+ Default pinball region factor PINB           0.25000
+ The resulting pinball region                  3.0498
+ Default target edge extension factor TOLS     2.0000
+ Initial penetration/gap is excluded.
+ Bonded contact (always) is defined.
+
+ *** NOTE ***                            CP =       5.032   TIME= 06:37:17
+ Max.  Initial penetration 8.526512829E-14 was detected between contact
+ element 9387 and target element 9367.
+ ****************************************
+
+
+ *** NOTE ***                            CP =       5.032   TIME= 06:37:17
+ Symmetric Deformable- deformable contact pair identified by real
+ constant set 20 and contact element type 20 has been set up.  The
+ companion pair has real constant set ID 21.  Both pairs should have
+ the same behavior.
+ MAPDL will keep the current pair and deactivate its companion pair,
+ resulting in asymmetric contact.
+ Auto surface constraint is built
+ Contact algorithm: MPC based approach
+
+ *** NOTE ***                            CP =       5.032   TIME= 06:37:17
+ Contact related postprocess items (ETABLE, pressure ...) are not
+ available.
+ Contact detection at: nodal point (normal to target surface)
+ MPC will be built internally to handle bonded contact.
+ *WARNING*: Certain contact elements (for example 9453&amp;9390) overlap
+ each other.  Overconstraint may occur.
+ Average contact surface length                13.088
+ Average contact pair depth                    6.7345
+ Average target surface length                 6.3865
+ Default pinball region factor PINB           0.25000
+ The resulting pinball region                  1.6836
+ Default target edge extension factor TOLS     2.0000
+ Initial penetration/gap is excluded.
+ Bonded contact (always) is defined.
+
+ *** NOTE ***                            CP =       5.033   TIME= 06:37:17
+ Max.  Initial penetration 1.28495889 was detected between contact
+ element 9441 and target element 11031.
+ You may move entire target surface by : x= 1.224539025E-15, y=
+ -1.18655332, z= -0.493163843,to reduce initial penetration.
+ *WARNING*: The geometric gap/penetration may be too large.  Increase
+ pinball radius if it is a true geometric gap/penetration.  Decrease
+ pinball if it is a false one.
+ ****************************************
+
+
+ *** NOTE ***                            CP =       5.033   TIME= 06:37:17
+ Symmetric Deformable- deformable contact pair identified by real
+ constant set 21 and contact element type 20 has been set up.  The
+ companion pair has real constant set ID 20.  Both pairs should have
+ the same behavior.
+ MAPDL will deactivate the current pair and keep its companion pair,
+ resulting in asymmetric contact.
+ Auto surface constraint is built
+ Contact algorithm: MPC based approach
+
+ *** NOTE ***                            CP =       5.033   TIME= 06:37:17
+ Contact related postprocess items (ETABLE, pressure ...) are not
+ available.
+ Contact detection at: nodal point (normal to target surface)
+ MPC will be built internally to handle bonded contact.
+ Average contact surface length                6.4480
+ Average contact pair depth                    5.1166
+ Average target surface length                 12.889
+ Default pinball region factor PINB           0.25000
+ The resulting pinball region                  1.2792
+ Default target edge extension factor TOLS     2.0000
+ Initial penetration/gap is excluded.
+ Bonded contact (always) is defined.
+
+ *** NOTE ***                            CP =       5.033   TIME= 06:37:17
+ Max.  Initial penetration 1.2132628 was detected between contact
+ element 10203 and target element 9417.
+ You may move entire target surface by : x= 2.447930733E-02, y=
+ 1.1355368, z= 0.426571867,to reduce initial penetration.
+ *WARNING*: The geometric gap/penetration may be too large.  Increase
+ pinball radius if it is a true geometric gap/penetration.  Decrease
+ pinball if it is a false one.
+ ****************************************
+
+
+ *** NOTE ***                            CP =       5.033   TIME= 06:37:17
+ Symmetric Deformable- deformable contact pair identified by real
+ constant set 22 and contact element type 22 has been set up.  The
+ companion pair has real constant set ID 23.  Both pairs should have
+ the same behavior.
+ *WARNING*: The contact pairs have similar mesh patterns which can cause
+ overconstraint.  MAPDL will deactivate the current pair and keep its
+ companion pair.
+ Contact algorithm: Augmented Lagrange method
+ Contact detection at: Gauss integration point
+ Contact stiffness factor FKN                  1.0000
+ The resulting initial contact stiffness      0.18035E+06
+ Default penetration tolerance factor FTOLN   0.10000
+ The resulting penetration tolerance           1.4416
+ Max. initial friction coefficient MU         0.20000
+ Default tangent stiffness factor FKT          1.0000
+ *WARNING*: It is highly recommended to set KEYOPT(10)=0 (update contact
+ stiffness at each iteration) in order to achieve better convergence.
+ Use constant contact stiffness
+ Default Max. friction stress TAUMAX          0.10000E+21
+ Average contact surface length                14.016
+ Average contact pair depth                    14.416
+ Average target surface length                 13.943
+ Default pinball region factor PINB            1.0000
+ The resulting pinball region                  14.416
+ Contact offset is included. Initial geometric penetration is excluded.
+
+ *** NOTE ***                            CP =       5.033   TIME= 06:37:17
+ Max.  Initial penetration 0 was detected between contact element 11218
+ and target element 11419.
+ ****************************************
+
+
+ *** NOTE ***                            CP =       5.033   TIME= 06:37:17
+ Symmetric Deformable- deformable contact pair identified by real
+ constant set 23 and contact element type 22 has been set up.  The
+ companion pair has real constant set ID 22.  Both pairs should have
+ the same behavior.
+ MAPDL will keep the current pair and deactivate its companion pair,
+ resulting in asymmetric contact.
+ Contact algorithm: Augmented Lagrange method
+ Contact detection at: Gauss integration point
+ Contact stiffness factor FKN                  1.0000
+ The resulting initial contact stiffness      0.18035E+06
+ Default penetration tolerance factor FTOLN   0.10000
+ The resulting penetration tolerance           1.2191
+ Max. initial friction coefficient MU         0.20000
+ Default tangent stiffness factor FKT          1.0000
+ *WARNING*: It is highly recommended to set KEYOPT(10)=0 (update contact
+ stiffness at each iteration) in order to achieve better convergence.
+ Use constant contact stiffness
+ Default Max. friction stress TAUMAX          0.10000E+21
+ Average contact surface length                14.007
+ Average contact pair depth                    12.191
+ Average target surface length                 13.942
+ Default pinball region factor PINB            1.0000
+ The resulting pinball region                  12.191
+ Contact offset is included. Initial geometric penetration is excluded.
+
+ *** NOTE ***                            CP =       5.033   TIME= 06:37:17
+ Max.  Initial penetration 0 was detected between contact element 11318
+ and target element 11120.
+ ****************************************
+
+
+ *** WARNING ***                         CP =       5.033   TIME= 06:37:17
+ Overconstraint may occur for Lagrange multiplier or MPC based contact
+ algorithm.
+ The reasons for possible overconstraint are:
+
+ *** WARNING ***                         CP =       5.033   TIME= 06:37:17
+ Certain contact elements (for example 9453 &amp; 9390) overlap with other.
+ ****************************************
+
+
+
+
+
+     D I S T R I B U T E D   D O M A I N   D E C O M P O S E R
+
+  ...Number of elements: 9094
+  ...Number of nodes:    20228
+  ...Decompose to 4 CPU domains
+  ...Element load balance ratio =     1.682
+
+
+                      L O A D   S T E P   O P T I O N S
+
+   LOAD STEP NUMBER. . . . . . . . . . . . . . . .     1
+   TIME AT END OF THE LOAD STEP. . . . . . . . . .  1.0000
+   NUMBER OF SUBSTEPS. . . . . . . . . . . . . . .     2
+   MAXIMUM NUMBER OF EQUILIBRIUM ITERATIONS. . . .    15
+   STEP CHANGE BOUNDARY CONDITIONS . . . . . . . .    NO
+   TERMINATE ANALYSIS IF NOT CONVERGED . . . . . .YES (EXIT)
+   CONVERGENCE CONTROLS. . . . . . . . . . . . . .USE DEFAULTS
+   PRINT OUTPUT CONTROLS . . . . . . . . . . . . .NO PRINTOUT
+   DATABASE OUTPUT CONTROLS
+      ITEM     FREQUENCY   COMPONENT
+       ALL       NONE
+      NSOL        ALL
+      RSOL        ALL
+      EANG        ALL
+      ETMP        ALL
+      VENG        ALL
+      STRS        ALL
+      EPEL        ALL
+      EPPL        ALL
+      CONT        ALL
+
+
+ SOLUTION MONITORING INFO IS WRITTEN TO FILE= file.mntr
+
+ &gt;&gt;&gt;&gt; PRETENSION ELEMENT STATUS &lt;&lt;&lt;&lt;
+ SECTION NAME     PT.NODE  --------STATUS--------------------  ----LOAD SOURCE----
+    25              20098  APPLIED PRELOAD FORCE= 0.61363E+06  F COMMAND
+ MAXIMUM NUMBER OF EQUILIBRIUM ITERATIONS HAS BEEN MODIFIED
+  TO BE, NEQIT = 26, BY SOLUTION CONTROL LOGIC.
+
+
+ Range of element maximum matrix coefficients in global coordinates
+ Maximum = 42425082.8 at element 824.
+ Minimum = 778765.908 at element 1071.
+
+   *** ELEMENT MATRIX FORMULATION TIMES
+     TYPE    NUMBER   ENAME      TOTAL CP  AVE CP
+
+        1        36  SOLID187      0.002   0.000055
+        2       934  SOLID186      0.104   0.000112
+        3       103  SOLID187      0.006   0.000062
+        4       988  SOLID186      0.117   0.000118
+        5         6  SOLID187      0.000   0.000057
+        6       445  SOLID186      0.052   0.000116
+        7        13  SOLID187      0.001   0.000067
+        8        51  SOLID186      0.006   0.000120
+        9         4  SOLID187      0.000   0.000067
+       10        58  SOLID186      0.008   0.000141
+       11      1702  SOLID186      0.199   0.000117
+       12       200  CONTA174      0.042   0.000208
+       13       200  TARGE170      0.000   0.000002
+       14       868  CONTA174      0.047   0.000054
+       15       868  TARGE170      0.002   0.000002
+       16       114  CONTA174      0.007   0.000061
+       17       114  TARGE170      0.000   0.000002
+       18        29  CONTA174      0.006   0.000199
+       19        29  TARGE170      0.000   0.000002
+       20       852  CONTA174      0.037   0.000043
+       21       852  TARGE170      0.002   0.000003
+       22       200  CONTA174      0.041   0.000204
+       23       200  TARGE170      0.000   0.000002
+       24        98  SURF154       0.003   0.000032
+       25       130  PRETS179      0.000   0.000003
+ Time at end of element matrix formulation CP = 7.42066288.
+
+ ALL CURRENT MAPDL DATA WRITTEN TO FILE NAME= file.rdb
+  FOR POSSIBLE RESUME FROM THIS POINT
+     FORCE CONVERGENCE VALUE  =  0.3068E+06  CRITERION=   1534.
+
+ DISTRIBUTED SPARSE MATRIX DIRECT SOLVER.
+  Number of equations =       56191,    Maximum wavefront =    801
+
+  Process memory allocated for solver              =   156.539 MB
+  Process memory required for in-core solution     =   149.809 MB
+  Process memory required for out-of-core solution =    68.872 MB
+
+  Total memory allocated for solver                =   608.699 MB
+  Total memory required for in-core solution       =   584.458 MB
+  Total memory required for out-of-core solution   =   280.201 MB
+
+ *** NOTE ***                            CP =       7.858   TIME= 06:37:19
+ The Distributed Sparse Matrix Solver is currently running in the
+ in-core memory mode.  This memory mode uses the most amount of memory
+ in order to avoid using the hard drive as much as possible, which most
+ often results in the fastest solution time.  This mode is recommended
+ if enough physical memory is present to accommodate all of the solver
+ data.
+ curEqn=  12609  totEqn=  12609 Job CP sec=      8.268
+      Factor Done= 100% Factor Wall sec=      0.462 rate=      27.3 GFlops
+ Distributed sparse solver maximum pivot= 61764207.6 at node 1302 UX.
+ Distributed sparse solver minimum pivot= 200143.039 at node 14031 UZ.
+ Distributed sparse solver minimum pivot in absolute value= 200143.039
+ at node 14031 UZ.
+     DISP CONVERGENCE VALUE   =  0.3444      CRITERION=  0.1722E-01
+    EQUIL ITER   1 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC=  0.3444
+     DISP CONVERGENCE VALUE   =  0.3444      CRITERION=  0.1722E-01
+     LINE SEARCH PARAMETER =   1.000     SCALED MAX DOF INC =  0.3444
+     FORCE CONVERGENCE VALUE  =  0.2056E+05  CRITERION=   1543.
+    EQUIL ITER   2 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC=  0.5907E-02
+     DISP CONVERGENCE VALUE   =  0.5907E-02  CRITERION=  0.1741E-01 &lt;&lt;&lt; CONVERGED
+     LINE SEARCH PARAMETER =   1.000     SCALED MAX DOF INC =  0.5907E-02
+     FORCE CONVERGENCE VALUE  =  0.1454E+05  CRITERION=   1543.
+    EQUIL ITER   3 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC=  0.3377E-02
+     DISP CONVERGENCE VALUE   =  0.3377E-02  CRITERION=  0.1755E-01 &lt;&lt;&lt; CONVERGED
+     LINE SEARCH PARAMETER =   1.000     SCALED MAX DOF INC =  0.3377E-02
+     FORCE CONVERGENCE VALUE  =   5993.      CRITERION=   1542.
+    EQUIL ITER   4 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC= -0.1627E-02
+     DISP CONVERGENCE VALUE   =  0.1627E-02  CRITERION=  0.1760E-01 &lt;&lt;&lt; CONVERGED
+     LINE SEARCH PARAMETER =   1.000     SCALED MAX DOF INC = -0.1627E-02
+     FORCE CONVERGENCE VALUE  =   3535.      CRITERION=   1542.
+    EQUIL ITER   5 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC= -0.1296E-02
+     DISP CONVERGENCE VALUE   =  0.1296E-02  CRITERION=  0.1762E-01 &lt;&lt;&lt; CONVERGED
+     LINE SEARCH PARAMETER =   1.000     SCALED MAX DOF INC = -0.1296E-02
+     FORCE CONVERGENCE VALUE  =   3171.      CRITERION=   1542.
+    EQUIL ITER   6 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC= -0.3900E-03
+     DISP CONVERGENCE VALUE   =  0.3900E-03  CRITERION=  0.1763E-01 &lt;&lt;&lt; CONVERGED
+     LINE SEARCH PARAMETER =   1.000     SCALED MAX DOF INC = -0.3900E-03
+     FORCE CONVERGENCE VALUE  =   714.1      CRITERION=   1542.     &lt;&lt;&lt; CONVERGED
+    &gt;&gt;&gt; SOLUTION CONVERGED AFTER EQUILIBRIUM ITERATION   6
+
+   *** ELEMENT RESULT CALCULATION TIMES
+     TYPE    NUMBER   ENAME      TOTAL CP  AVE CP
+
+        1        36  SOLID187      0.002   0.000048
+        2       934  SOLID186      0.071   0.000076
+        3       103  SOLID187      0.005   0.000051
+        4       988  SOLID186      0.077   0.000078
+        5         6  SOLID187      0.000   0.000053
+        6       445  SOLID186      0.035   0.000078
+        7        13  SOLID187      0.001   0.000057
+        8        51  SOLID186      0.004   0.000077
+        9         4  SOLID187      0.000   0.000055
+       10        58  SOLID186      0.005   0.000094
+       11      1702  SOLID186      0.131   0.000077
+       12       200  CONTA174      0.011   0.000057
+       14       868  CONTA174      0.015   0.000018
+       16       114  CONTA174      0.003   0.000031
+       18        29  CONTA174      0.001   0.000019
+       20       852  CONTA174      0.014   0.000017
+       22       200  CONTA174      0.011   0.000057
+       24        98  SURF154       0.002   0.000020
+
+   *** NODAL LOAD CALCULATION TIMES
+     TYPE    NUMBER   ENAME      TOTAL CP  AVE CP
+
+        1        36  SOLID187      0.000   0.000014
+        2       934  SOLID186      0.014   0.000015
+        3       103  SOLID187      0.002   0.000015
+        4       988  SOLID186      0.015   0.000015
+        5         6  SOLID187      0.000   0.000015
+        6       445  SOLID186      0.007   0.000015
+        7        13  SOLID187      0.000   0.000018
+        8        51  SOLID186      0.001   0.000016
+        9         4  SOLID187      0.000   0.000015
+       10        58  SOLID186      0.001   0.000022
+       11      1702  SOLID186      0.026   0.000015
+       12       200  CONTA174      0.002   0.000008
+       14       868  CONTA174      0.003   0.000003
+       16       114  CONTA174      0.000   0.000004
+       18        29  CONTA174      0.000   0.000003
+       20       852  CONTA174      0.002   0.000003
+       22       200  CONTA174      0.001   0.000007
+       24        98  SURF154       0.000   0.000003
+ *** LOAD STEP     1   SUBSTEP     1  COMPLETED.    CUM ITER =      6
+ *** TIME =  0.500000         TIME INC =  0.500000
+
+     FORCE CONVERGENCE VALUE  =   6296.      CRITERION=   3084.
+     DISP CONVERGENCE VALUE   =  0.7473E-03  CRITERION=  0.1763E-01 &lt;&lt;&lt; CONVERGED
+    EQUIL ITER   1 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC= -0.7473E-03
+     DISP CONVERGENCE VALUE   =  0.5368E-03  CRITERION=  0.1763E-01 &lt;&lt;&lt; CONVERGED
+     LINE SEARCH PARAMETER =  0.7183     SCALED MAX DOF INC = -0.5368E-03
+     FORCE CONVERGENCE VALUE  =   1630.      CRITERION=   3084.     &lt;&lt;&lt; CONVERGED
+    &gt;&gt;&gt; SOLUTION CONVERGED AFTER EQUILIBRIUM ITERATION   1
+ *** LOAD STEP     1   SUBSTEP     2  COMPLETED.    CUM ITER =      7
+ *** TIME =   1.00000         TIME INC =  0.500000
+
+
+ *** MAPDL BINARY FILE STATISTICS
+  BUFFER SIZE USED= 16384
+        0.438 MB WRITTEN ON ELEMENT MATRIX FILE: file0.emat
+        7.000 MB WRITTEN ON ELEMENT SAVED DATA FILE: file0.esav
+       11.562 MB WRITTEN ON ASSEMBLED MATRIX FILE: file0.full
+        2.562 MB WRITTEN ON RESULTS FILE: file0.rst
+ *************** Write FE CONNECTORS *********
+
+ WRITE OUT CONSTRAINT EQUATIONS TO FILE= file.ce
+ ****************************************************
+ *************** FINISHED SOLVE FOR LS 1 *************
+ ****************************************************
+ ******************* SOLVE FOR LS 2 OF 4 ****************
+
+ PRINTOUT RESUMED BY /GOP
+
+ DELETE ALL SPECIFIED NODAL LOADS FROM NODE     20098 TO     20098 BY       1
+
+ NUMBER OF NODAL LOADS DELETED=       1
+
+ *** WARNING ***                         CP =      16.447   TIME= 06:37:28
+ Table _FIX is an MAPDL reserved table name.  It is used to constrain
+ structural degrees of freedom to their current displaced status.  This
+ table should not be used for other purposes.
+
+ SPECIFIED CONSTRAINT UX   FOR SELECTED NODES        20098 TO       20098 BY           1
+ SET ACCORDING TO TABLE PARAMETER = _FIX
+
+ USE AUTOMATIC TIME STEPPING THIS LOAD STEP
+
+ USE       1 SUBSTEPS INITIALLY THIS LOAD STEP FOR ALL  DEGREES OF FREEDOM
+ FOR AUTOMATIC TIME STEPPING:
+   USE     10 SUBSTEPS AS A MAXIMUM
+   USE      1 SUBSTEPS AS A MINIMUM
+
+ TIME=  2.0000
+
+ ERASE THE CURRENT DATABASE OUTPUT CONTROL TABLE.
+
+
+ WRITE ALL  ITEMS TO THE DATABASE WITH A FREQUENCY OF NONE
+   FOR ALL APPLICABLE ENTITIES
+
+ WRITE NSOL ITEMS TO THE DATABASE WITH A FREQUENCY OF ALL
+   FOR ALL APPLICABLE ENTITIES
+
+ WRITE RSOL ITEMS TO THE DATABASE WITH A FREQUENCY OF ALL
+   FOR ALL APPLICABLE ENTITIES
+
+ WRITE EANG ITEMS TO THE DATABASE WITH A FREQUENCY OF ALL
+   FOR ALL APPLICABLE ENTITIES
+
+ WRITE ETMP ITEMS TO THE DATABASE WITH A FREQUENCY OF ALL
+   FOR ALL APPLICABLE ENTITIES
+
+ WRITE VENG ITEMS TO THE DATABASE WITH A FREQUENCY OF ALL
+   FOR ALL APPLICABLE ENTITIES
+
+ WRITE STRS ITEMS TO THE DATABASE WITH A FREQUENCY OF ALL
+   FOR ALL APPLICABLE ENTITIES
+
+ WRITE EPEL ITEMS TO THE DATABASE WITH A FREQUENCY OF ALL
+   FOR ALL APPLICABLE ENTITIES
+
+ WRITE EPPL ITEMS TO THE DATABASE WITH A FREQUENCY OF ALL
+   FOR ALL APPLICABLE ENTITIES
+
+ WRITE CONT ITEMS TO THE DATABASE WITH A FREQUENCY OF ALL
+   FOR ALL APPLICABLE ENTITIES
+
+ *****  MAPDL SOLVE    COMMAND  *****
+
+ *** WARNING ***                         CP =      16.531   TIME= 06:37:28
+ Material number 24 (used by element 11518) should normally have at
+ least one MP or one TB type command associated with it.  Output of
+ energy by material may not be available.
+
+ *** NOTE ***                            CP =      16.541   TIME= 06:37:28
+ The step data was checked and warning messages were found.
+  Please review output or errors file (
+ /tmp/ANSYS.root.1/AnsysMechCAEB/Project_Mech_Files/StaticStructural/fil
+ le0.err ) for these warning messages.
+
+ *** NOTE ***                            CP =      16.541   TIME= 06:37:28
+ This nonlinear analysis defaults to using the full Newton-Raphson
+ solution procedure.  This can be modified using the NROPT command.
+
+ *** MAPDL - ENGINEERING ANALYSIS SYSTEM  RELEASE 2024 R1          24.1     ***
+ Ansys Mechanical Enterprise
+ 00000000  VERSION=LINUX x64     06:37:28  JUL 02, 2024 CP=     16.679
+
+ --Static Structural
+
+
+
+                      L O A D   S T E P   O P T I O N S
+
+   LOAD STEP NUMBER. . . . . . . . . . . . . . . .     2
+   TIME AT END OF THE LOAD STEP. . . . . . . . . .  2.0000
+   AUTOMATIC TIME STEPPING . . . . . . . . . . . .    ON
+      INITIAL NUMBER OF SUBSTEPS . . . . . . . . .     1
+      MAXIMUM NUMBER OF SUBSTEPS . . . . . . . . .    10
+      MINIMUM NUMBER OF SUBSTEPS . . . . . . . . .     1
+   MAXIMUM NUMBER OF EQUILIBRIUM ITERATIONS. . . .    15
+   STEP CHANGE BOUNDARY CONDITIONS . . . . . . . .    NO
+   TERMINATE ANALYSIS IF NOT CONVERGED . . . . . .YES (EXIT)
+   CONVERGENCE CONTROLS. . . . . . . . . . . . . .USE DEFAULTS
+   PRINT OUTPUT CONTROLS . . . . . . . . . . . . .NO PRINTOUT
+   DATABASE OUTPUT CONTROLS
+      ITEM     FREQUENCY   COMPONENT
+       ALL       NONE
+      NSOL        ALL
+      RSOL        ALL
+      EANG        ALL
+      ETMP        ALL
+      VENG        ALL
+      STRS        ALL
+      EPEL        ALL
+      EPPL        ALL
+      CONT        ALL
+
+
+ SOLUTION MONITORING INFO IS WRITTEN TO FILE= file.mntr
+
+ &gt;&gt;&gt;&gt; PRETENSION ELEMENT STATUS &lt;&lt;&lt;&lt;
+ SECTION NAME     PT.NODE  --------STATUS--------------------  ----LOAD SOURCE----
+    25              20098  FIXED RELATIVE MOTION= 0.70487      D COMMAND
+ MAXIMUM NUMBER OF EQUILIBRIUM ITERATIONS HAS BEEN MODIFIED
+  TO BE, NEQIT = 26, BY SOLUTION CONTROL LOGIC.
+
+     FORCE CONVERGENCE VALUE  =  0.4900E+05  CRITERION=   3094.
+     DISP CONVERGENCE VALUE   =  0.1814E-01  CRITERION=  0.1763E-01
+    EQUIL ITER   1 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC=  0.1814E-01
+     DISP CONVERGENCE VALUE   =  0.1805E-01  CRITERION=  0.1763E-01
+     LINE SEARCH PARAMETER =  0.9948     SCALED MAX DOF INC =  0.1805E-01
+     FORCE CONVERGENCE VALUE  =  0.3044E+05  CRITERION=   3119.
+    EQUIL ITER   2 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC=  0.7631E-02
+     DISP CONVERGENCE VALUE   =  0.7468E-02  CRITERION=  0.1763E-01 &lt;&lt;&lt; CONVERGED
+     LINE SEARCH PARAMETER =  0.9786     SCALED MAX DOF INC =  0.7468E-02
+     FORCE CONVERGENCE VALUE  =  0.2520E+05  CRITERION=   3120.
+    EQUIL ITER   3 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC=  0.1075E-01
+     DISP CONVERGENCE VALUE   =  0.1075E-01  CRITERION=  0.1763E-01 &lt;&lt;&lt; CONVERGED
+     LINE SEARCH PARAMETER =   1.000     SCALED MAX DOF INC =  0.1075E-01
+     FORCE CONVERGENCE VALUE  =  0.2226E+05  CRITERION=   3127.
+    EQUIL ITER   4 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC=  0.6487E-02
+     DISP CONVERGENCE VALUE   =  0.6487E-02  CRITERION=  0.1763E-01 &lt;&lt;&lt; CONVERGED
+     LINE SEARCH PARAMETER =   1.000     SCALED MAX DOF INC =  0.6487E-02
+     FORCE CONVERGENCE VALUE  =  0.1629E+05  CRITERION=   3132.
+    EQUIL ITER   5 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC=  0.3824E-02
+     DISP CONVERGENCE VALUE   =  0.3824E-02  CRITERION=  0.1763E-01 &lt;&lt;&lt; CONVERGED
+     LINE SEARCH PARAMETER =   1.000     SCALED MAX DOF INC =  0.3824E-02
+     FORCE CONVERGENCE VALUE  =  0.1028E+05  CRITERION=   3137.
+    EQUIL ITER   6 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC=  0.2737E-02
+     DISP CONVERGENCE VALUE   =  0.2737E-02  CRITERION=  0.1763E-01 &lt;&lt;&lt; CONVERGED
+     LINE SEARCH PARAMETER =   1.000     SCALED MAX DOF INC =  0.2737E-02
+     FORCE CONVERGENCE VALUE  =   5620.      CRITERION=   3141.
+    EQUIL ITER   7 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC=  0.1747E-02
+     DISP CONVERGENCE VALUE   =  0.1747E-02  CRITERION=  0.1763E-01 &lt;&lt;&lt; CONVERGED
+     LINE SEARCH PARAMETER =   1.000     SCALED MAX DOF INC =  0.1747E-02
+     FORCE CONVERGENCE VALUE  =   3677.      CRITERION=   3693.     &lt;&lt;&lt; CONVERGED
+    &gt;&gt;&gt; SOLUTION CONVERGED AFTER EQUILIBRIUM ITERATION   7
+ *** LOAD STEP     2   SUBSTEP     1  COMPLETED.    CUM ITER =     14
+ *** TIME =   2.00000         TIME INC =   1.00000
+ ****************************************************
+ *************** FINISHED SOLVE FOR LS 2 *************
+ ****************************************************
+ ******************* SOLVE FOR LS 3 OF 4 ****************
+
+ PRINTOUT RESUMED BY /GOP
+
+ DELETE ALL SPECIFIED NODAL LOADS FROM NODE     20098 TO     20098 BY       1
+
+ NUMBER OF NODAL LOADS DELETED=       0
+
+ SPECIFIED CONSTRAINT UX   FOR SELECTED NODES        20098 TO       20098 BY           1
+ SET ACCORDING TO TABLE PARAMETER = _FIX
+
+ USE AUTOMATIC TIME STEPPING THIS LOAD STEP
+
+ USE       1 SUBSTEPS INITIALLY THIS LOAD STEP FOR ALL  DEGREES OF FREEDOM
+ FOR AUTOMATIC TIME STEPPING:
+   USE     10 SUBSTEPS AS A MAXIMUM
+   USE      1 SUBSTEPS AS A MINIMUM
+
+ TIME=  3.0000
+
+ ERASE THE CURRENT DATABASE OUTPUT CONTROL TABLE.
+
+
+ WRITE ALL  ITEMS TO THE DATABASE WITH A FREQUENCY OF NONE
+   FOR ALL APPLICABLE ENTITIES
+
+ WRITE NSOL ITEMS TO THE DATABASE WITH A FREQUENCY OF ALL
+   FOR ALL APPLICABLE ENTITIES
+
+ WRITE RSOL ITEMS TO THE DATABASE WITH A FREQUENCY OF ALL
+   FOR ALL APPLICABLE ENTITIES
+
+ WRITE EANG ITEMS TO THE DATABASE WITH A FREQUENCY OF ALL
+   FOR ALL APPLICABLE ENTITIES
+
+ WRITE ETMP ITEMS TO THE DATABASE WITH A FREQUENCY OF ALL
+   FOR ALL APPLICABLE ENTITIES
+
+ WRITE VENG ITEMS TO THE DATABASE WITH A FREQUENCY OF ALL
+   FOR ALL APPLICABLE ENTITIES
+
+ WRITE STRS ITEMS TO THE DATABASE WITH A FREQUENCY OF ALL
+   FOR ALL APPLICABLE ENTITIES
+
+ WRITE EPEL ITEMS TO THE DATABASE WITH A FREQUENCY OF ALL
+   FOR ALL APPLICABLE ENTITIES
+
+ WRITE EPPL ITEMS TO THE DATABASE WITH A FREQUENCY OF ALL
+   FOR ALL APPLICABLE ENTITIES
+
+ WRITE CONT ITEMS TO THE DATABASE WITH A FREQUENCY OF ALL
+   FOR ALL APPLICABLE ENTITIES
+
+ *****  MAPDL SOLVE    COMMAND  *****
+
+ *** WARNING ***                         CP =      27.265   TIME= 06:37:38
+ Material number 24 (used by element 11518) should normally have at
+ least one MP or one TB type command associated with it.  Output of
+ energy by material may not be available.
+
+ *** NOTE ***                            CP =      27.274   TIME= 06:37:38
+ The step data was checked and warning messages were found.
+  Please review output or errors file (
+ /tmp/ANSYS.root.1/AnsysMechCAEB/Project_Mech_Files/StaticStructural/fil
+ le0.err ) for these warning messages.
+
+ *** NOTE ***                            CP =      27.274   TIME= 06:37:38
+ This nonlinear analysis defaults to using the full Newton-Raphson
+ solution procedure.  This can be modified using the NROPT command.
+
+ *** MAPDL - ENGINEERING ANALYSIS SYSTEM  RELEASE 2024 R1          24.1     ***
+ Ansys Mechanical Enterprise
+ 00000000  VERSION=LINUX x64     06:37:38  JUL 02, 2024 CP=     27.458
+
+ --Static Structural
+
+
+
+                      L O A D   S T E P   O P T I O N S
+
+   LOAD STEP NUMBER. . . . . . . . . . . . . . . .     3
+   TIME AT END OF THE LOAD STEP. . . . . . . . . .  3.0000
+   AUTOMATIC TIME STEPPING . . . . . . . . . . . .    ON
+      INITIAL NUMBER OF SUBSTEPS . . . . . . . . .     1
+      MAXIMUM NUMBER OF SUBSTEPS . . . . . . . . .    10
+      MINIMUM NUMBER OF SUBSTEPS . . . . . . . . .     1
+   MAXIMUM NUMBER OF EQUILIBRIUM ITERATIONS. . . .    15
+   STEP CHANGE BOUNDARY CONDITIONS . . . . . . . .    NO
+   TERMINATE ANALYSIS IF NOT CONVERGED . . . . . .YES (EXIT)
+   CONVERGENCE CONTROLS. . . . . . . . . . . . . .USE DEFAULTS
+   PRINT OUTPUT CONTROLS . . . . . . . . . . . . .NO PRINTOUT
+   DATABASE OUTPUT CONTROLS
+      ITEM     FREQUENCY   COMPONENT
+       ALL       NONE
+      NSOL        ALL
+      RSOL        ALL
+      EANG        ALL
+      ETMP        ALL
+      VENG        ALL
+      STRS        ALL
+      EPEL        ALL
+      EPPL        ALL
+      CONT        ALL
+
+
+ SOLUTION MONITORING INFO IS WRITTEN TO FILE= file.mntr
+
+ &gt;&gt;&gt;&gt; PRETENSION ELEMENT STATUS &lt;&lt;&lt;&lt;
+ SECTION NAME     PT.NODE  --------STATUS--------------------  ----LOAD SOURCE----
+    25              20098  FIXED RELATIVE MOTION= 0.70487      D COMMAND
+ MAXIMUM NUMBER OF EQUILIBRIUM ITERATIONS HAS BEEN MODIFIED
+  TO BE, NEQIT = 26, BY SOLUTION CONTROL LOGIC.
+
+     FORCE CONVERGENCE VALUE  =  0.4911E+05  CRITERION=   3133.
+     DISP CONVERGENCE VALUE   =  0.1311      CRITERION=  0.1763E-01
+    EQUIL ITER   1 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC= -0.1311
+     DISP CONVERGENCE VALUE   =  0.8404E-02  CRITERION=  0.1763E-01 &lt;&lt;&lt; CONVERGED
+     LINE SEARCH PARAMETER =  0.6411E-01 SCALED MAX DOF INC = -0.8404E-02
+     FORCE CONVERGENCE VALUE  =  0.3197E+06  CRITERION=   3137.
+    EQUIL ITER   2 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC= -0.5052E-01
+     DISP CONVERGENCE VALUE   =  0.1006E-01  CRITERION=  0.1763E-01 &lt;&lt;&lt; CONVERGED
+     LINE SEARCH PARAMETER =  0.1991     SCALED MAX DOF INC = -0.1006E-01
+     FORCE CONVERGENCE VALUE  =  0.3729E+06  CRITERION=   3126.
+    EQUIL ITER   3 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC= -0.2596E-01
+     DISP CONVERGENCE VALUE   =  0.6405E-02  CRITERION=  0.1763E-01 &lt;&lt;&lt; CONVERGED
+     LINE SEARCH PARAMETER =  0.2467     SCALED MAX DOF INC = -0.6405E-02
+     FORCE CONVERGENCE VALUE  =  0.3196E+06  CRITERION=   3111.
+    EQUIL ITER   4 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC= -0.1298E-01
+     DISP CONVERGENCE VALUE   =  0.6190E-02  CRITERION=  0.1763E-01 &lt;&lt;&lt; CONVERGED
+     LINE SEARCH PARAMETER =  0.4769     SCALED MAX DOF INC = -0.6190E-02
+     FORCE CONVERGENCE VALUE  =  0.2868E+06  CRITERION=   3099.
+    EQUIL ITER   5 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC= -0.4889E-02
+     DISP CONVERGENCE VALUE   =  0.4478E-02  CRITERION=  0.1763E-01 &lt;&lt;&lt; CONVERGED
+     LINE SEARCH PARAMETER =  0.9159     SCALED MAX DOF INC = -0.4478E-02
+     FORCE CONVERGENCE VALUE  =  0.5659E+05  CRITERION=   3082.
+    EQUIL ITER   6 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC=  0.3491E-02
+     DISP CONVERGENCE VALUE   =  0.3032E-02  CRITERION=  0.1763E-01 &lt;&lt;&lt; CONVERGED
+     LINE SEARCH PARAMETER =  0.8686     SCALED MAX DOF INC =  0.3032E-02
+     FORCE CONVERGENCE VALUE  =   9767.      CRITERION=   3079.
+    EQUIL ITER   7 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC=  0.1546E-02
+     DISP CONVERGENCE VALUE   =  0.1151E-02  CRITERION=  0.1763E-01 &lt;&lt;&lt; CONVERGED
+     LINE SEARCH PARAMETER =  0.7448     SCALED MAX DOF INC =  0.1151E-02
+     FORCE CONVERGENCE VALUE  =   4767.      CRITERION=   3618.
+    EQUIL ITER   8 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC=  0.7129E-03
+     DISP CONVERGENCE VALUE   =  0.5099E-03  CRITERION=  0.1763E-01 &lt;&lt;&lt; CONVERGED
+     LINE SEARCH PARAMETER =  0.7153     SCALED MAX DOF INC =  0.5099E-03
+     FORCE CONVERGENCE VALUE  =   2810.      CRITERION=   3692.     &lt;&lt;&lt; CONVERGED
+    &gt;&gt;&gt; SOLUTION CONVERGED AFTER EQUILIBRIUM ITERATION   8
+ *** LOAD STEP     3   SUBSTEP     1  COMPLETED.    CUM ITER =     22
+ *** TIME =   3.00000         TIME INC =   1.00000
+ ****************************************************
+ *************** FINISHED SOLVE FOR LS 3 *************
+ ****************************************************
+ ******************* SOLVE FOR LS 4 OF 4 ****************
+
+ PRINTOUT RESUMED BY /GOP
+
+ DELETE ALL SPECIFIED NODAL LOADS FROM NODE     20098 TO     20098 BY       1
+
+ NUMBER OF NODAL LOADS DELETED=       0
+
+ SPECIFIED CONSTRAINT UX   FOR SELECTED NODES        20098 TO       20098 BY           1
+ SET ACCORDING TO TABLE PARAMETER = _FIX
+
+ USE AUTOMATIC TIME STEPPING THIS LOAD STEP
+
+ USE       1 SUBSTEPS INITIALLY THIS LOAD STEP FOR ALL  DEGREES OF FREEDOM
+ FOR AUTOMATIC TIME STEPPING:
+   USE     10 SUBSTEPS AS A MAXIMUM
+   USE      1 SUBSTEPS AS A MINIMUM
+
+ TIME=  4.0000
+
+ ERASE THE CURRENT DATABASE OUTPUT CONTROL TABLE.
+
+
+ WRITE ALL  ITEMS TO THE DATABASE WITH A FREQUENCY OF NONE
+   FOR ALL APPLICABLE ENTITIES
+
+ WRITE NSOL ITEMS TO THE DATABASE WITH A FREQUENCY OF ALL
+   FOR ALL APPLICABLE ENTITIES
+
+ WRITE RSOL ITEMS TO THE DATABASE WITH A FREQUENCY OF ALL
+   FOR ALL APPLICABLE ENTITIES
+
+ WRITE EANG ITEMS TO THE DATABASE WITH A FREQUENCY OF ALL
+   FOR ALL APPLICABLE ENTITIES
+
+ WRITE ETMP ITEMS TO THE DATABASE WITH A FREQUENCY OF ALL
+   FOR ALL APPLICABLE ENTITIES
+
+ WRITE VENG ITEMS TO THE DATABASE WITH A FREQUENCY OF ALL
+   FOR ALL APPLICABLE ENTITIES
+
+ WRITE STRS ITEMS TO THE DATABASE WITH A FREQUENCY OF ALL
+   FOR ALL APPLICABLE ENTITIES
+
+ WRITE EPEL ITEMS TO THE DATABASE WITH A FREQUENCY OF ALL
+   FOR ALL APPLICABLE ENTITIES
+
+ WRITE EPPL ITEMS TO THE DATABASE WITH A FREQUENCY OF ALL
+   FOR ALL APPLICABLE ENTITIES
+
+ WRITE CONT ITEMS TO THE DATABASE WITH A FREQUENCY OF ALL
+   FOR ALL APPLICABLE ENTITIES
+
+ *****  MAPDL SOLVE    COMMAND  *****
+
+ *** WARNING ***                         CP =      40.898   TIME= 06:37:51
+ Material number 24 (used by element 11518) should normally have at
+ least one MP or one TB type command associated with it.  Output of
+ energy by material may not be available.
+
+ *** NOTE ***                            CP =      40.904   TIME= 06:37:51
+ The step data was checked and warning messages were found.
+  Please review output or errors file (
+ /tmp/ANSYS.root.1/AnsysMechCAEB/Project_Mech_Files/StaticStructural/fil
+ le0.err ) for these warning messages.
+
+ *** NOTE ***                            CP =      40.905   TIME= 06:37:51
+ This nonlinear analysis defaults to using the full Newton-Raphson
+ solution procedure.  This can be modified using the NROPT command.
+
+ *** MAPDL - ENGINEERING ANALYSIS SYSTEM  RELEASE 2024 R1          24.1     ***
+ Ansys Mechanical Enterprise
+ 00000000  VERSION=LINUX x64     06:37:51  JUL 02, 2024 CP=     41.033
+
+ --Static Structural
+
+
+
+                      L O A D   S T E P   O P T I O N S
+
+   LOAD STEP NUMBER. . . . . . . . . . . . . . . .     4
+   TIME AT END OF THE LOAD STEP. . . . . . . . . .  4.0000
+   AUTOMATIC TIME STEPPING . . . . . . . . . . . .    ON
+      INITIAL NUMBER OF SUBSTEPS . . . . . . . . .     1
+      MAXIMUM NUMBER OF SUBSTEPS . . . . . . . . .    10
+      MINIMUM NUMBER OF SUBSTEPS . . . . . . . . .     1
+   MAXIMUM NUMBER OF EQUILIBRIUM ITERATIONS. . . .    15
+   STEP CHANGE BOUNDARY CONDITIONS . . . . . . . .    NO
+   TERMINATE ANALYSIS IF NOT CONVERGED . . . . . .YES (EXIT)
+   CONVERGENCE CONTROLS. . . . . . . . . . . . . .USE DEFAULTS
+   PRINT OUTPUT CONTROLS . . . . . . . . . . . . .NO PRINTOUT
+   DATABASE OUTPUT CONTROLS
+      ITEM     FREQUENCY   COMPONENT
+       ALL       NONE
+      NSOL        ALL
+      RSOL        ALL
+      EANG        ALL
+      ETMP        ALL
+      VENG        ALL
+      STRS        ALL
+      EPEL        ALL
+      EPPL        ALL
+      CONT        ALL
+
+
+ SOLUTION MONITORING INFO IS WRITTEN TO FILE= file.mntr
+
+ &gt;&gt;&gt;&gt; PRETENSION ELEMENT STATUS &lt;&lt;&lt;&lt;
+ SECTION NAME     PT.NODE  --------STATUS--------------------  ----LOAD SOURCE----
+    25              20098  FIXED RELATIVE MOTION= 0.70487      D COMMAND
+ MAXIMUM NUMBER OF EQUILIBRIUM ITERATIONS HAS BEEN MODIFIED
+  TO BE, NEQIT = 26, BY SOLUTION CONTROL LOGIC.
+
+     FORCE CONVERGENCE VALUE  =  0.4906E+05  CRITERION=   3088.
+     DISP CONVERGENCE VALUE   =  0.1822E-01  CRITERION=  0.1763E-01
+    EQUIL ITER   1 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC= -0.1822E-01
+     DISP CONVERGENCE VALUE   =  0.1789E-01  CRITERION=  0.1763E-01
+     LINE SEARCH PARAMETER =  0.9821     SCALED MAX DOF INC = -0.1789E-01
+     FORCE CONVERGENCE VALUE  =  0.1317E+05  CRITERION=   3069.
+    EQUIL ITER   2 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC= -0.2138E-02
+     DISP CONVERGENCE VALUE   =  0.1863E-02  CRITERION=  0.1763E-01 &lt;&lt;&lt; CONVERGED
+     LINE SEARCH PARAMETER =  0.8713     SCALED MAX DOF INC = -0.1863E-02
+     FORCE CONVERGENCE VALUE  =   3200.      CRITERION=   3071.
+    EQUIL ITER   3 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC=  0.4244E-03
+     DISP CONVERGENCE VALUE   =  0.4244E-03  CRITERION=  0.1763E-01 &lt;&lt;&lt; CONVERGED
+     LINE SEARCH PARAMETER =   1.000     SCALED MAX DOF INC =  0.4244E-03
+     FORCE CONVERGENCE VALUE  =   1048.      CRITERION=   3071.     &lt;&lt;&lt; CONVERGED
+    &gt;&gt;&gt; SOLUTION CONVERGED AFTER EQUILIBRIUM ITERATION   3
+ *** LOAD STEP     4   SUBSTEP     1  COMPLETED.    CUM ITER =     25
+ *** TIME =   4.00000         TIME INC =   1.00000
+ ****************************************************
+ *************** FINISHED SOLVE FOR LS 4 *************
+
+ *GET  _WALLASOL  FROM  ACTI  ITEM=TIME WALL  VALUE=  6.63194444
+
+ PRINTOUT RESUMED BY /GOP
+
+ FINISH SOLUTION PROCESSING
+
+
+ ***** ROUTINE COMPLETED *****  CP =        46.434
+
+
+
+ *** MAPDL - ENGINEERING ANALYSIS SYSTEM  RELEASE 2024 R1          24.1     ***
+ Ansys Mechanical Enterprise
+ 00000000  VERSION=LINUX x64     06:37:55  JUL 02, 2024 CP=     46.441
+
+ --Static Structural
+
+
+
+          ***** MAPDL RESULTS INTERPRETATION (POST1) *****
+
+ *** NOTE ***                            CP =      46.441   TIME= 06:37:55
+ Reading results into the database (SET command) will update the current
+ displacement and force boundary conditions in the database with the
+ values from the results file for that load set.  Note that any
+ subsequent solutions will use these values unless action is taken to
+ either SAVE the current values or not overwrite them (/EXIT,NOSAVE).
+
+ Set Encoding of XML File to:ISO-8859-1
+
+ Set Output of XML File to:
+     PARM,     ,     ,     ,     ,     ,     ,     ,     ,     ,     ,     ,
+         ,     ,     ,     ,     ,     ,     ,
+
+ DATABASE WRITTEN ON FILE  parm.xml
+
+ EXIT THE MAPDL POST1 DATABASE PROCESSOR
+
+
+ ***** ROUTINE COMPLETED *****  CP =        46.444
+
+
+
+ PRINTOUT RESUMED BY /GOP
+
+ *GET  _WALLDONE  FROM  ACTI  ITEM=TIME WALL  VALUE=  6.63194444
+
+ PARAMETER _PREPTIME =     0.000000000
+
+ PARAMETER _SOLVTIME =     40.00000000
+
+ PARAMETER _POSTTIME =     0.000000000
+
+ PARAMETER _TOTALTIM =     40.00000000
+
+ *GET  _DLBRATIO  FROM  ACTI  ITEM=SOLU DLBR  VALUE=  1.68197279
+
+ *GET  _COMBTIME  FROM  ACTI  ITEM=SOLU COMB  VALUE= 0.704952890E-01
+
+ *GET  _SSMODE   FROM  ACTI  ITEM=SOLU SSMM  VALUE=  2.00000000
+
+ *GET  _NDOFS    FROM  ACTI  ITEM=SOLU NDOF  VALUE=  56190.0000
+
+ *GET  _SOL_END_TIME  FROM  ACTI  ITEM=SET  TIME  VALUE=  4.00000000
+
+ *IF  _sol_end_time                     ( =   4.00000     )  EQ
+      4.000000                          ( =   4.00000     )  THEN
+
+ /FCLEAN COMMAND REMOVING ALL LOCAL FILES
+
+ *ENDIF
+ --- Total number of nodes = 20228
+ --- Total number of elements = 9094
+ --- Element load balance ratio = 1.68197279
+ --- Time to combine distributed files = 7.049528903E-02
+ --- Sparse memory mode = 2
+ --- Number of DOF = 56190
+
+ EXIT MAPDL WITHOUT SAVING DATABASE
+
+
+ NUMBER OF WARNING MESSAGES ENCOUNTERED=         11
+ NUMBER OF ERROR   MESSAGES ENCOUNTERED=          0
+
++--------------------- M A P D L   S T A T I S T I C S ------------------------+
+
+Release: 2024 R1            Build: 24.1       Update: UP20231106   Platform: LINUX x64
+Date Run: 07/02/2024   Time: 06:37     Process ID: 4351
+Operating System: Ubuntu 20.04.6 LTS
+
+Processor Model: AMD EPYC 7763 64-Core Processor
+
+Compiler: Intel(R) Fortran Compiler Classic Version 2021.9  (Build: 20230302)
+          Intel(R) C/C++ Compiler Classic Version 2021.9  (Build: 20230302)
+          Intel(R) Math Kernel Library Version 2020.0.0 Product Build 20191122
+          BLAS Library supplied by AMD BLIS
+
+Number of machines requested            :    1
+Total number of cores available         :    8
+Number of physical cores available      :    4
+Number of processes requested           :    4
+Number of threads per process requested :    1
+Total number of cores requested         :    4 (Distributed Memory Parallel)
+MPI Type: INTELMPI
+MPI Version: Intel(R) MPI Library 2021.10 for Linux* OS
+
+
+GPU Acceleration: Not Requested
+
+Job Name: file0
+Input File: dummy.dat
+
+  Core                Machine Name   Working Directory
+ -----------------------------------------------------
+     0                317a9fd5fbad   /tmp/ANSYS.root.1/AnsysMechCAEB/Project_Mech_Files/StaticStructural
+     1                317a9fd5fbad   /tmp/ANSYS.root.1/AnsysMechCAEB/Project_Mech_Files/StaticStructural
+     2                317a9fd5fbad   /tmp/ANSYS.root.1/AnsysMechCAEB/Project_Mech_Files/StaticStructural
+     3                317a9fd5fbad   /tmp/ANSYS.root.1/AnsysMechCAEB/Project_Mech_Files/StaticStructural
+
+Latency time from master to core     1 =    2.229 microseconds
+Latency time from master to core     2 =    2.214 microseconds
+Latency time from master to core     3 =    1.968 microseconds
+
+Communication speed from master to core     1 =  9810.71 MB/sec
+Communication speed from master to core     2 = 13864.57 MB/sec
+Communication speed from master to core     3 = 15925.44 MB/sec
+
+Total CPU time for main thread                    :       40.5 seconds
+Total CPU time summed for all threads             :       47.1 seconds
+
+Elapsed time spent obtaining a license            :        0.3 seconds
+Elapsed time spent pre-processing model (/PREP7)  :        0.2 seconds
+Elapsed time spent solution - preprocessing       :        2.6 seconds
+Elapsed time spent computing solution             :       37.4 seconds
+Elapsed time spent solution - postprocessing      :        0.1 seconds
+Elapsed time spent post-processing model (/POST1) :        0.0 seconds
+
+Equation solver used                              :            Sparse (symmetric)
+Equation solver computational rate                :       98.1 Gflops
+Equation solver effective I/O rate                :      126.9 GB/sec
+
+Sum of disk space used on all processes           :      200.4 MB
+
+Sum of memory used on all processes               :      950.0 MB
+Sum of memory allocated on all processes          :     3634.0 MB
+Physical memory available                         :         31 GB
+Total amount of I/O written to disk               :        2.2 GB
+Total amount of I/O read from disk                :        7.2 GB
+
++------------------ E N D   M A P D L   S T A T I S T I C S -------------------+
+
+
+ *-----------------------------------------------------------------------------*
+ |                                                                             |
+ |                               RUN COMPLETED                                 |
+ |                                                                             |
+ |-----------------------------------------------------------------------------|
+ |                                                                             |
+ |  Ansys MAPDL 2024 R1         Build 24.1         UP20231106    LINUX x64     |
+ |                                                                             |
+ |-----------------------------------------------------------------------------|
+ |                                                                             |
+ |  Database Requested(-db)     1024 MB     Scratch Memory Requested   1024 MB |
+ |  Max Database Used(Master)     20 MB     Max Scratch Used(Master)    195 MB |
+ |  Max Database Used(Workers)     1 MB     Max Scratch Used(Workers)   270 MB |
+ |  Sum Database Used(All)        23 MB     Sum Scratch Used(All)       927 MB |
+ |                                                                             |
+ |-----------------------------------------------------------------------------|
+ |                                                                             |
+ |        CP Time      (sec) =         47.076       Time  =  06:37:57          |
+ |        Elapsed Time (sec) =         44.000       Date  =  07/02/2024        |
+ |                                                                             |
+ *-----------------------------------------------------------------------------*
+</pre></div>
+</div>
+</section>
+<section id="close-mechanical">
+<h2>Close mechanical<a class="headerlink" href="#close-mechanical" title="Link to this heading">#</a></h2>
+<p>Close the mechanical instance.</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">mechanical</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span>
+</pre></div>
+</div>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 56.031 seconds)</p>
+<div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-basic-example-06-bolt-pretension-py">
+<div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
+<p><a class="reference download internal" download="" href="../../_downloads/35702376ad1510955ed14698c58c159a/example_06_bolt_pretension.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">example_06_bolt_pretension.ipynb</span></code></a></p>
+</div>
+<div class="sphx-glr-download sphx-glr-download-python docutils container">
+<p><a class="reference download internal" download="" href="../../_downloads/350937715290f1e28ade85c4c9440549/example_06_bolt_pretension.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">example_06_bolt_pretension.py</span></code></a></p>
+</div>
+</div>
+<p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-necessary-libraries">Import necessary libraries</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#launch-mechanical">Launch mechanical</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#initialize-variable-for-workflow">Initialize variable for workflow</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#download-required-geometry-file">Download required geometry file</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#download-required-material-file">Download required material file</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#run-the-script">Run the script</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#initialize-the-variable-needed-for-the-image-directory">Initialize the variable needed for the image directory</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#download-the-image-and-plot">Download the image and plot</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#download-output-file-from-solve-and-print-contents">Download output file from solve and print contents</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#close-mechanical">Close mechanical</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item"> 
+<div class="tocsection editthispage">
+  <a href="https://github.com/ansys/pymechanical/edit/main/doc/source/examples/basic/example_06_bolt_pretension.rst">
+    <i class="fa-solid fa-pencil"></i>
+       Edit
+    on GitHub  
+  </a>
+</div>
+
+</div>
+
+  <div class="sidebar-secondary-item">
+
+  <div class="tocsection sourcelink">
+    <a href="../../_sources/examples/basic/example_06_bolt_pretension.rst.txt">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright (c) 2024 ANSYS, Inc. All rights reserved.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.3.7.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item"><p class="theme-version">
+  Built with the
+  <a href="https://sphinxdocs.ansys.com/version/stable/index.html"
+    >Ansys Sphinx Theme</a
+  >
+  0.16.5. <br />Last updated on
+  <span id="date"></span>
+</p>
+<script>
+  var options = { day: "numeric", month: "long", year: "numeric" };
+  var lastModifiedDate = new Date(document.lastModified);
+  var date = lastModifiedDate.toLocaleDateString("en-US", options);
+  document.getElementById("date").innerHTML = date;
+</script></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>
