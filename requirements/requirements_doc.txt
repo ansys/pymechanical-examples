@@ -4,7 +4,7 @@ ansys-mechanical-core==0.11.1
 # Documentation dependencies
 ansys-sphinx-theme==0.16.6
 grpcio==1.64.1
-imageio==2.34.1
+imageio==2.34.2
 imageio-ffmpeg==0.5.1
 jupyter_sphinx==0.5.3
 jupyterlab>=3.2.8
