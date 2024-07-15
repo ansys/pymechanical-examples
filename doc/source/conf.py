@@ -196,6 +196,12 @@ html_theme_options = {
             "icon": "fa fa-comment fa-fw",
         },
     ],
+    "cheatsheet": {
+        "url": "https://cheatsheets.docs.pyansys.com/pymechanical_cheat_sheet.pdf",
+        "title": "PyMechanical cheat sheet",
+        "thumbnail": "https://cheatsheets.docs.pyansys.com/pymechanical_cheat_sheet.png",
+        "needs_download": True,
+    },
 }
 
 # -- Options for HTMLHelp output ---------------------------------------------
