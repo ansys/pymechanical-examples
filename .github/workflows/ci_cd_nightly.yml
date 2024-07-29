@@ -11,6 +11,7 @@ env:
   PYMECHANICAL_START_INSTANCE: FALSE
   DOCKER_PACKAGE: ghcr.io/ansys/mechanical
   DOCKER_IMAGE_VERSION: 25.1.0
+  MECH_VERSION: 251
   DOCKER_MECH_CONTAINER_NAME: mechanical
 
 concurrency:
@@ -64,7 +65,7 @@ jobs:
           echo CPU info
           lscpu
           docker pull ${{ env.MECHANICAL_IMAGE }}
-          BUILD_DATE=$(docker run --rm --entrypoint head ${{ env.MECHANICAL_IMAGE }} -n 1 /install/ansys_inc/v242/aisol/CommonFiles/builddate.txt)
+          BUILD_DATE=$(docker run --rm --entrypoint head ${{ env.MECHANICAL_IMAGE }} -n 1 /install/ansys_inc/v${{ env.MECH_VERSION }}/aisol/CommonFiles/builddate.txt)
           docker run --restart always --name ${{ env.DOCKER_MECH_CONTAINER_NAME }} -e ANSYSLMD_LICENSE_FILE=1055@${{ env.LICENSE_SERVER }} -p ${{ env.PYMECHANICAL_PORT }}:10000 ${{ env.MECHANICAL_IMAGE }} > log.txt &
           grep -q 'WB Initialize Done' <(timeout 60 tail -f log.txt)
           PUSHED_AT=$(docker inspect --format='{{.Created}}' ${{ env.MECHANICAL_IMAGE }})
