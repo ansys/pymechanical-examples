@@ -1,2 +1,2 @@
 #PyMechanical
-ansys-mechanical-core[doc]==0.11.4
+ansys-mechanical-core[doc]==0.11.5

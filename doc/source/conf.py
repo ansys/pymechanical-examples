@@ -13,7 +13,6 @@ import os
 import warnings
 
 import ansys.mechanical.core as pymechanical
-from ansys_sphinx_theme import pyansys_logo_black
 from sphinx_gallery.sorting import FileNameSortKey
 
 # necessary when building the sphinx gallery
@@ -172,7 +171,6 @@ sphinx_gallery_conf = {
 # -- Options for HTML output -------------------------------------------------
 html_short_title = html_title = "pymechanical-examples"
 html_theme = "ansys_sphinx_theme"
-html_logo = pyansys_logo_black
 html_context = {
     "github_user": "ansys",
     "github_repo": "pymechanical",
@@ -180,6 +178,7 @@ html_context = {
     "doc_path": "doc/source",
 }
 html_theme_options = {
+    "logo": "pyansys",
     "github_url": "https://github.com/ansys/pymechanical-examples",
     "show_prev_next": False,
     "show_breadcrumbs": True,
@@ -196,12 +195,6 @@ html_theme_options = {
             "icon": "fa fa-comment fa-fw",
         },
     ],
-    "cheatsheet": {
-        "url": "https://cheatsheets.docs.pyansys.com/pymechanical_cheat_sheet.pdf",
-        "title": "PyMechanical cheat sheet",
-        "thumbnail": "https://cheatsheets.docs.pyansys.com/pymechanical_cheat_sheet.png",
-        "needs_download": True,
-    },
 }
 
 # -- Options for HTMLHelp output ---------------------------------------------
