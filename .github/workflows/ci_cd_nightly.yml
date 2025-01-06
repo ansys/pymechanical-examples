@@ -10,8 +10,8 @@ env:
   PYMECHANICAL_PORT: 10000  # default won't work on GitHub runners
   PYMECHANICAL_START_INSTANCE: FALSE
   DOCKER_PACKAGE: ghcr.io/ansys/mechanical
-  DOCKER_IMAGE_VERSION: 25.1.0
-  MECH_VERSION: 251
+  DOCKER_IMAGE_VERSION: 25.2.0
+  MECH_VERSION: 252
   DOCKER_MECH_CONTAINER_NAME: mechanical
 
 concurrency:
