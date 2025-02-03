@@ -1,4 +1,4 @@
-""" .. _ref_example_05_td_026:
+""".. _ref_example_05_td_026:
 
 Nonlinear Analysis of a Rubber Boot Seal Model
 ----------------------------------------------
