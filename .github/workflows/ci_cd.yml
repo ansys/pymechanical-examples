@@ -64,7 +64,7 @@ jobs:
       - name: Install system dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y texlive-latex-extra latexmk nodejs npm graphviz
+          sudo apt-get install -y texlive-latex-extra latexmk nodejs npm graphviz git
           npm install -g @mermaid-js/mermaid-cli
 
       - name: Install Python dependencies
@@ -91,6 +91,13 @@ jobs:
 
       - name: Build HTML documentation
         run: tox -e doc
+
+      - name: Build docs with launch mechanical
+        run: |
+          pip install git+https://github.com/ansys/pymechanical.git@feat/rpc_launch
+          find . -type f -exec sed -i 's/launch_mechanical(batch=True, cleanup_on_exit=False)/launch_mechanical(batch=True, backend="python", cleanup_on_exit=False)/g' {} +
+          tox -e clean
+          tox -e doc
 
       - name: Upload HTML documentation
         uses: actions/upload-artifact@v4
