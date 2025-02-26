@@ -89,14 +89,10 @@ jobs:
           docker run --restart always --name ${{ env.DOCKER_MECH_CONTAINER_NAME }} -e ANSYSLMD_LICENSE_FILE=1055@${{ env.LICENSE_SERVER }} -p ${{ env.PYMECHANICAL_PORT }}:10000 ${{ env.MECHANICAL_IMAGE }} > log.txt &
           grep -q 'WB Initialize Done' <(timeout 60 tail -f log.txt)
 
-      - name: Build HTML documentation
-        run: tox -e doc
 
       - name: Build docs with launch mechanical
         run: |
           pip install git+https://github.com/ansys/pymechanical.git@feat/rpc_launch
-          find . -type f -exec sed -i 's/launch_mechanical(batch=True, cleanup_on_exit=False)/launch_mechanical(batch=True, backend="python", cleanup_on_exit=False)/g' {} +
-          tox -e clean
           tox -e doc
 
       - name: Upload HTML documentation
