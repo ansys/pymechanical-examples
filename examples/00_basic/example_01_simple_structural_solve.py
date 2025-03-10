@@ -30,7 +30,7 @@ print(f"Downloaded the geometry file to: {geometry_path}")
 # argument to ``False``. To close this Mechanical session when finished,
 # this example must call  the ``mechanical.exit()`` method.
 
-mechanical = launch_mechanical(batch=True, cleanup_on_exit=False)
+mechanical = launch_mechanical(batch=True, backend="python", cleanup_on_exit=False)
 print(mechanical)
 
 # %%

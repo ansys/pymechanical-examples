@@ -17,7 +17,7 @@ function scope between calls.
 
 from ansys.mechanical.core import launch_mechanical
 
-mechanical = launch_mechanical(batch=True, cleanup_on_exit=False)
+mechanical = launch_mechanical(batch=True, backend="python", cleanup_on_exit=False)
 print(mechanical)
 
 # %%
