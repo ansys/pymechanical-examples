@@ -6,9 +6,10 @@
 
 ## Individual Contributors
 
-* [Dipin Nair](https://github.com/dipinknair)
-* [Kathy Pippert](https://github.com/PipKat)
+* [Ayush Kumar](https://github.com/ayush-kumar-423)
+* [Dipin](https://github.com/dipinknair)
 * [Kerry McAdams](https://github.com/klmcadams)
+* [Maxime Rey](https://github.com/MaxJPRey)
 * [Ramsobhan Kokkiligadda](https://github.com/rs-bh-n)
-* [Roberto Pastor](https://github.com/RobPasMue)
+* [Roberto Pastor Muela](https://github.com/RobPasMue)
 * [Vikas Namdeo](https://github.com/vnamdeo)
