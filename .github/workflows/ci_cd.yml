@@ -93,7 +93,7 @@ jobs:
         run: tox -e doc
 
       - name: Upload HTML documentation
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: HTML-Documentation
           path: .tox/doc_out_html/
@@ -104,7 +104,7 @@ jobs:
         run: docker logs ${{ env.DOCKER_MECH_CONTAINER_NAME }} > mechanical_documentation_log.txt 2>&1
 
       - name: Upload container logs
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: mechanical_documentation_log
           path: mechanical_documentation_log.txt
