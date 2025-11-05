@@ -27,7 +27,7 @@ jobs:
 
   nightly-doc-build:
     name: Documentation building
-    runs-on: public-ubuntu-latest-8-cores
+    runs-on: public-ubuntu-latest-16-cores
     outputs:
       docker_info: ${{ steps.capture_info.outputs.docker_info }}
       build_info: ${{ steps.capture_info.outputs.build_info }}
