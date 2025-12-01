@@ -1,3 +1,3 @@
 #PyMechanical
-ansys-mechanical-core[doc]==0.11.35
+ansys-mechanical-core[doc]==0.11.36
 sphinxemoji==0.3.1
