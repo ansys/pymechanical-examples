@@ -128,8 +128,7 @@ print(f"part_file_path on server: {result}")
 # Run the Mechanical script to attach the geometry, set up, and solve the
 # analysis.
 
-output = mechanical.run_python_script(
-    """
+output = mechanical.run_python_script("""
 import json
 import os
 import context_menu
@@ -351,8 +350,7 @@ my_results_details = {
 }
 
 json.dumps(my_results_details)
-"""
-)
+""")
 print(output)
 
 # %%
