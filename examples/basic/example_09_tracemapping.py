@@ -94,8 +94,7 @@ mechanical.run_python_script(f"image_name='{png_image_name}'")
 # Run the Mechanical script to attach the geometry and set up and solve the
 # analysis.
 
-output = mechanical.run_python_script(
-    """
+output = mechanical.run_python_script("""
 import os
 
 
@@ -252,8 +251,7 @@ mechdir = ExtAPI.DataModel.AnalysisList[0].WorkingDir
 png_file_path = os.path.join(mechdir, image_name)
 Graphics.ExportImage(png_file_path, GraphicsImageExportFormat.PNG, set2d)
 
-"""
-)
+""")
 
 # %%
 # Initialize the variable needed for the image directory
