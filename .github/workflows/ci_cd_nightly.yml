@@ -6,12 +6,12 @@ on:
     - cron: "0 3 * * *"
 
 env:
-  MAIN_PYTHON_VERSION: '3.11'
+  MAIN_PYTHON_VERSION: '3.12'
   PYMECHANICAL_PORT: 10000  # default won't work on GitHub runners
   PYMECHANICAL_START_INSTANCE: FALSE
   DOCKER_PACKAGE: ghcr.io/ansys/mechanical
-  DOCKER_IMAGE_VERSION: 25.2.0
-  MECH_VERSION: 252
+  DOCKER_IMAGE_VERSION: 27.1.0
+  MECH_VERSION: 271
   DOCKER_MECH_CONTAINER_NAME: mechanical
 
 concurrency:
