@@ -1,19 +1,19 @@
 repos:
 
 - repo: https://github.com/psf/black-pre-commit-mirror
-  rev: 26.5.1
+  rev: 4160603246a6b365d4a2af661c6d71b0a0f50478  # frozen: 26.5.1
   hooks:
   - id: black
     args: ["doc/source/conf.py"]
 
 - repo: https://github.com/adamchainz/blacken-docs
-  rev: 1.20.0
+  rev: dda8db18cfc68df532abf33b185ecd12d5b7b326  # frozen: 1.20.0
   hooks:
   - id: blacken-docs
     additional_dependencies: [black==23.10.1]
 
 - repo: https://github.com/pycqa/isort
-  rev: 9.0.0a3
+  rev: dac090ce4d9ee313d086e2e89ab1acb8c2664fa1  # frozen: 9.0.0a3
   hooks:
   - id: isort
     args: [
@@ -23,17 +23,17 @@ repos:
     ]
 
 - repo: https://github.com/PyCQA/flake8
-  rev: 7.3.0
+  rev: d93590f5be797aabb60e3b09f2f52dddb02f349f  # frozen: 7.3.0
   hooks:
   - id: flake8
 
 - repo: https://github.com/codespell-project/codespell
-  rev: v2.4.2
+  rev: 2ccb47ff45ad361a21071a7eedda4c37e6ae8c5a  # frozen: v2.4.2
   hooks:
   - id: codespell
 
 - repo: https://github.com/pre-commit/pre-commit-hooks
-  rev: v6.0.0
+  rev: 3e8a8703264a2f4a69428a0aa4dcb512790b2c8c  # frozen: v6.0.0
   hooks:
   - id: check-merge-conflict
   - id: debug-statements
@@ -41,7 +41,7 @@ repos:
   - id: trailing-whitespace
 
 - repo: https://github.com/ansys/pre-commit-hooks
-  rev: v0.7.2
+  rev: 55c5b6a5439abd847613579c6924da750e8b78b2  # frozen: v0.8.0
   hooks:
   - id: add-license-headers
     args:
