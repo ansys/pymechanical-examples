@@ -83,8 +83,7 @@ print(f"MECHDATA file is stored on the server at: {result}")
 # Run the Mechanical script to display the properties and their current values
 # for the analysis object.
 
-result = mechanical.run_python_script(
-    """
+result = mechanical.run_python_script("""
 import json
 
 ExtAPI.DataModel.Project.Open(mechdat_path)
@@ -96,8 +95,7 @@ if hasattr(analysisSettings,'VisibleProperties') != False:
         props[prop.Caption] = prop.StringValue
 
 json.dumps(props, indent=1)
-"""
-)
+""")
 print(f"AnalysisSettings properties:\n{result}")
 
 # %%

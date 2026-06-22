@@ -35,7 +35,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: PyAnsys code style checks
-        uses: ansys/actions/code-style@v10
+        uses: ansys/actions/code-style@v10.3.2
         with:
           python-version: ${{ env.MAIN_PYTHON_VERSION }}
           use-python-cache: false
@@ -45,7 +45,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: PyAnsys documentation style checks
-        uses: ansys/actions/doc-style@v10
+        uses: ansys/actions/doc-style@v10.3.2
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
 
@@ -54,7 +54,7 @@ jobs:
     needs: [style, doc-style]
     runs-on: public-ubuntu-latest-16-cores
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v6.0.3
 
       - name: Set up Python
         uses: actions/setup-python@v6
@@ -72,7 +72,7 @@ jobs:
           python -m pip install --upgrade pip tox
 
       - name: Login in Github Container registry
-        uses: docker/login-action@v3
+        uses: docker/login-action@v4.2.0
         with:
           registry: ghcr.io
           username: ${{ github.actor }}
@@ -119,7 +119,7 @@ jobs:
         run: tox -e doc
 
       - name: Upload HTML documentation
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v7
         with:
           name: HTML-Documentation
           path: .tox/doc_out_html/
@@ -130,7 +130,7 @@ jobs:
         run: docker logs ${{ env.DOCKER_MECH_CONTAINER_NAME }} > mechanical_documentation_log.txt 2>&1
 
       - name: Upload container logs
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v7
         with:
           name: mechanical_documentation_log
           path: mechanical_documentation_log.txt

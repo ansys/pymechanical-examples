@@ -83,8 +83,7 @@ print(f"part_file_path on server: {result}")
 # Run the Mechanical script to attach the geometry and set up and solve the
 # analysis.
 
-output = mechanical.run_python_script(
-    """
+output = mechanical.run_python_script("""
 import json
 
 # Section 1: Read geometry information
@@ -188,8 +187,7 @@ dir_deformation_details = {
 }
 
 json.dumps(dir_deformation_details)
-"""
-)
+""")
 print(output)
 
 

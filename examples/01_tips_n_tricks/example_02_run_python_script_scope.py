@@ -47,12 +47,10 @@ print(mechanical)
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Run the script to assign a value to a variable.
 
-output = mechanical.run_python_script(
-    """
+output = mechanical.run_python_script("""
 x = 10
 x
-"""
-)
+""")
 print(f"x = {output}")
 
 # %%
@@ -60,12 +58,10 @@ print(f"x = {output}")
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Run the script to change the variable value.
 
-output = mechanical.run_python_script(
-    """
+output = mechanical.run_python_script("""
 x = x * 2
 x
-"""
-)
+""")
 print(f"x = {output}")
 
 # %%
@@ -74,14 +70,12 @@ print(f"x = {output}")
 # Run the script to define a function and access the variable defined in the
 # previous call.
 
-output = mechanical.run_python_script(
-    """
+output = mechanical.run_python_script("""
 def multiply_by_10():
     return x*10
 
 multiply_by_10()
-"""
-)
+""")
 print(f"output = {output}")
 
 # %%
@@ -89,11 +83,9 @@ print(f"output = {output}")
 # ~~~~~~~~~~~~~~~~~~~
 # Run the script to access the function defined in the previous call.
 
-output = mechanical.run_python_script(
-    """
+output = mechanical.run_python_script("""
 multiply_by_10() * 2
-"""
-)
+""")
 print(f"output = {output}")
 
 

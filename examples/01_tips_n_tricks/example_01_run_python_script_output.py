@@ -50,14 +50,12 @@ print(mechanical)
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Run the script to get a simple string output.
 
-output = mechanical.run_python_script(
-    """
+output = mechanical.run_python_script("""
 def return_string():
     return "hello world"
 
 return_string()
-"""
-)
+""")
 print(f"string output={output}")
 
 # %%
@@ -65,8 +63,7 @@ print(f"string output={output}")
 # ~~~~~~~~~~~~~~~~~~~~~
 # Run the script to get the string output as JSON.
 
-output = mechanical.run_python_script(
-    """
+output = mechanical.run_python_script("""
 def return_json():
     import json
     dict = {"value1": 100, "value2": 200}
@@ -74,8 +71,7 @@ def return_json():
     return json_text
 
 return_json()
-"""
-)
+""")
 print(f"json output={output}")
 
 my_dict = json.loads(output)
@@ -86,14 +82,12 @@ print(f"Parsed json: value1={my_dict['value1']}, value2={my_dict['value2']}")
 # ~~~~~~~~~~~~~~~~~~~~
 # Run the script to get the string output as CSV.
 
-output = mechanical.run_python_script(
-    """
+output = mechanical.run_python_script("""
 def return_csv():
     return "1,2,3"
 
 return_csv()
-"""
-)
+""")
 print(f"csv output={output}")
 csv_values = output.split(sep=",")
 print(f"Parsed csv: {';'.join(csv_values)}")
