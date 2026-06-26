@@ -1,0 +1,289 @@
+:orphan:
+
+Examples
+=========
+
+These examples demonstrate the basic simulation capabilities of Ansys Mechanical using remote sessions.
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+Simple workflows
+=================
+
+This section demonstrates how you can use Mechanical capabilities from Python to perform
+Mechanical simulations. This includes importing the geometry, meshing, setting up
+and running the solver, and reviewing the results.
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Using supplied files, this example shows how to insert a static structural analysis into a new Mechanical session and execute a sequence of Python scripting commands that define and solve the analysis. The example then shows how to report deformation results.">
+
+.. only:: html
+
+  .. image:: /examples/00_basic/images/thumb/sphx_glr_example_01_simple_structural_solve_thumb.png
+    :alt:
+
+  :doc:`/examples/00_basic/example_01_simple_structural_solve`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Static structural analysis</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Using supplied files, this example shows how to resume a MECHDAT file and capture the images of all results in a folder on the disk.">
+
+.. only:: html
+
+  .. image:: /examples/00_basic/images/thumb/sphx_glr_example_02_capture_images_thumb.png
+    :alt:
+
+  :doc:`/examples/00_basic/example_02_capture_images`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Capture images after a solve</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Using supplied files, this example shows how to display the properties that you would see in an object&#x27;s details view in the Mechanical GUI.">
+
+.. only:: html
+
+  .. image:: /examples/00_basic/images/thumb/sphx_glr_example_03_show_object_properties_thumb.png
+    :alt:
+
+  :doc:`/examples/00_basic/example_03_show_object_properties`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Display properties for an object</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+PyMechanical tips
+=================
+
+This section demonstrates miscellaneous tips and tricks for using PyMechanical.
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="This example calls the run_python_script method and gets the output in string, JSON, and CSV formats. It also handles an error scenario.">
+
+.. only:: html
+
+  .. image:: /examples/01_tips_n_tricks/images/thumb/sphx_glr_example_01_run_python_script_output_thumb.png
+    :alt:
+
+  :doc:`/examples/01_tips_n_tricks/example_01_run_python_script_output`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Output to different formats and handle an error</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="This example calls the run_python_script method and checks the variable and function scope between calls.">
+
+.. only:: html
+
+  .. image:: /examples/01_tips_n_tricks/images/thumb/sphx_glr_example_02_run_python_script_scope_thumb.png
+    :alt:
+
+  :doc:`/examples/01_tips_n_tricks/example_02_run_python_script_scope`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Test variable and function scope</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+Basic examples
+==============
+
+This section demonstrates basic usage.
+
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="This example demonstrates how to insert a Static Structural analysis into a new Mechanical session and execute a sequence of Python scripting commands that define and solve a bolt-pretension analysis. Scripts then evaluate the following results: deformation, equivalent stresses, contact, and bolt">
+
+.. only:: html
+
+  .. image:: /examples/basic/images/thumb/sphx_glr_example_06_bolt_pretension_thumb.png
+    :alt:
+
+  :doc:`/examples/basic/example_06_bolt_pretension`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Bolt Pretension</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Using supplied files, this example shows how to insert an LS-Dyna analysis into a new Mechanical session and execute a sequence of Python scripting commands that define and solve the analysis. Deformation results are then reported and plastic strain (EPS) animation is exported in the project directory.">
+
+.. only:: html
+
+  .. image:: /examples/basic/images/thumb/sphx_glr_example_08_lsdyna_taylor_bar_thumb.png
+    :alt:
+
+  :doc:`/examples/basic/example_08_lsdyna_taylor_bar`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">LS-Dyna analysis</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Using the provided file, this example demonstrates how to import trace map data into a static structural analysis of a new Mechanical session and execute a sequence of Python scripting commands to mesh the model and export an image.">
+
+.. only:: html
+
+  .. image:: /examples/basic/images/thumb/sphx_glr_example_09_tracemapping_thumb.png
+    :alt:
+
+  :doc:`/examples/basic/example_09_tracemapping`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Trace Mapping Example</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+============================
+Technology showcase examples
+============================
+
+This section demonstrates the technology showcase examples.
+
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="This example demonstrates a nonlinear 3D analysis of a rubber boot seal to:">
+
+.. only:: html
+
+  .. image:: /examples/technology_showcase/images/thumb/sphx_glr_example_05_td_026_thumb.png
+    :alt:
+
+  :doc:`/examples/technology_showcase/example_05_td_026`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Nonlinear Analysis of a Rubber Boot Seal Model</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Using a Archard wear model, this example demonstrates contact sliding of a hemispherical ring on a flat ring to produce wear.">
+
+.. only:: html
+
+  .. image:: /examples/technology_showcase/images/thumb/sphx_glr_example_07_td_043_thumb.png
+    :alt:
+
+  :doc:`/examples/technology_showcase/example_07_td_043`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Contact Surface Wear Simulation</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+   :includehidden:
+
+
+   /examples/00_basic/index.rst
+   /examples/01_tips_n_tricks/index.rst
+   /examples/basic/index.rst
+   /examples/technology_showcase/index.rst
+
+
+
+.. only:: html
+
+ .. rst-class:: sphx-glr-signature
+
+    `Gallery generated by Sphinx-Gallery <https://sphinx-gallery.github.io>`_
