@@ -1,0 +1,67 @@
+
+
+.. _sphx_glr_examples_technology_showcase:
+
+.. _ref_tech_examples:
+
+============================
+Technology showcase examples
+============================
+
+This section demonstrates the technology showcase examples.
+
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="This example demonstrates a nonlinear 3D analysis of a rubber boot seal to:">
+
+.. only:: html
+
+  .. image:: /examples/technology_showcase/images/thumb/sphx_glr_example_05_td_026_thumb.png
+    :alt:
+
+  :doc:`/examples/technology_showcase/example_05_td_026`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Nonlinear Analysis of a Rubber Boot Seal Model</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Using a Archard wear model, this example demonstrates contact sliding of a hemispherical ring on a flat ring to produce wear.">
+
+.. only:: html
+
+  .. image:: /examples/technology_showcase/images/thumb/sphx_glr_example_07_td_043_thumb.png
+    :alt:
+
+  :doc:`/examples/technology_showcase/example_07_td_043`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Contact Surface Wear Simulation</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /examples/technology_showcase/example_05_td_026
+   /examples/technology_showcase/example_07_td_043
+
