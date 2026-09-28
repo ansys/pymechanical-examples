@@ -13,7 +13,7 @@ repos:
     additional_dependencies: [black==23.10.1]
 
 - repo: https://github.com/pycqa/isort
-  rev: 7f321d375f31a2f03833bc9a548e8783f2b5c420  # frozen: 9.0.0b1
+  rev: 9f905615631c545f5aea2516508109350d1d2f7d  # frozen: 9.0.2
   hooks:
   - id: isort
     args: [
@@ -23,7 +23,7 @@ repos:
     ]
 
 - repo: https://github.com/PyCQA/flake8
-  rev: d93590f5be797aabb60e3b09f2f52dddb02f349f  # frozen: 7.3.0
+  rev: cfbbfdeb2391c14a37e101e92a77f54f329e1726  # frozen: 7.4.1
   hooks:
   - id: flake8
 
