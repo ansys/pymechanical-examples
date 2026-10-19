@@ -6,11 +6,11 @@ on:
     - cron: "0 3 * * *"
 
 env:
-  MAIN_PYTHON_VERSION: '3.11'
+  MAIN_PYTHON_VERSION: '3.14'
   PYMECHANICAL_PORT: '10000'  # default won't work on GitHub runners
   PYMECHANICAL_START_INSTANCE: 'false'
   DOCKER_PACKAGE: ghcr.io/ansys/mechanical
-  DOCKER_IMAGE_VERSION: 25.2.0
+  DOCKER_IMAGE_VERSION: 27.1.0
   DOCKER_MECH_CONTAINER_NAME: mechanical
 
 concurrency:
@@ -158,23 +158,3 @@ jobs:
       - name: Get Mechanical container logs
         if: always()
         run: docker logs ${DOCKER_MECH_CONTAINER_NAME}
-
-  build-failure:
-    name: Teams notify on failure
-    if: failure()
-    needs: [ 'nightly-doc-build']
-    runs-on: ubuntu-latest
-    permissions:
-      contents: read
-    steps:
-      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
-        with:
-          persist-credentials: false
-      - name: Microsoft Teams Notification
-        uses: jdcargile/ms-teams-notification@v1.4
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          ms-teams-webhook-uri: ${{ secrets.MS_TEAMS_WEBHOOK_URI }}
-          notification-summary: Nightly build failure on ${{ env.DOCKER_PACKAGE }}:${{ env.DOCKER_IMAGE_VERSION }} build at ${{ needs.nightly-doc-build.outputs.build_info }} , pushed at ${{ needs.nightly-doc-build.outputs.docker_info }} (UTC)
-          notification-color: dc3545
-          timezone: America/Chicago
