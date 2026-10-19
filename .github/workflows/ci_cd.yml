@@ -5,6 +5,7 @@ on:
 #  schedule: # UTC at 0300
 #    - cron: "0 3 * * *"
   pull_request:
+    types: [opened, synchronize, reopened, labeled, unlabeled]
   push:
     tags:
       - "*"
@@ -12,27 +13,26 @@ on:
       - main
 
 env:
-  MAIN_PYTHON_VERSION: '3.11'
-  PYMECHANICAL_PORT: 10000  # default won't work on GitHub runners
-  PYMECHANICAL_START_INSTANCE: FALSE
+  MAIN_PYTHON_VERSION: '3.14'
+  PYMECHANICAL_PORT: '10000'  # default won't work on GitHub runners
+  PYMECHANICAL_START_INSTANCE: 'false'
   DOCKER_PACKAGE: ghcr.io/ansys/mechanical
-  DOCKER_IMAGE_VERSION: 25.2.0
+  DOCKER_IMAGE_VERSION: 26.1.0
   DOCKER_MECH_CONTAINER_NAME: mechanical
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
-permissions:
-  contents: write
-  pull-requests: write
-  packages: read
+permissions: {}
 
 jobs:
 
   style:
     name: Code style
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     steps:
       - name: PyAnsys code style checks
         uses: ansys/actions/code-style@v10.3.4
@@ -43,21 +43,57 @@ jobs:
   doc-style:
     name: Documentation Style Check
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      checks: write  # Needed to report Vale results
     steps:
       - name: PyAnsys documentation style checks
         uses: ansys/actions/doc-style@v10.3.4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
 
+  check-skip-doc:
+    name: Check skip-doc label
+    # Runs after style checks so labels added on PR open by other workflows are visible.
+    needs: [style, doc-style]
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: read
+    outputs:
+      skip: ${{ steps.check.outputs.skip }}
+    steps:
+      - name: Read current PR labels
+        id: check
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          EVENT_NAME: ${{ github.event_name }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          REPO: ${{ github.repository }}
+        run: |
+          skip=false
+          if [[ "${EVENT_NAME}" == "pull_request" ]]; then
+            if gh pr view "${PR_NUMBER}" --repo "${REPO}" --json labels --jq '.labels[].name' | grep -qx 'skip-doc'; then
+              skip=true
+            fi
+          fi
+          echo "skip=${skip}" >> "${GITHUB_OUTPUT}"
+          echo "skip-doc: ${skip}"
+
   docs:
     name: Documentation
-    needs: [style, doc-style]
+    needs: [style, doc-style, check-skip-doc]
+    if: needs.check-skip-doc.outputs.skip != 'true'
     runs-on: public-ubuntu-latest-16-cores
+    permissions:
+      contents: write  # Needed to deploy to gh-pages
+      packages: read   # Required to pull Docker images from GitHub Container Registry
     steps:
-      - uses: actions/checkout@v7.0.1
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
 
       - name: Set up Python
-        uses: actions/setup-python@v6.3.0
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
         with:
           python-version: ${{ env.MAIN_PYTHON_VERSION }}
 
@@ -72,11 +108,33 @@ jobs:
           python -m pip install --upgrade pip tox
 
       - name: Login in Github Container registry
-        uses: docker/login-action@v4.4.0
+        uses: docker/login-action@dbcb813823bdd20940b903addbd779551569679f # v4.6.0
         with:
           registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Configure Mechanical version
+        run: |
+          if [[ ! ${DOCKER_IMAGE_VERSION} =~ ^([0-9]+)\.([0-9]+) ]]; then
+            echo "Invalid Mechanical version: ${DOCKER_IMAGE_VERSION}"
+            exit 1
+          fi
+          VERSION_MAJOR=${BASH_REMATCH[1]}
+          VERSION_MINOR=${BASH_REMATCH[2]}
+          echo "VERSION_PATH=${VERSION_MAJOR}${VERSION_MINOR}" >> ${GITHUB_ENV}
+          if (( VERSION_MAJOR > 26 || (VERSION_MAJOR == 26 && VERSION_MINOR >= 1) )); then
+            echo "SECURE_GRPC=true" >> ${GITHUB_ENV}
+          else
+            echo "SECURE_GRPC=false" >> ${GITHUB_ENV}
+          fi
+
+      - name: Generate gRPC certificates
+        if: env.SECURE_GRPC == 'true'
+        run: |
+          python -m pip install "ansys-tools-common[other]>=0.5.1"
+          python -c "import os; from pathlib import Path; from ansys.tools.common.utils import generate_test_certificates; generate_test_certificates(output_dir=Path(os.environ['RUNNER_TEMP']) / 'grpc-certs')"
+          echo "ANSYS_GRPC_CERTIFICATES=${RUNNER_TEMP}/grpc-certs" >> ${GITHUB_ENV}
 
       - name: Pull, launch, and validate Mechanical service
         env:
@@ -85,9 +143,28 @@ jobs:
         run: |
           echo CPU info
           lscpu
-          docker pull ${{ env.MECHANICAL_IMAGE }}
-          echo "Run docker in detached mode"
-          docker run -d --name ${{ env.DOCKER_MECH_CONTAINER_NAME }} -e ANSYSLMD_LICENSE_FILE=1055@${{ env.LICENSE_SERVER }} -p ${{ env.PYMECHANICAL_PORT }}:10000 ${{ env.MECHANICAL_IMAGE }}
+          docker pull ${MECHANICAL_IMAGE}
+
+          # Mechanical 26.1 and later support secure gRPC.
+          if [[ ${SECURE_GRPC} == "true" ]]; then
+            echo "Launching Mechanical with mTLS transport"
+            docker run -d --name ${DOCKER_MECH_CONTAINER_NAME} \
+              -e ANSYSLMD_LICENSE_FILE=1055@${LICENSE_SERVER} \
+              -p ${PYMECHANICAL_PORT}:10000 \
+              -v "${ANSYS_GRPC_CERTIFICATES}:/certs:ro" \
+              --entrypoint="" \
+              --security-opt seccomp=unconfined \
+              ${MECHANICAL_IMAGE} \
+              tini -- xvfb-run /install/ansys_inc/v${VERSION_PATH}/aisol/.workbench \
+              -dsapplet -b -grpc 10000 --grpc-host 0.0.0.0 \
+              --transport-mode mtls --certs-dir /certs
+          else
+            echo "Using default entrypoint for version ${DOCKER_IMAGE_VERSION}"
+            docker run -d --name ${DOCKER_MECH_CONTAINER_NAME} \
+              -e ANSYSLMD_LICENSE_FILE=1055@${LICENSE_SERVER} \
+              -p ${PYMECHANICAL_PORT}:10000 \
+              ${MECHANICAL_IMAGE}
+          fi
 
           # Wait for Mechanical to initialize with intelligent polling
           max_wait=300  # Maximum wait time in seconds
@@ -96,7 +173,7 @@ jobs:
 
           echo "Waiting for Mechanical to initialize..."
           while [ $elapsed -lt $max_wait ]; do
-            docker logs ${{ env.DOCKER_MECH_CONTAINER_NAME }} > log.txt
+            docker logs ${DOCKER_MECH_CONTAINER_NAME} > log.txt
             if grep -q 'WB Initialize Done' log.txt 2>/dev/null; then
               echo "Mechanical initialized successfully after ${elapsed} seconds"
               break
@@ -107,7 +184,7 @@ jobs:
           done
 
           # Final check
-          docker logs ${{ env.DOCKER_MECH_CONTAINER_NAME }} > log.txt
+          docker logs ${DOCKER_MECH_CONTAINER_NAME} > log.txt
           if ! grep -q 'WB Initialize Done' log.txt 2>/dev/null; then
             echo "ERROR: Mechanical failed to initialize within ${max_wait} seconds"
             echo "=== Last 50 lines of log.txt ==="
@@ -119,7 +196,7 @@ jobs:
         run: tox -e doc
 
       - name: Upload HTML documentation
-        uses: actions/upload-artifact@v7
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
           name: HTML-Documentation
           path: .tox/doc_out_html/
@@ -127,17 +204,18 @@ jobs:
 
       - name: Get Mechanical container logs
         if: always()
-        run: docker logs ${{ env.DOCKER_MECH_CONTAINER_NAME }} > mechanical_documentation_log.txt 2>&1
+        run: docker logs ${DOCKER_MECH_CONTAINER_NAME} > mechanical_documentation_log.txt 2>&1
 
       - name: Upload container logs
-        uses: actions/upload-artifact@v7
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
           name: mechanical_documentation_log
           path: mechanical_documentation_log.txt
           retention-days: 7
 
       - name: Deploy to gh-pages
-        if: contains(github.ref, 'refs/heads/main')
+        if: github.ref == 'refs/heads/main'
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
@@ -145,3 +223,26 @@ jobs:
           folder: .tox/doc_out_html/
           clean: true
           single-commit: true
+
+  doc-build-status:
+    name: Doc build status
+    if: always()
+    needs: [check-skip-doc, docs]
+    runs-on: ubuntu-latest
+    permissions: {}
+    steps:
+      - name: Evaluate doc build result
+        env:
+          SKIP_DOC: ${{ needs.check-skip-doc.outputs.skip }}
+          CHECK_RESULT: ${{ needs.check-skip-doc.result }}
+          DOCS_RESULT: ${{ needs.docs.result }}
+        run: |
+          echo "check-skip-doc: ${CHECK_RESULT}, skip-doc: ${SKIP_DOC}, docs: ${DOCS_RESULT}"
+          if [[ "${CHECK_RESULT}" == "success" && "${SKIP_DOC}" == "true" ]]; then
+            echo "Documentation build skipped via skip-doc label."
+            exit 0
+          fi
+          if [[ "${DOCS_RESULT}" != "success" ]]; then
+            echo "Documentation build did not succeed."
+            exit 1
+          fi

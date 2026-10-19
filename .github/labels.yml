@@ -6,6 +6,10 @@
   description: Related with project dependencies
   color: ffc0cb
 
+- name: dependabot
+  description: Pull requests opened by Dependabot
+  color: 0366d6
+
 - name: documentation
   description: Improvements or additions to documentation
   color: 0677ba
@@ -25,3 +29,7 @@
 - name: release
   description: Anything related to an incoming release
   color: ffffff
+
+- name: skip-doc
+  description: Skip the documentation build in CI
+  color: cccccc

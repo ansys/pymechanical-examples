@@ -12,8 +12,23 @@ updates:
       - "dependencies"
 
   - package-ecosystem: "github-actions"
-    cooldown:
-      default-days: 10 # Fallback cooldown if no specific rule applies
     directory: "/"
     schedule:
       interval: "weekly"
+    assignees:
+      - "pyansys-ci-bot"
+    labels:
+      - "maintenance"
+      - "dependencies"
+      - "dependabot"
+    commit-message:
+      prefix: "CHORE"
+    groups:
+      actions:
+        patterns:
+          - "*"
+        update-types:
+          - "minor"
+          - "patch"
+    cooldown:
+      default-days: 7

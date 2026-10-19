@@ -13,6 +13,7 @@ import os
 import warnings
 
 import ansys.mechanical.core as pymechanical
+from ansys_sphinx_theme import ansys_favicon
 from sphinx_gallery.sorting import FileNameSortKey
 
 # necessary when building the sphinx gallery
@@ -31,11 +32,8 @@ project = "pymechanical-examples"
 copyright = f"(c) {datetime.now().year} ANSYS, Inc. All rights reserved"
 author = "ANSYS, Inc."
 release = version = "0.1.dev0"
-cname = os.getenv("DOCUMENTATION_CNAME", "docs.pyansys.com")
+cname = os.getenv("DOCUMENTATION_CNAME", "examples.mechanical.docs.pyansys.com")
 
-# Add any Sphinx extension module names here, as strings. They can be
-# extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
-# ones.
 # -- General configuration ---------------------------------------------------
 extensions = [
     "jupyter_sphinx",
@@ -51,7 +49,6 @@ extensions = [
     "sphinx_copybutton",
     "sphinx_design",
     "sphinx_gallery.gen_gallery",
-    "sphinxemoji.sphinxemoji",
 ]
 
 # Intersphinx mapping
@@ -61,11 +58,14 @@ intersphinx_mapping = {
     "numpy": ("https://numpy.org/devdocs", None),
     "matplotlib": ("https://matplotlib.org/stable", None),
     "grpc": ("https://grpc.github.io/grpc/python/", None),
-    "pypim": ("https://pypim.docs.pyansys.com/", None),
+    "pypim": ("https://pypim.docs.pyansys.com/version/dev/", None),
+    "ansys.mechanical.core": (
+        "https://mechanical.docs.pyansys.com/version/stable/",
+        None,
+    ),
 }
 
-suppress_warnings = ["label.*"]
-# supress_warnings = ["ref.option"]
+suppress_warnings = ["label.*", "design.grid", "config.cache"]
 
 
 # numpydoc configuration
@@ -76,7 +76,7 @@ numpydoc_validate = True
 numpydoc_validation_checks = {
     "GL06",  # Found unknown section
     "GL07",  # Sections are in the wrong order.
-    "GL08",  # The object does not have a docstring
+    # "GL08",  # The object does not have a docstring
     "GL09",  # Deprecation warning should precede extended summary
     "GL10",  # reST directives {directives} must be followed by two colons
     "SS01",  # No summary found
@@ -94,7 +94,7 @@ numpydoc_validation_exclude = {  # set of regex
 }
 
 # Favicon
-html_favicon = "favicon.png"
+html_favicon = ansys_favicon
 
 # notfound.extension
 notfound_template = "404.rst"
@@ -126,12 +126,6 @@ exclude_patterns = [
     "links.rst",
 ]
 
-# make rst_epilog a variable, so you can add other epilog parts to it
-# rst_epilog = ""
-# # Read link all targets from file
-# with open("links.rst") as f:
-#     rst_epilog += f.read()
-
 # The name of the Pygments (syntax highlighting) style to use.
 pygments_style = "sphinx"
 
@@ -161,7 +155,7 @@ sphinx_gallery_conf = {
     "backreferences_dir": None,
     # Modules for which function level galleries are created.  In
     "doc_module": "ansys-mechanical-core",
-    "image_scrapers": ("matplotlib"),
+    "image_scrapers": ("matplotlib",),
     "ignore_pattern": "flycheck*",
     "thumbnail_size": (350, 350),
     "matplotlib_animations": True,
@@ -173,9 +167,10 @@ html_short_title = html_title = "pymechanical-examples"
 html_theme = "ansys_sphinx_theme"
 html_context = {
     "github_user": "ansys",
-    "github_repo": "pymechanical",
+    "github_repo": "pymechanical-examples",
     "github_version": "main",
     "doc_path": "doc/source",
+    "pyansys_tags": ["Structures"],
 }
 html_theme_options = {
     "logo": "pyansys",
@@ -202,70 +197,4 @@ html_theme_options = {
 # Output file base name for HTML help builder.
 htmlhelp_basename = "pymechanicaldoc"
 
-
-# -- Options for LaTeX output ------------------------------------------------
-latex_elements = {}
-
-# Grouping the document tree into LaTeX files. List of tuples
-# (source start file, target name, title,
-#  author, documentclass [howto, manual, or own class]).
-latex_documents = [
-    (
-        master_doc,
-        f"pymechanical-Documentation-{version}.tex",
-        "ansys.mechanical.core Documentation",
-        author,
-        "manual",
-    ),
-]
-
-
-# -- Options for manual page output ------------------------------------------
-
-# One entry per manual page. List of tuples
-# (source start file, name, description, authors, manual section).
-man_pages = [
-    (
-        master_doc,
-        "ansys.mechanical.core",
-        "ansys.mechanical.core Documentation",
-        [author],
-        1,
-    )
-]
-
-
-# -- Options for Texinfo output ----------------------------------------------
-
-# Grouping the document tree into Texinfo files. List of tuples
-# (source start file, target name, title, author,
-#  dir menu entry, description, category)
-texinfo_documents = [
-    (
-        master_doc,
-        "ansys.mechanical.core",
-        "ansys.mechanical.core Documentation",
-        author,
-        "ansys.mechanical.core",
-        "Pythonic interface to Mechanical using gRPC",
-        "Engineering Software",
-    ),
-]
-
-
-# -- Options for Epub output -------------------------------------------------
-
-# Bibliographic Dublin Core info.
-epub_title = project
-
-# The unique identifier of the text. This can be a ISBN number
-# or the project homepage.
-#
-# epub_identifier = ''
-
-# A unique identification for the text.
-#
-# epub_uid = ''
-
-# A list of files that should not be packed into the epub file.
-epub_exclude_files = ["search.html"]
+html_show_sourcelink = False
