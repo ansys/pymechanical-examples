@@ -4,7 +4,7 @@ on:
   push:
     branches: [ main ]
     paths:
-      - '../labels.yml'
+      - '.github/labels.yml'
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
