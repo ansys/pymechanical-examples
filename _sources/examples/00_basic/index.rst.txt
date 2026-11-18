@@ -1,0 +1,85 @@
+
+
+.. _sphx_glr_examples_00_basic:
+
+.. _ref_simple_workflows:
+
+Simple workflows
+=================
+
+This section demonstrates how you can use Mechanical capabilities from Python to perform
+Mechanical simulations. This includes importing the geometry, meshing, setting up
+and running the solver, and reviewing the results.
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Using supplied files, this example shows how to insert a static structural analysis into a new Mechanical session and execute a sequence of Python scripting commands that define and solve the analysis. The example then shows how to report deformation results.">
+
+.. only:: html
+
+  .. image:: /examples/00_basic/images/thumb/sphx_glr_example_01_simple_structural_solve_thumb.png
+    :alt:
+
+  :doc:`/examples/00_basic/example_01_simple_structural_solve`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Static structural analysis</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Using supplied files, this example shows how to resume a MECHDAT file and capture the images of all results in a folder on the disk.">
+
+.. only:: html
+
+  .. image:: /examples/00_basic/images/thumb/sphx_glr_example_02_capture_images_thumb.png
+    :alt:
+
+  :doc:`/examples/00_basic/example_02_capture_images`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Capture images after a solve</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Using supplied files, this example shows how to display the properties that you would see in an object&#x27;s details view in the Mechanical GUI.">
+
+.. only:: html
+
+  .. image:: /examples/00_basic/images/thumb/sphx_glr_example_03_show_object_properties_thumb.png
+    :alt:
+
+  :doc:`/examples/00_basic/example_03_show_object_properties`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Display properties for an object</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /examples/00_basic/example_01_simple_structural_solve
+   /examples/00_basic/example_02_capture_images
+   /examples/00_basic/example_03_show_object_properties
+
