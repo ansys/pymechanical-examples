@@ -1,0 +1,84 @@
+
+
+.. _sphx_glr_examples_basic:
+
+.. _ref_basic_examples:
+
+Basic examples
+==============
+
+This section demonstrates basic usage.
+
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="This example demonstrates how to insert a Static Structural analysis into a new Mechanical session and execute a sequence of Python scripting commands that define and solve a bolt-pretension analysis. Scripts then evaluate the following results: deformation, equivalent stresses, contact, and bolt">
+
+.. only:: html
+
+  .. image:: /examples/basic/images/thumb/sphx_glr_example_06_bolt_pretension_thumb.png
+    :alt:
+
+  :doc:`/examples/basic/example_06_bolt_pretension`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Bolt Pretension</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Using supplied files, this example shows how to insert an LS-Dyna analysis into a new Mechanical session and execute a sequence of Python scripting commands that define and solve the analysis. Deformation results are then reported and plastic strain (EPS) animation is exported in the project directory.">
+
+.. only:: html
+
+  .. image:: /examples/basic/images/thumb/sphx_glr_example_08_lsdyna_taylor_bar_thumb.png
+    :alt:
+
+  :doc:`/examples/basic/example_08_lsdyna_taylor_bar`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">LS-Dyna analysis</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Using the provided file, this example demonstrates how to import trace map data into a static structural analysis of a new Mechanical session and execute a sequence of Python scripting commands to mesh the model and export an image.">
+
+.. only:: html
+
+  .. image:: /examples/basic/images/thumb/sphx_glr_example_09_tracemapping_thumb.png
+    :alt:
+
+  :doc:`/examples/basic/example_09_tracemapping`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Trace Mapping Example</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /examples/basic/example_06_bolt_pretension
+   /examples/basic/example_08_lsdyna_taylor_bar
+   /examples/basic/example_09_tracemapping
+
